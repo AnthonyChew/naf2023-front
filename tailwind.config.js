@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'LandingPurple' : '#8f55ff',
-        'headerGray': '#DFE0E0'
+        'headerGray': '#DFE0E0',
+        'WorkshopRed': '#F9346C'
       }
     }
     

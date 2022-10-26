@@ -12,6 +12,7 @@ const Home = () => {
         <Landing></Landing>
         <WhatsOn></WhatsOn>
         <Events></Events>
+        <Workshops/>
     {/* <AppleHeader title="test"></AppleHeader>
     <div>PIKACHU</div> */}
     </div>
