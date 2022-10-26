@@ -7,7 +7,7 @@ import YellowButton from './svgs/yellowbutton.svg'
 const AppleHeader = ({ title }) => {
  
   return (
-    <div class="bg-headerGray border-solid border-2 border-black relative pb-1 ">
+    <div class="bg-headerGray border-solid border-4 border-black relative -mt-1 -mx-1 pb-1 min-h-0">
       <div class="inline-block text-left absolute top-0 left-1 p">
       <img class="inline ml-2" src={GreenButton}></img>
       <img class="inline ml-2" src={YellowButton}></img>
