@@ -6,7 +6,7 @@ import EmailIcon from '../HomePage/svgs/landingFacebook.svg'
 
 const Footer = () => {
   return (
-    <div class="flex h-[300px] mt-12">
+    <div class="flex h-[300px] mt-12 font-syne font-medium text-xl">
       <div class="basis-1/6 text-center">
         <div>Organised By</div>
         <div class="pt-5">
