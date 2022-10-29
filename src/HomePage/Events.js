@@ -1,8 +1,10 @@
 import React from 'react'
+import LandingBg from './svgs/landingbg.svg';
 
 const Events = () => {
   return (
-    <div>Events</div>
+    <div class="min-h-screen bg-NAFBlue"> 
+    </div>
   )
 }
 
