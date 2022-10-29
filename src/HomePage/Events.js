@@ -36,7 +36,7 @@ const Events = () => {
         <img src={SmallPurpleStar} class="absolute bottom-[15%] right-[-2%]" ></img>
 
         <div class="w-4/4 h-3/4 my-0 mx-auto p-10 relative max-w-[50%]">
-          <img src={BigPurpleStar} class="absolute top-[-5%] left-[0%] z-0" ></img>
+          <img src={BigPurpleStar} class="absolute top-[-5%] left-[-5%]" ></img>
           <img src={imgGallery[imgState]} class="h-full w-full"></img>
         </div>
         <div class="mx-auto my-0 flex justify-around w-1/4">
@@ -49,12 +49,14 @@ const Events = () => {
         <img src={WhiteDot} class="absolute top-[3%] left-[15%]" ></img>
 
         <img src={SmallWhiteStar} class="absolute bottom-[10%] right-[-1%]" ></img>
-        <div class="">
+        <div class="relative">
           <img src={EventLogo} class="w-3/4"></img>
-          <div class="mt-15 w-4/5">
+          <div class="mt-15 w-[90%]">
             {
               imgGallery.map((oneImage, index) => (
-                <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 2xl:py-10" : "text-black bg-white rounded-lg py-7 my-10 2xl:py-10"} onClick={ImageState(index)} >
+                <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
+                 "text-black bg-white rounded-lg py-7 my-10 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
+                 onClick={ImageState(index)} >
                   <div class="font-yerkItalic text-4xl">EVENT NAME</div>
                   <div class="font-syne font-bold text-2xl">XX FEB 2023, 	&lt;Location	&gt;</div>
                 </div>
