@@ -31,11 +31,11 @@ const Events = () => {
       <img src={BigWhiteStar} class="absolute bottom-[10%] left-[-1%] z-10" ></img>
 
 
-      <div class="w-[70%] bg-NAFYellow grow relative">
+      <div class="w-[70%] bg-NAFYellow grow relative flex flex-col flex-wrap align-center justify-center">
         <img src={RedStar} class="absolute top-[-5%] right-[-8%] z-10" ></img>
         <img src={SmallPurpleStar} class="absolute bottom-[15%] right-[-2%]" ></img>
 
-        <div class="w-4/4 h-3/4 my-0 mx-auto p-10 relative max-w-[50%]">
+        <div class="h-2/4 my-0 mx-auto p-10 relative max-w-[50%]">
           <img src={BigPurpleStar} class="absolute top-[-5%] left-[-5%]" ></img>
           <img src={imgGallery[imgState]} class="h-full w-full"></img>
         </div>
@@ -45,20 +45,20 @@ const Events = () => {
         </div>
 
       </div>
-      <div class="w-[30%] max-w-[600px] bg-NAFBlue px-10 py-[8rem] relative overflow-hidden">
+      <div class="w-[30%] max-w-[600px] bg-NAFBlue px-10 py-[4rem] relative overflow-hidden">
         <img src={WhiteDot} class="absolute top-[3%] left-[15%]" ></img>
 
         <img src={SmallWhiteStar} class="absolute bottom-[10%] right-[-1%]" ></img>
         <div class="relative">
           <img src={EventLogo} class="w-3/4"></img>
-          <div class="mt-15 w-[90%]">
+          <div class="mt-10 w-[90%]">
             {
               imgGallery.map((oneImage, index) => (
                 <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
-                 "text-black bg-white rounded-lg py-7 my-10 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
+                 "text-black bg-white rounded-lg py-7 my-7 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
                  onClick={ImageState(index)} >
-                  <div class="font-yerkItalic text-4xl">EVENT NAME</div>
-                  <div class="font-syne font-bold text-2xl">XX FEB 2023, 	&lt;Location	&gt;</div>
+                  <div class="font-yerkItalic text-2xl">EVENT NAME</div>
+                  <div class="font-syne font-bold text-xl">XX FEB 2023, 	&lt;Location	&gt;</div>
                 </div>
               ))
             }

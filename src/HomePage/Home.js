@@ -13,6 +13,8 @@ const Home = () => {
         <WhatsOn></WhatsOn>
         <Events></Events>
         <Marketplace></Marketplace>
+        <Workshops/>
+
     {/* <AppleHeader title="test"></AppleHeader>
     <div>PIKACHU</div> */}
     </div>
