@@ -29,25 +29,25 @@ const Workshops = () => {
     >
       {/* Top Left */}
       <img class="absolute left-1 top-7 w-[14%]" src={workshops_ShadowLeftStar}/>
-      <img class="absolute left-0 top-5 w-[14%]" src={workshops_BlueStar}/>
+      <img class="absolute left-0 top-6 w-[14%]" src={workshops_BlueStar}/>
       {/* Top Right */}
-      <img class="absolute right-1 top-[4%] w-[20%]" src={workshops_ShadowRightStar}/>
-      <img class="absolute right-2 top-[3%] w-[20%]" src={workshops_YellowRightStar}/>
+      <img class="absolute right-1 top-[4%] w-[15%] sm:w-[20%]" src={workshops_ShadowRightStar}/>
+      <img class="absolute right-2 top-[3%] w-[15%] sm:w-[20%]" src={workshops_YellowRightStar}/>
       {/* Bottom Left */}
       <img class="absolute left-1 bottom-3 w-[16%]" src={workshops_ShadowBottomLeftStar}/>
-      <img class="absolute left-0 bottom-5 w-[16%]" src={workshops_YellowBottomLeftStar}/>
+      <img class="absolute left-0 bottom-4 w-[16%]" src={workshops_YellowBottomLeftStar}/>
       {/* Bottom Right */}
-      <img class="absolute right-0 bottom-5 w-[20%]" src={workshops_ShadowBottomRightStar}/>
+      <img class="absolute right-0 bottom-4 w-[20%]" src={workshops_ShadowBottomRightStar}/>
       <img class="absolute right-0 bottom-5 w-[20%]" src={workshops_PurpleBottomRightStar}/>
       {/* Balls */}
-      <img class="absolute left-4 bottom-60 translate-x-1 translate-y-0.5" src={workshops_ShadowBall}/>
-      <img class="absolute left-4 bottom-60" src={workshops_WhiteBall}/>
-      <img class="absolute right-72 bottom-5 translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
-      <img class="absolute right-72 bottom-5" src={workshops_WhiteBall}/>
-      <img class="absolute right-10 top-64 translate-x-0.5 translate-y-1" src={workshops_ShadowBall}/>
-      <img class="absolute right-10 top-64" src={workshops_WhiteBall}/>
-      <img class="absolute md:-top-[15px] -top-[5px] right-[27%] w-[45%]" src={workshops_StarBacking}/>
-      <img class="absolute top-[20px] right-[22%] mt-[6%] w-[58%]" src={workshops_Logo}/>
+      <img class="absolute w-[1.5%] left-[15%] bottom-[3%] sm:left-[2%] sm:bottom-[30%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
+      <img class="absolute w-[1.5%] left-[15%] bottom-[3%] sm:left-[2%] sm:bottom-[30%]" src={workshops_WhiteBall}/>
+      <img class="absolute w-[1.5%] right-[18%] sm:right-[25%] bottom-[3%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
+      <img class="absolute w-[1.5%] right-[18%] sm:right-[25%] bottom-[3%]" src={workshops_WhiteBall}/>
+      <img class="absolute w-[1.5%] right-[16%] sm:right-[3%] top-[12%] sm:top-[33%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
+      <img class="absolute w-[1.5%] right-[16%] sm:right-[3%] top-[12%] sm:top-[33%]" src={workshops_WhiteBall}/>
+      <img class="absolute md:-top-[15px] top-[5px] right-[27%] w-[45%]" src={workshops_StarBacking}/>
+      <img class="absolute top-[20px] right-[20%] mt-[6%] w-[58%]" src={workshops_Logo}/>
       {/* Header */}
       {/* <div
         class="h-20 mb-20"
@@ -67,13 +67,13 @@ const Workshops = () => {
       </div>
       <div class="flex border-solid bg-white border-2 border-black w-full shadow-[20px_20px_0_0_rgba(0,0,0)] p-[5%]">
         {/* Image */}
-        <div class="bg-gray-300 h-80 w-4/12 mr-[8%] flex items-center justify-center">
+        <div class="bg-gray-300 h-auto lg:h-80 w-4/12 mr-[8%] flex items-center justify-center">
           IMAGE OF WORKSHOP
         </div>
         {/* Text Area */}
-        <div class="flex w-8/12 flex-col gap-y-5">
-          <p class="sm:text-lg md:text-2xl lg:text-4xl font-bold flex justify-self-start">{active === 0 ? "Henna Tattoos" : active === 1 ? "Photobooth" : "Art Movie Screening"}</p>
-          <p class="text-left text-[12px] md:text-md lg:text-lg font-semibold">
+        <div class="flex w-8/12 flex-col gap-y-2 sm:gap-y-5">
+          <p class="font-Ubuntu sm:text-lg md:text-2xl lg:text-4xl font-bold flex justify-self-start">{active === 0 ? "Henna Tattoos" : active === 1 ? "Photobooth" : "Art Movie Screening"}</p>
+          <p class="text-left text-[10px] sm:text-sm md:text-md lg:text-lg font-semibold">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
