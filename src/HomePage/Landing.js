@@ -16,6 +16,7 @@ const Landing = () => {
   return (
     <div class="min-h-screen bg-NAFPurple bg-cover" style={{ backgroundImage: `url(${LandingBg})` }}>
         {/* <div class="absolute left-28 border-solid border-4 border-black w-8/12 mt-16 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+
             <AppleHeader title={"www.teaservideo.com"}></AppleHeader>
             <div class="h-[44em] bg-white">
               <div class="flex items-center justify-center h-full w-full">
