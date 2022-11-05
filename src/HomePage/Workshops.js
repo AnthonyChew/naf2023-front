@@ -24,7 +24,7 @@ const Workshops = () => {
   return (
 
     <div
-      class="absolute h-auto md:min-h-screen w-full bg-WorkshopRed py-20 px-[5%] lg:px-32"
+      class="absolute h-auto md:min-h-screen w-full bg-NAFPink py-20 px-[5%] lg:px-32"
       style={{ backgroundImage: `url(${LandingBg})` }}
     >
       {/* Top Left */}

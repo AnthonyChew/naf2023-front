@@ -10,8 +10,7 @@ module.exports = {
         'headerGray': '#DFE0E0',
         'NAFBlue' : '#0071C6',
         'NAFYellow': '#FCF43D',
-        'NAFPink': '#F9346C',
-        'WorkshopRed': '#F9346C'
+        'NAFPink': '#F9346C'
       },
       fontFamily: {
         syne: ["Syne"],
