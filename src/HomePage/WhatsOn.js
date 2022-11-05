@@ -18,16 +18,15 @@ import WhatsOn4Star4 from './svgs/whatson4Star4.svg'
 import WhatsOn4Star5 from './svgs/whatson4Star5.svg'
 import WhatsOnWhiteDot1 from './svgs/whatsonWhiteDot1.svg'
 
-import TopLftBox from './svgs/whatsonTopLftBox.svg'
-import TopRgtBox from './svgs/whatsonTopRgtBox.svg'
-import MidBox from './svgs/whatsonMidBox.svg'
+import WhatsOn8Star6 from './svgs/whatson8Star6.svg'
 
 import AppleHeader from '../SharedPages/AppleHeader'
 
 const WhatsOn = () => {
   return (
-    <div class="bg-NAFPink bg-cover min-h-screen relative" style={{ backgroundImage: `url(${WhatsOnBg})` }}>
+    <div class="bg-NAFPink bg-cover min-h-screen relative overflow-hidden" style={{ backgroundImage: `url(${WhatsOnBg})` }}>
         
+        {/* Background Images: Stars, Dots, Etc */}
         <img src={WhatsOn8Star1} class="absolute top-[10%] left-[5%] z-10"></img>
         <img src={WhatsOn8Star2} class="absolute top-[35%] right-[30%] z-10"></img>
         <img src={WhatsOnBlueDot} class="absolute top-[35%] right-[45%] z-10"></img>
@@ -44,23 +43,25 @@ const WhatsOn = () => {
         <img src={WhatsOn4Star5} class="absolute bottom-[8%] left-[32%] z-10"></img>
         <img src={WhatsOnWhiteDot1} class="absolute bottom-[16%] left-[38%] z-10"></img>
 
-        <div class="flex relative overflow-hidden">
-          <img class="mx-auto my-0 pt-[8rem] pb-[5rem] z-20" src={WhatsOnLogo}></img>
-          <img class="absolute top-[0.75%] left-[26%] z-10" src={WhatsOnOrbit}></img>
+        <img src={WhatsOn8Star6} class="absolute bottom-[-10%] right-[-6%] z-30"></img>
+
+        <div class="flex relative flex-col items-center">
+          <img class="mt-28 mb-28 z-20" src={WhatsOnLogo}></img>
+          <img class="absolute z-10" src={WhatsOnOrbit}></img>
         </div>
 
-        
+        {/* Top 2 boxes */}
         <div class="flex relative justify-between mt-10 z-20">
           <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-4/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
             <div class="h-[16em] bg-gray-500">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[1em] h-full w-full">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[1em] h-full w-full pt-[8%]">
                 <p class="font-yerkItalic text-4xl px-6 text-left text-white">
                   Header
                 </p>
 
-                <p class="font-normal text-base px-5 text-left text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
+                <p class="font-syne font-normal text-base px-5 text-left text-white">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent conque gravida nibh, eget bibendum ex conque sit amet. 
                 </p>
 
               </div>
@@ -86,6 +87,7 @@ const WhatsOn = () => {
           <img src={TopRgtBox} class=" z-20"></img> */}
         </div>
 
+        {/* Middle Box */}
         <div class="flex relative justify-center mt-10 z-20">
           <div class="relative bottom-10 border-solid border-4 border-black w-7/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
@@ -105,6 +107,7 @@ const WhatsOn = () => {
           {/* <img src={MidBox} class="z-20"></img> */}
         </div>
 
+        {/* Bottom Two Boxes */}
         <div class="flex relative justify-between mt-10 pb-5 z-20">
           <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
@@ -137,9 +140,8 @@ const WhatsOn = () => {
               </div>
             </div>
           </div>
-          {/* <img src={TopLftBox} class=" z-20"></img>
-          <img src={TopRgtBox} class=" z-20"></img> */}
         </div>
+        <AppleHeader backgroundColor={"bg-black"}></AppleHeader>
 
 
     </div>
