@@ -17,7 +17,7 @@ const Landing = () => {
 
     <div class="flex relative items-center min-h-screen bg-NAFPurple bg-cover overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
 
-      <div class="w-[60%] h-fit mb-28 mr-auto ml-36 border-4 border-black w-3/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+      <div class="w-[60%] h-fit mb-28 mr-auto ml-36 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
         <AppleHeader title={"www.aboutus.com"}></AppleHeader>
         <div class="h-full w-full border-solid "  >
           <div class="p-5 bg-white">
