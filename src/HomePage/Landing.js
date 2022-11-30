@@ -14,7 +14,6 @@ import RightWhiteDotIcon from './svgs/landingWhiteDot.svg'
 
 const Landing = () => {
   return (
-
     <div class="flex relative items-center min-h-screen bg-NAFPurple bg-cover overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
 
       <div class="w-[60%] h-fit mb-28 mr-auto ml-36 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
@@ -32,7 +31,6 @@ const Landing = () => {
           <img class="absolute top-[18%] right-[18%]" src={RightWhiteDotIcon}></img>
 
           <div class="absolute right-[8%] bottom-[5%] max-w-[30%] border-4 border-black w-3/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
-
             <AppleHeader title={"www.aboutus.com"}></AppleHeader>
             <div class="h-fit bg-white">
               <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">
