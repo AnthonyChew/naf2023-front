@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AppleHeader from '../SharedPages/AppleHeader'
-import LandingBg from './svgs/landingbg.svg'
-import InstagramIcon from './svgs/landingInstagram.svg'
-import FacebookIcon from './svgs/landingFacebook.svg'
-import TikTok from './svgs/landingTikTok.svg'
-import LeftBigBlueStarIcon from './svgs/landingBlueStar.svg'
-import MiddleYellowDotIcon from './svgs/landingYellowDot.svg'
-import MiddleRedStarIcon from './svgs/landingRedStar.svg'
+import LandingBg from './svgs/landing/landingbg.svg'
+import InstagramIcon from './svgs/landing/landingInstagram.svg'
+import FacebookIcon from './svgs/landing/landingFacebook.svg'
+import TikTok from './svgs/landing/landingTikTok.svg'
+import LeftBigBlueStarIcon from './svgs/landing/landingBlueStar.svg'
+import MiddleYellowDotIcon from './svgs/landing/landingYellowDot.svg'
+import MiddleRedStarIcon from './svgs/landing/landingRedStar.svg'
 
-import RightYellowStar from './svgs/landingYellowStar.svg'
-import RightSmallBlueStartIcon from './svgs/landingSmallBlueStar.svg'
-import RightWhiteDotIcon from './svgs/landingWhiteDot.svg'
+import RightYellowStar from './svgs/landing/landingYellowStar.svg'
+import RightSmallBlueStartIcon from './svgs/landing/landingSmallBlueStar.svg'
+import RightWhiteDotIcon from './svgs/landing/landingWhiteDot.svg'
 
 const Landing = () => {
+
+
+
   return (
     <div class="flex relative items-center min-h-screen bg-NAFPurple bg-cover overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
 

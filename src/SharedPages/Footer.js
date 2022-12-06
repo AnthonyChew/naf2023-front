@@ -1,8 +1,8 @@
 import React from 'react'
 import CAC_Logo from './svgs/CAC_Logo.svg';
-import InstagramIcon from '../HomePage/svgs/landingInstagram.svg'
-import FacebookIcon from '../HomePage/svgs/landingFacebook.svg'
-import EmailIcon from '../HomePage/svgs/landingFacebook.svg'
+import InstagramIcon from '../HomePage/svgs/landing/landingInstagram.svg'
+import FacebookIcon from '../HomePage/svgs/landing/landingFacebook.svg'
+import EmailIcon from '../HomePage/svgs/landing/landingFacebook.svg'
 
 const Footer = () => {
   return (

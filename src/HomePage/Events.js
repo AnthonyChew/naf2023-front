@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import LandingBg from './svgs/landingbg.svg';
+import LandingBg from './svgs/landing/landingbg.svg';
 import EventLogo from './svgs/events/eventsLogo.png';
 import LeftArrow from './svgs/events/eventsLeftArrow.svg';
 import RightArrow from './svgs/events/eventsRightArrow.svg';
