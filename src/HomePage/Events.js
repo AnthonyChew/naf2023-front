@@ -10,11 +10,13 @@ import SmallPurpleStar from './svgs/events/eventsSmallPurpleStar.svg';
 import SmallWhiteStar from './svgs/events/eventsSmallWhiteStar.svg';
 import WhiteDot from './svgs/events/eventsWhiteDot.svg';
 import RedDot from './svgs/events/eventsRedDot.svg';
+import TopRightYellowStar from './svgs/events/eventsTopRightYellowStar.svg'
 
 import Pikachu1 from './svgs/events/pikachu1.png';
 import Pikachu2 from './svgs/events/pikachu2.png';
 import Pikachu3 from './svgs/events/pikachu3.jpg';
 import Pikachu4 from './svgs/events/pikachu4.jpg';
+import AppleHeader from '../SharedPages/AppleHeader';
 
 const Events = () => {
   const imgGallery = [Pikachu1, Pikachu2, Pikachu3, Pikachu4];
@@ -26,7 +28,8 @@ const Events = () => {
   }
 
   return (
-    <div class="flex relative ">
+    <div class="flex relative overflow-x-clip ">
+      <img src={TopRightYellowStar} class="absolute top-[-22%] right-[-10%] z-30 "></img>
       <img src={RedDot} class="absolute top-[15%] left-[0%] z-10" ></img>
       <img src={BigWhiteStar} class="absolute bottom-[10%] left-[-1%] z-10" ></img>
 
@@ -58,7 +61,7 @@ const Events = () => {
                  "text-black bg-white rounded-lg py-7 my-7 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
                  onClick={ImageState(index)} >
                   <div class="font-yerkItalic text-2xl">EVENT NAME</div>
-                  <div class="font-syne font-bold text-xl">XX FEB 2023, 	&lt;Location	&gt;</div>
+                  <div class="font-syne font-bold text-xl">XX FEB 2023, 	&lt;Location&gt;</div>
                 </div>
               ))
             }

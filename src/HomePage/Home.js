@@ -5,18 +5,19 @@ import WhatsOn from './WhatsOn'
 import Events from './Events'
 import Workshops from './Workshops'
 import Marketplace from './Marketplace'
+import Navbar from '../SharedPages/Navbar'
+import Footer from '../SharedPages/Footer'
 
 const Home = () => {
   return (
     <div>
+        <Navbar></Navbar>
         <Landing></Landing>
         <WhatsOn></WhatsOn>
         <Events></Events>
         <Marketplace></Marketplace>
         <Workshops/>
-
-    {/* <AppleHeader title="test"></AppleHeader>
-    <div>PIKACHU</div> */}
+        <Footer></Footer>
     </div>
   )
 }

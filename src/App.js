@@ -4,7 +4,9 @@ import Homepage from './HomePage/Home';
 import AppleHeader from './SharedPages/AppleHeader';
 import Navbar from './SharedPages/Navbar';
 import Footer from './SharedPages/Footer';
-
+import AboutUs from './AboutUs/AboutUs';
+import WorkshopMain from './Workshop/WorkshopMain';
+import MarketPlace from './Marketplace/MarketPlace';
 
 import {
   BrowserRouter,
@@ -16,9 +18,11 @@ import {
 function Home() {
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <Homepage></Homepage>
-      <Footer></Footer>
+      {/* Change this accordingly to your respective main page if you want view quicker, e.g Aboutus, Homepage, Workshop, Marketplace  */}
+      <Homepage></Homepage> 
+      {/* <AboutUs></AboutUs> */}
+      {/* <WorkshopMain></WorkshopMain> */}
+      {/* <MarketPlace></MarketPlace> */}
     </div>
   );
 }
@@ -30,7 +34,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
-        <Route path="/apple" element={AppleHeader}></Route>
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/programmes" element={<WorkshopMain />} />
+        <Route path="/marketplace" element={<MarketPlace />} />
+
       </Routes>
     </BrowserRouter>
 

@@ -18,7 +18,6 @@ import WhatsOn4Star4 from './svgs/whatson4Star4.svg'
 import WhatsOn4Star5 from './svgs/whatson4Star5.svg'
 import WhatsOnWhiteDot1 from './svgs/whatsonWhiteDot1.svg'
 
-import WhatsOn8Star6 from './svgs/whatson8Star6.svg'
 
 import AppleHeader from '../SharedPages/AppleHeader'
 
@@ -43,7 +42,6 @@ const WhatsOn = () => {
         <img src={WhatsOn4Star5} class="absolute bottom-[8%] left-[32%] z-10"></img>
         <img src={WhatsOnWhiteDot1} class="absolute bottom-[16%] left-[38%] z-10"></img>
 
-        <img src={WhatsOn8Star6} class="absolute bottom-[-10%] right-[-6%] z-30"></img>
 
         <div class="flex relative flex-col items-center">
           <img class="mt-28 mb-28 z-20" src={WhatsOnLogo}></img>

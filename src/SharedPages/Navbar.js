@@ -11,9 +11,9 @@ const Navbar = () => {
                 <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
                 <div class="navbar flex justify-evenly flex-1 font-syne font-bold text-xl">
                         <Link to="/" class="link" smooth>HOME</Link>
-                        <Link to="/" class="link" smooth>ABOUT</Link>
-                        <Link to="/" class="link" smooth>PROGRAMMES</Link>
-                        <Link to="/" class="link" smooth>MARKETPLACE</Link>
+                        <Link to="/about" class="link" smooth>ABOUT</Link>
+                        <Link to="/programmes" class="link" smooth>PROGRAMMES</Link>
+                        <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
                         <Link to="/" class="link" smooth>NAFXCAC</Link>
                         <Link to="/" class="link" smooth>FAQ</Link>
                 </div>
