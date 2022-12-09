@@ -13,16 +13,15 @@ const Cart = () => {
   return (
 
     <div class="flex relative items-center min-h-screen bg-NAFPink bg-cover overflow-hidden" style={{ backgroundImage: `url(${CartBg})` }}>
-      <div class = "absolute left-[12%] absolute top-[7.5%] w-[100%] ">
-        <div class="absolute left-[0%] top-[0%] z-[1] max-w-[100%] border-4 bg-white border-black shadow-[20px_20px_0_0_rgba(0,113,198)]">
-          <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">
-            <img class="mt-11 mb-10 mx-43" src={CartWord}></img>
+      <div class = "absolute left-[11%] absolute top-[7%] w-[100%] z-[1] ">
+        <div class="flex top-[19%] z-[0] w-[68%] h-fit mt-[5%] mb-[14.5%] mr-[10%] ml-[6%] border-4 border-black shadow-[20px_20px_0_0_rgba(255,255,0)]">
+          <div class="absolute left-[0%] top-[2.5%] z-[1] max-w-[100%] border-4 bg-white border-black shadow-[20px_20px_0_0_rgba(0,113,198)] shadowborder-black">
+            <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">
+              <img class="px-8 py-3 center" src={CartWord}></img>
+            </div>
           </div>
-        </div>
-
-        <div class="flex absolute top-[20%] z-[0] w-[50%] h-fit mt-[5%] mb-[14.5%] mr-[10%] ml-[6%] border-4 border-black shadow-[20px_20px_0_0_rgba(255,255,0)]">
-          <div class="h-fit bg-white pb-[60%]">
-              <p class="font-medium text-xl px-5 text-left">
+          <div class="h-fit bg-white py-[30%] px-[20%]">
+              <p class="font-medium text-xl text-left">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
               </p>
           </div>
