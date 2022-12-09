@@ -20,8 +20,8 @@ const Cart = () => {
           </div>
         </div>
 
-        <div class="flex absolute top-[20%] z-[0] w-[50%] h-fit mt-[5%] mb-[14.5%] mr-[20%] ml-[6%] border-4 border-black shadow-[20px_20px_0_0_rgba(255,255,0)]">
-          <div class="h-fit bg-white pb-[80%]">
+        <div class="flex absolute top-[20%] z-[0] w-[50%] h-fit mt-[5%] mb-[14.5%] mr-[10%] ml-[6%] border-4 border-black shadow-[20px_20px_0_0_rgba(255,255,0)]">
+          <div class="h-fit bg-white pb-[60%]">
               <p class="font-medium text-xl px-5 text-left">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
               </p>
