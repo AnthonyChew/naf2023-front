@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -7,6 +7,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'swiper/css/effect-cube';
+import 'swiper/css/effect-fade';
+
+
 
 import WorkshopLogo from './svgs/workshop/WorkshopLogo.png'
 import AppleHeader from '../SharedPages/AppleHeader';
@@ -36,7 +40,7 @@ const Workshops = () => {
         
         <Swiper
           // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade]}
           spaceBetween={50}
           slidesPerView={3}
           navigation={true}
@@ -50,6 +54,7 @@ const Workshops = () => {
           }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
+          loop={true}
         >
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="" />
