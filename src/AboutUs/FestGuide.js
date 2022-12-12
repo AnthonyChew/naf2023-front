@@ -9,6 +9,7 @@ import SmallBlueStar from './svgs/SmallBlueStar.svg';
 import SmallPurpleDot from './svgs/SmallPurpleDot.svg';
 import SmallRedStar from './svgs/SmallRedStar.svg';
 import SmallWhiteDot from './svgs/SmallWhiteDot.svg';
+import MediumPurpleStar from './svgs/MediumPurpleStar.svg';
 
 const FestGuide = () => {
   return (
@@ -35,21 +36,24 @@ const FestGuide = () => {
 
       <div class="flex flex-row w-[100%] h-fit mt-32">
 
-        <img src={BigWhiteStar} class="absolute top-[20%] right-[20%] z-0"></img>
-        <img src={MediumRedStar} class="absolute top-[6%] left-[5%] z-10"></img>
-        <img src={MediumYellowStar} class="absolute top-[6%] left-[5%] z-10"></img>
-        <img src={SmallBlueStar} class="absolute top-[6%] left-[5%] z-10"></img>
-        <img src={SmallPurpleDot} class="absolute top-[6%] left-[5%] z-10"></img>
-        <img src={SmallRedStar} class="absolute top-[6%] left-[5%] z-10"></img>
-        <img src={SmallWhiteDot} class="absolute top-[6%] left-[5%] z-10"></img>
+        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%] z-10"></img>
+        <img src={MediumRedStar} class="absolute top-[87%] left-[0%] z-10"></img>
+        <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%] z-0"></img>
+        <img src={MediumPurpleStar} class="absolute top-[90%] right-[45%] z-0"></img>
+        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%] z-10"></img>
+        <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] z-10"></img>
+        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-30"></img>
+        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] z-10"></img>
+        {/*<button class="flex flex-1 h-5 w-2 items-center justify-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ...">Download Fest Guide</button>*/}
         
         {/* left */}
         <div class="flex flex-1 items-center justify-center ">
+        <button class="font-syne font-weight: 700; text-zinc-50 px-1 border-8 border-indigo-500/100 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>
 
         </div>
 
         {/* right */}
-        <div class="flex flex-1 items-center justify-center ">
+        <div class="flex flex-1 items-center justify-center z-20">
           <div class="w-[60%] border-4 border-black">
             <AppleHeader></AppleHeader>
             <div class="h-full w-full border-solid">

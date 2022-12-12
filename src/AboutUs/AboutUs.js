@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
 
     <div>
-      <Navbar></Navbar>
+      <Navbar class="z-20"></Navbar>
       <FestGuide></FestGuide>
       <Info></Info>
       <Footer></Footer>
