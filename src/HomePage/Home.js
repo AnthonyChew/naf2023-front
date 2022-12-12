@@ -15,8 +15,9 @@ const Home = () => {
         <Landing></Landing>
         <WhatsOn></WhatsOn>
         <Events></Events>
-        <Marketplace></Marketplace>
         <Workshops/>
+        <Marketplace></Marketplace>
+
         <Footer></Footer>
     </div>
   )
