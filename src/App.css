@@ -1,0 +1,23 @@
+/* swiper carousell css */
+
+.swiper-pagination-bullet > img {
+  content: url('./HomePage/svgs/workshop/PaginationWhiteDot.svg');
+}
+
+.swiper-pagination-bullet-active > img {
+  content: url('./HomePage/svgs/workshop/PaginationActiveDot.svg');
+}
+
+.swiper-pagination-bullet {
+  background: 0 !important;
+  margin: 0 0.3rem !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+}
+
+.pagination-bullet {
+  width: 25px;
+  max-width: 500px;
+}
