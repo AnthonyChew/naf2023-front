@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Quantity from '../utils/Quantity';
+import RoundingOff from '../utils/RoundingOff';
 import {
     removeProductFromCart,
     changeQtyInCart,
@@ -9,7 +10,6 @@ import {
 export default function CartCard(props) {
     const { product } = props;
 
-    console.log(props.product);
 
     const {
         _id,
@@ -24,7 +24,7 @@ export default function CartCard(props) {
     } = product;
 
     const stock = props.stock;
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
     const [subTotal, setSubTotal] = useState('');
@@ -48,12 +48,12 @@ export default function CartCard(props) {
         if (type === 'DECREASE' && product.quantity === 1) {
             handleClickOpen(); //open confirmation dialog
         } else {
-            //dispatch(changeQtyInCart(product, type, stock));
+            dispatch(changeQtyInCart(product, type, stock));
         }
     };
 
     const removeItem = () => {
-        //dispatch(removeProductFromCart(_id, size, colour));
+        dispatch(removeProductFromCart(_id, size, colour));
     };
     return (
 
@@ -73,11 +73,11 @@ export default function CartCard(props) {
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <p class="text-center text-2xl font-syne" changeRedux={(type) => setQuantity(type)}>{quantity}</p>
+                <Quantity quantity={quantity} changeRedux={(type) => setQuantity(type)}>{quantity}</Quantity>
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <p class="text-center text-2xl font-syne">${price * quantity}</p>
+                <p class="text-center text-2xl font-syne">${ RoundingOff(price * quantity)}</p>
             </div>
 
 

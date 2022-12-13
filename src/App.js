@@ -1,9 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import Homepage from './HomePage/Home';
-import AppleHeader from './SharedPages/AppleHeader';
-import Navbar from './SharedPages/Navbar';
-import Footer from './SharedPages/Footer';
 import AboutUs from './AboutUs/AboutUs';
 import WorkshopMain from './Workshop/WorkshopMain';
 import MarketPlace from './Marketplace/MarketPlace';
@@ -30,6 +27,7 @@ function Home() {
 
 function App() {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />

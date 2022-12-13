@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import AddIcon from './svgs/Quantity/add-svgrepo-com.svg';
-import RemoveIcon from './svgs/Quantity/minus-svgrepo-com.svg';
-
 
 const Quantity = (props) => {
   const { quantity, changeRedux, changeState } = props;
@@ -22,20 +19,16 @@ const Quantity = (props) => {
   };
 
   return (
-    <div>
-      <div >
-        <p>
-          Quantity:
-        </p>
+    <div class="flex flex-row justify-center gap-5">
         <button
           onClick={() => {
             setQuantity(newQuantity - 1);
             parentCallback('DECREASE');
           }}
         >
-          <RemoveIcon />
+          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </button>
-        <p>
+        <p class="text-center text-2xl font-syne">
           {quantity}
         </p>
         <button
@@ -44,10 +37,12 @@ const Quantity = (props) => {
             parentCallback('INCREASE');
           }}
         >
-          <AddIcon />
+          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="#000" stroke-width="2" d="M12,22 L12,2 M2,12 L22,12" />
+          </svg>
+
         </button>
       </div>
-    </div>
   );
 };
 
