@@ -57,7 +57,7 @@ const FestGuide = () => {
         <div class="flex flex-1 items-center justify-center ">
         <h1 class="relative p-5 font-syne font-normal basis-1/1 z-10 text-2xl max-w-[67%] flex-col left-[-2.5%]" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</h1>
         {/*<button class="absolute p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>*/}
-        <button class="absolute p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>
+        <button onclick="getFestGuide()" class="hover:bg-violet-700 absolute p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>
         </div>
 
         {/* right */}
