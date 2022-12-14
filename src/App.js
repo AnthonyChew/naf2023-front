@@ -11,6 +11,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import Cart from './Marketplace/Cart';
 
 function Home() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/cart" element={<Cart />} />
+
         <Route path="/programmes" element={<WorkshopMain />} />
         <Route path="/marketplace" element={<MarketPlace />} />
 

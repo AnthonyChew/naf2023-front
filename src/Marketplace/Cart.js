@@ -10,6 +10,8 @@ import RightTopPurpleStar from './svgs/Cart/RightTopPurpleStar.svg'
 import RightBlueStar from './svgs/Cart/RightBlueStar.svg'
 import BottomRightYellowStar from './svgs/Cart/BottomRightYellowStar.svg'
 import CartCard from './CartCard';
+import Navbar from '../SharedPages/Navbar';
+import Footer from '../SharedPages/Footer';
 
 const Cart = () => {
 
@@ -57,6 +59,8 @@ const Cart = () => {
   arry.push([99]);
   
   return (
+    <>
+    <Navbar></Navbar>
     <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden pt-48 pb-40" style={{ backgroundImage: `url(${CartBg})` }}>
       <img class="absolute top-[11.1%] left-[-0.0395%]" src={LeftTopYellowStar}></img>
       <img class="absolute top-[50%] left-[9.45%]" src={LeftBlueStar}></img>
@@ -122,6 +126,9 @@ const Cart = () => {
 
       </div>
     </div>
+    <Footer></Footer>
+    </>
+
   )
 }
 
