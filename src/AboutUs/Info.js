@@ -7,7 +7,7 @@ const Info = () => {
   return (
     <div class="bg-[#0071C6]">
 
-      {/* SVGs */}
+      {/* Star SVGs */}
       <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-10 md:top-2 lg:-top-10 -left-20 lg:-left-40 z-30"></img>
       <img src={MiddleBlueStar} class="absolute w-1/6 lg:w-1/12 top-10 lg:top-5 left-[50%] z-30"></img>
 
