@@ -77,7 +77,7 @@ export default function CartCard(props) {
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <p class="text-center text-2xl font-syne">${ RoundingOff(price * quantity)}</p>
+                <p class="text-center text-2xl font-syne">${ (price * quantity).toFixed(2)}</p>
             </div>
 
 
