@@ -9,6 +9,8 @@ import BottomLeftWhiteStar from './svgs/BottomLeftWhiteStar.svg'
 import BottomRightPinkStar from './svgs/BottomRightPinkStar.svg'
 import BottomRightPurpleStar from './svgs/BottomRightPurpleStar.svg'
 
+import WhiteDot from './svgs/WhiteDot.svg'
+import YellowDot from './svgs/YellowDot.svg'
 
 
 const Piccrew = () => {
@@ -22,6 +24,10 @@ const Piccrew = () => {
       <img src={BottomLeftWhiteStar} class="absolute w-5/12 lg:w-4/12 bottom-[-7%] lg:bottom-[-10%] left-[-17%] lg:left-[-12%]"></img>
       <img src={BottomRightPinkStar} class="absolute w-1/4 lg:w-1/5 bottom-[-10%] right-3 lg:right-10"></img>
       <img src={BottomRightPurpleStar} class="absolute w-1/12 lg:w-1/12 bottom-[10%] lg:bottom-[12%] -right-2 lg:-right-3"></img>
+      
+      {/* Dots */}
+      <img src={WhiteDot} class="absolute w-[2%] lg:w-[1.5%] top-[33%] lg:top-[23%] left-20 lg:left-40"></img>
+      <img src={YellowDot} class="absolute w-[2%] lg:w-[1.5%] bottom-[8%] lg:bottom-[3%] left-[15%] lg:left-[15%]"></img>
 
       {/* Header */}
       <div class='flex flex-col items-center pt-10 pb-5'>
