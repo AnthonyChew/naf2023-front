@@ -8,10 +8,8 @@ const AboutUs = () => {
   return (
 
     <div>
-      <Navbar class="z-20"></Navbar>
       <FestGuide></FestGuide>
       <Info></Info>
-      <Footer></Footer>
     </div>
 
   )

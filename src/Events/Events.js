@@ -8,11 +8,9 @@ import Orbit from './Orbit'
 const Events = () => {
   return (
     <div>
-        <Navbar></Navbar>
         <Glimmer></Glimmer>
         {/* <Interstellar></Interstellar> */}
         {/* <Orbit></Orbit> */}
-        <Footer></Footer>
     </div>
   )
 }

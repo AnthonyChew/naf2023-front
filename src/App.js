@@ -37,7 +37,10 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
+      <Navbar></Navbar>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
@@ -52,7 +55,11 @@ function App() {
 
 
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
+
+    </div>
+
 
 
 

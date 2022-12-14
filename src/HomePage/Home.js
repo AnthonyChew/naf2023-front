@@ -12,14 +12,11 @@ import AboutUs from '../AboutUs/AboutUs'
 const Home = () => {
   return (
     <div>
-        <Navbar></Navbar>
         <Landing></Landing>
         <WhatsOn></WhatsOn>
         <Events></Events>
         <Workshops/>
         <Marketplace></Marketplace>
-
-        <Footer></Footer>
     </div>
   )
 }
