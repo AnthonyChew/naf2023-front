@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
       <div class="basis-1/4">
         <div>Social Media</div>
-        <div class="flex justify-center pt-5">
+        <div class="flex pt-5">
           <img src={InstagramIcon} class="w-[50px] h-[50px] mx-2"></img>
           <img src={EmailIcon} class="w-[50px] h-[50px] mx-2"></img>
           <img src={EmailIcon} class="w-[50px] h-[50px] mx-2"></img>
