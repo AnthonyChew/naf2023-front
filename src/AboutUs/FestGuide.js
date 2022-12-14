@@ -35,12 +35,12 @@ const FestGuide = () => {
 
       <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10">
         <img src={BigWhiteStar} class="absolute top-[40%] right-[0%]"></img>
-        <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img>
+        {/* <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img> */}
         <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%]"></img>
-        <img
+        {/* <img
           src={MediumPurpleStar}
           class="absolute top-[90%] right-[45%]"
-        ></img>
+        ></img> */}
         <img src={SmallBlueStar} class="absolute top-[2%] left-[35%]"></img>
         <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] "></img>
         <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10"></img>
