@@ -1,19 +1,18 @@
-import React from 'react'
-import WhatIsNTUArtsFestival from './svgs/WhatIsNTUArtsFestival.svg';
-import NTUArtsFestivalShadow from './svgs/NTUArtsFestivalShadow.svg';
-import AppleHeader from '../SharedPages/AppleHeader'
-import BigWhiteStar from './svgs/BigWhiteStar.svg';
-import MediumRedStar from './svgs/MediumRedStar.svg';
-import MediumYellowStar from './svgs/MediumYellowStar.svg';
-import SmallBlueStar from './svgs/SmallBlueStar.svg';
-import SmallPurpleDot from './svgs/SmallPurpleDot.svg';
-import SmallRedStar from './svgs/SmallRedStar.svg';
-import SmallWhiteDot from './svgs/SmallWhiteDot.svg';
-import MediumPurpleStar from './svgs/MediumPurpleStar.svg';
+import React from "react";
+import WhatIsNTUArtsFestival from "./svgs/WhatIsNTUArtsFestival.png";
+import AppleHeader from "../SharedPages/AppleHeader";
+import BigWhiteStar from "./svgs/BigWhiteStar.svg";
+import MediumRedStar from "./svgs/MediumRedStar.svg";
+import MediumYellowStar from "./svgs/MediumYellowStar.svg";
+import SmallBlueStar from "./svgs/SmallBlueStar.svg";
+import SmallPurpleDot from "./svgs/SmallPurpleDot.svg";
+import SmallRedStar from "./svgs/SmallRedStar.svg";
+import SmallWhiteDot from "./svgs/SmallWhiteDot.svg";
+import MediumPurpleStar from "./svgs/MediumPurpleStar.svg";
 
 const FestGuide = () => {
   return (
-    <div class="flex relative min-h-screen bg-NAFYellow">
+    <div class="overflow-hidden flex relative min-h-screen bg-NAFYellow">
       {/* <div>
           <h1 class="basis-1/2 z-10 max-w-[27%] flex-col absolute top-[30%] left-[5%]" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</h1>
           <img src={WhatIsNTUArtsFestival} class="absolute top-[5%] left-[5%] z-20 " ></img>
@@ -34,33 +33,67 @@ const FestGuide = () => {
           </div>
         </div>  */}
 
-      <div class="flex flex-row w-[100%] h-fit mt-32">
+      <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10">
+        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%]"></img>
+        <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img>
+        <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%]"></img>
+        <img
+          src={MediumPurpleStar}
+          class="absolute top-[90%] right-[45%]"
+        ></img>
+        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%]"></img>
+        <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] "></img>
+        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10"></img>
+        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%]"></img>
 
-        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%] z-10"></img>
-        <img src={MediumRedStar} class="absolute top-[87%] left-[0%] z-10"></img>
-        <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%] z-0"></img>
-        <img src={MediumPurpleStar} class="absolute top-[90%] right-[45%] z-0"></img>
-        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%] z-10"></img>
-        <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] z-10"></img>
-        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-30"></img>
-        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] z-10"></img>
+        <div class="relative basis-1/2">
+          <img src={WhatIsNTUArtsFestival} class=""></img>
+          <h1 class="my-10 font-syne font-normal text-2xl ">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum."
+          </h1>
+          <button
+            onclick="getFestGuide()"
+            class="hover:bg-violet-700 h-[7%] w-[45%] items-center justify-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
+          >
+            DOWNLOAD FEST GUIDE
+          </button>
+        </div>
+        <div class="relative basis-1/2">
+          <div class="mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
+            <AppleHeader></AppleHeader>
+            <div class="h-[100%] border-solid p-5">
+              
+                
+                  <iframe
+                    class=" w-full h-[95%]" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              
+            
+          </div>
+        </div>
 
-        <img src={WhatIsNTUArtsFestival} class="absolute top-[8%] left-[8%] z-20 " ></img>
-        <img src={NTUArtsFestivalShadow} class="absolute top-[8.2%] left-[9.3%] z-10" ></img>
-
-        <div class="max-w-[15em] max-h-[6em] ">
-        
         {/*<button class="flex flex-1 h-5 w-2 items-center justify-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ...">Download Fest Guide</button>*/}
-        </div>
+      </div>
 
-        {/* left */}
-        <div class="flex flex-1 items-center justify-center ">
+      {/* <div class="flex flex-1 items-center justify-center ">
         <h1 class="relative p-5 font-syne font-normal basis-1/1 z-10 text-2xl max-w-[67%] flex-col left-[-2.5%]" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</h1>
-        {/*<button class="absolute p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>*/}
-        <button onclick="getFestGuide()" class="hover:bg-violet-700 absolute p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>
+
+        <button onclick="getFestGuide()" class="hover:bg-violet-700 relative p-3 top-[70%] left-[7.8%] font-syne font-bold text-zinc-50 px-1 border-8 border-indigo-500/10 bg-NAFPurple rounded-lg ...">DOWNLOAD FEST GUIDE</button>
         </div>
 
-        {/* right */}
+        
         <div class="flex flex-1 items-center justify-center z-20">
           <div class=" w-[80%] border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
 
@@ -73,10 +106,9 @@ const FestGuide = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div>  */}
     </div>
-  )
-}
+  );
+};
 
-export default FestGuide
+export default FestGuide;
