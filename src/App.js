@@ -7,6 +7,10 @@ import Footer from './SharedPages/Footer';
 import AboutUs from './AboutUs/AboutUs';
 import WorkshopMain from './Workshop/WorkshopMain';
 import MarketPlace from './Marketplace/MarketPlace';
+import Payment from './Marketplace/Payment';
+import OrderSubmitted from './Marketplace/OrderSubmitted';
+import Events from './Events/Events';
+import Cart from './Marketplace/Cart';
 
 import {
   BrowserRouter,
@@ -14,6 +18,9 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import Piccrew from './Contest/Piccrew';
+
+
 
 function Home() {
   return (
@@ -37,6 +44,12 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/programmes" element={<WorkshopMain />} />
         <Route path="/marketplace" element={<MarketPlace />} />
+        <Route path="/payment" element={<Payment/>}/>
+        <Route path="/submitted" element={<OrderSubmitted/>}/>
+        <Route path="/events" element={<Events/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/piccrew" element={<Piccrew/>}/>
+
 
       </Routes>
     </BrowserRouter>
