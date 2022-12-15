@@ -9,6 +9,8 @@ import OrderSubmitted from './Marketplace/OrderSubmitted';
 import Events from './Events/Events';
 import Cart from './Marketplace/Cart';
 import Piccrew from './Contest/Piccrew';
+import Navbar from './SharedPages/Navbar';
+import Footer from './SharedPages/Footer';
 
 import {
   BrowserRouter,
