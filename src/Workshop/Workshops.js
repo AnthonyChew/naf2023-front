@@ -1,18 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import LandingBg from "./svgs/workshop/landingbg.svg";
 import workshops_Logo from "./svgs/workshop/workshops_Logo.svg";
-import workshops_BlueStar from "./svgs/workshop/workshops_BlueStar.svg";
-import workshops_ShadowLeftStar from "./svgs/workshop/workshops_ShadowLeftStar.svg";
-import workshops_YellowRightStar from "./svgs/workshop/workshops_YellowRightStar.svg";
-import workshops_ShadowRightStar from "./svgs/workshop/workshops_ShadowRightStar.svg";
-import workshops_PurpleBottomRightStar from "./svgs/workshop/workshops_PurpleBottomRightStar.svg";
-import workshops_ShadowBottomRightStar from "./svgs/workshop/workshops_ShadowBottomRightStar.svg";
-import workshops_YellowBottomLeftStar from "./svgs/workshop/workshops_YellowBottomLeftStar.svg";
-import workshops_ShadowBottomLeftStar from "./svgs/workshop/workshops_ShadowBottomLeftStar.svg";
-import workshops_WhiteBall from "./svgs/workshop/workshops_WhiteBall.svg";
-import workshops_ShadowBall from "./svgs/workshop/workshops_ShadowBall.svg";
 import workshops_StarBacking from "./svgs/workshop/workshops_StarBacking.svg";
+
+import WhiteStar1 from "./svgs/workshop/workshops_whitestar1.svg";
+import WhiteStar1Shadow from "./svgs/workshop/workshops_whitestar1shadow.svg";
+import BlueStar1 from "./svgs/workshop/workshops_bluestar1.svg";
+import BlueStar1Shadow from "./svgs/workshop/workshops_bluestar1shadow.svg";
+import YellowStar1 from "./svgs/workshop/workshops_yellowstar1.svg";
+import YellowStar1Shadow from "./svgs/workshop/workshops_yellowstar1shadow.svg";
+import PurpleStar1 from "./svgs/workshop/workshops_purplestar1.svg";
+import PurpleStar1Shadow from "./svgs/workshop/workshops_purplestar1shadow.svg";
+import YellowStar2 from "./svgs/workshop/workshops_yellowstar2.svg";
+import YellowStar2Shadow from "./svgs/workshop/workshops_yellowstar2shadow.svg";
+import BlueStar2 from "./svgs/workshop/workshops_bluestar2.svg";
+import BlueStar2Shadow from "./svgs/workshop/workshops_bluestar2shadow.svg";
+import BallShadow from "./svgs/workshop/workshops_BallShadow.svg";
+import RedBall from "./svgs/workshop/workshops_RedBall.svg";
+import WhiteBall from "./svgs/workshop/workshops_WhiteBall.svg";
+import PurpleBall from "./svgs/workshop/workshops_PurpleBall.svg";
 
 const classNames = {
   tabActive: " bg-white pt-1 border-2 border-black",
@@ -26,27 +32,30 @@ const Workshops = () => {
     <div
       class="h-auto md:min-h-screen w-full bg-NAFOrange pb-20 px-[5%] lg:px-32"
     >
-      {/*  
       {/* Top Left */}
-      {/* <img class="absolute left-1 top-[30%] w-[14%]" src={workshops_ShadowLeftStar}/>
-      <img class="absolute left-0 top-[29%] w-[14%]" src={workshops_BlueStar}/> */}
+      <img class="absolute left-0 top-[22%] w-[14%]" src={WhiteStar1Shadow}/>
+      <img class="absolute left-0 top-[20%] w-[14%]" src={WhiteStar1}/>
+      <img class="absolute left-[9.2%] top-[50.2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[9%] top-[50%] w-[1.8%]" src={RedBall}/>
+      <img class="absolute left-[23.2%] top-[25.2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[23%] top-[25%] w-[1.8%]" src={PurpleBall}/>
       {/* Top Right */}
-      {/* <img class="absolute right-1 top-[30%] w-[15%] sm:w-[20%]" src={workshops_ShadowRightStar}/>
-      <img class="absolute right-2 top-[29%] w-[15%] sm:w-[20%]" src={workshops_YellowRightStar}/> */}
-      {/* Bottom Left */}
-      {/* <img class="absolute left-1 bottom-3 w-[16%]" src={workshops_ShadowBottomLeftStar}/>
-      <img class="absolute left-0 bottom-4 w-[16%]" src={workshops_YellowBottomLeftStar}/> */}
-      {/* Bottom Right */}
-      {/* <img class="absolute right-0 bottom-4 w-[20%]" src={workshops_ShadowBottomRightStar}/>
-      <img class="absolute right-0 bottom-5 w-[20%]" src={workshops_PurpleBottomRightStar}/> */}
-      {/* Balls */}
-      {/* <img class="absolute w-[1.5%] left-[15%] bottom-[3%] sm:left-[2%] sm:bottom-[30%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
-      <img class="absolute w-[1.5%] left-[15%] bottom-[3%] sm:left-[2%] sm:bottom-[30%]" src={workshops_WhiteBall}/>
-      <img class="absolute w-[1.5%] right-[18%] sm:right-[25%] bottom-[3%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
-      <img class="absolute w-[1.5%] right-[18%] sm:right-[25%] bottom-[3%]" src={workshops_WhiteBall}/>
-      <img class="absolute w-[1.5%] right-[16%] sm:right-[3%] top-[12%] sm:top-[33%] translate-x-0.5 translate-y-0.5" src={workshops_ShadowBall}/>
-      <img class="absolute w-[1.5%] right-[16%] sm:right-[3%] top-[12%] sm:top-[33%]" src={workshops_WhiteBall}/> */}
-      
+      <img class="absolute right-[9.5%] top-[15.5%] w-[5%]" src={BlueStar1Shadow}/>
+      <img class="absolute right-[10%] top-[15%] w-[5%]" src={BlueStar1}/>
+      <img class="absolute right-[7%] top-[25%] w-[3%]" src={YellowStar1Shadow}/>
+      <img class="absolute right-[7.2%] top-[25%] w-[3%]" src={YellowStar1}/>
+      <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1Shadow}/>
+      <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1}/>
+      <img class="absolute right-[23%] top-[61.7%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute right-[23.2%] top-[61.5%] w-[1.8%]" src={WhiteBall}/>
+      {/* Bot Left */}
+      <img class="absolute left-1 -bottom-[35%] w-[12%]" src={YellowStar2Shadow}/>
+      <img class="absolute left-0 -bottom-[35%] w-[12%]" src={YellowStar2}/>
+      <img class="absolute left-[20.2%] -bottom-[39.2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[20%] -bottom-[39%] w-[1.8%]" src={WhiteBall}/>
+      {/* Bot Right */}
+      <img class="absolute right-[3.5%] -bottom-[38%] w-[8%]" src={BlueStar2Shadow}/>
+      <img class="absolute right-[4%] -bottom-[38%] w-[8%]" src={BlueStar2}/>
       {/* Header */}
       <img class="relative pt-10 pb-5 ml-[23%] w-[58%]" src={workshops_Logo}/>
       <div class="z-10 relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
@@ -90,5 +99,4 @@ const Workshops = () => {
     </div>
   );
 };
-
 export default Workshops;
