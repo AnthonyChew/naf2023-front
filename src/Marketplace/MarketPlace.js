@@ -7,9 +7,7 @@ import MarketPlaceLanding from './MarketPlaceLanding'
 const MarketPlace = () => {
   return (
     <div>
-        <Navbar></Navbar>
         <MarketPlaceLanding></MarketPlaceLanding>
-        <Footer></Footer>
     </div>
   )
 }

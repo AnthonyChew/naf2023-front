@@ -1,15 +1,15 @@
 import React from 'react';
-import Orbit from './svgs/Orbit.svg';
-import TopLeftPinkStar from './svgs/TopLeftPinkStar.svg'
-import MiddleBlueStar from './svgs/MiddleBlueStar.svg'
+import Orbit from './svgs/Info/Orbit.svg';
+import TopLeftPinkStar from './svgs/Info/TopLeftPinkStar.svg'
+import MiddleBlueStar from './svgs/Info/MiddleBlueStar.svg'
 
 const Info = () => {
   return (
-    <div class="bg-[#0071C6]">
+    <div class="relative bg-[#0071C6]">
 
       {/* Star SVGs */}
-      <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-10 md:top-2 lg:-top-10 -left-20 lg:-left-40 z-30"></img>
-      <img src={MiddleBlueStar} class="absolute w-1/6 lg:w-1/12 top-10 lg:top-5 left-[50%] z-30"></img>
+      <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-[-10%] -left-20 lg:-left-40 z-30"></img>
+      <img src={MiddleBlueStar} class="absolute w-1/6 lg:w-1/12 top-[-5%] left-[50%] z-30"></img>
 
       {/* <img src={Orbit} class="absolute top-[30%] w-4/6 right-[-13%] z-10"></img> */}
       {/* <img src={Orbit} class="scale-x-[-1.0] absolute top-[70%] w-4/6 left-[-13%] z-10"></img> */}
