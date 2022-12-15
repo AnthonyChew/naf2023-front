@@ -21,12 +21,12 @@ const Quantity = (props) => {
   return (
     <div class="flex flex-row justify-center gap-5">
       {
-        quantity <= 1 ?
+        // quantity <= 1 ?
 
-          <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          </button>
-          :
+        //   <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        //     <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        //   </button>
+        //   :
           <button
             onClick={() => {
               setQuantity(newQuantity - 1);

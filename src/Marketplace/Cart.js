@@ -73,7 +73,7 @@ const Cart = () => {
 
         <div class="w-[100%] h-fit  border-4 border-black shadow-[20px_20px_0_0_rgba(255,255,0)] z-1">
 
-          <div class="absolute left-[15%] top-28 z-[2] max-w-[100%] border-4 bg-white border-black shadow-[20px_20px_0_0_rgba(0,113,198)] shadowborder-black">
+          <div class="absolute left-[15%] top-28 max-w-[100%] border-4 bg-white border-black shadow-[20px_20px_0_0_rgba(0,113,198)] shadowborder-black">
             <img class="p-5" src={CartWord}></img>
           </div>
 
@@ -91,7 +91,7 @@ const Cart = () => {
             {products &&
               products.map((product, i) => {
                 return product.variations.map((variation, j) => (
-                  <CartCard key={variation._id} product={variation} stock={arry}></CartCard>
+                  <CartCard key={variation._id} product={variation} stock={arry} index={i}></CartCard>
                 ));
               })}
 
