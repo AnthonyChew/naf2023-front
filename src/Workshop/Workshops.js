@@ -8,6 +8,7 @@ import WhiteStar1Shadow from "./svgs/workshop/workshops_whitestar1shadow.svg";
 import BlueStar1 from "./svgs/workshop/workshops_bluestar1.svg";
 import BlueStar1Shadow from "./svgs/workshop/workshops_bluestar1shadow.svg";
 import YellowStar1 from "./svgs/workshop/workshops_yellowstar1.svg";
+import YellowStar1Outline from "./svgs/workshop/workshops_yellowstar1outline.svg";
 import YellowStar1Shadow from "./svgs/workshop/workshops_yellowstar1shadow.svg";
 import PurpleStar1 from "./svgs/workshop/workshops_purplestar1.svg";
 import PurpleStar1Shadow from "./svgs/workshop/workshops_purplestar1shadow.svg";
@@ -44,6 +45,7 @@ const Workshops = () => {
       <img class="absolute right-[10%] top-[15%] w-[5%]" src={BlueStar1}/>
       <img class="absolute right-[7%] top-[25%] w-[3%]" src={YellowStar1Shadow}/>
       <img class="absolute right-[7.2%] top-[25%] w-[3%]" src={YellowStar1}/>
+      <img class="absolute right-[7.2%] top-[25%] w-[3%]" src={YellowStar1Outline}/>
       <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1Shadow}/>
       <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1}/>
       <img class="absolute right-[23%] top-[61.7%] w-[1.8%]" src={BallShadow}/>
