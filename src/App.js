@@ -11,6 +11,7 @@ import Cart from './Marketplace/Cart';
 import Piccrew from './Contest/Piccrew';
 import Navbar from './SharedPages/Navbar';
 import Footer from './SharedPages/Footer';
+import Profile from './ProfilePage/Profile';
 
 import {
   BrowserRouter,
@@ -52,6 +53,8 @@ function App() {
         <Route path="/events" element={<Events/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/piccrew" element={<Piccrew/>}/>
+        
+        <Route path="/profile" element={<Profile/>} />
 
 
       </Routes>

@@ -57,7 +57,7 @@ const Cart = () => {
 
   var arry = [];
   arry.push([99]);
-  
+
   return (
     <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden pt-48 pb-40" style={{ backgroundImage: `url(${CartBg})` }}>
       <img class="absolute top-[11.1%] left-[-0.0395%]" src={LeftTopYellowStar}></img>
@@ -103,24 +103,20 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </div>
 
         <div class="w-[100%] h-fit">
-              <div class="flex flex-row">
-                <div class="flex flex-[75%] items-center justify-center">
-                </div>
-
-                <div class="flex flex-col flex-[25%] items-center justify-center">
-                  <button type="button" class="mt-10 w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    <p class="flex-1 text-2xl font-syne text-center"> Check Out </p>
-                  </button>
-                </div>
-              </div>
+          <div class="flex flex-row">
+            <div class="flex flex-[75%] items-center justify-center">
             </div>
+            <div class="flex flex-col flex-[25%] items-center justify-center">
+              <button type="button" class="mt-10 w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                <p class="flex-1 text-2xl font-syne text-center"> Check Out </p>
+              </button>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
