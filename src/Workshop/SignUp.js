@@ -24,7 +24,7 @@ import YellowBall from "./svgs/workshop/workshops_yellowball.svg";
 const SignUp = () => {
   return (
     <div
-      class="relative h-auto md:min-h-screen w-full bg-NAFPurple pt-20 md:pb-0 pb-20 px-[5%] lg:px-20"
+      class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFPurple pt-20 md:pb-0 pb-20 px-[5%] lg:px-20"
       style={{ backgroundImage: `url(${LandingBg})` }}
     >
       <img class="absolute left-0 top-[45%] w-[12%]" src={BlueStar3Shadow}/>

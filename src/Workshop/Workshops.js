@@ -31,33 +31,33 @@ const Workshops = () => {
   return (
 
     <div
-      class="h-auto md:min-h-screen w-full bg-NAFOrange pb-20 px-[5%] lg:px-32"
+      class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFOrange pb-20 px-[5%] lg:px-32"
     >
       {/* Top Left */}
-      <img class="absolute left-0 top-[22%] w-[14%]" src={WhiteStar1Shadow}/>
-      <img class="absolute left-0 top-[20%] w-[14%]" src={WhiteStar1}/>
-      <img class="absolute left-[9.2%] top-[50.2%] w-[1.8%]" src={BallShadow}/>
-      <img class="absolute left-[9%] top-[50%] w-[1.8%]" src={RedBall}/>
-      <img class="absolute left-[23.2%] top-[25.2%] w-[1.8%]" src={BallShadow}/>
-      <img class="absolute left-[23%] top-[25%] w-[1.8%]" src={PurpleBall}/>
+      <img class="absolute left-0 top-[2%] w-[14%]" src={WhiteStar1Shadow}/>
+      <img class="absolute left-0 top-[0%] w-[14%]" src={WhiteStar1}/>
+      <img class="absolute left-[9.2%] top-[30.2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[9%] top-[30%] w-[1.8%]" src={RedBall}/>
+      <img class="absolute left-[23.2%] top-[5.2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[23%] top-[5%] w-[1.8%]" src={PurpleBall}/>
       {/* Top Right */}
-      <img class="absolute right-[9.5%] top-[15.5%] w-[5%]" src={BlueStar1Shadow}/>
-      <img class="absolute right-[10%] top-[15%] w-[5%]" src={BlueStar1}/>
-      <img class="absolute right-[7%] top-[25%] w-[3%]" src={YellowStar1Shadow}/>
-      <img class="absolute right-[7.2%] top-[25%] w-[3%]" src={YellowStar1}/>
-      <img class="absolute right-[7.2%] top-[25%] w-[3%]" src={YellowStar1Outline}/>
-      <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1Shadow}/>
-      <img class="absolute right-0 top-[40%] w-[23%]" src={PurpleStar1}/>
-      <img class="absolute right-[23%] top-[61.7%] w-[1.8%]" src={BallShadow}/>
-      <img class="absolute right-[23.2%] top-[61.5%] w-[1.8%]" src={WhiteBall}/>
+      <img class="absolute right-[9.5%] -top-[2.5%] w-[5%]" src={BlueStar1Shadow}/>
+      <img class="absolute right-[10%] -top-[3%] w-[5%]" src={BlueStar1}/>
+      <img class="absolute right-[7%] top-[5%] w-[3%]" src={YellowStar1Shadow}/>
+      <img class="absolute right-[7.2%] top-[5%] w-[3%]" src={YellowStar1}/>
+      <img class="absolute right-[7.2%] top-[5%] w-[3%]" src={YellowStar1Outline}/>
+      <img class="absolute right-0 top-[14%] w-[23%]" src={PurpleStar1Shadow}/>
+      <img class="absolute right-0 top-[14%] w-[23%]" src={PurpleStar1}/>
+      <img class="absolute right-[23%] top-[33.7%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute right-[23.2%] top-[33.5%] w-[1.8%]" src={WhiteBall}/>
       {/* Bot Left */}
-      <img class="absolute left-1 -bottom-[35%] w-[12%]" src={YellowStar2Shadow}/>
-      <img class="absolute left-0 -bottom-[35%] w-[12%]" src={YellowStar2}/>
-      <img class="absolute left-[20.2%] -bottom-[39.2%] w-[1.8%]" src={BallShadow}/>
-      <img class="absolute left-[20%] -bottom-[39%] w-[1.8%]" src={WhiteBall}/>
+      <img class="z-20 absolute left-0 bottom-[2%] w-[12%]" src={YellowStar2Shadow}/>
+      <img class="z-20 absolute left-0 bottom-[2%] w-[12%]" src={YellowStar2}/>
+      <img class="absolute left-[20.2%] bottom-[2%] w-[1.8%]" src={BallShadow}/>
+      <img class="absolute left-[20%] bottom-[2.2%] w-[1.8%]" src={WhiteBall}/>
       {/* Bot Right */}
-      <img class="absolute right-[3.5%] -bottom-[38%] w-[8%]" src={BlueStar2Shadow}/>
-      <img class="absolute right-[4%] -bottom-[38%] w-[8%]" src={BlueStar2}/>
+      <img class="absolute right-[3.5%] bottom-[2%] w-[8%]" src={BlueStar2Shadow}/>
+      <img class="absolute right-[4%] bottom-[2%] w-[8%]" src={BlueStar2}/>
       {/* Header */}
       <img class="relative pt-10 pb-5 ml-[23%] w-[58%]" src={workshops_Logo}/>
       <div class="z-10 relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
@@ -70,7 +70,7 @@ const Workshops = () => {
       mollit anim id est laborum.
       </div>
       {/* Stars */}
-      <img class="z-0 absolute top-[40%] right-[3%] w-screen" src={workshops_StarBacking}/>
+      <img class="z-0 absolute top-[20%] right-[3%] w-screen" src={workshops_StarBacking}/>
       {/* Workshops Body */}
       <div class="z-10 relative flex w-full mt-5 ">
         <div onClick={() => setActive(0)} class={`${active === 0 ? classNames.tabActive : classNames.tabInactive} text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center`}>Henna Tattoos</div>

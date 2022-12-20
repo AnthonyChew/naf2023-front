@@ -7,7 +7,7 @@ import Workshops from './Workshops'
 
 const WorkshopMain = () => {
   return (
-    <div>
+    <div class="overflow-hidden">
         <Navbar></Navbar>
         <Workshops></Workshops>
         <SignUp></SignUp>
