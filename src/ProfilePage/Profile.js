@@ -24,10 +24,9 @@ function Profile() {
       const res = await trackPromise(studentSevice.getUser());
       if (res.status === 200) {
         setProfile(res.data);
-      } else {
         setAuth(false);
-      }
-        setProfile(ProfileMockData);
+      } 
+      setProfile(ProfileMockData);
     }
     fetchProfileData();
   }, [auth]);
