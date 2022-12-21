@@ -39,7 +39,7 @@ function Profile() {
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
       <UserLogin parentCallback={handleLoginClose} isOpen={auth} />
-      {auth? (
+      {!auth? (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
