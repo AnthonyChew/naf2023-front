@@ -32,7 +32,7 @@ function Profile() {
   }, [auth]);
 
   const handleLoginClose = () => {
-    setAuth(true);
+    setAuth(false);
   };
 
   return (
