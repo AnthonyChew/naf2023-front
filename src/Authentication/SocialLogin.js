@@ -4,7 +4,7 @@ import config from '../config/env';
 import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
-  const googleUrl = `${config.backendUrl}/api/auth/google/login`;
+  const googleUrl = `${config.backendUrl}/api/auth/google/redirect/`;
   let history = useNavigate();
 
   return (

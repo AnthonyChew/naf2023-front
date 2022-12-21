@@ -6,10 +6,9 @@ function ProfileHeader(props) {
   const { displayName, image, email } = props;
 
   return (
-    <div >
-      <img src={image} alt={displayName} height="100" />
-      <p >
-        {displayName}
+    <div class="flex flex-col items-center justify-center mt-32">
+      <p class="font-yerkItalic text-white text-5xl ">
+        Hello {displayName}!
       </p>
       <p >
         {email}

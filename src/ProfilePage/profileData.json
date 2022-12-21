@@ -1,0 +1,15 @@
+{
+    "_id": {
+    "$oid": "63a181c5abc5159e92967281"
+  },
+  "socialMedia": "google",
+  "socialMediaId": "101910381236881339083",
+  "displayName": "NAF 2023",
+  "emailAddress": "nafaws2023@gmail.com",
+  "pastOrders": [],
+  "registeredWorkshops": [],
+  "waitlistedWorkshops": [],
+  "submittedPhotos": [],
+  "votedPhotos": [],
+  "points": []
+}

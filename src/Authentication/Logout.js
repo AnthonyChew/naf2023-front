@@ -17,7 +17,7 @@ export default function Logout(props) {
 
   return (
     <>
-      <div textAlign="center">
+      <div class="flex items-center justify-center">
         <button onClick={userLogout} variant="contained">
           Logout
         </button>
