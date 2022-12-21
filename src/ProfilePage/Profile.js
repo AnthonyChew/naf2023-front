@@ -25,10 +25,10 @@ function Profile() {
       const res = await trackPromise(studentSevice.getUser());
       if (res.status === 200) {
         setProfile(res.data);
-        setAuth(false);
+        setAuth(true);
       } 
       else{
-        setAuth(true);
+        setAuth(false);
       }
       setProfile(ProfileMockData);
       
@@ -37,7 +37,7 @@ function Profile() {
   }, [auth]);
 
   const handleLoginClose = () => {
-    setAuth(false);
+    setAuth(true);
   };
 
   return (
@@ -45,7 +45,7 @@ function Profile() {
       <LoadingSpinnerComponent />
       {console.log(auth)}
        <UserLogin ref={ref} parentCallback={handleLoginClose} isOpen={!auth} />
-      {!auth? (
+      {auth? (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
