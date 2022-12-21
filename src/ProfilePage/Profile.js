@@ -17,7 +17,7 @@ function Profile() {
   const [auth, setAuth] = useState(true);
 
   // console.log(profile);
-  // console.log(auth);
+  console.log(auth);
 
   useEffect(() => {
     async function fetchProfileData() {
