@@ -1,6 +1,5 @@
 import React from "react";
-import NebulaImg from "./svgs/FestGuide/Nebula.png";
-import WhatsOnLogo from '../HomePage/svgs/whatson/whatsonLogo.png'
+import NebulaImg from "./svgs/nebula/Nebula.png";
 
 const Nebula = () => {
   return (

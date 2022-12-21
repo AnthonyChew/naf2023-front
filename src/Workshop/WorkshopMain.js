@@ -8,11 +8,9 @@ import Workshops from './Workshops'
 const WorkshopMain = () => {
   return (
     <div>
-        <Navbar></Navbar>
         <Workshops></Workshops>
         <SignUp></SignUp>
         <Gallery></Gallery>
-        <Footer></Footer>
     </div>
   )
 }
