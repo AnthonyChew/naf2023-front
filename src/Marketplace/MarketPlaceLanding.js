@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import MarketPlaceLogo from './svgs/marketplace/MarketPlaceLogo.png'
-import Pikachu1 from '../HomePage/svgs/events/pikachu1.png';
-import Pikachu2 from '../HomePage/svgs/events/pikachu2.png';
 import Modal from 'react-modal';
 import productService from '../services/products';
 import { trackPromise } from 'react-promise-tracker';
 
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ProductNameLogo from './svgs/marketplace/ProductNameLogo.png';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,13 +14,23 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cube';
 import 'swiper/css/effect-fade';
 import AppleHeader from '../SharedPages/AppleHeader';
+import SearchBar from './SearchBar';
+import Filter from './Filter';
+import { useIsMount } from '../utils/isMount';
 
 const MarketPlaceLanding = () => {
+  const isMount = useIsMount();
+  const [allproducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
+
   const [oneproduct, setOneProduct] = useState({ images: [] });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageNumbers, setpageNumbers] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
+
+  const [searchValue, setSearchValue] = useState('');
+  const [filterOptions, setFilterOptions] = useState([1, 2]);
+
 
 
   // No of Records to be displayed on each page   
@@ -33,10 +40,10 @@ const MarketPlaceLanding = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const nextPage = () => {
-      if(currentPage !== totalPages) setCurrentPage(currentPage + 1)
+    if (currentPage !== totalPages) setCurrentPage(currentPage + 1)
   }
   const prevPage = () => {
-      if(currentPage !== 1) setCurrentPage(currentPage - 1)
+    if (currentPage !== 1) setCurrentPage(currentPage - 1)
   }
 
   useEffect(() => {
@@ -44,28 +51,31 @@ const MarketPlaceLanding = () => {
       let res;
       res = await trackPromise(productService.getAllProducts());
       if (res.status === 200) {
-        console.log("hi" + process.env.REACT_APP_BACKEND_URL)
         console.log(res.data)
-        setProducts(res.data);
-        const totalpages = Math.ceil(res.data.length / recordsPerPage);
-        setTotalPages(totalpages)
-        setpageNumbers([...Array(totalpages + 1).keys()].slice(1))
-        console.log(pageNumbers);
+        setProducts(res.data); // current products
+        setAllProducts(res.data); // reusable all products
+        updatePagination(res.data);
       }
-      // }else {
-      //   alert('Error loading products :(');
-      // }
-      // res = await trackPromise(vendorService.getAllVendors());
-      // if (res.status === 200) {
-      //   setVendors(res.data);
-      // }
-      //  else {
-      //   alert('Error loading vendors :(');
-      // }
-      // setLoading(false);
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
+    if (filterOptions.length > 0) {
+      newProducts = newProducts.filter(oneItem => filterOptions.includes(oneItem.category))
+    }
+    setProducts(newProducts)
+    updatePagination(newProducts)
+
+
+  }, [searchValue, filterOptions]);
+
+  function updatePagination(data) {
+    var totalpages = Math.ceil(data.length / recordsPerPage);
+    setTotalPages(totalpages)
+    setpageNumbers([...Array(totalpages + 1).keys()].slice(1))
+  }
 
   function openModal(oneItem) {
     console.log(oneItem);
@@ -73,14 +83,12 @@ const MarketPlaceLanding = () => {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+  function closeModal(e) {
+    console.log(e.target.id);
+    if (e.target.id == "modal-outside") {
+      setIsOpen(false);
+    }
   }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
 
   return (
     <div class="bg-NAFPink bg-cover min-h-screen relative overflow-hidden">
@@ -89,8 +97,9 @@ const MarketPlaceLanding = () => {
         <div class="font-syne w-[60%] text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
       </div>
       {/* button */}
-      <div class="flex">
-
+      <div class="flex justify-between m-10">
+        <SearchBar searchCallback={(searchValue) => setSearchValue(searchValue)} />
+        <Filter filterCallback={(filterOptions) => setFilterOptions(filterOptions)}></Filter>
       </div>
 
       {/* product and ads */}
@@ -98,8 +107,8 @@ const MarketPlaceLanding = () => {
         <div class="basis-5/6">
           <div class=" flex flex-wrap">
             {
-              
-              products.slice((currentPage * recordsPerPage) - recordsPerPage,currentPage * recordsPerPage).map((oneItem, index) => (
+
+              products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
                 <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%]" onClick={() => openModal(oneItem)}>
                   <div class="oneItem-img">
                     <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
@@ -116,26 +125,31 @@ const MarketPlaceLanding = () => {
             }
           </div>
           <div class="w-[100%] text-center my-10">
-            <nav aria-label="Page navigation example">
-              <ul class="inline-flex -space-x-px">
-                <li>
-                  <a href="#" onClick={prevPage}  class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-500 dark:hover:text-white">Previous</a>
-                </li>
-                {
-                  pageNumbers.map((pgNumber,index) => {
-                    return <li>
-                    <a href="#" onClick={() => setCurrentPage(pgNumber)} class=""
-                    className= {`page-item ${currentPage == pgNumber ? 'px-3 py-2 leading-tight text-gray-500 bg-gray-900 border border-gray-500 hover:bg-gray-700 hover:text-white' : 'px-3 py-2 leading-tight text-gray-400 bg-gray-800 border border-gray-500 hover:bg-gray-500 hover:text-white'} `} >
-                      {pgNumber}</a>
-                  </li>
-                  })
-                }
-               
-                <li>
-                  <a href="#" onClick={nextPage} class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-500 dark:hover:text-white">Next</a>
-                </li>
-              </ul>
-            </nav>
+            {
+              pageNumbers.length > 0 ?
+                <nav aria-label="Page navigation example">
+                  <ul class="inline-flex -space-x-px">
+                    <li>
+                      <a href="#" onClick={prevPage} class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-500 dark:hover:text-white">Previous</a>
+                    </li>
+                    {
+                      pageNumbers.map((pgNumber, index) => {
+                        return <li>
+                          <a href="#" onClick={() => setCurrentPage(pgNumber)} class=""
+                            className={`page-item ${currentPage == pgNumber ? 'px-3 py-2 leading-tight text-gray-500 bg-gray-900 border border-gray-500 hover:bg-gray-700 hover:text-white' : 'px-3 py-2 leading-tight text-gray-400 bg-gray-800 border border-gray-500 hover:bg-gray-500 hover:text-white'} `} >
+                            {pgNumber}</a>
+                        </li>
+                      })
+                    }
+
+                    <li>
+                      <a href="#" onClick={nextPage} class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-500 dark:hover:text-white">Next</a>
+                    </li>
+                  </ul>
+                </nav> :
+                <></>
+            }
+
           </div>
         </div>
 
@@ -149,13 +163,13 @@ const MarketPlaceLanding = () => {
 
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         closeTimeoutMS={200}
-        onClick={closeModal}
+        onRequestClose={() => closeModal("modal-outside")}
+        shouldCloseOnOverlayClick={true}
       >
-        <div class="w-full h-full" onClick={closeModal}>
-          <div class="w-[70%] mx-auto translate-y-[40%]" >
-            <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none">
+        <div class="w-full h-full" onClick={(e) => closeModal(e)} id="modal-outside" >
+          <div class="w-[70%] mx-auto translate-y-[30%]" >
+            <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none" id="modal-box">
               <AppleHeader />
               <div class="modal-body relative p-10">
                 <div class="w-[30%] inline-block ">
@@ -205,6 +219,16 @@ const MarketPlaceLanding = () => {
                     >
                       M
                     </button>
+                    <button type="button"
+                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                    >
+                      L
+                    </button>
+                    <button type="button"
+                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                    >
+                      XL
+                    </button>
                   </div>
                   <div class="flex my-5">
                     <div class="basis-1/3 mr-3">
@@ -225,7 +249,7 @@ const MarketPlaceLanding = () => {
                   </div>
                   <div class="font-syne text-black mt-5">
                     <div class="mb-3 font-semibold">Product details</div>
-                    <hr class="h-px border-black  border-2"></hr>
+                    <hr class="h-px border-black  border-2 bg-black"></hr>
                     <div class="mt-3">{oneproduct.description}</div>
                   </div>
                 </div>
@@ -234,6 +258,7 @@ const MarketPlaceLanding = () => {
             </div>
           </div>
         </div>
+
       </Modal>
     </div>
   )
