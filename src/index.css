@@ -16,6 +16,7 @@ code {
     monospace;
 }
 
+/* set up in tailwind.config.js */
 
 @font-face {
   font-family: 'Syne';

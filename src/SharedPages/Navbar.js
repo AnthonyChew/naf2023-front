@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import NAFLogo from './svgs/NAF_Logo.svg';
 import HumanIcon from './svgs/HumanIcon.svg';
+import CartIcon from './svgs/CartIcon.svg';
 
 const Navbar = () => {
     return (
@@ -17,6 +18,8 @@ const Navbar = () => {
                         <Link to="/" class="link" smooth>NAFXCAC</Link>
                         <Link to="/" class="link" smooth>FAQ</Link>
                 </div>
+                <Link to="/Cart" class="link" smooth><img src={CartIcon} class="w-[70px] h-[50px] flex-initial mr-8"></img></Link>
+                
                 <img src={HumanIcon} class="w-[70px] h-[50px] flex-initial"></img>
             </div>
         </div>

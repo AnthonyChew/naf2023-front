@@ -9,11 +9,9 @@ const AboutUs = () => {
   return (
 
     <div>
-      <Navbar class="z-20"></Navbar>
       <FestGuide></FestGuide>
       <Nebula></Nebula>
       <Info></Info>
-      <Footer></Footer>
     </div>
 
   )
