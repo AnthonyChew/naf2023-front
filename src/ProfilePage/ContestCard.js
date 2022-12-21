@@ -4,15 +4,11 @@ export default function ContestCard(props) {
   const { name, image } = props;
 
   return (
-        <div >
-          <div >
-            <img src={image} alt={name} />
-          </div>
-          <div item xs={6}>
-            <h2>
-              {name}
-            </h2>
-          </div>
-        </div>
+    <div class="flex flex-col text-right">
+        <img class="max-w-sm" src={image} alt={name} />
+      <h2>
+        {name}
+      </h2>
+    </div>
   );
 }

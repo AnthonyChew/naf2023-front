@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTable, useSortBy } from 'react-table'
+import "./tableStyle.css";
 
 function Table({ columns, data }) {
   const {
@@ -61,19 +62,56 @@ function Table({ columns, data }) {
           )}
         </tbody>
       </table>
-      <br />
-      <div>Showing the first 20 results of {rows.length} rows</div>
     </>
   )
 }
 
 function OrderTable(props) {
-  const { rows } = props;
-  const [data, setData] = React.useState([])
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Order History',
+        columns: [
+          {
+            Header: 'Order Number',
+            accessor: 'orderNumber',
+          },
+          {
+            Header: 'Items',
+            accessor: 'purchases',
+          },
+          {
+            Header: 'Verified',
+            accessor: 'verified',
+          }
+        ],
+      },
+    ],
+  )
+
+  const { data } = props;
+
+  function formatData(data) {
+    let convertedData = [];
+    data.forEach((element) => {
+      let string = [];
+      element.purchases.forEach((purchase) => {
+        string.push( purchase.productName + " x" + purchase.totalQuantity)
+        string.push(<br/>)
+      });
+      convertedData.push({'orderNumber':element.orderNumber ,'verified':element.verified.toString(),'purchases':string });
+    });
+
+    console.log(convertedData)
+    return convertedData;
+  }
+
 
   return (
-
-    <Table data={data} fetchData={rows} pageCount={10}/>
+    <div class="flex items-center justify-center pb-5">
+      <Table columns={columns} data={formatData(data)} />
+    </div>
   );
 }
 

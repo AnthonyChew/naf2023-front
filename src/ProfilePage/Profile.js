@@ -4,14 +4,14 @@ import UserWorkshop from './UserWorkshop';
 import UserLogin from '../Authentication/UserLogin';
 import OrderTable from '../Marketplace/OrderTable';
 import studentSevice from '../services/students';
-import { ReactComponent as PurpleGreenSVG } from './svgs/Group 1.svg';
 import Logout from '../Authentication/Logout';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
-import ProfileMockData from './profileData.json';
 import ProfileBg from './svgs/profilebg.svg'
 
-// create animations https://www.youtube.com/watch?v=JcHLxzrsRS4
+import ProfileMockData from './profileData.json';
+import PurchaseMockDate from './tableData.json';
+
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(true);
@@ -25,9 +25,9 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
       } else {
-        setProfile(ProfileMockData);
         setAuth(false);
       }
+      setProfile(ProfileMockData);
     }
     fetchProfileData();
   }, [auth]);
@@ -37,39 +37,30 @@ function Profile() {
   };
 
   return (
-    <div class="relative min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
+    <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      {/*<UserLogin parentCallback={handleLoginClose} isOpen={!auth} />*/}
-      {(
+      <UserLogin parentCallback={handleLoginClose} isOpen={!auth} />
+      {auth? (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
             image={'ProfilePic.png'}
             email={profile && profile.email}
           />
-          <Logout />
-          {/* <UserWorkshop
+          {<UserWorkshop
             waitlistedWorkshops={profile && profile.waitlistedWorkshops}
             registeredWorkshops={profile && profile.registeredWorkshops}
-          /> */}
-          {/*profile && profile.pastOrders && (
-            <OrderTable rows={profile.pastOrders} />
-          )*/}
+          />}
+          {
 
-          <PurpleGreenSVG
-            data-aos="slide-right"
-            data-aos-duration="1000"
-            data-aos-anchor="#workshopsList"
-            style={{
-              zIndex: -999,
-              top: 800,
-              left: 0,
-              position: 'absolute',
-              overflowY: 'hidden',
-            }}
-          />
+          profile && profile.pastOrders && (
+            /*<OrderTable rows={profile.pastOrders} />*/
+            <OrderTable data={PurchaseMockDate} />
+          )}
+
+        <Logout />
         </>
-      ) }
+      ) :null}
     </div>
   );
 }
