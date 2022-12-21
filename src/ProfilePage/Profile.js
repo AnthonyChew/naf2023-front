@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProfileHeader from './ProfileHeader';
 import UserWorkshop from './UserWorkshop';
 import UserLogin from '../Authentication/UserLogin';
@@ -8,6 +8,8 @@ import Logout from '../Authentication/Logout';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import ProfileBg from './svgs/profilebg.svg'
+import SocialLogin from '../Authentication/SocialLogin';
+import Modal from 'react-modal';
 
 import ProfileMockData from './profileData.json';
 import PurchaseMockDate from './tableData.json';
@@ -15,7 +17,7 @@ import PurchaseMockDate from './tableData.json';
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
-  const ref= useRef(null);
+  const ref = useRef(null);
 
   // console.log(profile);
   // console.log(auth);
@@ -26,26 +28,33 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
-      } 
-      else{
+      }
+      else {
         setAuth(false);
       }
       setProfile(ProfileMockData);
-      
+
     }
+    Modal.setAppElement('body');
     fetchProfileData();
   }, [auth]);
 
-  const handleLoginClose = () => {
+  function closeModal() {
     setAuth(true);
-  };
+  }
+  {console.log(auth)}
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      {console.log(auth)}
-       <UserLogin ref={ref} parentCallback={handleLoginClose} isOpen={!auth} />
-      {auth? (
+      <Modal
+        isOpen={!auth}
+        onRequestClose={closeModal}
+      >
+        <SocialLogin />
+        <button onClick={() => (closeModal())}>test</button>
+      </Modal>
+      {auth ? (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
@@ -58,14 +67,14 @@ function Profile() {
           />}
           {
 
-          profile && profile.pastOrders && (
-            /*<OrderTable rows={profile.pastOrders} />*/
-            <OrderTable data={PurchaseMockDate} />
-          )}
+            profile && profile.pastOrders && (
+              /*<OrderTable rows={profile.pastOrders} />*/
+              <OrderTable data={PurchaseMockDate} />
+            )}
 
-        <Logout />
+          <Logout />
         </>
-      ) :null}
+      ) : null}
     </div>
   );
 }
