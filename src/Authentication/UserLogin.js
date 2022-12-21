@@ -21,7 +21,7 @@ function UserLogin(props) {
     <>
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        onRequestClose={parentCallback}
       >
        <SocialLogin/>
        <button onClick={()=>(closeModal())}>test</button>
