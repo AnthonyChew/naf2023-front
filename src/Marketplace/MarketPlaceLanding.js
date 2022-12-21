@@ -45,7 +45,7 @@ const MarketPlaceLanding = () => {
   const prevPage = () => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1)
   }
-
+  // initial product load view
   useEffect(() => {
     async function fetchData() {
       let res;
@@ -60,6 +60,7 @@ const MarketPlaceLanding = () => {
     fetchData();
   }, []);
 
+  //everytime filter or search, update products view
   useEffect(() => {
     var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
     if (filterOptions.length > 0) {
@@ -232,7 +233,7 @@ const MarketPlaceLanding = () => {
                   </div>
                   <div class="flex my-5">
                     <div class="basis-1/3 mr-3">
-                      <select id="countries" class="bg-gray-50 border border-gray-300 h-[40px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <select id="countries" class="bg-white border-2 border-black h-[40px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <option selected>Choose Quantity</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -242,7 +243,7 @@ const MarketPlaceLanding = () => {
                     </div>
                     <div class="basis-1/3">
                       <button type="button"
-                        class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                        class="inline-block border-2 border-black px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                         Add to Cart
                       </button>
                     </div>
