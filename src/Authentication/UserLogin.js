@@ -17,7 +17,6 @@ function UserLogin(props) {
     Modal.setAppElement('body');
   }, [])
 
-
   return (
     <>
       <Modal
@@ -25,6 +24,7 @@ function UserLogin(props) {
         onRequestClose={closeModal}
       >
        <SocialLogin/>
+       <button onClick={()=>(closeModal())}>test</button>
       </Modal>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import ProfileHeader from './ProfileHeader';
 import UserWorkshop from './UserWorkshop';
 import UserLogin from '../Authentication/UserLogin';
@@ -15,9 +15,10 @@ import PurchaseMockDate from './tableData.json';
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
+  const ref= useRef(null);
 
   // console.log(profile);
-  console.log(auth);
+  // console.log(auth);
 
   useEffect(() => {
     async function fetchProfileData() {
@@ -30,6 +31,7 @@ function Profile() {
         setAuth(true);
       }
       setProfile(ProfileMockData);
+      
     }
     fetchProfileData();
   }, [auth]);
@@ -41,7 +43,8 @@ function Profile() {
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-       <UserLogin parentCallback={handleLoginClose} isOpen={auth} />
+      {console.log(auth)}
+       <UserLogin ref={ref} parentCallback={handleLoginClose} isOpen={!auth} />
       {!auth? (
         <>
           <ProfileHeader
