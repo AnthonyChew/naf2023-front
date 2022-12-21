@@ -11,15 +11,14 @@ import SmallWhiteDot from "./svgs/FestGuide/SmallWhiteDot.svg";
 import MediumPurpleStar from "./svgs/FestGuide/MediumPurpleStar.svg";
 
 const FestGuide = () => {
+  
   return (
     <div class="overflow-y-clip flex relative min-h-screen bg-NAFYellow">
       {/* <div>
           <h1 class="basis-1/2 z-10 max-w-[27%] flex-col absolute top-[30%] left-[5%]" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</h1>
           <img src={WhatIsNTUArtsFestival} class="absolute top-[5%] left-[5%] z-20 " ></img>
           <img src={NTUArtsFestivalShadow} class="absolute top-[5.3%] left-[5.3%] z-10" ></img>
-
         </div>
-
         <button class="font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ...">Download Fest Guide</button>
         
         <div>
@@ -57,12 +56,13 @@ const FestGuide = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum."
           </h1>
-          <button
-            onclick="getFestGuide()"
-            class="hover:bg-violet-700 mt-2 h-[7%] w-[45%] items-center justify-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
+{/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
+          <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
+            class="hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15  box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
           >
             DOWNLOAD FEST GUIDE
-          </button>
+          </a>
+          
         </div>
         <div class="relative basis-1/2">
           <div class="mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
