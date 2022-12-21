@@ -14,7 +14,7 @@ import PurchaseMockDate from './tableData.json';
 
 function Profile() {
   const [profile, setProfile] = useState(null);
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(null);
 
   // console.log(profile);
   console.log(auth);
@@ -26,6 +26,9 @@ function Profile() {
         setProfile(res.data);
         setAuth(false);
       } 
+      else{
+        setAuth(true);
+      }
       setProfile(ProfileMockData);
     }
     fetchProfileData();
@@ -38,7 +41,7 @@ function Profile() {
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      {auth && <UserLogin parentCallback={handleLoginClose} isOpen={true} />}
+       <UserLogin parentCallback={handleLoginClose} isOpen={auth} />
       {!auth? (
         <>
           <ProfileHeader
