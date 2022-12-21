@@ -19,16 +19,36 @@ import PaymentYellow8Star1 from './svgs/Payment/PaymentYellow8Star1.svg'
 import PaymentBlue4Star2 from './svgs/Payment/PaymentBlue4Star2.svg'
 import PaymentOrange8Star3 from './svgs/Payment/PaymentOrange8Star3.svg'
 
+import PaymentOrange8Star4 from './svgs/Payment/PaymentOrange8Star4.svg'
+import PaymentBlue4Star3 from './svgs/Payment/PaymentBlue4Star3.svg'
+import PaymentYellow8Star2 from './svgs/Payment/PaymentYellow8Star2.svg'
+import PaymentPurple4Star3 from './svgs/Payment/PaymentPurple4Star3.svg'
+import PaymentBlue8Star2 from './svgs/Payment/PaymentBlue8Star2.svg'
+import PaymentOrange4Star1 from './svgs/Payment/PaymentOrange4Star1.svg'
+import PaymentYellow4Star3 from './svgs/Payment/PaymentYellow4Star3.svg'
+import PaymentBlue8Star3 from './svgs/Payment/PaymentBlue8Star3.svg'
+
+import PaymentYellow8Star3 from './svgs/Payment/PaymentYellow8Star3.svg'
+import PaymentOrange4Star2 from './svgs/Payment/PaymentOrange4Star2.svg'
+import PaymentPurple8Star2 from './svgs/Payment/PaymentPurple8Star2.svg'
+import PaymentBlue4Star4 from './svgs/Payment/PaymentBlue4Star4.svg'
+import PaymentYellow8Star4 from './svgs/Payment/PaymentYellow8Star4.svg'
+import PaymentOrange8Star5 from './svgs/Payment/PaymentOrange8Star5.svg'
+import PaymentPurple4Star4 from './svgs/Payment/PaymentPurple4Star4.svg'
+import PaymentBlue8Star4 from './svgs/Payment/PaymentBlue8Star4.svg'
+import PaymentYellow4Star4 from './svgs/Payment/PaymentYellow4Star4.svg'
+
 import PaymentBlueDot from './svgs/Payment/PaymentBlueDot.svg'
 import PaymentOrangeDot from './svgs/Payment/PaymentOrangeDot.svg'
 import PaymentWhiteDot from './svgs/Payment/PaymentWhiteDot.svg'
 import PaymentYellowDot from './svgs/Payment/PaymentYellowDot.svg'
+import PaymentPurpleDot from './svgs/Payment/PaymentPurpleDot.svg'
 
 
 const Payment = () => {
   return (
     <div class="relative bg-NAFPink">
-      <div class="relative z-10">
+      <div class="relative">
         <img src={PaymentPurple8Star1} class="absolute top-[-0.5%] left-[0%] w-[12%]"></img>
         <img src={PaymentOrangeDot} class="absolute top-[18.3%] left-[18.6%] w-[1.7%]"></img>
         <img src={PaymentBlue4Star1} class="absolute top-[8.2%] left-[25.7%] w-[4.5%]"></img>
@@ -48,31 +68,78 @@ const Payment = () => {
         </div>
       </div>
 
-      <div class="relative w-[85%] mx-auto h-fit bg-white border-4 border-black z-20">
-        <div class="py-12 px-15 w-[90%] mx-auto">
-          <form>
-            <label class="font-syneBold text-3xl">Name:</label>
-            <input class="border-black border-2 w-[100%] px-2 mt-4 mb-10 font-syne text-2xl leading-loose" type="text" name="name" placeholder="name"/>
-            <label class="font-syneBold text-3xl">Contact number:</label>
-            <input class="border-black border-2 w-[100%] px-2 mt-4 mb-10 font-syne text-2xl leading-loose" type="text" name="contact_number"  placeholder="contact number"/>
-            <label class="font-syneBold text-3xl">Email address:</label>
-            <input class="border-black border-2 w-[100%] px-2 mt-4 mb-10 font-syne text-2xl leading-loose" type="text" name="email_address"  placeholder="email address"/>           
-          </form>
-        </div>
+      <div class="relative overflow-hidden">
+        {/* Left side */}
+        <img src={PaymentPurpleDot} class="absolute top-[116px] left-[0.5%] w-[1.7%]"></img>
+        <img src={PaymentOrange8Star4} class="absolute top-[210px] left-[0%] w-[11.1%]"></img>
+        <img src={PaymentBlue4Star3} class="absolute top-[490px] left-[0%] w-[6%]"></img>
+        <img src={PaymentWhiteDot} class="absolute top-[585px] left-[4%] w-[1.7%]"></img>
+        <img src={PaymentYellow4Star3} class="absolute bottom-[360px] left-[0%] w-[6.87%]"></img>
+        <img src={PaymentWhiteDot} class="absolute bottom-[315px] left-[3.33%] w-[1.7%]"></img>
+        <img src={PaymentBlue8Star3} class="absolute bottom-[130px] left-[0%] w-[6.45%]"></img>
+        {/* 
+        To be used
+        <img src={PaymentYellow8Star2} class="absolute top-[200%] left-[0%]"></img>
+        <img src={PaymentPurple4Star3} class="absolute top-[200%] left-[0%]"></img>
+        <img src={PaymentYellowDot} class="absolute top-[200%] left-[0%] w-[1.7%]"></img>
+        <img src={PaymentBlue8Star2} class="absolute top-[200%] left-[0%]"></img>
+        <img src={PaymentOrange4Star1} class="absolute top-[200%] left-[0%]"></img> 
+        */}
 
-        <div class="flex flex-row w-[90%] mx-auto my-12">
-          <div class="relative w-[50%]">
-            <p class="font-syne text-3xl">Subtotal: $XX.XX</p><br></br>
-            <p class="font-syne text-3xl">Shipping: $X.XX</p>
-            <p class="font-syneBold text-5xl my-24">Total: $XX.XX</p>
-            <button class="absolute bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-4 px-14 border-2 border-black rounded-lg">Submit</button>
+        {/* Right side */}
+        <img src={PaymentYellow8Star3} class="absolute top-[150px] right-[0.5%] w-[10%]"></img>
+        <img src={PaymentPurpleDot} class="absolute top-[310px] right-[1%] w-[1.7%]"></img>
+        <img src={PaymentOrange4Star2} class="absolute top-[400px] right-[0%] w-[6.5%]"></img>
+        <img src={PaymentPurple8Star2} class="absolute top-[620px] right-[0%] w-[8.1%]"></img>
+        <img src={PaymentYellowDot} class="absolute bottom-[460px] right-[0.9%] w-[1.7%]"></img>
+        <img src={PaymentBlue8Star4} class="absolute bottom-[240px] right-[0%] w-[9%]"></img>
+        <img src={PaymentYellow4Star4} class="absolute bottom-[50px] right-[0%] w-[7.76%]"></img>
+        {/* 
+        To be used
+        <img src={PaymentWhiteDot} class="absolute top-[200%] right-[0%] w-[1.7%]"></img>
+        <img src={PaymentBlue4Star4} class="absolute top-[200%] right-[0%]"></img>
+        <img src={PaymentYellow8Star4} class="absolute top-[200%] right-[0%]"></img>
+        <img src={PaymentOrange8Star5} class="absolute top-[200%] right-[0%]"></img>
+        <img src={PaymentPurple4Star4} class="absolute top-[200%] right-[0%]"></img> 
+        */}
+
+
+
+        <div class="relative w-[85%] mx-auto h-fit bg-white border-4 border-black z-20">
+          <div class="pt-16 pb-12 px-15 w-[90%] mx-auto">
+            <form>
+              <label class="font-syneBold text-3xl">Name:</label>
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="name" placeholder="name"/>
+              <label class="font-syneBold text-3xl">Contact number:</label>
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="contact_number"  placeholder="contact number"/>
+              <label class="font-syneBold text-3xl">Email address:</label>
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-10 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="email_address"  placeholder="email address"/>           
+            </form>
           </div>
 
-          <div class="w-[50%]">
-            <img class="float-right" src={QRCode}></img>
+          <div class="w-[90%] mt-4 mx-auto">
+            <p class="font-syneBold text-3xl">Choose self-collection or delivery for each item:</p><br></br>
+            <p class="font-syne text-2xl">
+              For self-collection, the vendor will be in contract with you.<br></br>
+              For delivery, check your email for delivery details. 
+            </p>
+          </div>
+
+          <div class="flex flex-row w-[90%] mx-auto my-12">
+            <div class="relative w-[50%]">
+              <p class="font-syne text-3xl">Subtotal: $XX.XX</p><br></br>
+              <p class="font-syne text-3xl">Shipping: $X.XX</p>
+              <p class="font-syneBold text-5xl my-24">Total: $XX.XX</p>
+              <button class="absolute bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>
+            </div>
+
+            <div class="w-[50%]">
+              <img class="float-right" src={QRCode}></img>
+            </div>
           </div>
         </div>
       </div>
+
  
       <div class="relative py-24">
         <img src={PaymentOrange8Star2} class="absolute top-[-38%] left-[0%] w-[7.2%]"></img>
