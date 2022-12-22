@@ -93,6 +93,8 @@ function OrderTable(props) {
   const { data } = props;
 
   function formatData(data) {
+    
+    console.log(DataTransfer)
     let convertedData = [];
     data.forEach((element) => {
       let string = [];
