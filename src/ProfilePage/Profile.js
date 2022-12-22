@@ -35,20 +35,23 @@ function Profile() {
     fetchProfileData();
   }, [auth]);
 
-  function handleParentCallback() {
+  function closeModal() {
     setAuth(true);
   }
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
-      <LoadingSpinnerComponent />
-      <UserLogin isOpen={!auth} parentCallback={handleParentCallback}/>
+      <LoadingSpinnerComponent/>
+      <Modal
+        isOpen={!auth}
+        onRequestClose={closeModal}
+      >
+        <SocialLogin />
+      </Modal>
       {auth ? (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
-            image={'ProfilePic.png'}
-            email={profile && profile.email}
           />
           {<UserWorkshop
             waitlistedWorkshops={profile && profile.waitlistedWorkshops}
@@ -57,7 +60,6 @@ function Profile() {
           {
             profile && profile.pastOrders && (
               <OrderTable pastOrders={profile.pastOrders} />
-              /*<OrderTable data={PurchaseMockDate} />*/
             )}
 
           <Logout />

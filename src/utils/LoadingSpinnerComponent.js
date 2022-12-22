@@ -9,7 +9,7 @@ export const LoadingSpinnerComponent = () => {
   return (
     <>
       {promiseInProgress && (
-        <div>
+        <div class="flex items-center justify-center">
           <PulseLoader color="#6c757d" loading={promiseInProgress} />
         </div>
       )}
