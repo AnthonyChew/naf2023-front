@@ -28,7 +28,7 @@ function UserWorkshop(props) {
       workshopService.unregisterWaitlistWorkshop(workshopId)
     );
     if (res.status === 200) {
-      history.go(0);
+      history(0);
     }
   };
 
@@ -37,7 +37,7 @@ function UserWorkshop(props) {
       workshopService.unregisterRegisterWorkshop(regWorkshop, workshopToBump)
     );
     if (res.status === 200) {
-      history.go(0);
+      history(0);
     } else {
       alert(res.data.error);
     }
