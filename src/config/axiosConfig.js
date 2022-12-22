@@ -1,9 +1,10 @@
 import axios from 'axios';
+import config from '../config/env';
 import { useState, useCallback, useMemo, useEffect } from 'react';
 // Next we make an 'instance' of it
 const axiosConfig = axios.create({
   // .. where we make our configurations
-  baseURL: `${process.env.REACT_APP_BACKEND}`,
+  baseURL: `${config.backendUrl}/api`,
   withCredentials: true,
 });
 
