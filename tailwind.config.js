@@ -18,6 +18,9 @@ module.exports = {
         syneBold: ["SyneBold"],
         yerk: ["Yerk"],
         yerkItalic: ["YerkItalic"]
+      },
+      borderWidth: {
+        '3': '3px'
       }
     }
     

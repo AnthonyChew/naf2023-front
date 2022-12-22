@@ -20,7 +20,6 @@ import { ReactComponent as StarMidSmall } from './2022SVG/StarMidSmall.svg';
 import Typography from '@material-ui/core/Typography';
 import { trackPromise } from 'react-promise-tracker';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
-import { Alert, AlertTitle } from '@material-ui/lab';
 
 // create animations https://www.youtube.com/watch?v=JcHLxzrsRS4
 const useStyles = makeStyles((theme) => ({
@@ -185,16 +184,7 @@ function MarketPlace() {
 
   return (
     <div className={classes.root}>
-      <Alert variant="filled" severity="info">
-        <AlertTitle>
-          <strong>Official Merchandise on Sale through 08 March</strong>
-        </AlertTitle>
-        Surge Marketplace is now closed as of 24 February 2022, 0000.
-        <br />
-        However, the sale of NAF Merchandise has been extended to 8 March 2022,
-        please use the "NAF Merch" filter option to view all NAF Official
-        Merchandise.
-      </Alert>
+
       <MarketPlaceHeader view={view} />
       {view !== 'vendors' && (
         <SearchBar searchCallback={(products) => setProducts(products)} />
@@ -213,182 +203,28 @@ function MarketPlace() {
         </div>
       ) : (
         <div className={classes.productView}>
-          <BackgroundSVGTop
-            style={{
-              zIndex: -1,
-              position: 'absolute',
-              left: '0px',
-              top: '-100px',
-            }}
-          />
-          <BackgroundSVGBot
-            style={{
-              zIndex: -1,
-              position: 'absolute',
-              left: '0px',
-              top: '400px',
-            }}
-          />
-          <TopLeftStar
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '0px',
-              top: '100px',
-            }}
-          />
-          <Ring
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '0px',
-              top: '160px',
-            }}
-          />
-          <BigCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '130px',
-              top: '320px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '120px',
-              top: '440px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '80px',
-              top: '580px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '80px',
-              top: '790px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '30px',
-              top: '910px',
-            }}
-          />
-          <BigCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '55px',
-              top: '970px',
-            }}
-          />
-          <BigStarMid
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '0px',
-              top: '910px',
-            }}
-          />
-          <StarMid
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '20px',
-              top: '1900px',
-            }}
-          />
-          <StarMidSmall
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '90px',
-              top: '2050px',
-            }}
-          />
-          <TopLeftStar
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '0px',
-              top: '2020px',
-            }}
-          />
-          <Ring
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '0px',
-              top: '2080px',
-            }}
-          />
-          <BigCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '130px',
-              top: '2240px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '120px',
-              top: '2360px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              left: '80px',
-              top: '2500px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '80px',
-              top: '2710px',
-            }}
-          />
-          <SmallCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '30px',
-              top: '2830px',
-            }}
-          />
-          <BigCircle
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '55px',
-              top: '2890px',
-            }}
-          />
-          <BigStarMid
-            style={{
-              zIndex: 0,
-              position: 'absolute',
-              right: '0px',
-              top: '2830px',
-            }}
-          />
+          <BackgroundSVGTop style={{ zIndex:-1, position:'absolute', left:"0px", top:"-100px"}} />
+          <BackgroundSVGBot style={{ zIndex:-1, position:'absolute', left:"0px", top:"400px"}} />
+          <TopLeftStar style={{ zIndex:0, position:'absolute', left:"0px", top:"100px"}} />
+          <Ring style={{ zIndex:0, position:'absolute', left:"0px", top:"160px"}} />
+          <BigCircle style={{ zIndex:0, position:'absolute', left:"130px", top:"320px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', left:"120px", top:"440px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', left:"80px", top:"580px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', right:"80px", top:"790px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', right:"30px", top:"910px"}} />
+          <BigCircle style={{ zIndex:0, position:'absolute', right:"55px", top:"970px"}} />
+          <BigStarMid style={{ zIndex:0, position:'absolute', right:"0px", top:"910px"}} />
+          <StarMid style={{ zIndex:0, position:'absolute', right:"20px", top:"1900px"}} />
+          <StarMidSmall style={{ zIndex:0, position:'absolute', right:"90px", top:"2050px"}} />
+          <TopLeftStar style={{ zIndex:0, position:'absolute', left:"0px", top:"2020px"}} />
+          <Ring style={{ zIndex:0, position:'absolute', left:"0px", top:"2080px"}} />
+          <BigCircle style={{ zIndex:0, position:'absolute', left:"130px", top:"2240px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', left:"120px", top:"2360px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', left:"80px", top:"2500px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', right:"80px", top:"2710px"}} />
+          <SmallCircle style={{ zIndex:0, position:'absolute', right:"30px", top:"2830px"}} />
+          <BigCircle style={{ zIndex:0, position:'absolute', right:"55px", top:"2890px"}} />
+          <BigStarMid style={{ zIndex:0, position:'absolute', right:"0px", top:"2830px"}} />
           <ProductListings
             products={getProducts()}
             featured={getFeaturedProducts()}

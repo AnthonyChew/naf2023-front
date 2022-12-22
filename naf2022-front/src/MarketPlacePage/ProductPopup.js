@@ -271,19 +271,17 @@ export default function ProductPopup(props) {
     adaptiveHeight: true,
   };
 
-  // const date1 = '14 February 2022';
-  // const date2 = '23 February 2022';
-  const date1 = '23 February 2022';
-  const date2 = '09 March 2022';
+  const date1 = '14 February 2022'; 
+  const date2 = '23 February 2022';
 
-  const isValidPurchase = (date, leadTime) => {
+  const isValidPurchase = (date,leadTime) => { 
     const dateObj = new Date();
     dateObj.setDate(dateObj.getDate() + leadTime);
-    if (dateObj > new Date(date)) {
-      return false;
-    }
-    return true;
-  };
+  if (dateObj > new Date(date)) {
+    return false;
+  }
+  return true;
+  }
 
   return (
     <Dialog
@@ -295,8 +293,10 @@ export default function ProductPopup(props) {
       maxWidth="md" //or "lg"
       // fullScreen={dialogSize}
       scroll="body"
+
     >
-      <DialogContent dividers style={{ backgroundColor: '#FDFBE2' }}>
+      
+      <DialogContent dividers style={{backgroundColor:"#FDFBE2",}}>
         {/* {dialogSize && (
           <Toolbar style={{ width: '100%', justifyContent: 'flex-end' }}>
             <IconButton
@@ -319,47 +319,32 @@ export default function ProductPopup(props) {
         <Vector305 style={{ zIndex:0, position:'absolute', right:"0px", bottom:"0px"}} /> */}
 
         <Hidden smUp>
-          <Grid xs={12}>
-            <Typography>
-              <br />
-            </Typography>
-            <IconButton
-              onClick={handleClose}
-              style={{ position: 'absolute', top: '0px', right: '0px' }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </Grid>
+            <Grid xs={12}>
+              <Typography>
+                <br/>
+              </Typography>
+              <IconButton onClick={handleClose} style={{position:"absolute", top:"0px", right:"0px"}}>
+                <CloseIcon />
+              </IconButton>
+            </Grid>
         </Hidden>
-
+        
         <div className={classes.carousel}>
           <Slider {...settings}>
             {images.map((image, index) => (
-              <img
-                key={index}
-                className={classes.img}
-                src={image}
-                alt={alt}
-                style={{ zIndex: 1 }}
-              />
+              <img key={index} className={classes.img} src={image} alt={alt} style={{zIndex:1}}/>
             ))}
           </Slider>
         </div>
-        <div
-          className={classes.pdtDetails}
-          style={{ zIndex: '1', color: '#033F63' }}
-        >
+        <div className={classes.pdtDetails} style={{ zIndex:"1" ,color:"#033F63",}}>
           <Hidden xsDown>
             <Grid xs={12}>
-              <IconButton
-                onClick={handleClose}
-                style={{ position: 'absolute', top: '0px', right: '0px' }}
-              >
+              <IconButton onClick={handleClose} style={{position:"absolute", top:"0px", right:"0px"}}>
                 <CloseIcon />
               </IconButton>
             </Grid>
           </Hidden>
-          <Grid xs={11} style={{ zIndex: 0 }}>
+          <Grid xs={11} style={{zIndex:0 }}>
             <Typography
               // className={classes.bottomSeparator}
               variant="h4"
@@ -437,67 +422,54 @@ export default function ProductPopup(props) {
 
             <Typography variant="body1">
               Lead Time: {leadTime} days (For self-collection) <br></br>
+              
               {/* {isValidPurchase(date1,leadTime) ? 'This product is available for collection on 14 Feb.' : 'This product is not available for collection on 14 Feb.'}
               <br></br>
               {isValidPurchase(date2,leadTime) ? 'This product is available for collection on 23 Feb.' : 'This product is not available for collection on 23 Feb.'} */}
+
               {/* Lead time refers to the amount of days the vendor needs to prepare the product. <br></br>
               Thus, the latest possible date of purchase will be the number of days before your indicated self-collection date.  */}
+
             </Typography>
 
-            {isValidPurchase(date1, leadTime) ? (
-              <Typography style={{ color: '#00FF00' }}>
-                This product is available for collection on 23 Feb.
-              </Typography>
-            ) : (
-              <Typography style={{ color: '#FF0000' }}>
-                This product is not available for collection on 23 Feb.
-              </Typography>
-            )}
-            {isValidPurchase(date2, leadTime) ? (
-              <Typography style={{ color: '#00FF00' }}>
-                This product is available for collection on 09 Mar.
-              </Typography>
-            ) : (
-              <Typography style={{ color: '#FF0000' }}>
-                This product is not available for collection on 09 Mar.
-              </Typography>
-            )}
+            {isValidPurchase(date1,leadTime) ? <Typography style={{color:'#00FF00'}}>This product is available for collection on 14 Feb.</Typography> : <Typography style={{color:'#FF0000'}}>This product is not available for collection on 14 Feb.</Typography>}
+            {isValidPurchase(date2,leadTime) ? <Typography style={{color:'#00FF00'}}>This product is available for collection on 23 Feb.</Typography> : <Typography style={{color:'#FF0000'}}>This product is not available for collection on 23 Feb.</Typography>}
 
             <div>
-              <Grid container xs={12} style={{ paddingBottom: '10px' }}>
+              <Grid container xs={12} style={{paddingBottom:"10px"}}>
                 <Typography xs={6}>
                   <LinkButton
                     to={`/vendorpage/${vendorId}`}
                     className={classes.actionButton}
                     variant="contained"
-                    style={{ backgroundColor: '#28666E', color: '#FDFBE2' }}
+                    style={{backgroundColor:"#28666E", color:"#FDFBE2"}}
                   >
                     View Vendor
                   </LinkButton>
                 </Typography>
-                <Grid xs={6} style={{ minWidth: '180px' }}>
+                <Grid xs={6} style={{minWidth:"180px"}}>
                   <Button
                     className={classes.actionButton}
                     variant="contained"
                     color="secondary"
                     onClick={handleClickOpen} //confirmation before adding to cart
                     disabled={quantityBought + varNumInCart > indivQuantity}
-
+                    
                     // disabled
                   >
                     Add to Cart
                   </Button>
                 </Grid>
               </Grid>
+              
+
 
               {open && (
                 <ConfirmationDialog
                   //callback
                   title="Add this product to cart?"
                   content={`${quantityBought}x ${name} ${
-                    attribute1.length !== 0
-                      ? `with ${attribute1}: ${colour}`
-                      : ''
+                    attribute1.length !== 0 ? `with ${attribute1}: ${colour}` : ''
                   } ${
                     attribute2.length !== 0 ? `and ${attribute2}: ${size}` : ''
                   }`}

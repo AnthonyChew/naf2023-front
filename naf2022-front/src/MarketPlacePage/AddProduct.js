@@ -428,7 +428,7 @@ export default function AddProduct(props) {
         if (res.status === 400) {
           alert(res.data.validation.body.message);
         } else if (res.status === 413) {
-          alert('Your photos are too large! Maximum of 10 MB total!');
+          alert('Your photos are too large! Maximum of 3 MB total!');
         } else if (res.status === 401) {
           alert(
             `Error code: ${res.status} unauthorized user, error: ${res.data.error}`
