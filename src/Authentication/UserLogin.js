@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SocialLogin from './SocialLogin';
 import Modal from 'react-modal';
 
@@ -23,8 +23,7 @@ function UserLogin(props) {
         isOpen={modalIsOpen}
         onRequestClose={parentCallback}
       >
-       <SocialLogin/>
-       <button onClick={()=>(closeModal())}>test</button>
+        <SocialLogin />
       </Modal>
     </>
   );

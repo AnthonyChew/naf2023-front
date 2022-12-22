@@ -17,8 +17,6 @@ import PurchaseMockDate from './tableData.json';
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
-  const ref = useRef(null);
-
   // console.log(profile);
   // console.log(auth);
 
@@ -32,28 +30,19 @@ function Profile() {
       else {
         setAuth(false);
       }
-      setProfile(ProfileMockData);
-
     }
     Modal.setAppElement('body');
     fetchProfileData();
   }, [auth]);
 
-  function closeModal() {
+  function handleParentCallback() {
     setAuth(true);
   }
-  {console.log(auth)}
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      <Modal
-        isOpen={!auth}
-        onRequestClose={closeModal}
-      >
-        <SocialLogin />
-        <button onClick={() => (closeModal())}>test</button>
-      </Modal>
+      <UserLogin isOpen={!auth} parentCallback={handleParentCallback}/>
       {auth ? (
         <>
           <ProfileHeader
@@ -68,8 +57,8 @@ function Profile() {
           {
 
             profile && profile.pastOrders && (
-              /*<OrderTable rows={profile.pastOrders} />*/
-              <OrderTable data={PurchaseMockDate} />
+              <OrderTable rows={profile.pastOrders} />
+              /*<OrderTable data={PurchaseMockDate} />*/
             )}
 
           <Logout />
