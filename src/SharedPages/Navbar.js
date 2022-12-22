@@ -9,7 +9,6 @@ const Navbar = () => {
 
     return (
         <div>
-
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
 
@@ -22,21 +21,20 @@ const Navbar = () => {
                     <Link to="/" class="link" smooth>FAQ</Link>
                 </div>
                 <div class="flex w-[100%] items-center justify-end lg:contents lg:w-[auto]">
-
-                
-                <Link to="/cart" class="link" smooth><img src={CartIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
-
-                <Link to="/profile" class="link" smooth><img src={HumanIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
-                <div class="lg:hidden text-right">
-                    <button class="navbar-burger text-blue-600 p-3" onClick={() => setIsNavOpen((prev) => !prev)}>
-                        <svg class="block h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <title>Mobile menu</title>
-                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                        </svg>
-                    </button>
-                </div>
+                    <Link to="/cart" class="link" smooth><img src={CartIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
+                    <Link to="/profile" class="link" smooth><img src={HumanIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
+                    {/* hamburger menu */}
+                    <div class="lg:hidden text-right">
+                        <button class="navbar-burger text-blue-600 p-3" onClick={() => setIsNavOpen((prev) => !prev)}>
+                            <svg class="block h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <title>Mobile menu</title>
+                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
+            {/* navbar mobile menu */}
             <div className={isNavOpen ? "navbar-menu relative z-50" : "navbar-menu relative z-50 hidden"}>
                 <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
                 <nav class="fixed top-0 right-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
@@ -48,15 +46,12 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div>
-
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/about" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ABOUT</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/programmes" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>PROGRAMMES</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>MARKETPLACE</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>NAFXCAC</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
-
-
                     </div>
                 </nav>
             </div>
