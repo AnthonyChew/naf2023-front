@@ -90,7 +90,7 @@ function OrderTable(props) {
     ],
   )
 
-  const { data } = props;
+  const { pastOrders } = props;
 
   function formatData(data) {
     
@@ -112,7 +112,7 @@ function OrderTable(props) {
 
   return (
     <div class="flex items-center justify-center pb-5">
-      <Table columns={columns} data={formatData(data)} />
+      <Table columns={columns} data={formatData(pastOrders)} />
     </div>
   );
 }
