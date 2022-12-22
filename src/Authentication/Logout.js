@@ -12,7 +12,7 @@ export default function Logout(props) {
     await authService.userLogout();
     dispatch(resetCart());
     localStorage.clear();
-    history.push('/');
+    history.push(-1);
   };
 
   return (
