@@ -54,10 +54,9 @@ function Profile() {
             waitlistedWorkshops={profile && profile.waitlistedWorkshops}
             registeredWorkshops={profile && profile.registeredWorkshops}
           />}
-          {console.log(profile.pastOrders)}
           {
             profile && profile.pastOrders && (
-              <OrderTable rows={profile.pastOrders} />
+              <OrderTable pastOrders={profile.pastOrders} />
               /*<OrderTable data={PurchaseMockDate} />*/
             )}
 
