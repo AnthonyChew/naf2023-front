@@ -18,9 +18,10 @@ const Navbar = () => {
                         <Link to="/" class="link" smooth>NAFXCAC</Link>
                         <Link to="/" class="link" smooth>FAQ</Link>
                 </div>
-                <Link to="/Cart" class="link" smooth><img src={CartIcon} class="w-[70px] h-[50px] flex-initial mr-8"></img></Link>
+                <Link to="/cart" class="link" smooth><img src={CartIcon} class="w-[70px] h-[50px] flex-initial mr-8"></img></Link>
                 
-                <img src={HumanIcon} class="w-[70px] h-[50px] flex-initial"></img>
+                <Link to="/profile" class="link" smooth><img src={HumanIcon} class="w-[70px] h-[50px] flex-initial"></img></Link>
+                
             </div>
         </div>
     )

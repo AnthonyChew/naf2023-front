@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f487765.css",
-    "main.js": "/static/js/main.16ac9252.js",
+    "main.css": "/static/css/main.891a755d.css",
+    "main.js": "/static/js/main.d22f3b8a.js",
     "static/js/787.bb4a2e7b.chunk.js": "/static/js/787.bb4a2e7b.chunk.js",
     "static/media/CAC_Logo.svg": "/static/media/CAC_Logo.e23e71138868fd662a3de6f9f645ddb6.svg",
     "static/media/landingbg.svg": "/static/media/landingbg.35358d0b1831bca17ba5152dbd49f5b5.svg",
@@ -14,6 +14,7 @@
     "static/media/MarketPlaceOrbit2.svg": "/static/media/MarketPlaceOrbit2.e7f3dd74dc8660b2dc8c106c60f35849.svg",
     "static/media/Orbit.svg": "/static/media/Orbit.d0361877e73fcbb4490ab41cb3654a30.svg",
     "static/media/pikachu1.png": "/static/media/pikachu1.cdddeeeda6a571bd9da6.png",
+    "static/media/profilebg.svg": "/static/media/profilebg.197c3137cfff5b0541738ef9f26ae90d.svg",
     "static/media/MarketPlaceOrbit1.svg": "/static/media/MarketPlaceOrbit1.d82eaafcacd0d698299c8ed45708289f.svg",
     "static/media/MarketPlaceOrbit3.svg": "/static/media/MarketPlaceOrbit3.2024faa3ac486acd06700f158c5c5791.svg",
     "static/media/MarketPlaceOrbit4.svg": "/static/media/MarketPlaceOrbit4.8d93d4992926114a5e23660fcf155b3a.svg",
@@ -21,6 +22,7 @@
     "static/media/workshops_StarBacking.svg": "/static/media/workshops_StarBacking.bbf20975e96cdbdf241e077bfc9a24d5.svg",
     "static/media/HumanIcon.svg": "/static/media/HumanIcon.f68dbbbdf478efa856c9393e28e68f58.svg",
     "static/media/NAF_Logo.svg": "/static/media/NAF_Logo.488a97b36521c87b2e53149f59ccd37f.svg",
+    "static/media/google_signin.jpg": "/static/media/google_signin.30ac25873072260edeb5.jpg",
     "static/media/MarketPlace Logo.svg": "/static/media/MarketPlace Logo.991aa336a42a2e23b333f9304ec991c7.svg",
     "static/media/landingInstagram.svg": "/static/media/landingInstagram.a167688aa806d9875df3088523f7694a.svg",
     "static/media/workshops_Logo.svg": "/static/media/workshops_Logo.6d68d5670ec6904594385ee8959bfcb9.svg",
@@ -126,12 +128,12 @@
     "static/media/greenbutton.svg": "/static/media/greenbutton.48ffcf1610921dc1993600a1d2c0e28b.svg",
     "static/media/redbutton.svg": "/static/media/redbutton.08606fd6006a64ecd8c4fcca0aa98744.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.8f487765.css.map": "/static/css/main.8f487765.css.map",
-    "main.16ac9252.js.map": "/static/js/main.16ac9252.js.map",
+    "main.891a755d.css.map": "/static/css/main.891a755d.css.map",
+    "main.d22f3b8a.js.map": "/static/js/main.d22f3b8a.js.map",
     "787.bb4a2e7b.chunk.js.map": "/static/js/787.bb4a2e7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f487765.css",
-    "static/js/main.16ac9252.js"
+    "static/css/main.891a755d.css",
+    "static/js/main.d22f3b8a.js"
   ]
 }
