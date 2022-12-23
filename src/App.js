@@ -12,7 +12,7 @@ import Piccrew from './Contest/Piccrew';
 import Navbar from './SharedPages/Navbar';
 import Footer from './SharedPages/Footer';
 import Profile from './ProfilePage/Profile';
-import VendorLogin from './Authentication/VendorLogin';
+import VendorLogin from './Marketplace/VendorLogin';
 
 import {
   BrowserRouter,
@@ -27,7 +27,7 @@ function Home() {
   return (
     <div className="App">
       {/* Change this accordingly to your respective main page if you want view quicker, e.g Aboutus, Homepage, Workshop, Marketplace  */}
-      <Homepage></Homepage> 
+      <Homepage></Homepage>
       {/* <AboutUs></AboutUs> */}
       {/* <WorkshopMain></WorkshopMain> */}
       {/* <MarketPlace></MarketPlace> */}
@@ -40,28 +40,28 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/cart" element={<Cart />} />
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
 
-        <Route path="/programmes" element={<WorkshopMain />} />
-        <Route path="/marketplace" element={<MarketPlace />} />
-        <Route path="/payment" element={<Payment/>}/>
-        <Route path="/submitted" element={<OrderSubmitted/>}/>
-        <Route path="/events" element={<Events/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/piccrew" element={<Piccrew/>}/>
-        
-        <Route path="/profile" element={<Profile/>} />
-        <Route path="/vendorlogin" element={<VendorLogin/>} />
+          <Route path="/programmes" element={<WorkshopMain />} />
+          <Route path="/marketplace" element={<MarketPlace />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/submitted" element={<OrderSubmitted />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/piccrew" element={<Piccrew />} />
+
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/vendorlogin" element={<VendorLogin />} />
 
 
-      </Routes>
-      <Footer></Footer>
-    </BrowserRouter>
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
 
     </div>
 

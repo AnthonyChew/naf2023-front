@@ -19,7 +19,7 @@ const Input = (props) => {
     return (
         <div className={wrapperClassName}>
             <div
-                className={`border transition duration-150 ease-in-out ${error
+                class={`border transition duration-150 ease-in-out ${error
                     ? 'focus-within:border-red border-red'
                     : 'focus-within:border-primary border-gray-gray4'
                     }`}
@@ -27,14 +27,14 @@ const Input = (props) => {
             >
                 <label
                     htmlFor={id}
-                    className='text-base text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
+                    class='text-base text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
                 >
-                    {label} {required && <span className='text-red-500'>*</span>}
+                    {label} {required && <span class='text-red-500'>*</span>}
                 </label>
                 <input
                     ref={inputRef}
                     type={type}
-                    className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                    class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
                     id={id}
                     placeholder={placeholder}
                     required = {required}

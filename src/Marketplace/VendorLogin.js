@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import AddProduct from './AddProduct';
-import ProductTable from './ProductTable';
+//import AddProduct from './AddProduct';
+//import ProductTable from './ProductTable';
 
 import VendorAuth from '../Authentication/VendorLogin';
 import vendorService from '../services/vendors';
 import ordersService from '../services/orders';
 import FileDownload from 'js-file-download';
 import Logout from '../Authentication/Logout';
-import EditVendor from './EditVendor';
+//import EditVendor from './EditVendor';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
-import { Hidden } from '@material-ui/core';
+import Modal from 'react-modal';
 
 function VendorLogin() {
   // const products = useSelector((state) => state.products);
   const [profile, setProfile] = useState(null);
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(null);
   // console.log(profile);
   const contactNumber = profile && profile.contactNumber;
   const emailAddress = profile && profile.emailAddress;
@@ -25,15 +25,19 @@ function VendorLogin() {
   useEffect(() => {
     async function fetchProfileData() {
       const res = await trackPromise(vendorService.getVendorProfile());
+      console.log(res)
       if (res.status === 200) {
         setProfile(res.data);
-        // console.log(res.data);
-      } else {
+        setAuth(true);
+      }
+      else {
         setAuth(false);
       }
     }
+    Modal.setAppElement('body');
     fetchProfileData();
   }, [auth]);
+
 
   //ADD PRODUCT DIALOG
   const [open, setOpen] = useState(false);
@@ -46,9 +50,9 @@ function VendorLogin() {
     setEdit(false);
   };
 
-  const handleLoginClose = () => {
-    setAuth(true);
-  };
+  function closeModal() {
+    setAuth(false);
+  }
 
   //EDIT VENDOR DIALOG
   const [edit, setEdit] = useState(false);
@@ -69,8 +73,12 @@ function VendorLogin() {
   };
 
   return (
-    <>
+    <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
       <LoadingSpinnerComponent />
+      <Modal isOpen={!auth} onRequestClose={closeModal}>
+        < VendorAuth parentCallBack={closeModal} />
+      </Modal>
+
       {/* {auth ? (
         <div className={classes.root}>
 
@@ -157,8 +165,7 @@ function VendorLogin() {
       ) : (
         <VendorAuth parentCallback={handleLoginClose} />
       )} */}
-       <VendorAuth parentCallback={handleLoginClose} />
-    </>
+    </div>
   );
 }
 

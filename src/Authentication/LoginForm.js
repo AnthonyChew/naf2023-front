@@ -13,6 +13,7 @@ export default function LoginForm(props) {
     showPassword: false,
   });
   const { user } = props;
+  const { parentCallBack } = props;
   const history = useNavigate();
   const { promiseInProgress } = usePromiseTracker();
 
@@ -41,6 +42,7 @@ export default function LoginForm(props) {
         authService.adminLogin(values.username, values.password)
       );
     }
+    
     if (res.status === 200) {
       history(0);
     } else {
@@ -61,19 +63,6 @@ export default function LoginForm(props) {
         inputProps={{ maxLength: 64 }}
         required
       />
-
-      {/* <Input
-        label="Enter your password"
-        type={values.showPassword ? 'text' : 'password'}
-        id="password"
-        value={values.password}
-        onChange={handleChange('password')}
-        color="secondary"
-        inputProps={{ maxLength: 64 }}
-        labelWidth={70}
-        required
-      /> */}
-
       <div
         onClick={() => inputRef.current.focus()}
       >
@@ -87,6 +76,8 @@ export default function LoginForm(props) {
           <input
             ref={inputRef}
             type={values.showPassword ? 'text' : 'password'}
+            name="password"
+            onChange={handleChange('password')}
             className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
             id="password"
             placeholder=""
