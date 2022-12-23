@@ -1,147 +1,49 @@
 import React, { useState } from "react";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
 import LoginForm from "./LoginForm";
-import SignUpForm from "./SignUpForm";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import Typography from "@material-ui/core/Typography";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import PropTypes from "prop-types";
-import Box from "@material-ui/core/Box";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import { useHistory } from "react-router-dom";
-import { Button } from '@material-ui/core';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    textAlign: "center",
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(10),
-    maxWidth: "90%",
-    margin: "auto",
-  },
-}));
+//import SignUpForm from "./SignUpForm";
+import 'react-tabs/style/react-tabs.css';
 
-const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { useNavigate } from "react-router-dom";
+import Modal from 'react-modal';
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-};
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
-const DialogContent = withStyles((theme) => ({
-  root: {
-    position: "relative",
-    margin: theme.spacing(3),
-    padding: theme.spacing(3),
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
-    // maxHeight: '60vh',
-    overflowY: "auto",
-  },
-  [theme.breakpoints.down("md")]: {
-    root: {
-      // backgroundColor: 'pink',
-      flexDirection: "row",
-      flexWrap: "wrap",
-    },
-  },
-  [theme.breakpoints.down("xs")]: {
-    root: {
-      // backgroundColor: 'orange',
-      maxWidth: "lg",
-    },
-  },
-}))(MuiDialogContent);
+import './tabsStyle.css';
 
 function VendorLogin(props) {
-  const classes = useStyles();
-  const [subTab, setSubTab] = useState(0);
   const [open, setOpen] = useState(true);
 
-  const { parentCallback } = props;
-
-  const handleSubTabChange = (event, newValue) => {
-    setSubTab(newValue);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    parentCallback();
-  };
-
-  const a11yProps = (index) => {
-    return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-    };
-  };
-
-  let history = useHistory();
+  let history = useNavigate();
 
   return (
-    <div className={classes.root}>
-      <Dialog
-        onClose={handleClose}
-        open={open}
-        className={classes.root}
-        scroll="paper"
+    <div >
+      <Modal
+        isOpen={open}
       >
-        <div>
-          <br></br>
-          <br></br>
-          <Button variant="contained" color="success" onClick={history.goBack}>Return to Previous Page</Button>
-          <br></br>
-          <br></br>
-        </div>
+        <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto pt-2 -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current ">
+          <button type="button" class="w-fit ml-auto mr-auto text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            onClick={() => history(-1)}>
+            <p class="flex-1 text-xl font-syne text-center"> Return to Previous Page </p>
+          </button>
 
+          <div class="p-2">
+            <Tabs>
+              <TabList >
+                <Tab >Sign Up</Tab>
+                <Tab>Login</Tab>
+              </TabList>
 
-        <DialogTitle>
-          <AppBar position="static">
-            <Tabs
-              value={subTab}
-              onChange={handleSubTabChange}
-              aria-label="signup login tab"
-              centered
-            >
-              <Tab label="Login" {...a11yProps(0)} />
-              <Tab label="Sign Up" {...a11yProps(1)} />
+              <TabPanel>
+                <LoginForm user="vendor" />
+              </TabPanel>
+
+              <TabPanel >
+                {/* <SignUpForm /> */}
+              </TabPanel>
             </Tabs>
-          </AppBar>
-        </DialogTitle>
-        <DialogContent
-          style={{ alignItems: "flex-start", margin: 0, padding: 0 }}
-        >
-          <TabPanel value={subTab} index={0}>
-            <LoginForm user="vendor" switchTabs={setSubTab} />
-          </TabPanel>
-          <TabPanel value={subTab} index={1}>
-            <SignUpForm />
-          </TabPanel>
-        </DialogContent>
-      </Dialog>
-    </div>
+          </div>
+        </div>
+      </Modal >
+    </div >
   );
 }
 

@@ -12,6 +12,7 @@ import Piccrew from './Contest/Piccrew';
 import Navbar from './SharedPages/Navbar';
 import Footer from './SharedPages/Footer';
 import Profile from './ProfilePage/Profile';
+import VendorLogin from './Authentication/VendorLogin';
 
 import {
   BrowserRouter,
@@ -55,6 +56,7 @@ function App() {
         <Route path="/piccrew" element={<Piccrew/>}/>
         
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/vendorlogin" element={<VendorLogin/>} />
 
 
       </Routes>
