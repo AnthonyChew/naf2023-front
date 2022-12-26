@@ -75,6 +75,7 @@ export default function SignUpForm(props) {
         inputProps={{ maxLength: 32 }}
       />
       <div
+        class="border transition duration-150 ease-in-out"
         onClick={() => passwordRef.current.focus()}
       >
         <label
@@ -130,27 +131,16 @@ export default function SignUpForm(props) {
         value={formData.emailAddress}
         onChange={handleChange}
       />
-      <div
-        onClick={() => surChargeRef.current.focus()}
-      >
-        <label
-          htmlFor="surCharge"
-          className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
-        >
-          Vendor Surcharge {<span class='text-red-500'>*</span>}
-        </label>
-        <div class="flex flex-row">
-          <input
-            ref={surChargeRef}
-            name="surCharge"
-            className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
-            id="surCharge"
-            placeholder=""
-            value={formData.surcharge}
-            onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })}
-          />
-        </div>
-      </div>
+      <Input
+        name="surCharge"
+        label="SurCharge"
+        id="surCharge"
+        type="number"
+        pattern="^-?[0-9]\d*\.?\d*$"
+        className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+        placeholder="0"
+        value={formData.surcharge}
+        onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })} />
       <Input
         name="description"
         label="Description"

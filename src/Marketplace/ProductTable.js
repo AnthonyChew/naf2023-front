@@ -1,5 +1,4 @@
-import { lighten, makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+
 // import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
@@ -25,7 +24,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ProductRow from './ProductRow.js';
 import ConfirmationDialog from '../Components/ConfirmationDialog';
 import productService from '../services/products';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useNavigate } from 'react-router-dom';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -193,7 +192,7 @@ const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
   const { selected } = props;
   const [open, setOpen] = useState(false);
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -215,7 +214,7 @@ const EnhancedTableToolbar = (props) => {
         }
       }
 
-      history.go(0);
+      history(0);
     }
   };
 

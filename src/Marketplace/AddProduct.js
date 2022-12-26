@@ -1,111 +1,12 @@
-import React, { useState, useEffect, Component } from 'react';
-import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Typography from '@material-ui/core/Typography';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import ChipInput from 'material-ui-chip-input';
+import React, { useState, useEffect } from 'react';
+
 import productService from '../services/products';
 import { useDropzone } from 'react-dropzone';
-import IconButton from '@material-ui/core/IconButton';
-import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
-import { useHistory } from 'react-router-dom';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useNavigate } from 'react-router-dom';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import { usePromiseTracker } from 'react-promise-tracker';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
-  formSection: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    display: 'block',
-  },
-  indentedCheckboxes: {
-    marginLeft: theme.spacing(2),
-  },
-  secondaryInput: {
-    marginLeft: theme.spacing(3),
-    marginBottom: theme.spacing(2),
-  },
-  rowLabels: {
-    align: 'center',
-  },
-  //IMAGE DROPZONE STYLING
-  dropzone: {
-    // backgroundColor: 'pink',
-    border: '3px dashed rgba(179, 86, 153, 0.6)',
-    color: 'rgba(179, 86, 153, 1)',
-    padding: theme.spacing(5),
-    marginTop: theme.spacing(2),
-    margin: 'auto',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: theme.palette.background.default,
-      cursor: 'pointer',
-    },
-    '&:focus': {
-      outline: 'none',
-    },
-  },
-  thumbsContainer: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 16,
-    justifyContent: 'center',
-  },
-  thumb: {
-    display: 'inline-flex',
-    position: 'relative',
-    borderRadius: 2,
-    border: '1px solid #eaeaea',
-    marginBottom: 8,
-    marginRight: 8,
-    padding: 5,
-  },
-  thumbInner: {
-    //   minWidth: 0,
-    //   overflow: 'hidden',
-    height: 150,
-  },
-  img: {
-    display: 'block',
-    width: 'auto',
-    height: '100%',
-  },
-  [theme.breakpoints.down('xs')]: {
-    thumbInner: {
-      height: 'auto',
-    },
-    img: {
-      width: '100%',
-      objectFit: 'cover',
-    },
-  },
-}));
+import Input from '../utils/Input';
 
 export default function AddProduct(props) {
   const {
@@ -127,8 +28,7 @@ export default function AddProduct(props) {
     pdtImages,
     type,
   } = props;
-  const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const [state, setState] = useState({
     name: pdtName,
     description: typeof pdtDesc !== 'undefined' ? pdtDesc : '',
@@ -334,8 +234,8 @@ export default function AddProduct(props) {
         allFiles.map((file) =>
           typeof file.name === 'string'
             ? Object.assign(file, {
-                preview: URL.createObjectURL(file),
-              })
+              preview: URL.createObjectURL(file),
+            })
             : file
         )
       );
@@ -485,402 +385,317 @@ export default function AddProduct(props) {
 
   return (
     <>
-      <Dialog
-        open={true}
-        onClose={handleClose}
-        aria-labelledby="Add new product"
-        fullWidth={true}
-        maxWidth="md" //or "lg"
-        fullScreen
-        className={classes.root}
-      >
-        <DialogTitle id="Add new product">
-          {type === 'add' ? 'Add New Product' : 'Edit Product'}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Please fill in the following form to add your product:
-          </DialogContentText>
-          <form
-            className={classes.form}
-            autoComplete="off"
-            onSubmit={handleSubmit}
-          >
-            <TextField
-              required
-              id="name"
-              label="Product Name"
-              type="text"
-              fullWidth
-              variant="outlined"
-              color="secondary"
-              className={classes.formSection}
-              onChange={handleInputChange('name')}
-              defaultValue={pdtName}
-            />
-            <TextField
-              id="description"
-              label="Product Description"
-              type="text"
-              fullWidth
-              variant="outlined"
-              color="secondary"
-              multiline
-              rows={5}
-              className={classes.formSection}
-              onChange={handleInputChange('description')}
-              defaultValue={pdtDesc}
-            />
-            <FormControl
-              required
-              variant="outlined"
-              color="secondary"
-              className={classes.formSection}
-            >
-              <InputLabel htmlFor="price">Price</InputLabel>
-              <OutlinedInput
-                id="price"
-                value={state.price}
-                onChange={handleInputChange('price')}
-                startAdornment={
-                  <InputAdornment position="start">$</InputAdornment>
-                }
-                fullWidth
-                labelWidth={45}
-                inputProps={{
-                  min: '0',
-                  step: '0.01',
-                  // pattern: '[0-9]*',
-                }}
-                type="number"
-                defaultValue={pdtPrice}
-              />
-            </FormControl>
-            <FormControl
-              component="fieldset"
-              // variant="outlined"
-              required
-              color="secondary"
-              className={classes.formSection}
-            >
-              <Autocomplete
-                id="product-category"
-                name="category"
-                options={pdtCategories}
-                getOptionLabel={(option) => option}
-                // style={{ width: 300 }}
-                value={state.category}
-                onChange={handleCategoryChange}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    required
-                    color="secondary"
-                    label="Product Category"
-                    variant="outlined"
-                  />
-                )}
-              />
-            </FormControl>
-            <FormControl
-              component="fieldset"
-              // variant="outlined"
-              color="secondary"
-              className={classes.formSection}
-            >
-              <FormLabel component="legend">Product Options</FormLabel>
-              <FormGroup className={classes.indentedCheckboxes}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.addAttribute1}
-                      onChange={handleChange}
-                      name="addAttribute1"
-                    />
-                  }
-                  label="Add Attribute 1"
-                />
-                {state.addAttribute1 && (
-                  <div className={classes.secondaryInput}>
-                    <TextField
-                      required
-                      id="attribute1"
-                      label="Attribute 1 (e.g. colour, size)"
-                      type="text"
-                      fullWidth
-                      variant="outlined"
-                      color="secondary"
-                      value={state.attribute1}
-                      className={classes.formSection}
-                      onChange={handleInputChange('attribute1')}
-                    />
-                    <ChipInput
-                      label="Attribute 1 Options"
-                      color="secondary"
-                      variant="outlined"
-                      name="attribute1options"
-                      value={attribute1options}
-                      fullWidth
-                      onAdd={(chip) => handleAddAttribute1Chip(chip)}
-                      onDelete={(chip, index) =>
-                        handleDeleteAttribute1Chip(chip, index)
-                      }
-                    />
-                    <FormHelperText>
-                      Please press Enter after each attribute option
-                    </FormHelperText>
-                  </div>
-                )}
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.addAttribute2}
-                      onChange={handleChange}
-                      name="addAttribute2"
-                    />
-                  }
-                  label="Add Attribute 2"
-                />
-                {state.addAttribute2 && (
-                  <div className={classes.secondaryInput}>
-                    <TextField
-                      required
-                      id="attribute2"
-                      label="Attribute 2 (e.g. colour, size)"
-                      type="text"
-                      fullWidth
-                      variant="outlined"
-                      color="secondary"
-                      value={state.attribute2}
-                      className={classes.formSection}
-                      onChange={handleInputChange('attribute2')}
-                    />
-                    <ChipInput
-                      label="Attribute 2 Options"
-                      color="secondary"
-                      variant="outlined"
-                      value={attribute2options}
-                      fullWidth
-                      onAdd={(chip) => handleAddAttribute2Chip(chip)}
-                      onDelete={(chip, index) =>
-                        handleDeleteAttribute2Chip(chip, index)
-                      }
-                    />
-                    <FormHelperText>
-                      Please press Enter after each attribute option
-                    </FormHelperText>
-                  </div>
-                )}
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.isPreOrder}
-                      onChange={handleChange}
-                      name="isPreOrder"
-                    />
-                  }
-                  label="Pre-Order"
-                />
-                {state.isPreOrder && (
-                  <div className={classes.secondaryInput}>
-                    <FormControl
-                      required
-                      variant="outlined"
-                      color="secondary"
-                      className={classes.formSection}
-                    >
-                      <InputLabel htmlFor="leadTime">Lead Time</InputLabel>
-                      <OutlinedInput
-                        id="leadTime"
-                        // value={state.leadTime}
-                        onChange={handleInputChange('leadTime')}
-                        endAdornment={
-                          <InputAdornment position="end">days</InputAdornment>
-                        }
-                        labelWidth={80}
-                        type="number"
-                        inputProps={{
-                          min: '1',
-                        }}
-                        defaultValue={state.leadTime}
-                      />
-                      <FormHelperText>
-                        Product lead time indicates the minimum number of days
-                        the order must be placed before collection.
-                      </FormHelperText>
-                    </FormControl>
-                  </div>
-                )}
-              </FormGroup>
-            </FormControl>
-            <div className={classes.quantity}>
-              <FormLabel component="legend">
-                Product Variant Quantities
-              </FormLabel>
-              <List className={classes.root}>
-                {tableRow.map((colour, colourIndex) => {
-                  return tableCol.map((size, sizeIndex) => {
-                    const labelId = `${colour}-${size}`;
-                    // const label =
-                    //   (colour === '' ? '' : `${colour} colour`) +
-                    //   (size === '' ? '' : `${size} size`);
-                    const label =
-                      colour === '' && size === ''
-                        ? 'Original'
-                        : colour.toUpperCase() + ' ' + size.toUpperCase();
-                    return (
-                      <ListItem key={labelId} disableGutters divider>
-                        <ListItemText
-                          id={labelId}
-                          primary={`Variant: ${label}`}
-                          disableTypography
-                          style={{ display: 'inline-block' }}
-                        />
-                        {/* <ListItemSecondaryAction
-                        style={{ display: 'inline-block' }} //this has shitty styling
-                      > */}
-                        <div
-                          style={{ display: 'inline-block', paddingLeft: 15 }}
-                        >
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                // edge="center"
-                                onChange={handleToggle(
-                                  `${colour}-${size}`,
-                                  colourIndex,
-                                  sizeIndex
-                                )}
-                                checked={
-                                  checked.indexOf(`${colour}-${size}`) !== -1
-                                }
-                                inputProps={{
-                                  'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
-                                }}
-                              />
-                            }
-                            label="Unlimited Quantity"
-                          />
-                          {checked.indexOf(`${colour}-${size}`) === -1 && (
-                            <TextField
-                              required
-                              label="Quantity"
-                              type="number"
-                              inputProps={{ min: '0' }}
-                              size="small"
-                              variant="outlined"
-                              color="secondary"
-                              onChange={handleQtyChange(
-                                colourIndex,
-                                sizeIndex,
-                                false
-                              )}
-                              defaultValue={
-                                quantity[colourIndex][sizeIndex] < 999999
-                                  ? quantity[colourIndex][sizeIndex]
-                                  : ''
-                              }
-                            />
-                          )}
-                        </div>
-                        {/* </ListItemSecondaryAction> */}
-                      </ListItem>
-                    );
-                  });
-                })}
-              </List>
-            </div>
+      <div id="Add new product">
+        {type === 'add' ? 'Add New Product' : 'Edit Product'}
+      </div>
+      <div>
+        <div>
+          Please fill in the following form to add your product:
+        </div>
+        <form
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <Input
+            required
+            id="name"
+            label="Product Name"
+            type="text"
+            fullWidth
+            onChange={handleInputChange('name')}
+            defaultValue={pdtName}
+          />
+          <Input
+            id="description"
+            label="Product Description"
+            type="text"
+            multiline
+            rows={5}
+            onChange={handleInputChange('description')}
+            defaultValue={pdtDesc}
+          />
+          <Input
+            label="Price"
+            id="price"
+            value={state.price}
+            onChange={handleInputChange('price')}
+            type="number"
+            defaultValue={pdtPrice}
+            required
+          />
 
-            <FormLabel component="legend" required>
-              Product Collection Options
-            </FormLabel>
-            <FormGroup className={classes.indentedCheckboxes}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={state.canCollect}
-                    onChange={handleChange}
-                    name="canCollect"
-                  />
-                }
-                label="Allow self-collection"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={state.canDeliver}
-                    onChange={handleChange}
-                    name="canDeliver"
-                  />
-                }
-                label="Allow delivery"
-              />
-            </FormGroup>
+          <label>
+            Pick your favorite flavor:
+            <select
+              id="product-category"
+              name="category"
+              required
+              options={pdtCategories}
+              getOptionLabel={(option) => option}
+              value={state.category}
+              onChange={handleCategoryChange}
+              renderInput={(params) => (
+                <option
+                  {...params}
+                  required
+                  color="secondary"
+                  label="Product Category"
+                  variant="outlined"
+                />
+              )}>
+            </select>
+          </label>
 
-            <FormControl
-              component="fieldset"
-              // variant="outlined"
-              color="secondary"
-              className={classes.formSection}
-            >
-              <FormLabel component="legend">Product Images</FormLabel>
-              <div {...getRootProps({ className: classes.dropzone })}>
-                <input {...getInputProps()} />
+
+          <p>Product Options</p>
+          <div >
+            Add Attribute 1
+            <input type="checkbox"
+              checked={state.addAttribute1}
+              onChange={handleChange}
+              name="addAttribute1"
+            />
+            {state.addAttribute1 && (
+              <div>
+                <Input
+                  required
+                  id="attribute1"
+                  label="Attribute 1 (e.g. colour, size)"
+                  type="text"
+                  fullWidth
+                  value={state.attribute1}
+                  onChange={handleInputChange('attribute1')}
+                />
+                {/* <ChipInput
+                  label="Attribute 1 Options"
+                  color="secondary"
+                  variant="outlined"
+                  name="attribute1options"
+                  value={attribute1options}
+                  fullWidth
+                  onAdd={(chip) => handleAddAttribute1Chip(chip)}
+                  onDelete={(chip, index) =>
+                    handleDeleteAttribute1Chip(chip, index)
+                  }
+                /> */}
+
                 <p>
-                  Drag and drop your product images here, or click to select
-                  files (Squared images are preferred)
+                  Please press Enter after each attribute option
                 </p>
               </div>
-              <aside className={classes.thumbsContainer}>
-                {images.map((file) => (
-                  <div className={classes.thumb} key={file.name}>
-                    <IconButton
-                      aria-label="remove image"
-                      color="secondary"
-                      onClick={() => removeImage(file)}
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                      }}
-                    >
-                      <CloseRoundedIcon />
-                    </IconButton>
-                    <div className={classes.thumbInner}>
-                      {typeof file.preview === 'undefined' ? (
-                        <img src={file} className={classes.img} />
-                      ) : (
-                        <img src={file.preview} className={classes.img} />
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </aside>
-            </FormControl>
-            <Button
-              type="submit"
-              variant="contained"
-              color="secondary"
-              disabled={promiseInProgress}
-            >
-              {type === 'add' ? 'Add Product' : 'Update Product'}
-            </Button>
-            <FormHelperText style={{ color: 'red' }}>
-              {helperText}
-            </FormHelperText>
-            <LoadingSpinnerComponent />
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            color="secondary"
+            )}
+          </div>
+
+          <div>
+            Add Attribute 2
+            <input type="checkbox"
+              checked={state.addAttribute2}
+              onChange={handleChange}
+              name="addAttribute2"
+            />
+          </div>
+          {state.addAttribute2 && (
+            <div >
+              <Input
+                required
+                id="attribute2"
+                label="Attribute 2 (e.g. colour, size)"
+                type="text"
+                fullWidth
+                value={state.attribute2}
+                onChange={handleInputChange('attribute2')}
+              />
+
+              {/* <ChipInput
+                label="Attribute 2 Options"
+                color="secondary"
+                variant="outlined"
+                value={attribute2options}
+                fullWidth
+                onAdd={(chip) => handleAddAttribute2Chip(chip)}
+                onDelete={(chip, index) =>
+                  handleDeleteAttribute2Chip(chip, index)
+                }
+              /> */}
+
+              <p>
+                Please press Enter after each attribute option
+              </p>
+            </div>
+          )}
+
+          <div>
+            Pre-Order
+            <input type="checkbox"
+              checked={state.isPreOrder}
+              onChange={handleChange}
+              name="isPreOrder"
+            />
+
+          </div>
+
+          {state.isPreOrder && (
+            <div >
+
+              <p>Lead Time</p>
+              <Input
+                id="leadTime"
+                onChange={handleInputChange('leadTime')}
+                labelWidth={80}
+                type="number"
+                inputProps={{
+                  min: '1',
+                }}
+                defaultValue={state.leadTime}
+              />
+              <p>
+                Product lead time indicates the minimum number of days
+                the order must be placed before collection.
+              </p>
+            </div>
+          )}
+
+          <div>
+            <p >
+              Product Variant Quantities
+            </p>
+            <ul>
+              {tableRow.map((colour, colourIndex) => {
+                return tableCol.map((size, sizeIndex) => {
+                  const labelId = `${colour}-${size}`;
+                  const label =
+                    colour === '' && size === ''
+                      ? 'Original'
+                      : colour.toUpperCase() + ' ' + size.toUpperCase();
+                  return (
+                    <li key={labelId} disableGutters divider>
+                      <p
+                        id={labelId}
+                        primary={`Variant: ${label}`}
+                        style={{ display: 'inline-block' }}
+                      />
+                      <div
+                        style={{ display: 'inline-block', paddingLeft: 15 }}
+                      >
+                        <div>
+                          Unlimited Quantity
+                          <input type="checkbox"
+                            // edge="center"
+                            onChange={handleToggle(
+                              `${colour}-${size}`,
+                              colourIndex,
+                              sizeIndex
+                            )}
+                            checked={
+                              checked.indexOf(`${colour}-${size}`) !== -1
+                            }
+                            inputProps={{
+                              'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
+                            }}
+                          />
+                        </div>
+
+                        {checked.indexOf(`${colour}-${size}`) === -1 && (
+                          <Input
+                            required
+                            label="Quantity"
+                            type="number"
+                            inputProps={{ min: '0' }}
+                            size="small"
+                            onChange={handleQtyChange(
+                              colourIndex,
+                              sizeIndex,
+                              false
+                            )}
+                            defaultValue={
+                              quantity[colourIndex][sizeIndex] < 999999
+                                ? quantity[colourIndex][sizeIndex]
+                                : ''
+                            }
+                          />
+                        )}
+                      </div>
+                    </li>
+                  );
+                });
+              })}
+            </ul>
+          </div>
+
+          <p>
+            Product Collection Options
+          </p>
+          <div>
+            Allow self-collection
+            <input type="checkbox"
+              checked={state.canCollect}
+              onChange={handleChange}
+              name="canCollect"
+            />
+          </div>
+
+          <div>
+            Allow delivery
+            <input type="checkbox"
+              checked={state.canDeliver}
+              onChange={handleChange}
+              name="canDeliver"
+            />
+          </div>
+
+
+          <p>Product Images</p>
+          <div {...getRootProps({ })}>
+            <input {...getInputProps()} />
+            <p>
+              Drag and drop your product images here, or click to select
+              files (Squared images are preferred)
+            </p>
+          </div>
+          <aside >
+            {images.map((file) => (
+              <div key={file.name}>
+                <button aria-label="remove image"
+                  color="secondary"
+                  onClick={() => removeImage(file)}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                  }}>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" /></svg>
+                </button>
+                <div >
+                  {typeof file.preview === 'undefined' ? (
+                    <img src={file}  />
+                  ) : (
+                    <img src={file.preview} />
+                  )}
+                </div>
+              </div>
+            ))}
+          </aside>
+          <button
+            type="submit"
             disabled={promiseInProgress}
           >
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog>
+            {type === 'add' ? 'Add Product' : 'Update Product'}
+          </button>
+          <p style={{ color: 'red' }}>
+            {helperText}
+          </p>
+          <LoadingSpinnerComponent />
+        </form>
+      </div >
+      
+        <button
+          onClick={handleClose}
+          color="secondary"
+          disabled={promiseInProgress}
+        >
+          Cancel
+        </button>
     </>
   );
 }

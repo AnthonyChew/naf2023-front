@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import AddProduct from './AddProduct';
+import AddProduct from './AddProduct';
 //import ProductTable from './ProductTable';
 
 import VendorAuth from '../Authentication/VendorLogin';
@@ -11,6 +11,7 @@ import Logout from '../Authentication/Logout';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import Modal from 'react-modal';
+import './VendorLoginStyle.css'
 
 function VendorLogin() {
   // const products = useSelector((state) => state.products);
@@ -45,6 +46,7 @@ function VendorLogin() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  
   const handleClose = () => {
     setOpen(false);
     setEdit(false);
@@ -75,96 +77,84 @@ function VendorLogin() {
   return (
     <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
       <LoadingSpinnerComponent />
-      <Modal isOpen={!auth} onRequestClose={closeModal}>
-        < VendorAuth parentCallBack={closeModal} />
-      </Modal>
+      {auth ? (
+        <div >
 
-      {/* {auth ? (
-        <div className={classes.root}>
-
-          <div className={classes.content}>
-            <Typography className={classes.vendorLoginTitle} variant="h2">
+          <div >
+            <h2 >
               VENDOR LOGIN
-            </Typography>
-            <Typography className={classes.welcome} paragraph>
+            </h2>
+            <p >
               Welcome back, {profile && profile.displayName}!
-            </Typography>
-            <Typography paragraph className={classes.description}>
+            </p>
+            <p>
               {profile && profile.description}
-            </Typography>
+            </p>
             {contactNumber ? (
-              <Typography paragraph className={classes.contactDetails}>
+              <p>
                 Contact number: {contactNumber}
-              </Typography>
+              </p>
             ) : null}
             {emailAddress ? (
-              <Typography paragraph className={classes.contactDetails}>
+              <p >
                 Email address: {emailAddress}
-              </Typography>
+              </p>
             ) : null}
             {instagramAccount ? (
-              <Typography paragraph className={classes.contactDetails}>
+              <p>
                 Social media: {instagramAccount}
-              </Typography>
+              </p>
             ) : null}
             {website ? (
-              <Typography paragraph className={classes.contactDetails}>
+              <p>
                 Website: {website}
-              </Typography>
+              </p>
             ) : null}
             <Logout />
-            <Box textAlign="center" className={classes.button}>
-              <Button onClick={editProfile} variant="contained">
-                Edit Profile
-              </Button>
-            </Box>
-            {edit && (
+            <button onClick={editProfile}>
+              Edit Profile
+            </button>
+
+            {/* {edit && (
               <EditVendor
                 //callback
                 parentCallback={handleClose}
                 vendor={profile}
               />
-            )}
-            <Grid className={classes.myProductWrapper}>
+            )} */}
 
-           
-            <Grid
-              container
-              justify="flex-end"
-              alignItems="center"
-              spacing={3}
-              style={{position: 'relative', paddingTop: 20}}
-            >
-              <Grid item xs={12} sm={4} style={{ position: 'relative' }}>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  onClick={handleClickOpen}
-                  id="addProduct"
-                >
-                  Add Product
-                </Button>
-                {open && (
-                  <AddProduct
-                    //callback
-                    parentCallback={handleClose}
-                    type="add"
-                  />
-                )}
-              </Grid>
-              </Grid>
-            <ProductTable rows={profile && profile.products} isNested={false} />
-            <Box textAlign="center" >
-              <Button variant="contained" onClick={downloadOrders}>
-                Download orders
-              </Button>
-            </Box>
-            </Grid>
+            <div>
+              <div class="relative pt-10 flex flex-end items-center gap-3">
+
+                <div class="relative">
+                  <button
+                    onClick={handleClickOpen}
+                    id="addProduct"
+                  >
+                    Add Product
+                  </button>
+
+
+                  <Modal isOpen={open} parentCallback={handleClose} onRequestClose={handleClose}>
+                    <AddProduct  type="add" />
+                  </Modal>
+                </div>
+              </div>
+              {/* <ProductTable rows={profile && profile.products} isNested={false} /> */}
+              <div textAlign="center" >
+                <button variant="contained" onClick={downloadOrders}>
+                  Download orders
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
-        <VendorAuth parentCallback={handleLoginClose} />
-      )} */}
+        <Modal isOpen={!auth} onRequestClose={closeModal}>
+          < VendorAuth parentCallBack={closeModal} />
+        </Modal>
+
+      )}
     </div>
   );
 }
