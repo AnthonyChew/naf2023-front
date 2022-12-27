@@ -60,7 +60,6 @@ export default function LoginForm(props) {
         id="username"
         onChange={handleChange('username')}
         color="secondary"
-        inputProps={{ maxLength: 64 }}
         required
       />
       <div

@@ -7,6 +7,8 @@ import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import { usePromiseTracker } from 'react-promise-tracker';
 import Input from '../utils/Input';
+import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 
 export default function AddProduct(props) {
   const {
@@ -51,6 +53,8 @@ export default function AddProduct(props) {
   const [quantity, setQuantity] = useState(
     typeof pdtQuantity !== 'undefined' ? pdtQuantity : [[]]
   );
+  const [attb1InputValue, setAttb1Input] = React.useState('');
+  const [attb1Value, setAttb1Value] = React.useState([]);
   const { promiseInProgress } = usePromiseTracker();
 
   //ATTRIBUTE 1 = SIZES, ATTRIBUTE2 = COLOURS
@@ -58,35 +62,44 @@ export default function AddProduct(props) {
   const [attribute1options, setAttribute1] = useState(
     state.addAttribute1 ? pdtAtt1Options : []
   );
-  const handleAddAttribute1Chip = (chip) => {
-    setAttribute1((attribute1options) => [...attribute1options, chip]);
-    // console.log(attribute1options.length); //FIX THIS
-    if (attribute1options.length > 0) {
-      //if 1 colour -> increase but if 0 colours to 1 colour can reuse the matrix
-      //Initial matrix = [[]]
-      setQuantity((quantity) => [...quantity, []]);
-      // console.log('ADDING ATTRIBUTE 1 CHIP, QUANTITY: ', (quantity) => [
-      //   ...quantity,
-      //   [],
-      // ]);
+
+  const handleAddAttribute1Chip = (event) => {
+    if (!attb1InputValue) return;
+    switch (event.key) {
+      case 'Enter':
+      case 'Tab':
+        setAttb1Value((prev) => [...prev, { label: attb1InputValue, value: attb1InputValue }]);
+        setAttribute1((attribute1options) => [...attribute1options, attb1InputValue]);
+        if (attribute1options.length > 0) {
+          setQuantity((quantity) => [...quantity, []]);
+        }
+
+        setAttb1Input('');
+        event.preventDefault();
     }
   };
-  const handleDeleteAttribute1Chip = (chip) => {
-    console.log('Delete properly');
-    const indexOfColor = attribute1options.indexOf(chip);
-    //FIX THIS
-    setQuantity(quantity.filter((qty, index) => index !== indexOfColor));
-    if (attribute1options.length === 1) {
-      //if got 1 colour only then just set to an empty array
-      // setQuantity((quantity[indexOfColor] = []));
-      setQuantity([[]]);
-      // console.log('DELETING ATTRIBUTE 1 CHIP, QUANTITY: ', [[]]);
+  
+  const handleDeleteAttribute1Chip = (event,type) => {
+  
+    setAttb1Value(event.value);
+    
+    if (type.action === 'remove-value') {
+      const indexOfColor = attribute1options.indexOf(type.removedValue.value);
+      //FIX THIS
+      setQuantity(quantity.filter((qty, index) => index !== indexOfColor));
+      if (attribute1options.length === 1) {
+        //if got 1 colour only then just set to an empty array
+        // setQuantity((quantity[indexOfColor] = []));
+        setQuantity([[]]);
+        // console.log('DELETING ATTRIBUTE 1 CHIP, QUANTITY: ', [[]]);
+      }
+      //console.log(quantity);
+      // console.log(
+      //   'DELETING ATTRIBUTE 1 CHIP, QUANTITY: ',
+      //   quantity.filter((qty, index) => index !== indexOfColor)
+      // );
+      setAttribute1(attribute1options.filter((colour) => colour !== type.removedValue.value));
     }
-    // console.log(
-    //   'DELETING ATTRIBUTE 1 CHIP, QUANTITY: ',
-    //   quantity.filter((qty, index) => index !== indexOfColor)
-    // );
-    setAttribute1(attribute1options.filter((colour) => colour !== chip));
   };
 
   //INPUT POSSIBLE COLOURS (ROW)
@@ -140,7 +153,7 @@ export default function AddProduct(props) {
 
   const tableRow =
     attribute1options.length === 0
-      ? [''].concat(attribute1options)
+      ? [].concat(attribute1options)
       : attribute1options;
 
   //PRODUCT OPTION CHECKBOXES
@@ -216,8 +229,8 @@ export default function AddProduct(props) {
     // console.log(event);
   };
 
-  const handleCategoryChange = (event, value) => {
-    setState({ ...state, category: value });
+  const handleCategoryChange = (event) => {
+    setState({ ...state, category: event.value });
   };
 
   //ADD IMAGES DROPZONE
@@ -322,7 +335,7 @@ export default function AddProduct(props) {
         res = await trackPromise(productService.updateProduct(_id, newProduct));
       }
       if (res.status === 200) {
-        history.go(0);
+        history(0);
         handleClose();
       } else {
         if (res.status === 400) {
@@ -371,20 +384,20 @@ export default function AddProduct(props) {
 
   //for product category:
   const pdtCategories = [
-    'Accessories',
-    'Apparel',
-    'Food and Beverage',
-    'Bags',
-    'Decor',
-    'Illustrations/Prints/Paintings',
-    'Masks',
-    'Stationery',
-    'Others',
-    'NAF Merch',
+    { value: 'Accessories', label: 'Accessories' },
+    { value: 'Apparel', label: 'Apparel' },
+    { value: 'Food and Beverage', label: 'Food and Beverage' },
+    { value: 'Bags', label: 'Bags' },
+    { value: 'Decor', label: 'Decor' },
+    { value: 'Illustrations/Prints/Paintings', label: 'Illustrations/Prints/Paintings' },
+    { value: 'Masks', label: 'Masks' },
+    { value: 'Stationery', label: 'Stationery' },
+    { value: 'Others', label: 'Others' },
+    { value: 'NAF Merch', label: 'NAF Merch' }
   ];
 
   return (
-    <>
+    <div class="bg-white p-2">
       <div id="Add new product">
         {type === 'add' ? 'Add New Product' : 'Edit Product'}
       </div>
@@ -401,19 +414,21 @@ export default function AddProduct(props) {
             id="name"
             label="Product Name"
             type="text"
-            fullWidth
             onChange={handleInputChange('name')}
             defaultValue={pdtName}
           />
-          <Input
-            id="description"
-            label="Product Description"
-            type="text"
-            multiline
-            rows={5}
-            onChange={handleInputChange('description')}
-            defaultValue={pdtDesc}
-          />
+          <div class='flex flex-col'>
+            <p>Description</p>
+            <textarea
+              id="description"
+              label="Product Description"
+              type="text"
+              class="border-black"
+              rows="5"
+              onChange={handleInputChange('description')}
+              defaultValue={pdtDesc}
+            />
+          </div>
           <Input
             label="Price"
             id="price"
@@ -425,31 +440,20 @@ export default function AddProduct(props) {
           />
 
           <label>
-            Pick your favorite flavor:
-            <select
+            Product Category:
+            <Select
               id="product-category"
               name="category"
               required
               options={pdtCategories}
-              getOptionLabel={(option) => option}
-              value={state.category}
-              onChange={handleCategoryChange}
-              renderInput={(params) => (
-                <option
-                  {...params}
-                  required
-                  color="secondary"
-                  label="Product Category"
-                  variant="outlined"
-                />
-              )}>
-            </select>
+              onChange={handleCategoryChange}>
+            </Select>
           </label>
 
 
           <p>Product Options</p>
           <div >
-            Add Attribute 1
+            Add Attribute
             <input type="checkbox"
               checked={state.addAttribute1}
               onChange={handleChange}
@@ -462,9 +466,22 @@ export default function AddProduct(props) {
                   id="attribute1"
                   label="Attribute 1 (e.g. colour, size)"
                   type="text"
-                  fullWidth
                   value={state.attribute1}
                   onChange={handleInputChange('attribute1')}
+                />
+                <CreatableSelect
+                  isMulti
+                  inputValue={attb1InputValue}
+                  onChange={handleDeleteAttribute1Chip}
+                  onInputChange={(newValue) => setAttb1Input(newValue)}
+                  label="Attribute 1 Options"
+                  color="secondary"
+                  variant="outlined"
+                  name="attribute1options"
+                  onKeyDown={handleAddAttribute1Chip}
+                  value={attb1Value}
+                // onDelete={(chip, index) =>
+                //   handleDeleteAttribute1Chip(chip, index)}
                 />
                 {/* <ChipInput
                   label="Attribute 1 Options"
@@ -501,7 +518,6 @@ export default function AddProduct(props) {
                 id="attribute2"
                 label="Attribute 2 (e.g. colour, size)"
                 type="text"
-                fullWidth
                 value={state.attribute2}
                 onChange={handleInputChange('attribute2')}
               />
@@ -543,9 +559,6 @@ export default function AddProduct(props) {
                 onChange={handleInputChange('leadTime')}
                 labelWidth={80}
                 type="number"
-                inputProps={{
-                  min: '1',
-                }}
                 defaultValue={state.leadTime}
               />
               <p>
@@ -563,12 +576,13 @@ export default function AddProduct(props) {
               {tableRow.map((colour, colourIndex) => {
                 return tableCol.map((size, sizeIndex) => {
                   const labelId = `${colour}-${size}`;
+                  //console.log(tableRow)
                   const label =
                     colour === '' && size === ''
                       ? 'Original'
                       : colour.toUpperCase() + ' ' + size.toUpperCase();
                   return (
-                    <li key={labelId} disableGutters divider>
+                    <li key={labelId} >
                       <p
                         id={labelId}
                         primary={`Variant: ${label}`}
@@ -589,9 +603,9 @@ export default function AddProduct(props) {
                             checked={
                               checked.indexOf(`${colour}-${size}`) !== -1
                             }
-                            inputProps={{
-                              'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
-                            }}
+                          // inputProps={{ 
+                          //   'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
+                          // }}
                           />
                         </div>
 
@@ -600,7 +614,6 @@ export default function AddProduct(props) {
                             required
                             label="Quantity"
                             type="number"
-                            inputProps={{ min: '0' }}
                             size="small"
                             onChange={handleQtyChange(
                               colourIndex,
@@ -645,7 +658,7 @@ export default function AddProduct(props) {
 
 
           <p>Product Images</p>
-          <div {...getRootProps({ })}>
+          <div {...getRootProps({})}>
             <input {...getInputProps()} />
             <p>
               Drag and drop your product images here, or click to select
@@ -668,7 +681,7 @@ export default function AddProduct(props) {
                 </button>
                 <div >
                   {typeof file.preview === 'undefined' ? (
-                    <img src={file}  />
+                    <img src={file} />
                   ) : (
                     <img src={file.preview} />
                   )}
@@ -688,14 +701,14 @@ export default function AddProduct(props) {
           <LoadingSpinnerComponent />
         </form>
       </div >
-      
-        <button
-          onClick={handleClose}
-          color="secondary"
-          disabled={promiseInProgress}
-        >
-          Cancel
-        </button>
-    </>
+
+      <button
+        onClick={handleClose}
+        color="secondary"
+        disabled={promiseInProgress}
+      >
+        Cancel
+      </button>
+    </div>
   );
 }

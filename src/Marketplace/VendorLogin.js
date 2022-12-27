@@ -141,8 +141,8 @@ function VendorLogin() {
                 </div>
               </div>
               {/* <ProductTable rows={profile && profile.products} isNested={false} /> */}
-              <div textAlign="center" >
-                <button variant="contained" onClick={downloadOrders}>
+              <div  >
+                <button onClick={downloadOrders}>
                   Download orders
                 </button>
               </div>
