@@ -16,23 +16,16 @@ import 'swiper/css/effect-fade';
 import AppleHeader from '../SharedPages/AppleHeader';
 import SearchBar from './SearchBar';
 import Filter from './Filter';
-import { useIsMount } from '../utils/isMount';
 
 const MarketPlaceLanding = () => {
-  const isMount = useIsMount();
   const [allproducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
-
   const [oneproduct, setOneProduct] = useState({ images: [] });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageNumbers, setpageNumbers] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
-
   const [searchValue, setSearchValue] = useState('');
-  const [filterOptions, setFilterOptions] = useState([1, 2]);
-
-
-
+  const [filterOptions, setFilterOptions] = useState([]);
   // No of Records to be displayed on each page   
   const [recordsPerPage] = useState(10);
 
@@ -97,14 +90,15 @@ const MarketPlaceLanding = () => {
         <img class="my-10" src={MarketPlaceLogo}></img>
         <div class="font-syne w-[60%] text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
       </div>
-      {/* button */}
-      <div class="flex justify-between m-10">
+      {/* filter and search button */}
+      <div class="flex justify-between my-20 mx-10">
         <SearchBar searchCallback={(searchValue) => setSearchValue(searchValue)} />
         <Filter filterCallback={(filterOptions) => setFilterOptions(filterOptions)}></Filter>
       </div>
 
       {/* product and ads */}
       <div class="flex font-syne">
+        {/* product part */}
         <div class="basis-5/6">
           <div class=" flex flex-wrap">
             {
@@ -125,6 +119,7 @@ const MarketPlaceLanding = () => {
               ))
             }
           </div>
+          {/* Pagination at bottom of page */}
           <div class="w-[100%] text-center my-10">
             {
               pageNumbers.length > 0 ?
@@ -161,7 +156,7 @@ const MarketPlaceLanding = () => {
           </div>
         </div>
       </div>
-
+      {/* Modal */}
       <Modal
         isOpen={modalIsOpen}
         closeTimeoutMS={200}

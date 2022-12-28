@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PaymentLogo from './svgs/Payment/PaymentLogo.png'
 import QRCode from './svgs/Payment/QRCode.svg'
 
@@ -45,7 +46,25 @@ import PaymentYellowDot from './svgs/Payment/PaymentYellowDot.svg'
 import PaymentPurpleDot from './svgs/Payment/PaymentPurpleDot.svg'
 
 
+
 const Payment = () => {
+
+  const state = useSelector((state) => {
+    // console.log(state);
+    return state;
+  });
+  const [products, setProducts] = useState([]);
+  const [subtotalPrice, setSubtotal] = useState([]);
+  const [shipping, setShipping] = useState([]);
+  const [totalPrice, setTotalPrice] = useState([]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(state.addedProducts)
+    setProducts(state.addedProducts)
+  }, []);
+
   return (
     <div class="relative bg-NAFPink">
       <div class="relative">
@@ -109,11 +128,11 @@ const Payment = () => {
           <div class="pt-16 pb-12 px-15 w-[90%] mx-auto">
             <form>
               <label class="font-syneBold text-3xl">Name:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="name" placeholder="name"/>
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="name" placeholder="name" />
               <label class="font-syneBold text-3xl">Contact number:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="contact_number"  placeholder="contact number"/>
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="contact_number" placeholder="contact number" />
               <label class="font-syneBold text-3xl">Email address:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-10 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="email_address"  placeholder="email address"/>           
+              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-10 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="email_address" placeholder="email address" />
             </form>
           </div>
 
@@ -121,9 +140,49 @@ const Payment = () => {
             <p class="font-syneBold text-3xl">Choose self-collection or delivery for each item:</p><br></br>
             <p class="font-syne text-2xl">
               For self-collection, the vendor will be in contract with you.<br></br>
-              For delivery, check your email for delivery details. 
+              For delivery, check your email for delivery details.
             </p>
           </div>
+
+          {/* insert data here */}
+          {products.map((product, i) => {
+            return <div class="w-[90%] mt-4 mx-auto flex items-center">
+              <div class="basis-2/4">
+                <div class="font-bold mb-3">{product.name}</div>
+                <div>Vendor: {product.vendorName}</div>
+                <div>Qty: {product.totalQty}</div>
+                <div>Price: ${product.price}</div>
+              </div>
+              <div class="basis-2/4">
+                <ul class="grid gap-6 w-full md:grid-cols-2">
+                  <li>
+                    <input type="radio" id="hosting-small" name="hosting" value="hosting-small" class="hidden peer" required />
+                    <label for="hosting-small" class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                      <div class="block text-center w-[100%]">
+                        <div class="w-full text-m font-semibold">Self-Collection</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="radio" id="hosting-big" name="hosting" value="hosting-big" class="hidden peer" />
+                    <label for="hosting-big" class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                      <div class="block text-center w-[100%]">
+                        <div class="w-full text-lg font-semibold">Delivery</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+                {/* <button type="button"
+                  class="inline-block border-2 border-black px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                  Add to Cart
+                </button> */}
+              </div>
+
+
+
+            </div>
+          })
+          }
 
           <div class="flex flex-row w-[90%] mx-auto my-12">
             <div class="relative w-[50%]">
@@ -140,7 +199,7 @@ const Payment = () => {
         </div>
       </div>
 
- 
+
       <div class="relative py-24">
         <img src={PaymentOrange8Star2} class="absolute top-[-38%] left-[0%] w-[7.2%]"></img>
         <img src={PaymentPurple4Star2} class="absolute top-[20%] left-[10.6%] w-[7%]"></img>
