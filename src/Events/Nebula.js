@@ -9,23 +9,23 @@ const Nebula = () => {
     <div class="relative bg-NAFPurple pb-20">
       <EventHeader img={NebulaImg} text=""></EventHeader>
       {/* first row */}
-      <div class="flex w-[85%] mx-auto text-center flex-wrap">
-        <div class="basis-full lg:basis-1/3">
+      <div class="flex w-[85%] mx-auto text-center flex-wrap justify-between">
+        <div class="basis-full lg:basis-[30%]">
           <EventCard bgColor={bgcolor} title="DANCING IN THE DARK" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
-        <div class="basis-full lg:basis-1/3">
+        <div class="basis-full lg:basis-[30%]">
           <EventCard bgColor={bgcolor} title="BLAST OF TUNES" date="18 Mar 2023, 5:00pm - 6:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
-        <div class="basis-full lg:basis-1/3">
+        <div class="basis-full lg:basis-[30%]">
           <EventCard bgColor={bgcolor} title="BRILLIANCE" date="<Date, time, location>" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
       </div>
       {/* 2nd row */}
-      <div class="flex w-[85%] mx-auto text-center flex-wrap">
-        <div class="basis-full lg:basis-1/2">
+      <div class="flex w-[85%] mx-auto text-center flex-wrap justify-between">
+        <div class="basis-full lg:basis-[45%]">
           <EventCard bgColor={bgcolor} title="MARKETPLACE" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
-        <div class="basis-full lg:basis-1/2">
+        <div class="basis-full lg:basis-[45%]">
           <EventCard bgColor={bgcolor} title="PHOTOBOOTH" date="18 Mar 2023, 5:00pm - 6:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
       </div>
