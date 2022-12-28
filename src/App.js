@@ -26,6 +26,7 @@ import {
   Link,
 } from "react-router-dom";
 import ScrolltoTop from './utils/ScrolltoTop';
+import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 
 
 function Home() {
@@ -67,6 +68,7 @@ function App() {
           <Route path="/orbit" element={<Orbit />} />
           <Route path="/interstellar" element={<Interstellar />} />
           <Route path="/starburst" element={<Starburst />} />
+          <Route path="/afth" element={<NAFxAFTH />} />
 
 
 
