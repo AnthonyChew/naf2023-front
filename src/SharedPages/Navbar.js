@@ -5,17 +5,34 @@ import HumanIcon from './svgs/HumanIcon.svg';
 import CartIcon from './svgs/CartIcon.svg';
 
 const Navbar = () => {
-    const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+    // if really need handle onclick outside 
+    // https://github.com/Pomax/react-onclickoutside
+
+    const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isProgrammesOpen, setIsProgrammesOpen] = useState(false); 
 
     return (
-        <div>
+        <div >
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
 
-                <div class="hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
+                <div class="relative hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
                     <Link to="/" class="link" smooth>HOME</Link>
                     <Link to="/about" class="link" smooth>ABOUT</Link>
-                    <Link to="/programmes" class="link" smooth>PROGRAMMES</Link>
+                    <div class="relative">
+                        <Link id="dropdownNavbarButton"  onClick={() => setIsProgrammesOpen((prev) => !prev)}>PROGRAMMES</Link>
+                        <div onClick={() => setIsProgrammesOpen(false)}  id="dropdownNavbar" className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                            <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
+                            <Link to="/nebula" class="link block py-2 hover:bg-gray-200" smooth>Nebula</Link>
+                            <Link to="/starburst" class="link block py-2 hover:bg-gray-200" smooth>Starburst</Link>
+                            <Link to="/interstellar" class="link block py-2 hover:bg-gray-200" smooth>Interstellar</Link>
+                            <Link to="/orbit" class="link block py-2 hover:bg-gray-200" smooth>Orbit</Link>
+                            <Link to="/workshop" class="link block py-2 hover:bg-gray-200" smooth>Workshop</Link>
+                            <Link to="/piccrew" class="link block py-2 hover:bg-gray-200" smooth>Piccrew</Link>
+
+
+                        </div>
+                    </div>
                     <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
                     <Link to="/" class="link" smooth>NAFXCAC</Link>
                     <Link to="/" class="link" smooth>FAQ</Link>
@@ -48,7 +65,18 @@ const Navbar = () => {
                     <div>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/about" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ABOUT</Link>
-                        <Link onClick={() => setIsNavOpen(false)} to="/programmes" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>PROGRAMMES</Link>
+                        <div class="relative p-4 text-sm">
+                            <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsProgrammesOpen((prev) => !prev)}>PROGRAMMES</Link>
+                            <div onClick={() => setIsNavOpen(false)} id="dropdownNavbar" className={isProgrammesOpen ? " font-medium z-10 py-2 px-3 text-left text-gray-400" : "hidden"}>
+                            <Link to="/nebula" class="link block py-2 px-3 hover:bg-gray-200" smooth>Nebula</Link>
+                            <Link to="/starburst" class="link block py-2 px-3 hover:bg-gray-200" smooth>Starburst</Link>
+                            <Link to="/interstellar" class="link block py-2 px-3 hover:bg-gray-200" smooth>Interstellar</Link>
+                            <Link to="/orbit" class="link block py-2 px-3 hover:bg-gray-200" smooth>Orbit</Link>
+                            <Link to="/workshop" class="link block py-2 px-3 hover:bg-gray-200" smooth>Workshop</Link>
+                            <Link to="/piccrew" class="link block py-2 px-3 hover:bg-gray-200" smooth>Piccrew</Link>
+
+                            </div>
+                        </div>
                         <Link onClick={() => setIsNavOpen(false)} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>MARKETPLACE</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>NAFXCAC</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
