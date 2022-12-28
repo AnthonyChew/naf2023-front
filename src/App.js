@@ -25,6 +25,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import ScrolltoTop from './utils/ScrolltoTop';
 
 
 function Home() {
@@ -44,6 +45,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <ScrolltoTop />
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
