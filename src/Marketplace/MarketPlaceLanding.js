@@ -104,7 +104,7 @@ const MarketPlaceLanding = () => {
             {
 
               products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%]" onClick={() => openModal(oneItem)}>
+                <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
                   <div class="oneItem-img">
                     <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
                   </div>
