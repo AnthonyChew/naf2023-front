@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import productService from '../services/products';
 import { useDropzone } from 'react-dropzone';
@@ -53,8 +53,6 @@ export default function AddProduct(props) {
   const [quantity, setQuantity] = useState(
     typeof pdtQuantity !== 'undefined' ? pdtQuantity : [[]]
   );
-  const [attb1InputValue, setAttb1Input] = React.useState('');
-  const [attb1Value, setAttb1Value] = React.useState([]);
   const { promiseInProgress } = usePromiseTracker();
 
   //ATTRIBUTE 1 = SIZES, ATTRIBUTE2 = COLOURS
@@ -62,6 +60,8 @@ export default function AddProduct(props) {
   const [attribute1options, setAttribute1] = useState(
     state.addAttribute1 ? pdtAtt1Options : []
   );
+  const [attb1InputValue, setAttb1Input] = React.useState('');
+  const [attb1Value, setAttb1Value] = React.useState([]);
 
   const handleAddAttribute1Chip = (event) => {
     if (!attb1InputValue) return;
@@ -73,64 +73,78 @@ export default function AddProduct(props) {
         if (attribute1options.length > 0) {
           setQuantity((quantity) => [...quantity, []]);
         }
-
         setAttb1Input('');
         event.preventDefault();
     }
   };
-  
-  const handleDeleteAttribute1Chip = (event,type) => {
-  
-    setAttb1Value(event.value);
-    
+
+  const handleDeleteAttribute1Chip = (event, type) => {
+
     if (type.action === 'remove-value') {
       const indexOfColor = attribute1options.indexOf(type.removedValue.value);
       //FIX THIS
       setQuantity(quantity.filter((qty, index) => index !== indexOfColor));
       if (attribute1options.length === 1) {
-        //if got 1 colour only then just set to an empty array
-        // setQuantity((quantity[indexOfColor] = []));
         setQuantity([[]]);
-        // console.log('DELETING ATTRIBUTE 1 CHIP, QUANTITY: ', [[]]);
       }
-      //console.log(quantity);
-      // console.log(
-      //   'DELETING ATTRIBUTE 1 CHIP, QUANTITY: ',
-      //   quantity.filter((qty, index) => index !== indexOfColor)
-      // );
       setAttribute1(attribute1options.filter((colour) => colour !== type.removedValue.value));
+      setAttb1Value(attb1Value.filter((colour) => colour.value !== type.removedValue.value));
+      console.log(attb1Value.filter((colour) => colour.value !== type.removedValue.value));
+    }
+    else if (type.action === 'clear') {
+      handleClearAttribute1Chips();
+    }
+    else {
+      setAttb1Value(event.value);
     }
   };
+
+  const handleClearAttribute1Chips = () => {
+
+    setAttribute1([]);
+    setAttb1Value([]);
+    setQuantity([[]]);
+  }
 
   //INPUT POSSIBLE COLOURS (ROW)
   const [attribute2options, setAttribute2] = useState(
     state.addAttribute2 ? pdtAtt2Options : []
   );
+  const [attb2InputValue, setAttb2Input] = React.useState('');
+  const [attb2Value, setAttb2Value] = React.useState([]);
 
-  const handleAddAttribute2Chip = (chip) => {
-    setAttribute2((attribute2options) => [...attribute2options, chip]);
-    //FIX THIS
-    // if (attribute2options.length >= 1) {
-    //   const newQuantity = quantity.map((colourRow) => [...colourRow, null]);
-    //   setQuantity(newQuantity);
-    //   console.log('ADDING ATTRIBUTE 2 CHIP, QUANTITY: ', newQuantity);
-    // }
-  };
-  const handleDeleteAttribute2Chip = (chip) => {
-    setAttribute2(attribute2options.filter((size) => size !== chip));
-    const indexOfSize = attribute2options.indexOf(chip);
-    //FIX THIS
-    //if product size from 1 to 0 then dont change
-    const newQuantity = quantity.map((colourRow) =>
-      colourRow.filter((rowElem, index) => index !== indexOfSize)
-    );
-    setQuantity(newQuantity);
-    // console.log('DELETING ATTRIBUTE 2 CHIP, QUANTITY: ', newQuantity);
+  const handleAddAttribute2Chip = (event) => {
+    if (!attb2InputValue) return;
+    switch (event.key) {
+      case 'Enter':
+      case 'Tab':
+        setAttb2Value((prev) => [...prev, { label: attb2InputValue, value: attb2InputValue }]);
+        setAttribute2((attribute2options) => [...attribute2options, attb2InputValue]);
+        if (attribute2options.length > 0) {
+          setQuantity((quantity) => [...quantity, []]);
+        }
+        setAttb2Input('');
+        event.preventDefault();
+    }
   };
 
-  const handleClearAttribute1Chips = () => {
-    setAttribute1([]);
-    setQuantity([[]]);
+  const handleDeleteAttribute2Chip = (event, type) => {
+
+    if (type.action === 'remove-value') {
+      const indexOfSize = attribute2options.indexOf(type.removedValue.value);
+      //FIX THIS
+      const newQuantity = quantity.map((colourRow) => colourRow.filter((rowElem, index) => index !== indexOfSize));
+      setQuantity(newQuantity);
+
+      setAttribute2(attribute2options.filter((colour) => colour !== type.removedValue.value));
+      setAttb2Value(attb2Value.filter((colour) => colour.value !== type.removedValue.value));
+    }
+    else if (type.action === 'clear') {
+      handleClearAttribute2Chips();
+    }
+    else {
+      setAttb2Value(event.value);
+    }
   };
 
   const handleClearAttribute2Chips = () => {
@@ -143,8 +157,9 @@ export default function AddProduct(props) {
     }
 
     setAttribute2([]);
+    setAttb2Value([]);
     setQuantity(newQuantity);
-  };
+  }
 
   const tableCol =
     attribute2options.length === 0
@@ -243,25 +258,18 @@ export default function AddProduct(props) {
     onDrop: (acceptedFiles) => {
       let allFiles = images;
       acceptedFiles.forEach((file) => allFiles.push(file));
+
       setImages(
         allFiles.map((file) =>
           typeof file.name === 'string'
             ? Object.assign(file, {
-              preview: URL.createObjectURL(file),
+              preview: URL.createObjectURL(file)
             })
             : file
         )
       );
     },
   });
-
-  useEffect(
-    () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      images.forEach((file) => URL.revokeObjectURL(file.preview));
-    },
-    [images]
-  );
 
   const removeImage = (file) => {
     // console.log(file);
@@ -275,8 +283,13 @@ export default function AddProduct(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (state.addAttribute2 && attribute2options.length === 0) {
+    if(!state.addAttribute1)
+    {
+      setHelperText(
+        'Please input at least one Attribute 1 option'
+      );
+    }
+    else if (state.addAttribute2 && attribute2options.length === 0) {
       setHelperText(
         'Please input at least one attribute option, or uncheck Add Attribute 1.'
       );
@@ -309,6 +322,7 @@ export default function AddProduct(props) {
       newProduct.append('price', state.price);
       newProduct.append('sizes', JSON.stringify(attribute2options));
       newProduct.append('quantity', JSON.stringify(quantity));
+      console.log(quantity);
       if (state.isPreOrder) {
         newProduct.append('leadTime', state.leadTime);
       } else {
@@ -423,7 +437,7 @@ export default function AddProduct(props) {
               id="description"
               label="Product Description"
               type="text"
-              class="border-black"
+              class={`border transition duration-150 ease-in-out`}
               rows="5"
               onChange={handleInputChange('description')}
               defaultValue={pdtDesc}
@@ -453,7 +467,7 @@ export default function AddProduct(props) {
 
           <p>Product Options</p>
           <div >
-            Add Attribute
+            Add Attribute 1
             <input type="checkbox"
               checked={state.addAttribute1}
               onChange={handleChange}
@@ -471,6 +485,7 @@ export default function AddProduct(props) {
                 />
                 <CreatableSelect
                   isMulti
+                  isClearable
                   inputValue={attb1InputValue}
                   onChange={handleDeleteAttribute1Chip}
                   onInputChange={(newValue) => setAttb1Input(newValue)}
@@ -480,24 +495,9 @@ export default function AddProduct(props) {
                   name="attribute1options"
                   onKeyDown={handleAddAttribute1Chip}
                   value={attb1Value}
-                // onDelete={(chip, index) =>
-                //   handleDeleteAttribute1Chip(chip, index)}
                 />
-                {/* <ChipInput
-                  label="Attribute 1 Options"
-                  color="secondary"
-                  variant="outlined"
-                  name="attribute1options"
-                  value={attribute1options}
-                  fullWidth
-                  onAdd={(chip) => handleAddAttribute1Chip(chip)}
-                  onDelete={(chip, index) =>
-                    handleDeleteAttribute1Chip(chip, index)
-                  }
-                /> */}
-
                 <p>
-                  Please press Enter after each attribute option
+                  **Please press Enter after each attribute option
                 </p>
               </div>
             )}
@@ -521,19 +521,19 @@ export default function AddProduct(props) {
                 value={state.attribute2}
                 onChange={handleInputChange('attribute2')}
               />
-
-              {/* <ChipInput
-                label="Attribute 2 Options"
+              <CreatableSelect
+                isMulti
+                isClearable
+                inputValue={attb2InputValue}
+                onChange={handleDeleteAttribute2Chip}
+                onInputChange={(newValue) => setAttb2Input(newValue)}
+                label="Attribute 1 Options"
                 color="secondary"
                 variant="outlined"
-                value={attribute2options}
-                fullWidth
-                onAdd={(chip) => handleAddAttribute2Chip(chip)}
-                onDelete={(chip, index) =>
-                  handleDeleteAttribute2Chip(chip, index)
-                }
-              /> */}
-
+                name="attribute1options"
+                onKeyDown={handleAddAttribute2Chip}
+                value={attb2Value}
+              />
               <p>
                 Please press Enter after each attribute option
               </p>
@@ -542,7 +542,8 @@ export default function AddProduct(props) {
 
           <div>
             Pre-Order
-            <input type="checkbox"
+            <input
+              type="checkbox"
               checked={state.isPreOrder}
               onChange={handleChange}
               name="isPreOrder"
@@ -583,14 +584,8 @@ export default function AddProduct(props) {
                       : colour.toUpperCase() + ' ' + size.toUpperCase();
                   return (
                     <li key={labelId} >
-                      <p
-                        id={labelId}
-                        primary={`Variant: ${label}`}
-                        style={{ display: 'inline-block' }}
-                      />
-                      <div
-                        style={{ display: 'inline-block', paddingLeft: 15 }}
-                      >
+                      <p id={labelId} style={{ display: 'inline-block' }} >{`Variant: ${label}`}</p>
+                      <div style={{ display: 'inline-block', paddingLeft: 15 }}>
                         <div>
                           Unlimited Quantity
                           <input type="checkbox"
@@ -658,7 +653,7 @@ export default function AddProduct(props) {
 
 
           <p>Product Images</p>
-          <div {...getRootProps({})}>
+          <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <p>
               Drag and drop your product images here, or click to select
@@ -683,7 +678,7 @@ export default function AddProduct(props) {
                   {typeof file.preview === 'undefined' ? (
                     <img src={file} />
                   ) : (
-                    <img src={file.preview} />
+                    <img src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} />
                   )}
                 </div>
               </div>

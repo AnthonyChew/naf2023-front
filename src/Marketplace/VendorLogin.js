@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddProduct from './AddProduct';
-//import ProductTable from './ProductTable';
+import ProductTable from './ProductTable';
 
 import VendorAuth from '../Authentication/VendorLogin';
 import vendorService from '../services/vendors';
@@ -26,7 +26,7 @@ function VendorLogin() {
   useEffect(() => {
     async function fetchProfileData() {
       const res = await trackPromise(vendorService.getVendorProfile());
-      console.log(res)
+      //console.log(res)
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
@@ -46,7 +46,7 @@ function VendorLogin() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
     setEdit(false);
@@ -73,6 +73,15 @@ function VendorLogin() {
       alert('There is a problem with downloading orders.');
     }
   };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [open]);
+
 
   return (
     <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
@@ -134,13 +143,14 @@ function VendorLogin() {
                     Add Product
                   </button>
 
-
                   <Modal isOpen={open} parentCallback={handleClose} onRequestClose={handleClose}>
-                    <AddProduct  type="add" />
+                    <div class="w-full h-full " >
+                      <AddProduct type="add" />
+                    </div>
                   </Modal>
                 </div>
               </div>
-              {/* <ProductTable rows={profile && profile.products} isNested={false} /> */}
+              <ProductTable rows={profile && profile.products} />
               <div  >
                 <button onClick={downloadOrders}>
                   Download orders
