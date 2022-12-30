@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import productService from '../services/products';
 import { useDropzone } from 'react-dropzone';
@@ -9,6 +9,7 @@ import { usePromiseTracker } from 'react-promise-tracker';
 import Input from '../utils/Input';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
+import { set } from 'date-fns';
 
 export default function AddProduct(props) {
   const {
@@ -49,19 +50,40 @@ export default function AddProduct(props) {
     // quantity: 0,
   });
 
+  useEffect(() => {
+
+    setCatChoice({label: pdtCat, value: pdtCat});
+
+    if (state.addAttribute1) {
+      let att1Array = [];
+      pdtAtt1Options.forEach(att1 => att1Array.push({ label: att1, value: att1 }));
+      setAttb1Value(att1Array);
+    }
+
+
+    if (state.addAttribute2) {
+      let att2Array = [];
+      pdtAtt2Options.forEach(att2 => att2Array.push({ label: att2, value: att2 }));
+      setAttb2Value(att2Array);
+    }
+  }, []);
+
   const [helperText, setHelperText] = useState('');
   const [quantity, setQuantity] = useState(
     typeof pdtQuantity !== 'undefined' ? pdtQuantity : [[]]
   );
   const { promiseInProgress } = usePromiseTracker();
+  
+  const [catChoice, setCatChoice] = useState(null);
+
+  const [attb1InputValue, setAttb1Input] = useState('');
+  const [attb1Value, setAttb1Value] = useState([]);
 
   //ATTRIBUTE 1 = SIZES, ATTRIBUTE2 = COLOURS
   //INPUT POSSIBLE COLOURS (ROW)
   const [attribute1options, setAttribute1] = useState(
     state.addAttribute1 ? pdtAtt1Options : []
   );
-  const [attb1InputValue, setAttb1Input] = React.useState('');
-  const [attb1Value, setAttb1Value] = React.useState([]);
 
   const handleAddAttribute1Chip = (event) => {
     if (!attb1InputValue) return;
@@ -95,6 +117,7 @@ export default function AddProduct(props) {
       handleClearAttribute1Chips();
     }
     else {
+      console.log("HItttt");
       setAttb1Value(event.value);
     }
   };
@@ -120,9 +143,6 @@ export default function AddProduct(props) {
       case 'Tab':
         setAttb2Value((prev) => [...prev, { label: attb2InputValue, value: attb2InputValue }]);
         setAttribute2((attribute2options) => [...attribute2options, attb2InputValue]);
-        if (attribute2options.length > 0) {
-          setQuantity((quantity) => [...quantity, []]);
-        }
         setAttb2Input('');
         event.preventDefault();
     }
@@ -211,6 +231,7 @@ export default function AddProduct(props) {
 
   //Handle quantity
   const handleQtyChange = (row, col) => (event) => {
+    //console.log(quantity);
     const copiedQuantity = [...quantity];
     const copiedRow = [...copiedQuantity[row]];
     copiedRow[col] = event.target.value;
@@ -283,8 +304,7 @@ export default function AddProduct(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(!state.addAttribute1)
-    {
+    if (!state.addAttribute1) {
       setHelperText(
         'Please input at least one Attribute 1 option'
       );
@@ -447,8 +467,8 @@ export default function AddProduct(props) {
             label="Price"
             id="price"
             value={state.price}
-            onChange={handleInputChange('price')}
-            type="number"
+            onChange={ handleInputChange('price')}
+            type="currency"
             defaultValue={pdtPrice}
             required
           />
@@ -459,6 +479,7 @@ export default function AddProduct(props) {
               id="product-category"
               name="category"
               required
+              value={catChoice}
               options={pdtCategories}
               onChange={handleCategoryChange}>
             </Select>

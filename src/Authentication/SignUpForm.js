@@ -63,7 +63,6 @@ export default function SignUpForm(props) {
 
   const passwordRef = useRef();
 
-  const surChargeRef = useRef();
   return (
     <form autoComplete="off" onSubmit={handleSubmit} >
       <Input
@@ -135,11 +134,12 @@ export default function SignUpForm(props) {
         name="surCharge"
         label="SurCharge"
         id="surCharge"
-        type="number"
+        type="currency"
         pattern="^-?[0-9]\d*\.?\d*$"
         className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
         placeholder="0"
         value={formData.surcharge}
+        required
         onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })} />
       <Input
         name="description"

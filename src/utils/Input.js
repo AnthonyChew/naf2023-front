@@ -31,15 +31,30 @@ const Input = (props) => {
                 >
                     {label} {required && <span class='text-red-500'>*</span>}
                 </label>
-                <input
-                    ref={inputRef}
-                    type={type}
-                    class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
-                    id={id}
-                    placeholder={placeholder}
-                    required = {required}
-                    {...rest}
-                />
+                {type === 'currency' ?
+                    <div class='flex flex-row'>
+                        <span class='pl-2'>$</span>
+                        <input
+                            ref={inputRef}
+                            type='number'
+                            class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                            id={id}
+                            placeholder={placeholder}
+                            required={required}
+                            {...rest}
+                        />
+                    </div>
+                    :
+                    <input
+                        ref={inputRef}
+                        type={type}
+                        class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                        id={id}
+                        placeholder={placeholder}
+                        required={required}
+                        {...rest}
+                    />
+                }
             </div>
 
 
