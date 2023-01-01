@@ -32,18 +32,18 @@ const FestGuide = () => {
           </div>
         </div>  */}
 
-      <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10">
-        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%]"></img>
+      <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10 flex-wrap">
+        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%] hidden lg:block"></img>
         {/* <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img> */}
         <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%]"></img>
         {/* <img
           src={MediumPurpleStar}
           class="absolute top-[90%] right-[45%]"
         ></img> */}
-        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%]"></img>
+        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%] hidden lg:block"></img>
         <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] "></img>
-        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10"></img>
-        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%]"></img>
+        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
+        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] hidden lg:block"></img>
 
         <div class="relative basis-1/2">
           <img src={WhatIsNTUArtsFestival} class=""></img>
@@ -64,12 +64,12 @@ const FestGuide = () => {
           </a>
           
         </div>
-        <div class="relative basis-1/2">
+        <div class="lg:relative lg:basis-1/2 ">
           <div class="mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
             <div class="h-[100%] border-solid p-5">
               <iframe
-                class=" w-full h-[95%]"
+                class=" w-full h-[95%] "
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
                 frameborder="0"
