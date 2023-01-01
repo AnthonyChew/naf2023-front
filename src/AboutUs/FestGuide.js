@@ -58,7 +58,7 @@ const FestGuide = () => {
           </h1>
 {/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
           <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
-            class="max-md:items-stretch max-md:flex hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15 box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
+            class="max-md:w-auto max-md:flex mb-[2%] justify-center hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15 box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
           >
             DOWNLOAD FEST GUIDE
           </a>
