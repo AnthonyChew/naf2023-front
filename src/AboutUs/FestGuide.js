@@ -45,7 +45,7 @@ const FestGuide = () => {
         <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
         <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] hidden lg:block"></img>
 
-        <div class="relative basis-1/2">
+        <div class="relative lg:basis-1/2 max-md:w-fit max-md:basis-auto ">
           <img src={WhatIsNTUArtsFestival} class=""></img>
           <h1 class="my-5 mr-10 font-syne font-normal text-2xl ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -58,14 +58,14 @@ const FestGuide = () => {
           </h1>
 {/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
           <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
-            class="hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15  box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
+            class="max-md:items-stretch max-md:flex hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15 box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
           >
             DOWNLOAD FEST GUIDE
           </a>
           
         </div>
         <div class="lg:relative lg:basis-1/2 ">
-          <div class="mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
+          <div class="max-md:w-fit mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
             <div class="h-[100%] border-solid p-5">
               <iframe
