@@ -64,8 +64,8 @@ const FestGuide = () => {
           </a>
           
         </div>
-        <div class="lg:relative lg:basis-1/2 ">
-          <div class="max-md:w-fit mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
+        <div class="lg:relative lg:basis-1/2 max-md:place-self-center">
+          <div class="max-md:w-fit  mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
             <div class="h-[100%] border-solid p-5">
               <iframe
