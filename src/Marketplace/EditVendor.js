@@ -99,7 +99,7 @@ export default function EditVendor(props) {
           <div class='border transition duration-150 ease-in-out'>
             <label class="float pb-0 pl-2 pointer-events-none">Description</label>
             <textarea
-            class="w-full outline-none"
+              class="w-full outline-none pl-2"
               name="description"
               label="Description"
               rows={2}
