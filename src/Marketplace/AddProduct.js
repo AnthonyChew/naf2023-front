@@ -451,13 +451,14 @@ export default function AddProduct(props) {
             onChange={handleInputChange('name')}
             defaultValue={pdtName}
           />
-          <div class='flex flex-col'>
-            <p>Description</p>
+          <div class='border transition duration-150 ease-in-out'>
+            <label class="float pb-0 pl-2 pointer-events-none">Description</label>
             <textarea
+              class='border transition duration-150 ease-in-out'
               id="description"
               label="Product Description"
-              type="text"
-              class='border transition duration-150 ease-in-out'
+            type="text"
+              name="description"
               rows="5"
               onChange={handleInputChange('description')}
               defaultValue={pdtDesc}
