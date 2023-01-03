@@ -7,7 +7,7 @@ import vendorService from '../services/vendors';
 import ordersService from '../services/orders';
 import FileDownload from 'js-file-download';
 import Logout from '../Authentication/Logout';
-//import EditVendor from './EditVendor';
+import EditVendor from './EditVendor';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import Modal from 'react-modal';
@@ -26,10 +26,10 @@ function VendorLogin() {
   useEffect(() => {
     async function fetchProfileData() {
       const res = await trackPromise(vendorService.getVendorProfile());
-      //console.log(res)
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
+        //console.log(res.data)
       }
       else {
         setAuth(false);
@@ -87,76 +87,79 @@ function VendorLogin() {
     <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
       <LoadingSpinnerComponent />
       {auth ? (
-        <div >
-
-          <div >
-            <h2 >
-              VENDOR LOGIN
-            </h2>
-            <p >
-              Welcome back, {profile && profile.displayName}!
-            </p>
+        <div class='flex flex-col justify-center items-center gap-5'>
+          <p>
+            VENDOR LOGIN
+          </p>
+          <p >
+            Welcome back, {profile && profile.displayName}!
+          </p>
+          <p>
+            {profile && profile.description}
+          </p>
+          {contactNumber ? (
             <p>
-              {profile && profile.description}
+              Contact number: {contactNumber}
             </p>
-            {contactNumber ? (
-              <p>
-                Contact number: {contactNumber}
-              </p>
-            ) : null}
-            {emailAddress ? (
-              <p >
-                Email address: {emailAddress}
-              </p>
-            ) : null}
-            {instagramAccount ? (
-              <p>
-                Social media: {instagramAccount}
-              </p>
-            ) : null}
-            {website ? (
-              <p>
-                Website: {website}
-              </p>
-            ) : null}
-            <Logout />
-            <button onClick={editProfile}>
-              Edit Profile
-            </button>
+          ) : null}
+          {emailAddress ? (
+            <p >
+              Email address: {emailAddress}
+            </p>
+          ) : null}
+          {instagramAccount ? (
+            <p>
+              Social media: {instagramAccount}
+            </p>
+          ) : null}
+          {website ? (
+            <p>
+              Website: {website}
+            </p>
+          ) : null}
+          <Logout />
 
-            {/* {edit && (
+          <>
+            <button
+              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={editProfile}
+            >
+              <p class="flex-1 text-2xl font-syne text-center">  Edit Profile </p>
+            </button>
+            <Modal isOpen={edit} onRequestClose={handleClose}>
+              <div class="w-full h-full " >
               <EditVendor
                 //callback
                 parentCallback={handleClose}
                 vendor={profile}
               />
-            )} */}
-
-            <div>
-              <div class="relative pt-10 flex flex-end items-center gap-3">
-
-                <div class="relative">
-                  <button
-                    onClick={handleClickOpen}
-                    id="addProduct"
-                  >
-                    Add Product
-                  </button>
-
-                  <Modal isOpen={open} parentCallback={handleClose} onRequestClose={handleClose}>
-                    <div class="w-full h-full " >
-                      <AddProduct type="add" />
-                    </div>
-                  </Modal>
-                </div>
               </div>
-              <ProductTable rows={profile && profile.products} />
-              <div  >
-                <button onClick={downloadOrders}>
-                  Download orders
-                </button>
+            </Modal>
+          </>
+
+          <>
+            <button
+              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={handleClickOpen}
+              id="addProduct"
+            >
+              <p class="flex-1 text-2xl font-syne text-center"> Add Product </p>
+            </button>
+
+            <Modal isOpen={open} onRequestClose={handleClose}>
+              <div class="w-full h-full " >
+                <AddProduct  parentCallback={handleClose} type="add" />
               </div>
-            </div>
+            </Modal>
+          </>
+
+          <ProductTable rows={profile && profile.products} />
+          <div  >
+            <button
+              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={downloadOrders}>
+              <p class="flex-1 text-2xl font-syne text-center"> Download orders </p>
+            </button>
           </div>
         </div>
       ) : (

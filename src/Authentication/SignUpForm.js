@@ -141,34 +141,35 @@ export default function SignUpForm(props) {
         value={formData.surcharge}
         required
         onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })} />
+
+      <div class='border transition duration-150 ease-in-out'>
+        <label class="float pb-0 pl-2 pointer-events-none">Description</label>
+        <textarea
+          class="w-full outline-none"
+          name="description"
+          label="Description"
+          rows={2}
+          defaultValue={formData.description}
+          onChange={handleChange}
+        />
+      </div>
+
       <Input
-        name="description"
-        label="Description"
-        multiline
-        rows={2}
-        value={formData.description}
-        onChange={handleChange}
-      />
-      <Input
-        name="contactNumber"
-        label="Contact Number"
-        type="tel"
-        inputProps={{
-          pattern: '^[0-9]+$', // accepts digits only
-          // maxLength: 15,
-          maxLength: 8,
-          minLength: 8,
-        }} // max possible length of a phone number including the country code
-        value={formData.contactNumber}
-        onChange={handleChange}
-      />
+            name="contactNumber"
+            label="Contact Number"
+            type="tel"
+            pattern='^[689][0-9]{7}$'  // accepts '6', '8' or '9' as the first character, then 7 more [0-9] characters
+            value={formData.contactNumber}
+            errorMessage='Please enter a Singapore number'
+            onChange={handleChange}
+          />
 
       <Input
         name="instagramAccount"
         label="Instagram Account"
         value={formData.instagramAccount}
         onChange={handleChange}
-        inputProps={{ maxLength: 30 }}
+        pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
       />
       <Input
         name="website"
@@ -176,7 +177,7 @@ export default function SignUpForm(props) {
         type="url"
         value={formData.website}
         onChange={handleChange}
-        inputProps={{ maxLength: 255 }}
+        pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
       />
 
       <button

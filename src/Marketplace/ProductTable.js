@@ -150,7 +150,7 @@ function Table({ columns, data }) {
                   }
                   )}
 
-                  <td> <button onClick={() => editProduct(i)}> edit </button> </td>
+                  <td> <button class="block m-auto" onClick={() => editProduct(i)}><p class="underline decoration-solid">edit</p>  </button> </td>
                 </tr>
               )
             }
@@ -228,7 +228,12 @@ function Table({ columns, data }) {
           <code>
             {selectedFlatRows.length > 0 &&
               <>
-                <button onClick={() => setIsOpen(true)}>Delete</button>
+                <button
+                  class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  onClick={() => setIsOpen(true)}>
+
+                  <p class="flex-1 text-2xl font-syne text-center">  Delete </p>
+                </button>
 
                 <Modal
                   isOpen={modalIsOpen}
@@ -304,13 +309,13 @@ function ProductTable(props) {
                 value.value.map((attribute, index) => (
                   <>
                     {
-                    rows[value.row.id].quantity[index].length > 1 ?
-                    rows[value.row.id].quantity[index].map((att1, attIndex) =>
-                      <p>Attribute {attribute} {rows[value.row.id].sizes[attIndex]} : Quantity {rows[value.row.id].quantity[index][attIndex] > 99999 ? 'Unlimited' : rows[value.row.id].quantity[index][attIndex]}</p> )
-                    :
-                    <p>Attribute {attribute} : Quantity {rows[value.row.id].quantity[index] > 99999 ? 'Unlimited' : rows[value.row.id].quantity[index]}</p>
+                      rows[value.row.id].quantity[index].length > 1 ?
+                        rows[value.row.id].quantity[index].map((att1, attIndex) =>
+                          <p>Attribute {attribute} {rows[value.row.id].sizes[attIndex]} : Quantity {rows[value.row.id].quantity[index][attIndex] > 99999 ? 'Unlimited' : rows[value.row.id].quantity[index][attIndex]}</p>)
+                        :
+                        <p>Attribute {attribute} : Quantity {rows[value.row.id].quantity[index] > 99999 ? 'Unlimited' : rows[value.row.id].quantity[index]}</p>
                     }
-                    <br/>
+                    <br />
                   </>
                 )))
             }
