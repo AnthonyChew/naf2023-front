@@ -92,7 +92,7 @@ export default function CartCard(props) {
                     onClick={closeModal}
                 >
                     <div class="w-full h-full" onClick={closeModal}>
-                        <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                        <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
                             <div class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
                                 <h5 class="text-xl font-medium leading-normal text-gray-800" >
                                     Remove product from cart?

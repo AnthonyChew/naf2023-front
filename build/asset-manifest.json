@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.03afb6bd.css",
-    "main.js": "/static/js/main.4358e052.js",
+    "main.css": "/static/css/main.48b7a99f.css",
+    "main.js": "/static/js/main.a16adcf4.js",
     "static/js/787.bb4a2e7b.chunk.js": "/static/js/787.bb4a2e7b.chunk.js",
     "static/media/CAC_Logo.svg": "/static/media/CAC_Logo.e23e71138868fd662a3de6f9f645ddb6.svg",
     "static/media/landingbg.svg": "/static/media/landingbg.35358d0b1831bca17ba5152dbd49f5b5.svg",
@@ -35,6 +35,8 @@
     "static/media/Header.png": "/static/media/Header.df6a114cd5fcfd6c0254.png",
     "static/media/MarketPlaceLogo.png": "/static/media/MarketPlaceLogo.9ef88fbf837b5b6dae1a.png",
     "static/media/PaymentLogo.png": "/static/media/PaymentLogo.3377fe34111599cc269a.png",
+    "static/media/Starburst.png": "/static/media/Starburst.6359409762c12cf90273.png",
+    "static/media/AFTHLogo.png": "/static/media/AFTHLogo.86ffbe97842afdf7145e.png",
     "static/media/landingFacebook.svg": "/static/media/landingFacebook.49a4cbf6bf0f0f061842b9e0942a7b4b.svg",
     "static/media/QRCode.svg": "/static/media/QRCode.54ad632b64242fe3bca9e7fd3ff62582.svg",
     "static/media/LeftBottomPurpleStar.svg": "/static/media/LeftBottomPurpleStar.e260074426db44ce2264faa6db8b65f2.svg",
@@ -200,12 +202,12 @@
     "static/media/greenbutton.svg": "/static/media/greenbutton.48ffcf1610921dc1993600a1d2c0e28b.svg",
     "static/media/redbutton.svg": "/static/media/redbutton.08606fd6006a64ecd8c4fcca0aa98744.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.03afb6bd.css.map": "/static/css/main.03afb6bd.css.map",
-    "main.4358e052.js.map": "/static/js/main.4358e052.js.map",
+    "main.48b7a99f.css.map": "/static/css/main.48b7a99f.css.map",
+    "main.a16adcf4.js.map": "/static/js/main.a16adcf4.js.map",
     "787.bb4a2e7b.chunk.js.map": "/static/js/787.bb4a2e7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03afb6bd.css",
-    "static/js/main.4358e052.js"
+    "static/css/main.48b7a99f.css",
+    "static/js/main.a16adcf4.js"
   ]
 }

@@ -19,7 +19,9 @@ import AppleHeader from '../SharedPages/AppleHeader';
 import SearchBar from './SearchBar';
 import Filter from './Filter';
 import Quantity from '../utils/Quantity';
-import { useIsMount } from '../utils/isMount';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MarketPlaceLanding = () => {
   const [allproducts, setAllProducts] = useState([]);
@@ -35,6 +37,7 @@ const MarketPlaceLanding = () => {
   const [recordsPerPage] = useState(10);
 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [confirmationIsOpen, setConfirmationIsOpen] = useState(false);
 
   const [colour, setColour] = useState();
   const [size, setSize] = useState();
@@ -62,26 +65,6 @@ const MarketPlaceLanding = () => {
   const dispatch = useDispatch();
 
   function handleAddProduct(e) {
-    console.log(quantity)
-    if (quantity === undefined) {
-      setProductError("Please select quantity!");
-    }
-    if (oneproduct.attribute1 !== null) {
-      if (colour === undefined) {
-        setProductError("Please select attribute 1!");
-        return;
-      }
-    }
-    else {
-      if (colour === undefined) {
-        setProductError("Please select attribute 1!");
-        return;
-      }
-      if (size === undefined) {
-        setProductError("Please select attribute 2!");
-        return;
-      }
-    }
     // console.log('ADD TO CART');
     const newProduct = {
       ...product,
@@ -115,6 +98,9 @@ const MarketPlaceLanding = () => {
     setSize();
     setQuantity(1);
     setProductError(false);
+    closeConfirmation();
+    setIsOpen(false);
+    toast("Added to cart!");
   }
 
   const nextPage = () => {
@@ -144,6 +130,7 @@ const MarketPlaceLanding = () => {
 
   //everytime filter or search, update products view
   useEffect(() => {
+    console.log(searchValue);
     var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
     if (filterOptions.length > 0) {
       newProducts = newProducts.filter(oneItem => filterOptions.includes(oneItem.category))
@@ -168,11 +155,34 @@ const MarketPlaceLanding = () => {
     setSize();
   }
 
+  function handleConfirmationModal() {
+    console.log(quantity);
+    console.log(oneproduct.attribute1);
+    console.log(oneproduct.attribute2 !== "");
+    if (quantity === 0) {
+      setProductError("Please select quantity!");
+    }
+    if (oneproduct.attribute1 && colour === undefined) {
+      setProductError("Please select attribute 1!");
+      return;
+    }
+    if (oneproduct.attribute2 && size === undefined) {
+      setProductError("Please select attribute 2!");
+      return;
+    }
+    setConfirmationIsOpen(true);
+  }
+
   function closeModal(e) {
     //console.log(e.target.id);
     if (e.target.id == "modal-outside") {
       setIsOpen(false);
     }
+  }
+
+  function closeConfirmation() {
+
+    setConfirmationIsOpen(false);
   }
 
   return (
@@ -193,7 +203,6 @@ const MarketPlaceLanding = () => {
         <div class="basis-5/6">
           <div class=" flex flex-wrap">
             {
-
               products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
                 <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
                   <div class="oneItem-img">
@@ -250,7 +259,6 @@ const MarketPlaceLanding = () => {
       {/* Modal */}
       <Modal
         isOpen={modalIsOpen}
-        closeTimeoutMS={200}
         onRequestClose={() => closeModal("modal-outside")}
         shouldCloseOnOverlayClick={true}
       >
@@ -326,12 +334,37 @@ const MarketPlaceLanding = () => {
                       <Quantity class="basis-1/3 mr-3" quantity={quantity} changeState={(type) => setQuantity(type)} />
                     </div>
                     <div>
-                      <button type="button" onClick={handleAddProduct}
+                      <button type="button" onClick={handleConfirmationModal}
                         class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                         Add to Cart
                       </button>
                     </div>
                     {productError && <p class="text-red-500">{productError}</p>}
+
+                    <Modal
+                      isOpen={confirmationIsOpen}
+                      onRequestClose={closeConfirmation}
+                      shouldCloseOnOverlayClick={true}
+                    >
+                      <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
+                        <div class="w-fit mx-auto translate-y-[200%]" >
+                          <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
+                            <p class="font-yerk text-xl text-black">Add product</p>
+                            <p class='mb-5'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1} {oneproduct.attribute2 && oneproduct.attribute2}x {quantity} into cart?</p>
+                            <div class='flex flex-row justify-end gap-2'>
+                              <button onClick={closeConfirmation}
+                                class="inline-block px-6 py-2.5 bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                No
+                              </button>
+                              <button type="button" onClick={handleAddProduct}
+                                class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                Yes
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Modal>
                   </div>
                   <div class="font-syne text-black mt-5">
                     <div class="mb-3 font-semibold">Product details</div>
@@ -346,6 +379,11 @@ const MarketPlaceLanding = () => {
         </div>
 
       </Modal>
+      <ToastContainer position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick />
     </div>
   )
 }
