@@ -249,7 +249,7 @@ const WhatsOn = () => {
                 <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
                   Header
                 </p>
-                <div class="text-left text-sm font-syne mx-[4%] mb-[4%]">
+                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
@@ -268,7 +268,7 @@ const WhatsOn = () => {
                 <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
                   Header
                 </p>
-                <div class="text-left text-sm font-syne mx-[4%] mb-[4%]">
+                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
@@ -287,7 +287,7 @@ const WhatsOn = () => {
                 <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
                   Header
                 </p>
-                <div class="text-left text-sm font-syne mx-[4%] mb-[4%]">
+                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
@@ -306,7 +306,7 @@ const WhatsOn = () => {
                 <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
                   Header
                 </p>
-                <div class="text-left text-sm font-syne mx-[4%] mb-[4%]">
+                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
