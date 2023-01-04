@@ -3,6 +3,7 @@ import config from '../config/env';
 const baseUrl = config.endpoints.students;
 
 const getUser = async () => {
+  console.log(`${baseUrl}/profile/`)
   try {
     const res = await axiosConfig({
       method: 'get',
