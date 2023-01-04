@@ -36,7 +36,8 @@ export default function CartCard(props) {
 
         if (modalIsOpen) {
             document.body.style.overflow = 'hidden';
-        } else {
+        } 
+        else {
             document.body.style.overflow = 'unset';
         }
     }, [price, quantity, modalIsOpen]);
@@ -59,13 +60,9 @@ export default function CartCard(props) {
         setIsOpen(true);
     }
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
-    }
-
     function closeModal() {
         setIsOpen(false);
+        document.body.style.overflow = 'unset';
     }
 
     var subtitle = "test"
@@ -82,15 +79,16 @@ export default function CartCard(props) {
                 <img class="p-5" src={image}></img>
             </div>
             <div class="flex flex-col flex-1 justify-center gap-1">
-                <p class="text-3xl font-syne">Product</p>
-                <p class="text-lg font-syne">{name}</p>
-                <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal}>
+                <p class="text-3xl font-syne">{name}</p>
+                {attribute1 && <p  class="text-lg font-syne">{attribute1}: {colour}</p>}
+                {attribute2 && <p class="text-lg font-syne">{attribute2}: {size}</p>}
+                <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal} data-bs-toggle="modal" data-bs-target={"#model-" + index}>
+
                     <p class="font-syne underline underline-offset-4">Remove</p>
                 </button>
 
                 <Modal
                     isOpen={modalIsOpen}
-                    onAfterOpen={afterOpenModal}
                     onRequestClose={closeModal}
                     closeTimeoutMS={200}
                     onClick={closeModal}
@@ -105,10 +103,10 @@ export default function CartCard(props) {
                             <div class="modal-body relative p-4">
                                 <p>Are you sure you want to remove <br />"{quantity}x {name}
                                     {
-                                        attribute1.length !== 0 ? `with ${attribute1}: ${colour}` : ''
+                                        attribute1.length && `with ${attribute1}: ${colour}` 
                                     }
                                     {
-                                        attribute2.length !== 0 ? ` and ${attribute2}: ${size}` : ''
+                                        attribute2.length && ` and ${attribute2}: ${size}` 
                                     }"</p>
                             </div>
                             <div class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
@@ -129,7 +127,7 @@ export default function CartCard(props) {
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <Quantity quantity={quantity} changeRedux={(type) => setQuantity(type)} removeItem={removeItem}>{quantity}</Quantity>
+                <Quantity quantity={quantity} changeRedux={(type) => setQuantity(type)} removeItem={removeItem} />
             </div>
 
             <div class="flex flex-col flex-1 justify-center">

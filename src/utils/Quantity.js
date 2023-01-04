@@ -1,3 +1,4 @@
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 
 const Quantity = (props) => {
@@ -19,23 +20,18 @@ const Quantity = (props) => {
   };
 
   return (
-    <div class="flex flex-row justify-center gap-5">
+      <div class="flex flex-row justify-center gap-5  pl-5 pr-5">
       {
-        // quantity <= 1 ?
-
-        //   <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-        //     <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-        //   </button>
-        //   :
-          <button
-            onClick={() => {
-              setQuantity(newQuantity - 1);
-              parentCallback('DECREASE');
-            }}>
-            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          </button>
+        <button
+          disabled = {quantity - 1 < 1 ? true : false}
+          class = {quantity - 1 < 1 ? "opacity-50" : ""}
+          onClick={() => {
+            setQuantity(newQuantity - 1);
+            parentCallback('DECREASE');
+          }}>
+          <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
       }
-
       <p class="text-center text-2xl font-syne">
         {quantity}
       </p>
@@ -45,7 +41,7 @@ const Quantity = (props) => {
           parentCallback('INCREASE');
         }}
       >
-        <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path fill="none" stroke="#000" stroke-width="2" d="M12,22 L12,2 M2,12 L22,12" />
         </svg>
 
