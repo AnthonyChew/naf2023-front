@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import MarketPlaceLogo from './svgs/marketplace/MarketPlaceLogo.png'
 import Modal from 'react-modal';
 import productService from '../services/products';
+import { addProductToCart } from '../reducer/CartReducer';
 import { trackPromise } from 'react-promise-tracker';
-
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -16,6 +18,7 @@ import 'swiper/css/effect-fade';
 import AppleHeader from '../SharedPages/AppleHeader';
 import SearchBar from './SearchBar';
 import Filter from './Filter';
+import Quantity from '../utils/Quantity';
 import { useIsMount } from '../utils/isMount';
 
 const MarketPlaceLanding = () => {
@@ -32,12 +35,91 @@ const MarketPlaceLanding = () => {
   const [filterOptions, setFilterOptions] = useState([1, 2]);
 
 
-
   // No of Records to be displayed on each page   
   const [recordsPerPage] = useState(10);
 
-
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [colour, setColour] = useState();
+  const [size, setSize] = useState();
+  const [quantity, setQuantity] = useState(1);
+
+  const [productError, setProductError] = useState(false);
+
+  function handleColorChoice(e) {
+    //console.log(e);
+    setColour(e.target.value);
+  }
+
+  function handleSizeChoice(e) {
+    //console.log(e);
+    setSize(e.target.value);
+  }
+
+  const state = useSelector((state) => {
+    // console.log(state);
+    return state;
+  });
+
+
+  const product = state.addedProducts;
+  const dispatch = useDispatch();
+
+  function handleAddProduct(e) {
+    console.log(quantity)
+    if (quantity === undefined) {
+      setProductError("Please select quantity!");
+    }
+    if (oneproduct.attribute1 !== null) {
+      if (colour === undefined) {
+        setProductError("Please select attribute 1!");
+        return;
+      }
+    }
+    else {
+      if (colour === undefined) {
+        setProductError("Please select attribute 1!");
+        return;
+      }
+      if (size === undefined) {
+        setProductError("Please select attribute 2!");
+        return;
+      }
+    }
+    // console.log('ADD TO CART');
+    const newProduct = {
+      ...product,
+      _id: oneproduct._id,
+      name: oneproduct.name,
+      price: oneproduct.price,
+      description: oneproduct.description,
+      canCollect: oneproduct.canCollect,
+      canDeliver: oneproduct.canDeliver,
+      category: oneproduct.category,
+      attribute1: oneproduct.attribute1,
+      attribute2: oneproduct.attribute2,
+      date_uploaded: oneproduct.date_uploaded,
+      leadTime: oneproduct.leadTime,
+      vendorId: oneproduct.vendorId,
+      image: oneproduct.images.length > 0 ? oneproduct.images[0] : null,
+      quantity: parseInt(quantity),
+      stock: oneproduct.quantity,
+      colour: colour,
+      size: size,
+      colours: oneproduct.colours,
+      sizes: oneproduct.sizes,
+    };
+    delete newProduct['images'];
+    delete newProduct['description'];
+    delete newProduct['quantitySold'];
+    //console.log(newProduct);
+    dispatch(addProductToCart(newProduct));
+
+    setColour();
+    setSize();
+    setQuantity(1);
+    setProductError(false);
+  }
 
   const nextPage = () => {
     if (currentPage !== totalPages) setCurrentPage(currentPage + 1)
@@ -60,6 +142,10 @@ const MarketPlaceLanding = () => {
     fetchData();
   }, []);
 
+  const allProductsInCart = useSelector((state) => {
+    return state.addedProducts;
+  });
+
   useEffect(() => {
     var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
     if (filterOptions.length > 0) {
@@ -78,13 +164,15 @@ const MarketPlaceLanding = () => {
   }
 
   function openModal(oneItem) {
-    console.log(oneItem);
+    //console.log(oneItem);
     setOneProduct(oneItem);
     setIsOpen(true);
+    setColour();
+    setSize();
   }
 
   function closeModal(e) {
-    console.log(e.target.id);
+    //console.log(e.target.id);
     if (e.target.id == "modal-outside") {
       setIsOpen(false);
     }
@@ -203,49 +291,48 @@ const MarketPlaceLanding = () => {
                 </div>  {/* end of left side */}
                 <div class="w-[65%] inline-block align-top ml-10">
                   <div class="font-yerkItalic text-xl text-black">{oneproduct.name}</div>
-                  <div class="mt-5">
-                    <button type="button"
-                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                    >
-                      XS
-                    </button>
-                    <button type="button"
-                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                    >
-                      S
-                    </button>
-                    <button type="button"
-                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                    >
-                      M
-                    </button>
-                    <button type="button"
-                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                    >
-                      L
-                    </button>
-                    <button type="button"
-                      class="inline-block px-6 py-2.5 bg-gray-300 text-black border-solid border-2 border-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-500 hover:shadow-lg focus:bg-gray-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                    >
-                      XL
-                    </button>
-                  </div>
-                  <div class="flex my-5">
-                    <div class="basis-1/3 mr-3">
-                      <select id="countries" class="bg-gray-50 border border-gray-300 h-[40px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Choose Quantity</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </select>
+                  {oneproduct.colours && <ul class="grid gap-6 w-full md:grid-cols-8 mt-5">
+                    {oneproduct.colours.map((colour, index) => {
+                      return (
+                        <li>
+                          <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
+                          <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                            <div class="block text-center w-[100%]">
+                              <div class="w-full text-m font-semibold">{colour}</div>
+                            </div>
+                          </label>
+                        </li>
+                      )
+                    })}
+                  </ul>}
+
+                  {oneproduct.sizes && <ul class="grid gap-6 w-full md:grid-cols-8 mt-5">
+                    {oneproduct.sizes.map((sizes, index) => {
+                      return (
+                        <li>
+                          <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
+                          <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                            <div class="block text-center w-[100%]">
+                              <div class="w-full text-m font-semibold">{sizes}</div>
+                            </div>
+                          </label>
+                        </li>
+                      )
+                    })}
+                  </ul>}
+
+                  <div class="flex my-5 gap-5">
+                    <div class="relative border-2 border-black">
+                      <p class="absolute -top-[40%] left-[5%] bg-white font-syne ">Quantity</p>
+                      <Quantity class="basis-1/3 mr-3" quantity={quantity} changeState={(type) => setQuantity(type)} />
                     </div>
-                    <div class="basis-1/3">
-                      <button type="button"
+                    <div>
+                      <button type="button" onClick={handleAddProduct}
                         class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                         Add to Cart
                       </button>
                     </div>
+                    {productError && <p class="text-red-500">{productError}</p>}
                   </div>
                   <div class="font-syne text-black mt-5">
                     <div class="mb-3 font-semibold">Product details</div>
