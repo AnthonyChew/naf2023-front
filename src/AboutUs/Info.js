@@ -16,44 +16,81 @@ const Info = () => {
       {/* <img src={Orbit} class="absolute top-[109%] w-4/6 right-[-13%] z-10"></img> */}
 
       {/* First Row */}
-      <div class="flex flex-row pt-10">
-        <div class="flex basis-1/2 text-sm justify-center items-center z-20">
-          <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+      {/* Laptop and Above */}
+      <div class="hidden lg:block">
+        <div class="flex flex-row pt-10">
+          <div class="flex basis-1/2 text-sm justify-center items-center z-20">
+            <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            </div>
+          </div>
+          <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
+            <img src={Orbit} class="absolute mb-20 z-10"></img>
+            <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
           </div>
         </div>
-        <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
-          <img src={Orbit} class="absolute mb-20 z-10"></img>
-          <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
+      </div>
+
+      {/* Below Laptop */}
+      <div class="block lg:hidden">
+        <div class="flex flex-wrap flex-row pt-10">
+          <div class="flex relative basis-full my-10 justify-center items-center z-20">
+            <img src={Orbit} class="absolute mb-20 z-10"></img>
+            <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
+          </div>
+          <div class="flex basis-full text-sm justify-center items-center z-20">
+            <div class="mx-20 lg:mx-40 font-syne text-white text-base text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            </div>
+          </div>        
         </div>
       </div>
 
       {/* Second Row */}
-      <div class="flex flex-row">
-        <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
+      <div class="flex flex-wrap flex-row">
+        <div class="flex relative basis-full lg:basis-1/2 my-10 justify-center items-center z-20">
           <img src={Orbit} class="scale-x-[-1.0] absolute mb-20 z-10"></img>
           <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
         </div>
-        <div class="flex basis-1/2 text-sm justify-center items-center z-20">
-          <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
+        <div class="flex basis-full lg:basis-1/2 text-sm justify-center items-center z-20">
+          <div class="mx-20 lg:mx-40 font-syne text-white text-base text-center lg:text-right md:text-md lg:text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
           </div>
         </div>
       </div>
 
       {/* Third Row */}
-      <div class="flex flex-row pb-10">
-        <div class="flex basis-1/2 text-sm justify-center items-center z-20">
-          <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+      {/* Laptop and above */}
+      <div class="hidden lg:block">
+        <div class="flex flex-row pb-10">
+          <div class="flex basis-1/2 text-sm justify-center items-center z-20">
+            <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            </div>
+          </div>
+          <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
+            <img src={Orbit} class="absolute mb-20 z-10"></img>
+            <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
           </div>
         </div>
-        <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
-          <img src={Orbit} class="absolute mb-20 z-10"></img>
-          <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
+      </div>
+
+      <div class="block lg:hidden">
+        <div class="flex flex-wrap flex-row pb-10">
+          <div class="flex relative basis-full my-10 justify-center items-center z-20">
+            <img src={Orbit} class="absolute mb-20 z-10"></img>
+            <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div>
+          </div>
+          <div class="flex basis-full text-sm text-center justify-center items-center z-20">
+            <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
+
   )
 }
 
