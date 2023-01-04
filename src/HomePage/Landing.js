@@ -19,21 +19,21 @@ const Landing = () => {
   return (
     <div class="flex relative items-center min-h-screen bg-NAFPurple bg-cover overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
 
-      <div class="w-[60%] h-fit mb-28 mr-auto ml-36 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
+      <div class="w-[90%] lg:w-[60%] h-fit mb-28 mx-auto lg:mr-auto lg:ml-36 mt-20 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
         <AppleHeader title={"www.aboutus.com"}></AppleHeader>
         <div class="h-full w-full border-solid "  >
           <div class="p-5 bg-white">
             <iframe class="h-[35em] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
-          <img class="absolute top-[67%] left-[5%]" src={LeftBigBlueStarIcon}></img>
+          <img class="hidden lg:block absolute top-[67%] left-[5%]" src={LeftBigBlueStarIcon}></img>
           <img class="absolute top-[87%] right-[43%] " src={MiddleYellowDotIcon}></img>
-          <img class="absolute top-[68%] right-[35%] " src={MiddleRedStarIcon}></img>
-          <img class="absolute -top-[3%] right-[18%]" src={RightYellowStar}></img>
+          <img class="hidden lg:block absolute top-[68%] right-[35%] " src={MiddleRedStarIcon}></img>
+          <img class="hidden lg:block absolute -top-[3%] right-[18%]" src={RightYellowStar}></img>
           <img class="absolute -top-[3%] right-[14%]" src={RightSmallBlueStartIcon}></img>
           <img class="absolute top-[18%] right-[18%]" src={RightWhiteDotIcon}></img>
 
-          <div class="absolute right-[8%] bottom-[5%] max-w-[30%] border-4 border-black w-3/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+          <div class="hidden lg:block absolute right-[8%] bottom-[5%] max-w-[30%] border-4 border-black w-3/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader title={"www.aboutus.com"}></AppleHeader>
             <div class="h-fit bg-white">
               <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">

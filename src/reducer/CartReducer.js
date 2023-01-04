@@ -246,6 +246,8 @@ const cartReducer = (state = initState, action) => {
           pdt.colour === changeProduct.colour &&
           pdt.size === changeProduct.size
         ) {
+          console.log( quantity)
+          console.log(stock)
           if (
             changeType === 'INCREASE' &&
             quantity[row][col] < stock[row][col]

@@ -54,10 +54,6 @@ const Cart = () => {
   // const clearCart = () => {
   //   dispatch(resetCart());
   // };
-
-  var arry = [];
-  arry.push([99]);
-
   return (
     <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden pt-48 pb-40" style={{ backgroundImage: `url(${CartBg})` }}>
       <img class="absolute top-[11.1%] left-[-0.0395%]" src={LeftTopYellowStar}></img>
@@ -89,7 +85,7 @@ const Cart = () => {
             {products &&
               products.map((product, i) => {
                 return product.variations.map((variation, j) => (
-                  <CartCard key={variation._id} product={variation} stock={arry} index={i}></CartCard>
+                  <CartCard key={variation._id} product={variation} stock={variation.stock} index={i}></CartCard>
                 ));
               })}
 

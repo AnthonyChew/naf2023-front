@@ -13,6 +13,11 @@ import Navbar from './SharedPages/Navbar';
 import Footer from './SharedPages/Footer';
 import Profile from './ProfilePage/Profile';
 import VendorLogin from './Marketplace/VendorLogin';
+import Glimmer from './Events/Glimmer';
+import Nebula from './Events/Nebula';
+import Orbit from './Events/Orbit';
+import Interstellar from './Events/Interstellar';
+import Starburst from './Events/Starburst';
 
 import {
   BrowserRouter,
@@ -20,7 +25,8 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-
+import ScrolltoTop from './utils/ScrolltoTop';
+import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 
 
 function Home() {
@@ -40,24 +46,28 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <ScrolltoTop />
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/cart" element={<Cart />} />
-
           <Route path="/programmes" element={<WorkshopMain />} />
+          <Route path="/workshop" element={<WorkshopMain />} />
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/submitted" element={<OrderSubmitted />} />
           <Route path="/events" element={<Events />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/piccrew" element={<Piccrew />} />
-
           <Route path="/profile" element={<Profile />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
-
+          <Route path="/glimmer" element={<Glimmer />} />
+          <Route path="/nebula" element={<Nebula />} />
+          <Route path="/orbit" element={<Orbit />} />
+          <Route path="/interstellar" element={<Interstellar />} />
+          <Route path="/starburst" element={<Starburst />} />
+          <Route path="/afth" element={<NAFxAFTH />} />
 
         </Routes>
         <Footer></Footer>
