@@ -222,7 +222,7 @@ const WhatsOn = () => {
             ]}
             spaceBetween={0}
             slidesPerView={1}
-            navigation={false}
+            navigation={true}
             pagination={{
               el: ".swiper-custom-pagination-3",
               clickable: true,
