@@ -94,7 +94,6 @@ function OrderTable(props) {
 
   function formatData(data) {
     
-    console.log(data)
     let convertedData = [];
     data.forEach((element) => {
       let string = [];
@@ -105,7 +104,6 @@ function OrderTable(props) {
       convertedData.push({'orderNumber':element.orderNumber ,'verified':element.verified.toString(),'purchases':string });
     });
 
-    console.log(convertedData)
     return convertedData;
   }
 

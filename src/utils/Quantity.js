@@ -22,6 +22,7 @@ const Quantity = (props) => {
   return (
       <div class="flex flex-row justify-center gap-5  pl-5 pr-5">
       {
+
         <button
           disabled = {quantity - 1 < 1 ? true : false}
           class = {quantity - 1 < 1 ? "opacity-50" : ""}

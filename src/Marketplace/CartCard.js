@@ -71,8 +71,6 @@ export default function CartCard(props) {
         Modal.setAppElement('body');
     }, [])
 
-    
-    const [dialogIsOpen, setDialogOpen] = useState(false);
     return (
         <div class="flex flex-row">
             <div class="flex flex-1 items-center justify-center">
