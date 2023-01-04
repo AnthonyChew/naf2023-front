@@ -71,21 +71,19 @@ export default function CartCard(props) {
         Modal.setAppElement('body');
     }, [])
 
-
+    
+    const [dialogIsOpen, setDialogOpen] = useState(false);
     return (
-
-
-
         <div class="flex flex-row">
             <div class="flex flex-1 items-center justify-center">
                 <img class="p-5" src={image}></img>
             </div>
-
             <div class="flex flex-col flex-1 justify-center gap-1">
                 <p class="text-3xl font-syne">{name}</p>
                 {attribute1 && <p  class="text-lg font-syne">{attribute1}: {colour}</p>}
                 {attribute2 && <p class="text-lg font-syne">{attribute2}: {size}</p>}
                 <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal} data-bs-toggle="modal" data-bs-target={"#model-" + index}>
+
                     <p class="font-syne underline underline-offset-4">Remove</p>
                 </button>
 
@@ -101,9 +99,6 @@ export default function CartCard(props) {
                                 <h5 class="text-xl font-medium leading-normal text-gray-800" >
                                     Remove product from cart?
                                 </h5>
-                                <button type="button"
-                                    class="w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                                    data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body relative p-4">
                                 <p>Are you sure you want to remove <br />"{quantity}x {name}
@@ -136,7 +131,7 @@ export default function CartCard(props) {
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <p class="text-center text-2xl font-syne">${(price * quantity).toFixed(2)}</p>
+                <p class="text-center text-2xl font-syne">${subTotal}</p>
             </div>
 
 

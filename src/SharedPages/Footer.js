@@ -6,23 +6,23 @@ import EmailIcon from '../HomePage/svgs/landing/landingFacebook.svg'
 
 const Footer = () => {
   return (
-    <div class="flex h-[300px] mt-12 font-syne font-medium text-xl">
-      <div class="basis-1/6 text-center">
+    <div class="flex h-[200px] mt-12 font-syne font-medium text-xl flex-wrap mb-10">
+      <div class="basis-1/2 text-center md:basis-1/4">
         <div>Organised By</div>
         <div class="pt-5">
-          <img class="mx-auto my-0" src={CAC_Logo}></img>
+          <img class="mx-auto my-0 w-[30%] md:w-[70%] lg:w-[auto]" src={CAC_Logo}></img>
           </div>
       </div>
-      <div class="basis-1/4">
+      <div class="basis-1/2 md:basis-1/4">
         <div>Powered By</div>
         <div></div>
       </div>
-      <div class="basis-1/4">
+      <div class="w-[100%] md:basis-1/4 md:w-[auto] text-center">
         <div>Social Media</div>
-        <div class="flex pt-5">
-          <img src={InstagramIcon} class="w-[50px] h-[50px] mx-2"></img>
-          <img src={EmailIcon} class="w-[50px] h-[50px] mx-2"></img>
-          <img src={EmailIcon} class="w-[50px] h-[50px] mx-2"></img>
+        <div class="flex pt-5 justify-center">
+          <img src={InstagramIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px] mx-2"></img>
+          <img src={EmailIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px]  mx-2"></img>
+          <img src={EmailIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px]  mx-2"></img>
         </div>
         
       </div>

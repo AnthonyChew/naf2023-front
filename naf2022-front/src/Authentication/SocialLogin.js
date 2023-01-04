@@ -27,11 +27,11 @@ export default function LoginForm() {
       
 
       <div>
-        <Button variant="contained" color="success" onClick={history.goBack}>Return to Previous Page</Button>
+        <Button class="" onClick={history.goBack}>Return to Previous Page</Button>
         <br></br>
         <br></br>
       </div>
-      <a href={googleUrl}>
+      <a href={googleUrl} class="max-w-[200px]">
         <img
           src={googleSignIn}
           alt="Sign up and Login with Google"
