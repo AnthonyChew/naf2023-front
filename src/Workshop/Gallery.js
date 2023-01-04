@@ -49,8 +49,8 @@ const Gallery = () => {
         src={Planet2}
       />
       <img class="absolute mt-1 ml-[23%] w-[45%]" src={LogoShadow} />
-      <img class="absolute ml-[23%] mb-10 w-[45%]" src={Logo} />
-      <div class="z-10 relative mt-[6%] mb-10 mx-[10%] lg:mx-[15%] font-semibold text-white text-center text-xs sm:text-sm md:text-md lg:text-xl">
+      <img class="absolute ml-[23%] mb-[3%] w-[45%]" src={Logo} />
+      <div class="z-10 relative mt-[6%] mb-[3%] mx-[10%] lg:mx-[15%] font-semibold text-white text-center text-xs sm:text-sm md:text-md lg:text-xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -61,7 +61,7 @@ const Gallery = () => {
       </div>
       <div className="flex flex-row">
         <div className="z-10 gallery-prevEl" />
-        <div className="h-[800px] mb-5 flex flex-row !w-[80%]">
+        <div className="h-[400px] lg:h-[800px] mb-5 flex flex-row !w-[80%]">
           <Swiper
             // install Swiper modules
             className="gallery-swiper"

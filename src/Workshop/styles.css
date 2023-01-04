@@ -14,7 +14,7 @@
   border-radius: 4px;
   border-color: black;
   box-shadow: 20px 20px 0px 0px rgba(0, 0, 0);
-  width: calc((60vw) / 3) !important;
+  width: calc((48%) / 3) !important;
   height: calc((100% - 60px) / 2) !important;
 
   display: -webkit-box;
@@ -60,13 +60,13 @@
 }
 
 .gallery-prevEl {
-  width: 100px;
+  width: 7%;
   max-width: 500px;
   content: url("./svgs/gallery/workshops_prevEl.svg");
 }
 
 .gallery-nextEl {
-  width: 100px;
+  width: 7%;
   max-width: 500px;
   content: url("./svgs/gallery/workshops_nextEl.svg");
 }

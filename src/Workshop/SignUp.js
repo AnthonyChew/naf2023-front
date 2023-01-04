@@ -27,25 +27,76 @@ const SignUp = () => {
       class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFPurple pt-20 md:pb-0 pb-20 px-[5%] lg:px-20"
       style={{ backgroundImage: `url(${LandingBg})` }}
     >
-      <img class="absolute left-0 top-[45%] w-[12%]" src={BlueStar3Shadow}/>
-      <img class="absolute left-0 top-[41%] w-[12%]" src={BlueStar3}/>
-      <img class="absolute left-[18.5%] top-[55.5%] w-[5%]" src={RedStar1Shadow}/>
-      <img class="absolute left-[18%] top-[55%] w-[5%]" src={RedStar1}/>
-      <img class="absolute left-[18%] top-[55%] w-[5%]" src={RedStar1Outline}/>
-      <img class="absolute left-[22%] top-[65%] w-[10%]" src={OrangeStar1Shadow}/>
-      <img class="absolute left-[22%] top-[65%] w-[10%]" src={OrangeStar1}/>
-      <img class="absolute left-[5.2%] top-[71.5%] w-[2%]" src={BallShadow}/>
-      <img class="absolute left-[5%] top-[71%] w-[2%]" src={WhiteBall}/>
-      <img class="absolute left-[18.2%] top-[73.5%] w-[2%]" src={BallShadow}/>
-      <img class="absolute left-[18%] top-[73%] w-[2%]" src={YellowBall}/>
-      <img class="z-10 absolute right-[12.5%] top-[12.5%] w-[8%]" src={YellowStar3Shadow}/>
-      <img class="z-10 absolute right-[13%] top-[12%] w-[8%]" src={YellowStar3}/>
-      <img class="z-10 absolute right-0 top-[45%] w-[25%]" src={RedStar2Shadow}/>
-      <img class="z-10 absolute right-0 top-[44%] w-[25%]" src={RedStar2}/>
-      <img class="z-10 absolute right-[25%] top-[32.5%] w-[2%]" src={BallShadow}/>
-      <img class="z-10 absolute right-[25.2%] top-[32%] w-[2%]" src={RedBall}/>
-      <img class="z-10 absolute right-[3%] top-[50.5%] w-[2%]" src={BallShadow}/>
-      <img class="z-10 absolute right-[3.2%] top-[50%] w-[2%]" src={YellowBall}/>
+      <img class="absolute left-0 top-[45%] w-[12%]" src={BlueStar3Shadow} />
+      <img
+        class="absolute left-0 top-[44%] md:top-[41%] w-[12%]"
+        src={BlueStar3}
+      />
+      <img
+        class="absolute left-[18.5%] top-[55.5%] w-[5%] md:block hidden"
+        src={RedStar1Shadow}
+      />
+      <img
+        class="absolute left-[18%] top-[55%] w-[5%] md:block hidden"
+        src={RedStar1}
+      />
+      <img
+        class="absolute left-[18%] top-[55%] w-[5%] md:block hidden"
+        src={RedStar1Outline}
+      />
+      <img
+        class="absolute left-[22%] top-[65%] w-[10%] md:block hidden"
+        src={OrangeStar1Shadow}
+      />
+      <img
+        class=" absolute left-[22%] top-[65%] w-[10%] md:block hidden"
+        src={OrangeStar1}
+      />
+      <img
+        class="absolute left-[5.2%] top-[71.5%] w-[2%] md:block hidden"
+        src={BallShadow}
+      />
+      <img
+        class="absolute left-[5%] top-[71%] w-[2%] md:block hidden"
+        src={WhiteBall}
+      />
+      <img
+        class="absolute left-[18.2%] top-[73.5%] w-[2%] md:block hidden"
+        src={BallShadow}
+      />
+      <img
+        class="absolute left-[18%] top-[73%] w-[2%] md:block hidden"
+        src={YellowBall}
+      />
+      <img
+        class="z-10 absolute right-[12.5%] top-[12.5%] w-[8%]"
+        src={YellowStar3Shadow}
+      />
+      <img
+        class="z-10 absolute right-[13%] top-[12%] w-[8%]"
+        src={YellowStar3}
+      />
+      <img
+        class="z-10 absolute right-0 top-[45%] w-[13%] md:w-[25%]"
+        src={RedStar2Shadow}
+      />
+      <img
+        class="z-10 absolute right-0 top-[44%] w-[13%] md:w-[25%]"
+        src={RedStar2}
+      />
+      <img
+        class="z-10 absolute right-[25%] top-[32.5%] w-[2%]"
+        src={BallShadow}
+      />
+      <img class="z-10 absolute right-[25.2%] top-[32%] w-[2%]" src={RedBall} />
+      <img
+        class="z-10 absolute right-[3%] top-[50.5%] w-[2%]"
+        src={BallShadow}
+      />
+      <img
+        class="z-10 absolute right-[3.2%] top-[50%] w-[2%]"
+        src={YellowBall}
+      />
       <div class="flex md:flex-row flex-col space-x-[5%]">
         {/* Top Left Apple Header */}
         <div class="w-full md:w-1/2 md:mt-0 mt-[33%] h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
@@ -66,9 +117,17 @@ const SignUp = () => {
       </div>
       <div class=" bg-white md:ml-[12%] mt-10 w-full md:w-10/12 h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
         <AppleHeader title={"www.signupguidelines.com"}></AppleHeader>
-        {/* <p class="z-10 absolute top-[47%] left-[32%] text-4xl text-white">CLICK HERE TO SIGN UP</p>
-        <img class="mx-auto my-20" src={SignUpsButton} /> */}
-        <button class="flex my-[7%] py-[0.1%] px-[2.5%] text-[20px] md:text-[30px] lg:text-[40px] text-white mx-auto" style={{ backgroundImage: `url(${SignUpsButton})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >CLICK HERE TO SIGN UP</button>
+        <button
+          class="flex my-[7%] py-[0.1%] px-[2.5%] text-[20px] md:text-[30px] lg:text-[40px] text-white mx-auto"
+          style={{
+            backgroundImage: `url(${SignUpsButton})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          CLICK HERE TO SIGN UP
+        </button>
       </div>
     </div>
   );
