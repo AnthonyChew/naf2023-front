@@ -75,6 +75,7 @@ const Info = () => {
         </div>
       </div>
 
+      {/* Below Laptop */}
       <div class="block lg:hidden">
         <div class="flex flex-wrap flex-row pb-10">
           <div class="flex relative basis-full my-10 justify-center items-center z-20">
