@@ -59,7 +59,7 @@ function App() {
           <Route path="/submitted" element={<OrderSubmitted />} />
           <Route path="/events" element={<Events />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/piccrew" element={<Piccrew />} />
+          <Route path="/picrew" element={<Piccrew />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/glimmer" element={<Glimmer />} />

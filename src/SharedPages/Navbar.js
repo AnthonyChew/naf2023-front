@@ -1,19 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom";
 import NAFLogo from './svgs/NAF_Logo.svg';
 import HumanIcon from './svgs/HumanIcon.svg';
 import CartIcon from './svgs/CartIcon.svg';
 
 const Navbar = () => {
-    // if really need handle onclick outside, wait for 4 jan first or else merge package.json clash again
-    // https://github.com/Pomax/react-onclickoutside
-
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isProgrammesOpen, setIsProgrammesOpen] = useState(false);
+    const [isMobileProgrammesOpen, setIsMobileProgrammesOpen] = useState(false);
+    const [isMobileNAFxCACOpen, setIsMobileNAFxCACOpen] = useState(false);
     const [isNAFxCACOpen, setIsNAFxCACOpen] = useState(false);
+    const ProgrammesRef = useRef(null);
+    const NAFCACRef = useRef(null);
+    const MobileRef = useRef(null);
 
+    const handleOutsideClicks =(event)=>{
+        if(ProgrammesRef.current && !ProgrammesRef.current.contains(event.target)){
+            setIsProgrammesOpen(false);
+            // setIsNAFxCACOpen(false)
+         }
+        if(NAFCACRef.current && !NAFCACRef.current.contains(event.target)){
+            setIsNAFxCACOpen(false)
+         };
+         if(MobileRef.current && !MobileRef.current.contains(event.target)){
+            setIsNavOpen(false)
+         };
 
+      };
+      useEffect(() => {
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleOutsideClicks);
+          return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleOutsideClicks);
+        };
+
+    }, [ProgrammesRef, NAFCACRef,MobileRef ]);
+      
     return (
+
+
         <div >
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
@@ -21,9 +48,9 @@ const Navbar = () => {
                 <div class="relative hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
                     <Link to="/" class="link" smooth>HOME</Link>
                     <Link to="/about" class="link" smooth>ABOUT</Link>
-                    <div class="relative">
-                        <Link id="dropdownNavbarButton" onClick={() => setIsProgrammesOpen((prev) => !prev)}>PROGRAMMES</Link>
-                        <div onClick={() => setIsProgrammesOpen(false)} className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                    <div class="relative" ref={ProgrammesRef} onClick={() => setIsProgrammesOpen((prev) => !prev)}>
+                        <Link id="dropdownNavbarButton" >PROGRAMMES</Link>
+                        <div className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
                             <Link to="/nebula" class="link block py-2 hover:bg-gray-200" smooth>Nebula</Link>
                             <Link to="/starburst" class="link block py-2 hover:bg-gray-200" smooth>Starburst</Link>
@@ -36,9 +63,9 @@ const Navbar = () => {
                         </div>
                     </div>
                     <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
-                    <div class="relative">
-                        <Link id="dropdownNavbarButton" onClick={() => setIsNAFxCACOpen((prev) => !prev)}>NAFXCAC</Link>
-                        <div onClick={() => setIsNAFxCACOpen(false)} className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                    <div class="relative" ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
+                        <Link id="dropdownNavbarButton">NAFXCAC</Link>
+                        <div  className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
                         </div>
                     </div>
@@ -69,12 +96,13 @@ const Navbar = () => {
                             </svg>
                         </button>
                     </div>
-                    <div>
-                        <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
+                    <div ref={MobileRef}>
+                        <Link onClick={() => setIsNavOpen(false)}  to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/about" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ABOUT</Link>
-                        <div class="relative p-4 text-sm">
-                            <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsProgrammesOpen((prev) => !prev)}>PROGRAMMES</Link>
-                            <div onClick={() => setIsNavOpen(false)} className={isProgrammesOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
+                        <div class="relative p-4 text-sm" >
+                            <Link onClick={() => setIsMobileProgrammesOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >PROGRAMMES</Link>
+                            <div onClick={() => setIsNavOpen(false)} className={isMobileProgrammesOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
+                                <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
                                 <Link to="/nebula" class="link block py-2 px-3 hover:bg-gray-200" smooth>Nebula</Link>
                                 <Link to="/starburst" class="link block py-2 px-3 hover:bg-gray-200" smooth>Starburst</Link>
                                 <Link to="/interstellar" class="link block py-2 px-3 hover:bg-gray-200" smooth>Interstellar</Link>
@@ -86,10 +114,9 @@ const Navbar = () => {
                         </div>
                         <Link onClick={() => setIsNavOpen(false)} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>MARKETPLACE</Link>
                         <div class="relative p-4 text-sm">
-                            <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
-                            <div onClick={() => setIsNavOpen(false)} className={isNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
+                            <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsMobileNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
+                            <div onClick={() => setIsNavOpen(false)} className={isMobileNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
                                 <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
-
                             </div>
                         </div>
                         <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
