@@ -28,40 +28,45 @@ const Events = () => {
   }
 
   return (
-    <div class="flex relative overflow-x-clip ">
-      <img src={TopRightYellowStar} class="absolute top-[-22%] right-[-10%] z-30 "></img>
-      <img src={RedDot} class="absolute top-[15%] left-[0%] z-10" ></img>
-      <img src={BigWhiteStar} class="absolute bottom-[10%] left-[-1%] z-10" ></img>
+    <div class="flex relative overflow-x-clip bg-NAFYellow flex-col  items-center lg:flex-row lg:items-stretch">
+      <div class="lg:hidden mt-5">
+        <img src={EventLogo} class="w-[50%] mx-auto"></img>
+      </div>
+      <img src={TopRightYellowStar} class="hidden lg:block absolute top-[-22%] right-[-10%] z-30 "></img>
+      <img src={RedDot} class="hidden lg:block absolute top-[15%] left-[0%] z-10" ></img>
+      <img src={BigWhiteStar} class="hidden lg:block absolute bottom-[10%] left-[-1%] z-10" ></img>
 
-
+      {/* left side */}
       <div class="w-[70%] bg-NAFYellow grow relative flex flex-col flex-wrap align-center justify-center">
-        <img src={RedStar} class="absolute top-[-5%] right-[-8%] z-10" ></img>
-        <img src={SmallPurpleStar} class="absolute bottom-[15%] right-[-2%]" ></img>
+        <img src={RedStar} class="hidden lg:block absolute top-[-5%] right-[-8%] z-10" ></img>
+        <img src={SmallPurpleStar} class="hidden lg:block absolute bottom-[15%] right-[-2%]" ></img>
 
-        <div class="h-2/4 my-0 mx-auto p-10 relative max-w-[50%]">
-          <img src={BigPurpleStar} class="absolute top-[-5%] left-[-5%]" ></img>
+        <div class="lg:h-2/4 my-0 mx-auto p-10 relative lg:max-w-[50%] h-[300px]">
+          <img src={BigPurpleStar} class="hidden lg:block absolute top-[-5%] left-[-5%]" ></img>
           <img src={imgGallery[imgState]} class="h-full w-full"></img>
         </div>
-        <div class="mx-auto my-0 flex justify-around w-1/4">
-          <img class="inline-block" src={LeftArrow} onClick={ImageState(imgState-1)}></img>
-          <img class="inline-block" src={RightArrow} onClick={ImageState(imgState+1)}></img>
+        <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-1/4">
+          <img class="inline-block w-3/4 lg:w-[auto]" src={LeftArrow} onClick={ImageState(imgState-1)}></img>
+          <img class="inline-block w-3/4 lg:w-[auto]" src={RightArrow} onClick={ImageState(imgState+1)}></img>
         </div>
 
       </div>
-      <div class="w-[30%] max-w-[600px] bg-NAFBlue px-10 py-[4rem] relative overflow-hidden">
-        <img src={WhiteDot} class="absolute top-[3%] left-[15%]" ></img>
 
-        <img src={SmallWhiteStar} class="absolute bottom-[10%] right-[-1%]" ></img>
+      {/* right side */}
+      <div class="hidden lg:block w-[30%] max-w-[600px] bg-NAFBlue px-10 py-[4rem] relative overflow-hidden">
+        <img src={WhiteDot} class="hidden lg:block absolute top-[3%] left-[15%]" ></img>
+
+        <img src={SmallWhiteStar} class="hidden lg:block absolute bottom-[10%] right-[-1%]" ></img>
         <div class="relative">
           <img src={EventLogo} class="w-3/4"></img>
           <div class="mt-10 w-[90%]">
             {
               imgGallery.map((oneImage, index) => (
-                <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
-                 "text-black bg-white rounded-lg py-7 my-7 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
+                <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
+                 "text-black bg-white rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
                  onClick={ImageState(index)} >
-                  <div class="font-yerkItalic text-2xl">EVENT NAME</div>
-                  <div class="font-syne font-bold text-xl">XX FEB 2023, 	&lt;Location&gt;</div>
+                  <div class="font-yerkItalic text-xl">EVENT NAME</div>
+                  <div class="font-syne font-bold text-m">XX FEB 2023, 	&lt;Location&gt;</div>
                 </div>
               ))
             }

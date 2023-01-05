@@ -27,31 +27,18 @@ import LandingBg from "./svgs/landing/landingbg.svg";
 
 const Workshops = () => {
   return (
-    <div
-      class="bg-NAFOrange bg-cover min-h-screen relative overflow-hidden"
-      style={{ backgroundImage: `url(${LandingBg})` }}
-    >
-      <img
-        src={WorkshopTopLeftPurpleStar}
-        class="absolute top-[5%] left-[0%] z-10"
-      ></img>
-      <img
-        src={WorkshopTopRightRedDot}
-        class="absolute top-[2%] right-[10%] z-10"
-      ></img>
-      <img
-        src={WorkshopTopRightYellowStar}
-        class="absolute top-[5%] right-[0%] z-10"
-      ></img>
-      <img
-        src={WorkshopBottomRightBlueStar}
-        class="absolute bottom-[-8%] right-[-5%] z-10"
-      ></img>
+    <div class="bg-NAFOrange bg-cover relative overflow-hidden" style={{ backgroundImage: `url(${LandingBg})`}}>
+        <img src={WorkshopTopLeftPurpleStar} class="hidden lg:block absolute top-[5%] left-[0%] z-10"></img>
+        <img src={WorkshopTopRightRedDot} class="hidden lg:block absolute top-[2%] right-[10%] z-10"></img>
+        <img src={WorkshopTopRightYellowStar} class="hidden lg:block absolute top-[5%] right-[0%] z-10"></img>
+        <img src={WorkshopBottomRightBlueStar} class="hidden lg:block absolute bottom-[-8%] right-[-5%] z-10"></img>
+
+
 
       <div class="flex relative flex-col items-center">
-        <img class="my-8 z-20" src={WorkshopLogo}></img>
+        <img class="my-8 z-20 w-[70%] lg:w-[40%]" src={WorkshopLogo}></img>
       </div>
-      <div class="w-[80%] h-fit mb-10 mr-auto ml-36 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] bg-white">
+      <div class="w-[95%] md:w-[90%] lg:w-[80%] h-fit mb-10 mx-auto border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] bg-white">
         <AppleHeader></AppleHeader>
         <div class="p-10">
           <Swiper

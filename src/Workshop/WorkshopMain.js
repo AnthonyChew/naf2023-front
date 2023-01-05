@@ -12,7 +12,6 @@ const WorkshopMain = () => {
         <Workshops></Workshops>
         <SignUp></SignUp>
         <Gallery></Gallery>
-        <Footer></Footer>
     </div>
   )
 }
