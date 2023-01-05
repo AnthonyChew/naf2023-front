@@ -32,20 +32,20 @@ const FestGuide = () => {
           </div>
         </div>  */}
 
-      <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10">
-        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%]"></img>
+      <div class=" flex flex-row w-[100%] min-h-screen mt-32 mx-10 my-10 flex-wrap">
+        <img src={BigWhiteStar} class="absolute top-[40%] right-[0%] hidden lg:block"></img>
         {/* <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img> */}
         <img src={MediumYellowStar} class="absolute top-[-8%] right-[9%]"></img>
         {/* <img
           src={MediumPurpleStar}
           class="absolute top-[90%] right-[45%]"
         ></img> */}
-        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%]"></img>
+        <img src={SmallBlueStar} class="absolute top-[2%] left-[35%] hidden lg:block"></img>
         <img src={SmallPurpleDot} class="absolute top-[7%] right-[3%] "></img>
-        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10"></img>
-        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%]"></img>
+        <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
+        <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] hidden lg:block"></img>
 
-        <div class="relative basis-1/2">
+        <div class="relative lg:basis-1/2 max-md:w-fit max-md:basis-auto ">
           <img src={WhatIsNTUArtsFestival} class=""></img>
           <h1 class="my-5 mr-10 font-syne font-normal text-2xl ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -58,18 +58,18 @@ const FestGuide = () => {
           </h1>
 {/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
           <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
-            class="hover:bg-violet-700 py-[2%] mt-2 w-[45%] p-15  box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-3 border-black bg-NAFPurple rounded-lg"
+            class="max-md:w-auto max-md:flex mb-[2%] justify-center hover:bg-violet-700 py-[5%] mt-2 w-[45%] p-15 box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg ..."
           >
             DOWNLOAD FEST GUIDE
           </a>
           
         </div>
-        <div class="relative basis-1/2">
-          <div class="mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
+        <div class="lg:relative lg:basis-1/2 max-md:place-self-center">
+          <div class="max-md:w-fit  mx-auto w-[80%] h-[80%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
             <div class="h-[100%] border-solid p-5">
               <iframe
-                class=" w-full h-[95%]"
+                class=" w-full h-[95%] "
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
                 frameborder="0"
