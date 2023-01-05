@@ -8,7 +8,6 @@ import Workshops from './Workshops'
 const WorkshopMain = () => {
   return (
     <div class="overflow-hidden">
-        <Navbar></Navbar>
         <Workshops></Workshops>
         <SignUp></SignUp>
         <Gallery></Gallery>
