@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import Logo from "./svgs/gallery/workshops_gallerylogo.svg";
-import LogoShadow from "./svgs/gallery/workshops_gallerylogoshadow.svg";
 import File from "./svgs/gallery/workshops_file.svg";
 import Planet1 from "./svgs/gallery/workshops_planet1.svg";
 import Planet2 from "./svgs/gallery/workshops_planet2.svg";
@@ -48,9 +47,8 @@ const Gallery = () => {
         className="z-0 absolute -bottom-[23%] right-0 w-[47%] "
         src={Planet2}
       />
-      <img class="absolute mt-1 ml-[23%] w-[45%]" src={LogoShadow} />
-      <img class="absolute ml-[23%] mb-[3%] w-[45%]" src={Logo} />
-      <div class="z-10 relative mt-[6%] mb-[3%] mx-[10%] lg:mx-[15%] font-semibold text-white text-center text-xs sm:text-sm md:text-md lg:text-xl">
+      <img class="relative ml-[27.5%] w-[45%] mb-[2%]" src={Logo} />
+      <div class="z-10 relative mb-[3%] mx-[10%] lg:mx-[15%] font-semibold text-white text-center text-xs sm:text-sm md:text-md lg:text-xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

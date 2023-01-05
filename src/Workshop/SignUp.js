@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import LandingBg from "./svgs/workshop/landingbg.svg";
 import AppleHeader from "../SharedPages/AppleHeader";
 import SignUps from "./svgs/signups/workshops_signup.svg";
@@ -19,6 +20,7 @@ import BallShadow from "./svgs/workshop/workshops_BallShadow.svg";
 import RedBall from "./svgs/workshop/workshops_RedBall.svg";
 import WhiteBall from "./svgs/workshop/workshops_WhiteBall.svg";
 import YellowBall from "./svgs/workshop/workshops_yellowball.svg";
+import "./ModalStyle.css";
 
 const SignUp = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -135,7 +137,61 @@ const SignUp = () => {
         >
           CLICK HERE TO SIGN UP
         </button>
-        <div className={`${modalOpen ? "block" : "hidden"}`}> </div>
+        <Modal isOpen={modalOpen}>
+          <div class="w-full h-full" id="modal-outside">
+            <div class="w-[90%] mx-auto translate-y-[30%]">
+              <div
+                class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none"
+                id="modal-box"
+              >
+                <AppleHeader />
+                <div class="modal-body relative p-10">
+                  <form onSubmit={null}>
+                    <div className="form-group">
+                      <label htmlFor="name">
+                        Name <span className="text-red-500">*</span>
+                      </label>
+                      <br />
+                      <input
+                        className="form-control"
+                        id="name"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div className="form-group mt-5">
+                      <label htmlFor="email">
+                        Email address <span className="text-red-500">*</span>
+                      </label>
+                      <br />
+
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        placeholder="name@example.com"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <button
+                        className="form-control mt-10 bg-green-500 text-white py-1 px-2 rounded hover:bg-green-700"
+                        type="submit"
+                      >
+                        Submit
+                      </button>
+                      <br />
+                      <button
+                        className="bg-red-500 text-white py-1 px-2 mt-2 rounded hover:bg-red-700"
+                        onClick={() => setModalOpen(false)}
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   );
