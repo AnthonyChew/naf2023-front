@@ -25,6 +25,8 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cube';
 import 'swiper/css/effect-fade';
 
+import FileUploader from './FileUploader'
+
 const Piccrew = () => {
   return (
     <div class="relative bg-[#0071C6] overflow-hidden">
@@ -146,10 +148,14 @@ const Piccrew = () => {
       <div>
         <div class="flex flex-row pt-[2%] lg:pt-20 pb-20 lg:pb-40">
           <div class='flex basis-1/2 justify-end'>
-            <button class="ml-[15%] mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">UPLOAD YOUR DESIGN</button>
+              {/* <button type="submit" class="ml-[15%] mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">UPLOAD YOUR DESIGN</button>
+              <input type="file" style={{display:'none'}}/> */}
+              <FileUploader></FileUploader>
           </div>
           <div class='flex basis-1/2 justify-start'>
-            <button class="mr-[15%] ml-10 bg-[#8F55FF] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">VISIT OUR PICREW</button>
+            <a class="ml-10" href='https://picrew.me/'>
+              <button class="bg-[#8F55FF] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">VISIT OUR PICREW</button>
+            </a>
           </div>
         </div>
       </div>
