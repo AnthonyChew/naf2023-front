@@ -60,9 +60,12 @@ const Workshops = () => {
         class="absolute right-0 top-[14%] w-[17%] md:w-[23%]"
         src={PurpleStar1}
       />
-      <img class="absolute right-[23%] top-[33.7%] w-[1.8%]" src={BallShadow} />
       <img
-        class="absolute right-[23.2%] top-[33.5%] w-[1.8%]"
+        class="absolute right-[23%] top-[33.7%] w-[1.8%] md:block hidden"
+        src={BallShadow}
+      />
+      <img
+        class="absolute right-[23.2%] top-[33.5%] w-[1.8%] md:block hidden"
         src={WhiteBall}
       />
       {/* Bot Left */}

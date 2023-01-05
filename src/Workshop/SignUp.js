@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingBg from "./svgs/workshop/landingbg.svg";
 import AppleHeader from "../SharedPages/AppleHeader";
 import SignUps from "./svgs/signups/workshops_signup.svg";
-import SignUpsShadow from "./svgs/signups/workshops_signupshadow.svg";
 import SignUpsStars from "./svgs/signups/workshops_signupstars.svg";
 import SignUpsButton from "./svgs/signups/workshops_signupbutton.svg";
 import BlueStar3 from "./svgs/workshop/workshops_bluestar3.svg";
@@ -22,6 +21,8 @@ import WhiteBall from "./svgs/workshop/workshops_WhiteBall.svg";
 import YellowBall from "./svgs/workshop/workshops_yellowball.svg";
 
 const SignUp = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div
       class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFPurple pt-20 md:pb-0 pb-20 px-[5%] lg:px-20"
@@ -85,10 +86,13 @@ const SignUp = () => {
         src={RedStar2}
       />
       <img
-        class="z-10 absolute right-[25%] top-[32.5%] w-[2%]"
+        class="z-10 absolute right-[25%] top-[32.5%] w-[2%] md:block hidden"
         src={BallShadow}
       />
-      <img class="z-10 absolute right-[25.2%] top-[32%] w-[2%]" src={RedBall} />
+      <img
+        class="z-10 absolute right-[25.2%] top-[32%] w-[2%] md:block hidden"
+        src={RedBall}
+      />
       <img
         class="z-10 absolute right-[3%] top-[50.5%] w-[2%]"
         src={BallShadow}
@@ -99,7 +103,7 @@ const SignUp = () => {
       />
       <div class="flex md:flex-row flex-col space-x-[5%]">
         {/* Top Left Apple Header */}
-        <div class="w-full md:w-1/2 md:mt-0 mt-[33%] h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
+        <div class="w-full md:w-1/2 md:mt-0 mt-[22%] h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
           <AppleHeader title={"www.signupguidelines.com"}></AppleHeader>
           <p class="h-fit bg-white p-5 font-semibold text-center text-xs sm:text-sm md:text-md lg:text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget
@@ -110,9 +114,11 @@ const SignUp = () => {
         </div>
         {/* Sign Up Logo */}
         <div class="relative w-2/3 order-first md:order-last">
-          <img class="z-20 absolute" src={SignUps} />
-          <img class="z-10 absolute top-[4%] left-[1%]" src={SignUpsShadow} />
-          <img class="z-0 absolute -top-[20%]" src={SignUpsStars} />
+          <img class="z-10 absolute w-[100%]" src={SignUps} />
+          <img
+            class="z-0 absolute -top-[20%] md:w-full w-[60%]"
+            src={SignUpsStars}
+          />
         </div>
       </div>
       <div class=" bg-white md:ml-[12%] mt-10 w-full md:w-10/12 h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
@@ -125,9 +131,11 @@ const SignUp = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => setModalOpen(true)}
         >
           CLICK HERE TO SIGN UP
         </button>
+        <div className={`${modalOpen ? "block" : "hidden"}`}> </div>
       </div>
     </div>
   );
