@@ -72,17 +72,17 @@ export default function CartCard(props) {
     }, [])
 
     return (
-        <div class="flex flex-row">
+        <div class="flex flex-row mb-1">
             <div class="flex flex-1 items-center justify-center">
-                <img class="p-5" src={image}></img>
+                <img class="md:p-5 p-1 pr-2" src={image}></img>
             </div>
-            <div class="flex flex-col flex-1 justify-center gap-1">
-                <p class="text-3xl font-syne">{name}</p>
-                {attribute1 && <p  class="text-lg font-syne">{attribute1}: {colour}</p>}
-                {attribute2 && <p class="text-lg font-syne">{attribute2}: {size}</p>}
+            <div class="flex flex-col flex-1 justify-center md:gap-1">
+                <p class="md:text-3xl text-lg font-syne">{name}</p>
+                {attribute1 && <p  class="md:text-lg text-xs font-syne">{attribute1}: {colour}</p>}
+                {attribute2 && <p class="md:text-lg text-xs font-syne">{attribute2}: {size}</p>}
                 <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal} data-bs-toggle="modal" data-bs-target={"#model-" + index}>
 
-                    <p class="font-syne underline underline-offset-4">Remove</p>
+                    <p class="font-syne underline md:text-lg text-xs underline-offset-4">Remove</p>
                 </button>
 
                 <Modal
@@ -129,7 +129,7 @@ export default function CartCard(props) {
             </div>
 
             <div class="flex flex-col flex-1 justify-center">
-                <p class="text-center text-2xl font-syne">${subTotal}</p>
+                <p class="text-center md:text-2xl text-lg font-syne">${subTotal}</p>
             </div>
 
 
