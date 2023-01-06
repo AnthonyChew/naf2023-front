@@ -175,13 +175,15 @@ const MarketPlaceLanding = () => {
 
   function closeModal(e) {
     //console.log(e.target.id);
-    if (e.target.id == "modal-outside") {
+    if (e == "modal-outside") {
+      setIsOpen(false);
+    }
+    else if (e.target.id == "modal-outside" ) {
       setIsOpen(false);
     }
   }
 
   function closeConfirmation() {
-
     setConfirmationIsOpen(false);
   }
 
@@ -260,12 +262,20 @@ const MarketPlaceLanding = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => closeModal("modal-outside")}
+        appElement={document.getElementById('root') || undefined} // weird error if dont add this
         shouldCloseOnOverlayClick={true}
       >
         <div class="w-full h-full" onClick={(e) => closeModal(e)} id="modal-outside" >
           <div class="w-[100%] md:w-[70%] mx-auto lg:translate-y-[30%]" >
             <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none" id="modal-box">
               <AppleHeader />
+              <div class="flex items-center justify-end mb-8">
+                        <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
+                            <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
               <div class="modal-body relative p-2 md:p-10 text-center lg:text-left">
                 <div class="w-[70%] lg:w-[30%] inline-block text-center">
                   <Swiper
@@ -347,7 +357,7 @@ const MarketPlaceLanding = () => {
                       shouldCloseOnOverlayClick={true}
                     >
                       <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
-                        <div class="w-fit mx-auto translate-y-[200%]" >
+                        <div class="w-fit mx-auto translate-y-[100%] md:translate-y-[200%]" >
                           <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
                             <p class="font-yerk text-xl text-black">Add product</p>
                             <p class='mb-5'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1} {oneproduct.attribute2 && oneproduct.attribute2}x {quantity} into cart?</p>
