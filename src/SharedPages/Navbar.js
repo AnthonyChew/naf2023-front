@@ -17,7 +17,6 @@ const Navbar = () => {
     const handleOutsideClicks =(event)=>{
         if(ProgrammesRef.current && !ProgrammesRef.current.contains(event.target)){
             setIsProgrammesOpen(false);
-            // setIsNAFxCACOpen(false)
          }
         if(NAFCACRef.current && !NAFCACRef.current.contains(event.target)){
             setIsNAFxCACOpen(false)
@@ -28,14 +27,12 @@ const Navbar = () => {
 
       };
       useEffect(() => {
-
         // Bind the event listener
         document.addEventListener("mousedown", handleOutsideClicks);
           return () => {
             // Unbind the event listener on clean up
             document.removeEventListener("mousedown", handleOutsideClicks);
         };
-
     }, [ProgrammesRef, NAFCACRef,MobileRef ]);
       
     return (
@@ -108,7 +105,7 @@ const Navbar = () => {
                                 <Link to="/interstellar" class="link block py-2 px-3 hover:bg-gray-200" smooth>Interstellar</Link>
                                 <Link to="/orbit" class="link block py-2 px-3 hover:bg-gray-200" smooth>Orbit</Link>
                                 <Link to="/workshop" class="link block py-2 px-3 hover:bg-gray-200" smooth>Workshop</Link>
-                                <Link to="/picrew" class="link block pt-2 px-3 hover:bg-gray-200" smooth>Piccrew</Link>
+                                <Link to="/picrew" class="link block pt-2 px-3 hover:bg-gray-200" smooth>Picrew</Link>
 
                             </div>
                         </div>

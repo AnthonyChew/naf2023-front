@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useForm } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import PaymentLogo from './svgs/Payment/PaymentLogo.png'
 import QRCode from './svgs/Payment/QRCode.svg'
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import PaymentPurple8Star1 from './svgs/Payment/PaymentPurple8Star1.svg'
 import PaymentBlue4Star1 from './svgs/Payment/PaymentBlue4Star1.svg'
@@ -48,45 +51,41 @@ import PaymentPurpleDot from './svgs/Payment/PaymentPurpleDot.svg'
 
 
 const Payment = () => {
-  
+
   const orderForm = {
-  "_id": {
-    "$oid": "61f7cebaae0d253ed442e47c"
-  },
-  "name": "Jia Jia",
-  "contactNumber": "96574796",
-  "emailAddress": "jfoo027@e.ntu.edu.sg",
-  "purchases": [],
-  "total": 22,
-  "buyer": {
-    "$oid": "61f77c29ae0d253ed442e47a"
-  },
-  "datetime": "2022-01-31T19:57:46+08:00",
-  "orderNumber": "GZ64JG",
-  "verified": true
-}
+    "_id": {
+      "$oid": "61f7cebaae0d253ed442e47c"
+    },
+    "name": "Jia Jia",
+    "contactNumber": "96574796",
+    "emailAddress": "jfoo027@e.ntu.edu.sg",
+    "purchases": [],
+    "total": 22,
+    "buyer": {
+      "$oid": "61f77c29ae0d253ed442e47a"
+    },
+    "datetime": "2022-01-31T19:57:46+08:00",
+    "orderNumber": "GZ64JG",
+    "verified": true
+  }
 
   const classNames = {
     activeRadio: "inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple",
     disabledRadio:
       "inline-flex justify-between items-center p-3 w-full text-gray-500 bg-gray-700 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple",
+
   };
   const state = useSelector((state) => {
-    // console.log(state);
     return state;
   });
-  const [inputs, setInputs] = useState({
-  });
+
   const [collection, setCollection] = useState({})
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     if (name.includes("radio")) {
-      setCollection(values => ({...values, [name]:value}))
-    }
-    else {
-      setInputs(values => ({...values, [name]: value}))
+      setCollection(values => ({ ...values, [name]: value }))
     }
   }
   const [products, setProducts] = useState([]);
@@ -97,7 +96,6 @@ const Payment = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(state.addedProducts)
     setProducts(state.addedProducts)
     var total = 0;
     for (let oneProduct of state.addedProducts) {
@@ -107,18 +105,10 @@ const Payment = () => {
     setTotalPrice(total > 0 ? total : 0);
   }, []);
 
-  //when collection radio button get updated, update input
-  useEffect(() => {
-    console.log(collection)
-
-    setInputs(values2 => ({...values2, collection}))
-
-  }, [collection]);
-
-  function updateOrderForm() {
-    orderForm.name = inputs.name;
-    orderForm.emailAddress = inputs.email_address;
-    orderForm.contactNumber = inputs.contact_number;
+  function updateOrderForm(data) {
+    orderForm.name = data.name;
+    orderForm.emailAddress = data.email;
+    orderForm.contactNumber = data.contactnumber;
     var allPurchases = []
     for (var i = 0; i < state.addedProducts.length; i++) {
       var oneProduct = state.addedProducts[i]
@@ -126,7 +116,7 @@ const Payment = () => {
         productId: oneProduct._id,
         vendorId: oneProduct.vendorId,
         quantityBought: oneProduct.quantityBought,
-        collection: inputs.collection["radio" + i],
+        collection: collection["radio" + i],
         collectionDate: "placeholder",
         datetime: "placeholder",
         productName: oneProduct.productName,
@@ -141,14 +131,32 @@ const Payment = () => {
     }
     orderForm.purchases = allPurchases;
   }
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(inputs);
 
-    // if valid
-    updateOrderForm();
-    console.log(orderForm);
-  }
+
+  const schema = yup.object().shape({
+    name: yup.string().required("Name is required").min(6),
+    contactnumber: yup.string().required("Contact Number is required").min(6,"Please enter a valid contact number"),
+    email: yup.string().email("Please enter a valid email").required("Email is required"),
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema)
+  });
+
+  // on submit is only executed if the form is valid
+  const onSubmit = (data, e) => {
+    var collectionLength = Object.keys(collection).length;
+    if (collectionLength != state.addedProducts.length) {
+      alert("Please select delivery option for all products.")
+    }
+    else {
+      updateOrderForm(data);
+      console.log(orderForm);
+    }
+
+  };
+  // console.log(errors);
 
   return (
     <div class="relative bg-NAFPink">
@@ -181,15 +189,7 @@ const Payment = () => {
         <img src={PaymentYellow4Star3} class="absolute bottom-[360px] left-[0%] w-[6.87%]"></img>
         <img src={PaymentWhiteDot} class="absolute bottom-[315px] left-[3.33%] w-[1.7%]"></img>
         <img src={PaymentBlue8Star3} class="absolute bottom-[130px] left-[0%] w-[6.45%]"></img>
-        {/* 
-        To be used
-        <img src={PaymentYellow8Star2} class="absolute top-[200%] left-[0%]"></img>
-        <img src={PaymentPurple4Star3} class="absolute top-[200%] left-[0%]"></img>
-        <img src={PaymentYellowDot} class="absolute top-[200%] left-[0%] w-[1.7%]"></img>
-        <img src={PaymentBlue8Star2} class="absolute top-[200%] left-[0%]"></img>
-        <img src={PaymentOrange4Star1} class="absolute top-[200%] left-[0%]"></img> 
-        */}
-
+     
         {/* Right side */}
         <img src={PaymentYellow8Star3} class="absolute top-[150px] right-[0.5%] w-[10%]"></img>
         <img src={PaymentPurpleDot} class="absolute top-[310px] right-[1%] w-[1.7%]"></img>
@@ -198,26 +198,48 @@ const Payment = () => {
         <img src={PaymentYellowDot} class="absolute bottom-[460px] right-[0.9%] w-[1.7%]"></img>
         <img src={PaymentBlue8Star4} class="absolute bottom-[240px] right-[0%] w-[9%]"></img>
         <img src={PaymentYellow4Star4} class="absolute bottom-[50px] right-[0%] w-[7.76%]"></img>
-        {/* 
-        To be used
-        <img src={PaymentWhiteDot} class="absolute top-[200%] right-[0%] w-[1.7%]"></img>
-        <img src={PaymentBlue4Star4} class="absolute top-[200%] right-[0%]"></img>
-        <img src={PaymentYellow8Star4} class="absolute top-[200%] right-[0%]"></img>
-        <img src={PaymentOrange8Star5} class="absolute top-[200%] right-[0%]"></img>
-        <img src={PaymentPurple4Star4} class="absolute top-[200%] right-[0%]"></img> 
-        */}
+        
 
 
 
         <div class="relative w-[85%] mx-auto h-fit bg-white border-4 border-black z-20">
           <div class="pt-16 pb-12 px-15 w-[90%] mx-auto">
-            <form onSubmit={handleSubmit}>
-              <label class="font-syneBold text-3xl">Name:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="name" placeholder="name"  value={inputs.name || ""} onChange={handleChange}/>
-              <label class="font-syneBold text-3xl">Contact number:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-12 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="contact_number" placeholder="contact number" value={inputs.contact_number || ""} onChange={handleChange}/>
-              <label class="font-syneBold text-3xl">Email address:</label>
-              <input class="border-black border-3 w-[100%] px-2 mt-4 mb-10 font-syne text-3xl leading-loose placeholder-gray-200" type="text" name="email_address" placeholder="email address" value={inputs.email_address || ""} onChange={handleChange}/>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="mb-12">
+                <label
+                  className={`font-syneBold text-3xl ${errors.name ? "text-red-400" : "text-black"}`}>Name:</label>
+                <input
+                  className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.name ? "border-red-400" : "border-black"}`}
+                  type="text" name="name" placeholder="name"  {...register("name")} />
+                {errors.name && (
+                  <p className="text-red-500 text-lg mt-2">
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
+              <div className="mb-12">
+                <label className={`font-syneBold text-3xl ${errors.contactnumber ? "text-red-400" : "text-black"}`}>Contact number:</label>
+                <input className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.contactnumber ? "border-red-400" : "border-black"}`}
+                  type="text" name="contactnumber" placeholder="contact number"{...register("contactnumber")} />
+                {errors.contactnumber && (
+                  <p className="text-red-500 text-lg mt-2">
+                    {errors.contactnumber.message}
+                  </p>
+                )}
+              </div>
+              <div className="mb-12">
+                <label className={`font-syneBold text-3xl ${errors.email ? "text-red-400" : "text-black"}`}>Email address:</label>
+                <input
+                  className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.email ? "border-red-400" : "border-black"}`}
+                  type="text" name="email" placeholder="email address" {...register("email")} />
+                {errors.email && (
+                  <p className="text-red-500 text-lg mt-2">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+
+
 
               <div class=" mt-4">
                 <p class="font-syneBold text-3xl">Choose self-collection or delivery for each item:</p><br></br>
@@ -239,7 +261,7 @@ const Payment = () => {
                   <div class="basis-2/4">
                     <ul class="grid gap-6 w-full md:grid-cols-2">
                       <li>
-                        <input type="radio" id={"small" + i} name={"radio" + i} value={"self-collect"} class="hidden peer" onChange={handleChange}  disabled={product.canCollect ? false : true}/>
+                        <input type="radio" id={"small" + i} name={"radio" + i} value={"self-collect"} class="hidden peer" disabled={product.canCollect ? false : true} onChange={handleChange}/>
                         <label for={"small" + i} className={product.canCollect ? classNames.activeRadio : classNames.disabledRadio} >
                           <div class="block text-center w-[100%]">
                             <div class="w-full text-m font-semibold">Self-Collection</div>
@@ -247,7 +269,7 @@ const Payment = () => {
                         </label>
                       </li>
                       <li>
-                        <input type="radio" id={"big"+i} name={"radio"+i} value={"delivery"} class="hidden peer" onChange={handleChange} disabled={product.canDeliver ? false : true}/>
+                        <input type="radio" id={"big" + i} name={"radio" + i} value={"delivery"} class="hidden peer" disabled={product.canDeliver ? false : true} onChange={handleChange}/>
                         <label for={"big" + i} className={product.canDeliver ? classNames.activeRadio : classNames.disabledRadio}>
                           <div class="block text-center w-[100%]">
                             <div class="w-full text-lg font-semibold">Delivery</div>
