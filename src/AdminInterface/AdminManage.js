@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import adminService from '../services/admin';
 import orderService from '../services/orders';
 import workshopService from '../services/workshops';
@@ -10,37 +8,12 @@ import vendorService from '../services/vendors';
 import AdminLogin from '../Authentication/AdminLogin';
 import Logout from '../Authentication/Logout';
 
-import {
-  Button,
-  Switch,
-  IconButton,
-  TextField,
-  OutlinedInput,
-  InputLabel,
-  FormControl,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-} from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import DoneIcon from '@material-ui/icons/Done';
-import DeleteIcon from '@material-ui/icons/Delete';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import MailIcon from '@material-ui/icons/Mail';
-import AddIcon from '@material-ui/icons/Add';
+
 import FileDownload from 'js-file-download';
 import { useHistory } from 'react-router-dom';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import { usePromiseTracker } from 'react-promise-tracker';
-import ConfirmationDialog from '../Components/ConfirmationDialog';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import VerifyWorkshops from './VerifyWorkshops';
 
 const useStyles = makeStyles((theme) => ({
