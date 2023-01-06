@@ -45,7 +45,7 @@ const FestGuide = () => {
         <img src={SmallRedStar} class="absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
         <img src={SmallWhiteDot} class="absolute top-[90%] left-[12%] hidden lg:block"></img>
 
-        <div class="relative lg:basis-1/2 mb-10 lg:mb-0 ">
+        <div class="relative lg:basis-1/2 mb-10 lg:mb-20 ">
           <img src={WhatIsNTUArtsFestival} class=""></img>
           <h1 class="my-5 md:mr-10 font-syne font-normal text-lg lg:text-2xl ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

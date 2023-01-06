@@ -188,11 +188,11 @@ const MarketPlaceLanding = () => {
   return (
     <div class="bg-NAFPink bg-cover min-h-screen relative overflow-hidden">
       <div class="flex relative flex-col items-center">
-        <img class="my-10" src={MarketPlaceLogo}></img>
+        <img class="my-10 w-[80%] lg:w-[40%]" src={MarketPlaceLogo}></img>
         <div class="font-syne w-[60%] text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
       </div>
       {/* filter and search button */}
-      <div class="flex justify-between my-20 mx-10">
+      <div class="flex lg:justify-between my-20 mx-10 flex-wrap">
         <SearchBar searchCallback={(searchValue) => setSearchValue(searchValue)} />
         <Filter filterCallback={(filterOptions) => setFilterOptions(filterOptions)}></Filter>
       </div>
@@ -263,11 +263,11 @@ const MarketPlaceLanding = () => {
         shouldCloseOnOverlayClick={true}
       >
         <div class="w-full h-full" onClick={(e) => closeModal(e)} id="modal-outside" >
-          <div class="w-[70%] mx-auto translate-y-[30%]" >
+          <div class="w-[100%] md:w-[70%] mx-auto lg:translate-y-[30%]" >
             <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none" id="modal-box">
               <AppleHeader />
-              <div class="modal-body relative p-10">
-                <div class="w-[30%] inline-block ">
+              <div class="modal-body relative p-2 md:p-10 text-center lg:text-left">
+                <div class="w-[70%] lg:w-[30%] inline-block text-center">
                   <Swiper
                     // install Swiper modules
                     modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade]}
@@ -296,12 +296,12 @@ const MarketPlaceLanding = () => {
                     <div className="swiper-custom-pagination" />
                   </div>
                 </div>  {/* end of left side */}
-                <div class="w-[65%] inline-block align-top ml-10">
+                <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
                   <div class="font-yerkItalic text-xl text-black">{oneproduct.name}</div>
-                  {oneproduct.colours && <ul class="grid gap-6 w-full md:grid-cols-8 mt-5">
+                  {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
                     {oneproduct.colours.map((colour, index) => {
                       return (
-                        <li>
+                        <li class="mx-2 my-2 min-w-[50px]">
                           <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
                           <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
                             <div class="block text-center w-[100%]">
@@ -313,10 +313,10 @@ const MarketPlaceLanding = () => {
                     })}
                   </ul>}
 
-                  {oneproduct.sizes && <ul class="grid gap-6 w-full md:grid-cols-8 mt-5">
+                  {oneproduct.sizes && <ul class="flex w-full mt-5 flex-wrap">
                     {oneproduct.sizes.map((sizes, index) => {
                       return (
-                        <li>
+                        <li class="mx-2 my-2 min-w-[50px]">
                           <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
                           <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
                             <div class="block text-center w-[100%]">
@@ -328,14 +328,14 @@ const MarketPlaceLanding = () => {
                     })}
                   </ul>}
 
-                  <div class="flex my-5 gap-5">
-                    <div class="relative border-2 border-black">
+                  <div class="flex my-5 gap-5 flex-wrap justify-center md:justify-between lg:justify-start">
+                    <div class="relative border-2 border-black w-[70%] md:w-auto">
                       <p class="absolute -top-[40%] left-[5%] bg-white font-syne ">Quantity</p>
                       <Quantity class="basis-1/3 mr-3" quantity={quantity} changeState={(type) => setQuantity(type)} />
                     </div>
-                    <div>
+                    <div class="w-[70%] md:w-auto">
                       <button type="button" onClick={handleConfirmationModal}
-                        class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                        class="inline-block px-6 py-2.5 w-[100%] md:w-auto bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                         Add to Cart
                       </button>
                     </div>

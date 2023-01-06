@@ -35,7 +35,7 @@ export default function Filter(props) {
 
 
   return (
-    <div class="w-[30%]">
+    <div class="lg:w-[30%] w-[100%] mt-5 lg:mt-0 rounded-lg">
         <Select
         placeholder={"Filter..."}
     closeMenuOnSelect={false}
