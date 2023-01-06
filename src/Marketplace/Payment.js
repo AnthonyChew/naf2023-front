@@ -174,7 +174,7 @@ const Payment = () => {
         <img src={PaymentYellow4Star2} class="absolute top-[80.2%] right-[23.8%] w-[4%]"></img>
         <img src={PaymentBlue8Star1} class="absolute top-[53.3%] right-[0%] w-[16%]"></img>
 
-        <div class="py-28 mx-auto w-[45%]">
+        <div class="py-28 mx-auto w-[70%] lg:w-[45%]">
           <img src={PaymentLogo} class="mx-auto"></img>
           <p class="py-4 font-syne text-white text-center text-4xl">Thank you for shopping with us!</p>
         </div>
@@ -202,38 +202,38 @@ const Payment = () => {
 
 
 
-        <div class="relative w-[85%] mx-auto h-fit bg-white border-4 border-black z-20">
-          <div class="pt-16 pb-12 px-15 w-[90%] mx-auto">
+        <div class="relative w-[95%] lg:w-[85%] mx-auto h-fit bg-white border-4 border-black z-20">
+          <div class="pt-6 lg:pt-16 pb-12 px-15 w-[90%] mx-auto">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mb-12">
+              <div className="mb-6 lg:mb-12">
                 <label
-                  className={`font-syneBold text-3xl ${errors.name ? "text-red-400" : "text-black"}`}>Name:</label>
+                  className={`font-syneBold text-lg lg:text-3xl ${errors.name ? "text-red-400" : "text-black"}`}>Name:</label>
                 <input
                   className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.name ? "border-red-400" : "border-black"}`}
                   type="text" name="name" placeholder="name"  {...register("name")} />
                 {errors.name && (
-                  <p className="text-red-500 text-lg mt-2">
+                  <p className="text-red-500 text-md lg:text-lg mt-2">
                     {errors.name.message}
                   </p>
                 )}
               </div>
-              <div className="mb-12">
-                <label className={`font-syneBold text-3xl ${errors.contactnumber ? "text-red-400" : "text-black"}`}>Contact number:</label>
+              <div className="mb-6 lg:mb-12">
+                <label className={`font-syneBold text-lg lg:text-3xl ${errors.contactnumber ? "text-red-400" : "text-black"}`}>Contact number:</label>
                 <input className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.contactnumber ? "border-red-400" : "border-black"}`}
                   type="text" name="contactnumber" placeholder="contact number"{...register("contactnumber")} />
                 {errors.contactnumber && (
-                  <p className="text-red-500 text-lg mt-2">
+                  <p className="text-red-500 text-md lg:text-lg mt-2">
                     {errors.contactnumber.message}
                   </p>
                 )}
               </div>
-              <div className="mb-12">
-                <label className={`font-syneBold text-3xl ${errors.email ? "text-red-400" : "text-black"}`}>Email address:</label>
+              <div className="mb-6 lg:mb-12">
+                <label className={`font-syneBold text-lg lg:text-3xl ${errors.email ? "text-red-400" : "text-black"}`}>Email address:</label>
                 <input
                   className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.email ? "border-red-400" : "border-black"}`}
                   type="text" name="email" placeholder="email address" {...register("email")} />
                 {errors.email && (
-                  <p className="text-red-500 text-lg mt-2">
+                  <p className="text-red-500 text-md lg:text-lg mt-2">
                     {errors.email.message}
                   </p>
                 )}
@@ -241,9 +241,9 @@ const Payment = () => {
 
 
 
-              <div class=" mt-4">
-                <p class="font-syneBold text-3xl">Choose self-collection or delivery for each item:</p><br></br>
-                <p class="font-syne text-2xl">
+              <div class="mt-4">
+                <p class="font-syneBold text-lg lg:text-3xl">Choose self-collection or delivery for each item:</p><br></br>
+                <p class="font-syne text-md lg:text-2xl">
                   For self-collection, the vendor will be in contract with you.<br></br>
                   For delivery, check your email for delivery details.
                 </p>
@@ -251,7 +251,7 @@ const Payment = () => {
 
               {/* insert data here */}
               {products.map((product, i) => {
-                return <div class=" mt-4 flex items-center">
+                return <div class="mt-12 md:mt-8 lg:mt-4 flex items-center">
                   <div class="basis-2/4">
                     <div class="font-bold mb-3">{product.name}</div>
                     <div>Vendor: {product.vendorName}</div>
@@ -284,16 +284,21 @@ const Payment = () => {
                 </div>
               })
               }
+              
 
-              <div class="flex flex-row  my-12">
-                <div class="relative w-[50%]">
-                  <p class="font-syne text-3xl">Subtotal: ${subtotalPrice}</p><br></br>
-                  <p class="font-syne text-3xl">Shipping: $X.XX</p>
-                  <p class="font-syneBold text-5xl my-24">Total: ${totalPrice}</p>
+
+              <div class="flex flex-row  mt-20 lg:my-12 flex-wrap">
+              <div class="w-[100%] md:hidden">
+                  <img class="" src={QRCode}></img>
+                </div>
+                <div class="relative w-[100%] md:w-[50%]">
+                  <p class="font-syne text-xl lg:text-3xl">Subtotal: ${subtotalPrice}</p><br></br>
+                  <p class="font-syne text-xl lg:text-3xl">Shipping: $X.XX</p>
+                  <p class="font-syneBold text-3xl lg:text-5xl mb-24 mt-12 lg:mb-24 lg:mt-24">Total: ${totalPrice}</p>
                   <button type="submit" class="absolute bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>
                 </div>
 
-                <div class="w-[50%]">
+                <div class="hidden md:block w-[50%]">
                   <img class="float-right" src={QRCode}></img>
                 </div>
               </div>
