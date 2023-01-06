@@ -72,12 +72,12 @@ export default function CartCard(props) {
     }, [])
 
     return (
-        <div class="flex flex-row mb-1">
+        <div class="flex flex-row mb-5 ">
             <div class="flex flex-1 items-center justify-center">
-                <img class="md:p-5 p-1 pr-2" src={image}></img>
+                <img class="md:p-5 p-1 pr-2 min-w-[5em]" src={image}></img>
             </div>
-            <div class="flex flex-col flex-1 justify-center md:gap-1">
-                <p class="md:text-3xl text-lg font-syne">{name}</p>
+            <div class="flex flex-col flex-1 min-w-1 justify-center md:gap-1">
+                <p class="md:text-3xl text-lg min-w-1 font-syne overflow-hidden min-h-1 max-w-[100%] basis-[30%] md:max-h-none text-ellipsis">{name}</p>
                 {attribute1 && <p  class="md:text-lg text-xs font-syne">{attribute1}: {colour}</p>}
                 {attribute2 && <p class="md:text-lg text-xs font-syne">{attribute2}: {size}</p>}
                 <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal} data-bs-toggle="modal" data-bs-target={"#model-" + index}>
@@ -88,7 +88,6 @@ export default function CartCard(props) {
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
-                    closeTimeoutMS={200}
                     onClick={closeModal}
                 >
                     <div class="w-full h-full" onClick={closeModal}>

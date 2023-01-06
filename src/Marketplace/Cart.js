@@ -47,7 +47,7 @@ const Cart = () => {
   // };
 
   return (
-    <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden pt-48 pb-40" style={{ backgroundImage: `url(${CartBg})` }}>
+    <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden md:pt-48 md:pb-40 pt-16 pb-12" style={{ backgroundImage: `url(${CartBg})` }}>
       <img class="absolute top-[11.1%] left-[-0.0395%] " src={LeftTopYellowStar}></img>
       <img class="absolute top-[50%] left-[9.45%] " src={LeftBlueStar}></img>
       <img class="absolute top-[68%] left-[-1%] " src={LeftBottomPurpleStar}></img>
@@ -63,7 +63,7 @@ const Cart = () => {
             <img class="md:p-5 p-1 w-full h-auto" src={CartWord}></img>
           </div>
 
-          <div class="h-fit bg-white md:pt-16 pt-5 pb-10">
+          <div class="h-fit w-full inline-flex flex-col bg-white md:pt-16 pt-5 pb-10 ">
             <div class="flex flex-row items-center justify-center">
               <div class="flex-1"></div>
 

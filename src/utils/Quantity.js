@@ -20,7 +20,7 @@ const Quantity = (props) => {
   };
 
   return (
-      <div class="flex flex-row justify-center gap-5 pl-5 pr-5">
+      <div class="flex flex-row justify-center md:gap-5 gap-2 md:pl-5 md:pr-5 pl-1 pr-1">
       {
 
         <button
