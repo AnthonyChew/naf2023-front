@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import LandingBg from "./svgs/workshop/landingbg.svg";
 import AppleHeader from "../SharedPages/AppleHeader";
-import SignUps from "./svgs/signups/workshops_signup.svg";
 import SignUpsStars from "./svgs/signups/workshops_signupstars.svg";
 import SignUpsButton from "./svgs/signups/workshops_signupbutton.svg";
+import SignUpsLogo from "./svgs/signups/workshopSignUpLogo.png";
+
 import BlueStar3 from "./svgs/workshop/workshops_bluestar3.svg";
 import BlueStar3Shadow from "./svgs/workshop/workshops_bluestar3shadow.svg";
 import RedStar1 from "./svgs/workshop/workshops_redstar1.svg";
@@ -27,7 +28,7 @@ const SignUp = () => {
 
   return (
     <div
-      class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFPurple pt-20 md:pb-0 pb-20 px-[5%] lg:px-20"
+      class="overflow-hidden relative h-auto w-full bg-NAFPurple pt-20 py-40 px-[5%] lg:px-20"
       style={{ backgroundImage: `url(${LandingBg})` }}
     >
       <img class="absolute left-0 top-[45%] w-[12%]" src={BlueStar3Shadow} />
@@ -103,24 +104,28 @@ const SignUp = () => {
         class="z-10 absolute right-[3.2%] top-[50%] w-[2%]"
         src={YellowBall}
       />
-      <div class="flex md:flex-row flex-col space-x-[5%]">
+      
+      <div class="relative flex md:flex-row flex-col space-x-[5%] flex-wrap md:flex-nowrap">
         {/* Top Left Apple Header */}
-        <div class="w-full md:w-1/2 md:mt-0 mt-[22%] h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
+        <div class="basis-1/2 md:w-1/2 md:mt-0 mt-[22%] bg-white border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
           <AppleHeader title={"www.signupguidelines.com"}></AppleHeader>
-          <p class="h-fit bg-white p-5 font-semibold text-center text-xs sm:text-sm md:text-md lg:text-lg">
+          <p class="h-fit  p-5 font-semibold text-center text-xs sm:text-sm md:text-md lg:text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget
             eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam,
             lobortis tellus sed, vulputate diam. Orci varius natoque penatibus
             et magnis dis parturient montes.
           </p>
         </div>
-        {/* Sign Up Logo */}
-        <div class="relative w-2/3 order-first md:order-last">
-          <img class="z-10 absolute w-[100%]" src={SignUps} />
-          <img
-            class="z-0 absolute -top-[20%] md:w-full w-[60%]"
+             
+        <img
+            class="absolute right-[10%] w-[40%] hidden lg:block"
             src={SignUpsStars}
           />
+        {/* Sign Up Logo */}
+        <div class="basis-full md:basis-1/2 relative order-first md:order-last">
+     
+          <img class="w-[100%] lg:w-[70%]" src={SignUpsLogo} />
+          
         </div>
       </div>
       <div class=" bg-white md:ml-[12%] mt-10 w-full md:w-10/12 h-fit border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
