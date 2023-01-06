@@ -10,9 +10,6 @@ import ProfileBg from './svgs/profilebg.svg'
 import SocialLogin from '../Authentication/SocialLogin';
 import Modal from 'react-modal';
 
-import ProfileMockData from './profileData.json';
-import PurchaseMockDate from './tableData.json';
-
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
