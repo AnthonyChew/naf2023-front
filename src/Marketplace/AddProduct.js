@@ -52,7 +52,7 @@ export default function AddProduct(props) {
 
   useEffect(() => {
 
-    setCatChoice({label: pdtCat, value: pdtCat});
+    setCatChoice({ label: pdtCat, value: pdtCat });
 
     if (state.addAttribute1) {
       let att1Array = [];
@@ -73,7 +73,7 @@ export default function AddProduct(props) {
     typeof pdtQuantity !== 'undefined' ? pdtQuantity : [[]]
   );
   const { promiseInProgress } = usePromiseTracker();
-  
+
   const [catChoice, setCatChoice] = useState(null);
 
   const [attb1InputValue, setAttb1Input] = useState('');
@@ -432,7 +432,7 @@ export default function AddProduct(props) {
 
   return (
     <div class="bg-white p-2">
-      <div id="Add new product">
+      <div class='text-xl font-syne underline decoration-solid' id="Add new product">
         {type === 'add' ? 'Add New Product' : 'Edit Product'}
       </div>
       <div>
@@ -442,6 +442,7 @@ export default function AddProduct(props) {
         <form
           autoComplete="off"
           onSubmit={handleSubmit}
+          class='flex flex-col gap-2'
         >
           <Input
             required
@@ -468,7 +469,7 @@ export default function AddProduct(props) {
             label="Price"
             id="price"
             value={state.price}
-            onChange={ handleInputChange('price')}
+            onChange={handleInputChange('price')}
             type="currency"
             defaultValue={pdtPrice}
             required
@@ -487,7 +488,7 @@ export default function AddProduct(props) {
           </label>
 
 
-          <p>Product Options</p>
+          <p class='text-xl font-syne underline decoration-solid'>Product Options</p>
           <div >
             Add Attribute 1
             <input type="checkbox"
@@ -674,15 +675,15 @@ export default function AddProduct(props) {
           </div>
 
 
-          <p>Product Images</p>
-          <div {...getRootProps({ className: 'dropzone' })}>
+          <p class='text-xl font-syne underline decoration-solid'>Product Images</p>
+          <div class="border-dashed border-gray-400 border-2 rounded-lg p-10 flex items-center justify-center" {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <p>
               Drag and drop your product images here, or click to select
               files (Squared images are preferred)
             </p>
           </div>
-          <aside >
+          <aside class='flex flex-row'>
             {images.map((file) => (
               <div key={file.name}>
                 <button class="absolute" onClick={() => removeImage(file)}>
@@ -693,7 +694,7 @@ export default function AddProduct(props) {
                   {typeof file.preview === 'undefined' ? (
                     <img src={file} />
                   ) : (
-                    <img src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} />
+                    <img class='max-w-sm' src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} />
                   )}
                 </div>
               </div>
@@ -708,16 +709,18 @@ export default function AddProduct(props) {
           <p style={{ color: 'red' }}>
             {helperText}
           </p>
+
+          <button
+            onClick={handleClose}
+            disabled={promiseInProgress}
+          >
+            Cancel
+          </button>
           <LoadingSpinnerComponent />
         </form>
       </div >
 
-      <button
-        onClick={handleClose}
-        disabled={promiseInProgress}
-      >
-        Cancel
-      </button>
+
     </div>
   );
 }
