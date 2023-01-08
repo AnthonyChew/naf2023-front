@@ -152,7 +152,6 @@ function VendorLogin() {
               </div>
             </Modal>
           </>
-
           <ProductTable rows={profile && profile.products} />
           <div  >
             <button
@@ -163,7 +162,7 @@ function VendorLogin() {
           </div>
         </div>
       ) : (
-        <Modal isOpen={!auth} onRequestClose={closeModal}>
+        <Modal isOpen={!auth}>
           < VendorAuth parentCallBack={closeModal} />
         </Modal>
 

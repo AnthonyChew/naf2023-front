@@ -18,6 +18,7 @@ import Nebula from './Events/Nebula';
 import Orbit from './Events/Orbit';
 import Interstellar from './Events/Interstellar';
 import Starburst from './Events/Starburst';
+import AdminManage from './AdminInterface/AdminManage'
 
 import {
   BrowserRouter,
@@ -61,14 +62,14 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/picrew" element={<Piccrew />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/glimmer" element={<Glimmer />} />
           <Route path="/nebula" element={<Nebula />} />
           <Route path="/orbit" element={<Orbit />} />
           <Route path="/interstellar" element={<Interstellar />} />
           <Route path="/starburst" element={<Starburst />} />
           <Route path="/afth" element={<NAFxAFTH />} />
-
+          <Route path="/vendorlogin" element={<VendorLogin />} />
+          <Route path="/adminmanage" element={<AdminManage />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
