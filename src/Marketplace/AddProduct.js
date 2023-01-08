@@ -676,7 +676,7 @@ export default function AddProduct(props) {
 
 
           <p class='text-xl font-syne underline decoration-solid'>Product Images</p>
-          <div class="border-dashed border-gray-400 border-2 rounded-lg p-10 flex items-center justify-center" {...getRootProps({ className: 'dropzone' })}>
+          <div class="border-dashed border-gray-400 border-2 rounded-lg p-10 flex items-center justify-center" {...getRootProps()}>
             <input {...getInputProps()} />
             <p>
               Drag and drop your product images here, or click to select
