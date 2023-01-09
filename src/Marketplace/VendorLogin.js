@@ -75,12 +75,12 @@ function VendorLogin() {
   };
 
   useEffect(() => {
-    if (open) {
+    if (open || edit) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [open]);
+  }, [open, edit]);
 
 
   return (
@@ -88,32 +88,32 @@ function VendorLogin() {
       <LoadingSpinnerComponent />
       {auth ? (
         <div class='flex flex-col justify-center items-center gap-5'>
-          <p>
+          <p class='text-2xl font-syne underline decoration-solid'>
             VENDOR LOGIN
           </p>
-          <p >
+          <p class='text-2xl font-syne underline decoration-solid'>
             Welcome back, {profile && profile.displayName}!
           </p>
-          <p>
+          <p class='text-2xl font-syne underline decoration-solid'>
             {profile && profile.description}
           </p>
           {contactNumber ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Contact number: {contactNumber}
             </p>
           ) : null}
           {emailAddress ? (
-            <p >
+            <p class='text-2xl font-syne underline decoration-solid'>
               Email address: {emailAddress}
             </p>
           ) : null}
           {instagramAccount ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Social media: {instagramAccount}
             </p>
           ) : null}
           {website ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Website: {website}
             </p>
           ) : null}
@@ -127,13 +127,11 @@ function VendorLogin() {
               <p class="flex-1 text-2xl font-syne text-center">  Edit Profile </p>
             </button>
             <Modal isOpen={edit} onRequestClose={handleClose}>
-              <div class="w-full h-full " >
-              <EditVendor
-                //callback
-                parentCallback={handleClose}
-                vendor={profile}
-              />
-              </div>
+                <EditVendor
+                  //callback
+                  parentCallback={handleClose}
+                  vendor={profile}
+                />
             </Modal>
           </>
 
@@ -147,8 +145,9 @@ function VendorLogin() {
             </button>
 
             <Modal isOpen={open} onRequestClose={handleClose}>
-              <div class="w-full h-full " >
-                <AddProduct  parentCallback={handleClose} type="add" />
+              <div class="w-full h-full" >
+                <div class="absolute w-full h-full -z-[2]" onClick={handleClose}></div>
+                <AddProduct parentCallback={handleClose} type="add" />
               </div>
             </Modal>
           </>

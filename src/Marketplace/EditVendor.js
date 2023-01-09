@@ -55,20 +55,20 @@ export default function EditVendor(props) {
   };
 
   return (
-    <div class="bg-white p-2">
-      <div>
-        <p>
+    <div class='w-full flex flex-col justify-center items-center'>
+      <div class="bg-white p-2 border-black border-2 mt-2 rounded-xl mb-2 w-fit">
+        <p class='text-2xl font-syne underline decoration-solid mb-2'>
           Edit Vendor Profile
         </p>
         <form
           autoComplete="off"
           onSubmit={saveChanges}
-          class="flex flex-col gap-5"
+          class="flex flex-col gap-5 items-center"
         >
           <Input
             name="username"
             label="Username"
-            color="secondary"
+            wrapperClassName="border-2 w-full border-black rounded-2xl"
             required
             defaultValue={formData.username}
             onChange={handleChange}
@@ -77,7 +77,7 @@ export default function EditVendor(props) {
           <Input
             name="displayName"
             label="Display Name"
-            color="secondary"
+            wrapperClassName="border-2 w-full border-black rounded-2xl"
             required
             defaultValue={formData.displayName}
             onChange={handleChange}
@@ -87,6 +87,7 @@ export default function EditVendor(props) {
             name="surcharge"
             label="SurCharge"
             id="surCharge"
+            wrapperClassName="border-2 w-full border-black rounded-2xl"
             type="currency"
             pattern="^-?[0-9]\d*\.?\d*$"
             className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
@@ -96,13 +97,13 @@ export default function EditVendor(props) {
             onChange={handleChange} />
 
 
-          <div class='border transition duration-150 ease-in-out'>
-            <label class="float pb-0 pl-2 pointer-events-none">Description</label>
+          <div class="border-2 border-black w-full rounded-2xl">
+            <label class="float pb-0 pl-2  pointer-events-none">Description</label>
             <textarea
               class="w-full outline-none pl-2"
               name="description"
               label="Description"
-              rows={2}
+              rows={5}
               defaultValue={formData.description}
               onChange={handleChange}
             />
@@ -111,6 +112,7 @@ export default function EditVendor(props) {
             name="contactNumber"
             label="Contact Number"
             type="tel"
+            wrapperClassName="border-2 border-black w-full rounded-2xl"
             pattern='^[689][0-9]{7}$'  // accepts '6', '8' or '9' as the first character, then 7 more [0-9] characters
             defaultValue={formData.contactNumber}
             onChange={handleChange}
@@ -119,6 +121,7 @@ export default function EditVendor(props) {
           <Input
             name="instagramAccount"
             label="Instagram Account"
+            wrapperClassName="border-2 border-black w-full rounded-2xl"
             defaultValue={formData.instagramAccount}
             onChange={handleChange}
             pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
@@ -127,13 +130,16 @@ export default function EditVendor(props) {
             name="website"
             label="Website"
             color="secondary"
+            wrapperClassName="border-2 border-black w-full rounded-2xl"
             type="url"
             defaultValue={formData.website}
             onChange={handleChange}
             pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
           />
+
           <button
             type="submit"
+            class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
             Save Changes
           </button>
@@ -141,6 +147,7 @@ export default function EditVendor(props) {
         <button
           onClick={handleClose}
           type="button"
+          class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
           Cancel
         </button>

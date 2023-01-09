@@ -20,13 +20,13 @@ import { usePromiseTracker } from 'react-promise-tracker';
 import VerifyWorkshops from './VerifyWorkshops';
 import Modal from 'react-modal';
 import Input from '../utils/Input';
-
+import ProfileBg from '../ProfilePage/svgs/profilebg.svg'
 
 function AdminManage(props) {
   const history = useNavigate();
   const [orders, setOrders] = useState([]);
   const [workshops, setWorkshops] = useState([]);
-  const [auth, setAuth] = useState(null);
+  const [auth, setAuth] = useState(true);
   const [checked, setChecked] = useState(false);
   const [state, setState] = useState({
     emailAddress: '',
@@ -360,92 +360,106 @@ function AdminManage(props) {
         </div >
       </Modal>
       {auth ? (
-        <div>
-          <p>
-            {checked === true ? 'Verified Orders' : 'Unverified Orders'}
-          </p>
-          <Logout />
-          <Switch
-            checked={checked}
-            value={checked}
-            onChange={handleChange}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
+        <div class='flex justify-center pt-5 min-h-screen bg-orange-400 bg-cover overflow-hidden bg-center ' style={{ backgroundImage: `url(${ProfileBg})` }}>
+          <div class='flex flex-col w-1/2 bg-gray-400/95 p-5 rounded-xl border-black border-2'>
 
-          <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Logout />
 
-          <div class='flex flex-row flex-wrap gap-5'>
-            {vendors &&
-              vendors.map((vendor, index) => (
-                <>
-                  <button
-                    class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    key={index}
-                    onClick={() =>
-                      downloadVendorOrders(vendor._id, vendor.displayName)
-                    }
-                    disabled={promiseInProgress}
-                  >
-                    Download {vendor.displayName} orders
-                  </button>
-                </>
-              ))}
-          </div>
+            <div class='border-black border-2 mt-2 p-2 rounded-xl mb-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                {checked === true ? 'Verified Orders' : 'Unverified Orders'}
+              </p>
+              <div class='mb-2'>
+                <Switch
+                  checked={checked}
+                  value={checked}
+                  onChange={handleChange}
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </div>
 
-          <button
-            onClick={downloadOrders}
-            disabled={promiseInProgress}
-          >
-            Download Orders
-          </button>
+              <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            </div>
 
-          <p>
-            Send Reminder Emails
-          </p>
-          <form
-            autoComplete="off"
-            onSubmit={sendEmails}
-          >
-            <label>
-              Product Category:
-              <Select
-                id="product-category"
-                name="category"
-                required
-                options={date}
-                value={selfCollDate}
-                onChange={handleSelfCollChange}>
-              </Select>
-            </label>
-            <button type="submit" >
-              Send Email
-            </button>
-          </form>
+            <div class='flex flex-row flex-wrap gap-5 border-black border-2 p-2 rounded-xl mb-2'>
+              {vendors &&
+                vendors.map((vendor, index) => (
+                  <>
+                    <button
+                      class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      key={index}
+                      onClick={() =>
+                        downloadVendorOrders(vendor._id, vendor.displayName)
+                      }
+                      disabled={promiseInProgress}
+                    >
+                      Download {vendor.displayName} orders
+                    </button>
+                  </>
+                ))}
+            </div>
 
-          <p>
-            Workshops
-          </p>
-          <button
-            onClick={bumpWorkshopWaitlist}
-          >
-            Bump Workshop Waitlist
-          </button>
+            <div class='flex w-full justify-center'>
+              <button
+                onClick={downloadOrders}
+                disabled={promiseInProgress}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mb-2"
+              >
+                Download Orders
+              </button>
+            </div>
 
-          <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <div class='border-black border-2 p-2 rounded-xl mb-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Send Reminder Emails
+              </p>
+              <form
+                autoComplete="off"
+                onSubmit={sendEmails}
+              >
+                <p class='text-xl font-syne underline decoration-solid mb-1'>
+                  Product Category:
+                </p>
+                <Select
+                  id="product-category"
+                  name="category"
+                  required
+                  options={date}
+                  value={selfCollDate}
+                  onChange={handleSelfCollChange}>
+                </Select>
+                <button type="submit" class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2">
+                  Send Email
+                </button>
+              </form>
+            </div>
 
-          <button
-            onClick={downloadWorkshops}
-          >
-            Download All Workshop Sign Ups
-          </button>
-          <br></br>
+            <div class='flex flex-col justify-center items-center border-black border-2 p-2 rounded-xl mb-2 gap-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Workshops
+              </p>
+              <button
+                onClick={bumpWorkshopWaitlist}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2"
+              >
+                Bump Workshop Waitlist
+              </button>
 
-          <VerifyWorkshops
-            setAuthParentCallbackFalse={setAuthParentCallbackFalse}
-            workshops={workshops}
-          />
+              <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
 
-          {/* <Typography className={classes.paddedItem} variant="h4">
+              <button
+                onClick={downloadWorkshops}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2"
+              >
+                Download All Workshop Sign Ups
+              </button>
+
+              <VerifyWorkshops
+                setAuthParentCallbackFalse={setAuthParentCallbackFalse}
+                workshops={workshops}
+              />
+            </div>
+            {/* <Typography className={classes.paddedItem} variant="h4">
             Photos
           </Typography>
           <Button
@@ -539,7 +553,7 @@ function AdminManage(props) {
             </Button>
           </form>
           <br></br> */}
-          {/* <Button
+            {/* <Button
             variant="contained"
             color="default"
             className={classes.button}
@@ -549,7 +563,7 @@ function AdminManage(props) {
           >
             Download Lucky Draw Data
           </Button> */}
-          {/* <Typography className={classes.paddedItem} variant="h4">
+            {/* <Typography className={classes.paddedItem} variant="h4">
             Update Donation Tracker
           </Typography>
           <form
@@ -639,9 +653,12 @@ function AdminManage(props) {
               Update Donation Tracker
             </Button>
           </form> */}
+          </div>
         </div>
-      ) : null}
+      ) : null
+      }
     </>
+
   );
 }
 

@@ -24,12 +24,12 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th>
+                <th  {...column.getHeaderProps()}>
                   {column.render('Header')}
                 </th>
               ))
               }
-              <th>Order control</th>
+              <th >Order control</th>
             </tr>
           ))}
         </thead>
@@ -104,10 +104,11 @@ export default function VerifyWorkshops(props) {
   }, []);
 
   return (
-    <>
+    <div class='w-full'>
       <LoadingSpinnerComponent />
-      <p>Workshop</p>
+      <p class='text-2xl font-syne underline decoration-solid mb-2'>Workshop</p>
       <Select
+        class="w-full"
         options={workshopOptions}
         onChange={handleChange}
       >
@@ -116,6 +117,6 @@ export default function VerifyWorkshops(props) {
       <div class="flex flex-col items-center justify-center pb-5 mt-5">
         <Table columns={columns} data={workshopVerify ? workshopVerify.registeredParticipants ? workshopVerify.registeredParticipants : [] : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse}></Table>
       </div>
-    </>
+    </div>
   );
 }

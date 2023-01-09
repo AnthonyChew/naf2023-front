@@ -42,10 +42,11 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
     };
 
     const verifyOrder = async () => {
+        console.log(order);
         if (order == null) {
             alert('No order selected to be verified!');
         } else {
-            const res = await trackPromise(adminService.verifyOrder(order));
+            const res = await trackPromise(adminService.verifyOrder(order._id));
             // console.log(auth);
             if (res.status === 200) {
                 history(0);
@@ -125,11 +126,11 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                             <p class="font-yerk text-xl text-black">Verified Order</p>
                             <p class='mb-5'>Do you want to verify {order &&order.orderNumber} ?</p>
                             <div class='flex flex-row justify-end gap-2'>
-                                <button onClick={verifyOrder}
+                                <button  onClick={handleCloseModal}
                                     class="inline-block px-6 py-2.5 bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     No
                                 </button>
-                                <button type="button" onClick={handleCloseModal}
+                                <button type="button" onClick={verifyOrder}
                                     class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     Yes
                                 </button>
@@ -201,7 +202,7 @@ function AdminOrderTable(props) {
     const { rows, setAuthParentCallbackFalse } = props;
 
     return (
-        <div class="flex flex-col items-center justify-center pb-5">
+        <div class="flex flex-col pb-5">
             <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
         </div>
     );

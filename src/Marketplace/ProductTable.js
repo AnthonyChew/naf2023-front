@@ -75,7 +75,7 @@ function Table({ columns, data }) {
       ])
     }
   )
-  
+
   const history = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [editIsOpen, setEditIsOpen] = useState(false);
@@ -110,6 +110,14 @@ function Table({ columns, data }) {
     setEditIsOpen(false);
     setEditProps(null);
   }
+
+  useEffect(() => {
+    if (editIsOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [editIsOpen]);
 
   return (
     <>
@@ -177,32 +185,35 @@ function Table({ columns, data }) {
             pdtLeadtime={editProps.leadTime}
             pdtImages={editProps.images}
             _id={editProps._id}
+            parentCallback={() => handleClose()}
             type="edit"
           />}
 
         </div>
       </Modal>
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+      <div class='flex justify-center items-center w-full'>
+        <div class='flex flex-row gap-5 mt-5' >
+          {/* <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        </button>{' '} */}
+          {
+            <button class='flex flex-col justify-center items-center' onClick={() => previousPage()} disabled={!canPreviousPage}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill-opacity={canPreviousPage ? "1" : "0.2"} class='w-12 h-12 ' viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
+            </button>
+          }
+
+          {/* <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {'>>'}
-        </button>{' '}
-        <span>
-          Page{' '}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>{' '}
-        </span>
-        <span>
-          | Go to page:{' '}
+        </button>{' '} */}
+          <span class='text-2xl font-syne self-center'>
+            Page
+            <strong class='text-2xl font-syne'>
+              {pageIndex + 1} of {pageOptions.length}
+            </strong>
+          </span>
+          <span class='text-2xl font-syne self-center'>
+            | Go to page:
+          </span>
           <input
             type="number"
             defaultValue={pageIndex + 1}
@@ -212,19 +223,25 @@ function Table({ columns, data }) {
             }}
             style={{ width: '100px' }}
           />
-        </span>{' '}
-        <select
-          value={pageSize}
-          onChange={e => {
-            setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
+          <select
+            value={pageSize}
+            onChange={e => {
+              setPageSize(Number(e.target.value))
+            }}
+          >
+            {[10, 20, 30, 40, 50].map(pageSize => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </select>
+
+          {
+            <button class='flex flex-col justify-center items-center' onClick={() => nextPage()} disabled={!canNextPage}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill-opacity={canNextPage ? "1" : "0.2"} class='w-12 h-12' viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
+            </button>
+          }
+        </div>
         <pre>
           <code>
             {selectedFlatRows.length > 0 &&
@@ -287,7 +304,7 @@ function ProductTable(props) {
           {
             Header: 'Images',
             accessor: 'images',
-            Cell: (value) => <img src={value.value[0]} />
+            Cell: (value) => <img class='max-w-xs max-h-48' src={value.value[0]} />
           },
           {
             Header: 'Name',
