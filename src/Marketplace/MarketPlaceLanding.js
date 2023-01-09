@@ -65,7 +65,7 @@ const MarketPlaceLanding = () => {
   const dispatch = useDispatch();
 
   function handleAddProduct(e) {
-    // console.log('ADD TO CART');
+     console.log(oneproduct);
     const newProduct = {
       ...product,
       _id: oneproduct._id,
@@ -80,6 +80,8 @@ const MarketPlaceLanding = () => {
       date_uploaded: oneproduct.date_uploaded,
       leadTime: oneproduct.leadTime,
       vendorId: oneproduct.vendorId,
+      vendorName: oneproduct.vendorName,
+      vendorSurcharge: oneproduct.vendorSurcharge <= 0 ? 0 : oneproduct.vendorSurcharge,
       image: oneproduct.images.length > 0 ? oneproduct.images[0] : null,
       quantity: parseInt(quantity),
       stock: oneproduct.quantity,
