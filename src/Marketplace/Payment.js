@@ -175,7 +175,7 @@ const Payment = () => {
     const res = await trackPromise(orderService.postOrder(data));
     if (res.status === 200) {
       dispatch(resetCart());
-      history.push('/home');
+      history('/submitted');
     } else if (res.status === 401) {
       // console.log(res);
       setAuth(false);
