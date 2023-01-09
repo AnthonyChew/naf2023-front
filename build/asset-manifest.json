@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5dca5f34.css",
-    "main.js": "/static/js/main.a71efc80.js",
+    "main.js": "/static/js/main.2c1d1cd7.js",
     "static/js/787.bb4a2e7b.chunk.js": "/static/js/787.bb4a2e7b.chunk.js",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -230,11 +230,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.5dca5f34.css.map": "/static/css/main.5dca5f34.css.map",
-    "main.a71efc80.js.map": "/static/js/main.a71efc80.js.map",
+    "main.2c1d1cd7.js.map": "/static/js/main.2c1d1cd7.js.map",
     "787.bb4a2e7b.chunk.js.map": "/static/js/787.bb4a2e7b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5dca5f34.css",
-    "static/js/main.a71efc80.js"
+    "static/js/main.2c1d1cd7.js"
   ]
 }

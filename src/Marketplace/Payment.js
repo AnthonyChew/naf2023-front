@@ -171,19 +171,19 @@ const Payment = () => {
     });
     delete data['deliveryAddress'];
     data.purchases = purchases;
-    data.total = totalPrice;
-    //console.log(data);
-    const res = await trackPromise(orderService.postOrder(data));
-    if (res.status === 200) {
-      dispatch(resetCart());
-      history.push('/home');
-    } else if (res.status === 401) {
-      // console.log(res);
-      setAuth(false);
-      alert('Please login to complete your payment');
-    } else {
-      alert(res.data.error);
-    }
+    data.total = parseInt(totalPrice);
+    console.log(data);
+    // const res = await trackPromise(orderService.postOrder(data));
+    // if (res.status === 200) {
+    //   dispatch(resetCart());
+    //   history.push('/home');
+    // } else if (res.status === 401) {
+    //   // console.log(res);
+    //   setAuth(false);
+    //   alert('Please login to complete your payment');
+    // } else {
+    //   alert(res.data.error);
+    // }
   }
 
   const schema = yup.object().shape({
@@ -247,7 +247,7 @@ const Payment = () => {
   const googleUrl = `${config.backendUrl}/api/auth/google/login/`;
   return (
     <>
-      <Modal
+      {/* <Modal
         isOpen={!auth}
         onRequestClose={closeModal}
       >
@@ -268,7 +268,7 @@ const Payment = () => {
             </a>
           </div>
         </div>
-      </Modal>
+      </Modal> */}
       <div class="relative bg-NAFPink">
         <div class="relative">
           <img src={PaymentPurple8Star1} class="absolute top-[-0.5%] left-[0%] w-[12%]"></img>
