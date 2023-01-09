@@ -141,7 +141,6 @@ const Payment = () => {
         vendorId: product.vendorId,
         vendorName: product.vendorName,
         quantityBought: product.quantity,
-        comments: product.comments,
         name: product.name,
         leadTime: product.leadTime,
         canDeliver: product.canDeliver,
@@ -166,7 +165,7 @@ const Payment = () => {
       delete purchase['totalQty'];
       if (collection['radio' + i] === 'delivery')
         purchase['deliveryAddress'] = data.deliveryAddress;
-      else if (collection['radio' + i] === 'selfCollection')
+      else if (collection['radio' + i] === 'self-collect')
         purchase['collectionDate'] = "23febslot1";
     });
     delete data['deliveryAddress'];
