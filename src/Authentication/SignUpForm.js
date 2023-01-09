@@ -14,11 +14,13 @@ const formReducer = (state, event) => {
 };
 
 export default function SignUpForm(props) {
+  
+  const { parentCallBack } = props;
+
   const [formData, setFormData] = useReducer(formReducer, {
     showPassword: false,
   });
 
-  const { switchTabs } = props;
   const { promiseInProgress } = usePromiseTracker();
   const handleChange = (event) => {
     setFormData({
@@ -30,7 +32,7 @@ export default function SignUpForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     delete formData['showPassword'];
-    console.log(formData);
+    //console.log(formData);
     for (let key in formData) {
       if (formData[key] === '') {
         delete formData[key];
@@ -39,7 +41,7 @@ export default function SignUpForm(props) {
     const res = await trackPromise(vendorService.vendorSignUp(formData));
     if (res.status === 200) {
       alert('Successfully signed up! Please login into your account.');
-      switchTabs(1);
+      parentCallBack();
     } else {
       // console.log(res.data);
       if (res.data.validation) {
@@ -131,7 +133,7 @@ export default function SignUpForm(props) {
         onChange={handleChange}
       />
       <Input
-        name="surCharge"
+        name="surcharge"
         label="SurCharge"
         id="surCharge"
         type="currency"
@@ -140,7 +142,7 @@ export default function SignUpForm(props) {
         placeholder="0"
         value={formData.surcharge}
         required
-        onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })} />
+        onChange={handleChange}/>
 
       <div class='border transition duration-150 ease-in-out'>
         <label class="float pb-0 pl-2 pointer-events-none">Description</label>

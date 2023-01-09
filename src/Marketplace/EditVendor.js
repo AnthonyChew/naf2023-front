@@ -84,7 +84,7 @@ export default function EditVendor(props) {
           />
 
           <Input
-            name="surCharge"
+            name="surcharge"
             label="SurCharge"
             id="surCharge"
             type="currency"
@@ -93,7 +93,7 @@ export default function EditVendor(props) {
             placeholder="0"
             defaultValue={formData.surcharge}
             required
-            onChange={event => this.setState({ surcharge: event.target.value.replace(/\D/, ''), handleChange })} />
+            onChange={handleChange} />
 
 
           <div class='border transition duration-150 ease-in-out'>

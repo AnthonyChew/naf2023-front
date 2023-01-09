@@ -1,41 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import adminService from '../services/admin';
 import orderService from '../services/orders';
 import workshopService from '../services/workshops';
 import photoService from '../services/photog';
-import donationService from '../services/donations';
+// import donationService from '../services/donations';
 import vendorService from '../services/vendors';
-import AdminLogin from '../Authentication/AdminLogin';
 import Logout from '../Authentication/Logout';
-
+import Switch from "react-switch";
+import AdminOrderTable from './AdminOrderTable';
+import AdminWorkshopTable from './AdminWorkshopTable';
+import Select from 'react-select';
+import authService from '../services/auth';
 
 import FileDownload from 'js-file-download';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import { usePromiseTracker } from 'react-promise-tracker';
 import VerifyWorkshops from './VerifyWorkshops';
+import Modal from 'react-modal';
+import Input from '../utils/Input';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paddedItem: {
-    padding: theme.spacing(3),
-  },
-  formSection: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    display: 'block',
-  },
-}));
 
 function AdminManage(props) {
-  const classes = useStyles();
-  const history = useHistory();
+  const history = useNavigate();
   const [orders, setOrders] = useState([]);
   const [workshops, setWorkshops] = useState([]);
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(null);
   const [checked, setChecked] = useState(false);
   const [state, setState] = useState({
     emailAddress: '',
@@ -43,17 +34,11 @@ function AdminManage(props) {
     category: '',
   });
   const [selfCollDate, setSelfCollDate] = useState('23febslot1');
-  const [openDelete, setOpenDelete] = useState(false);
-  const [openVerify, setOpenVerify] = useState(false);
-  const [openEmail, setOpenEmail] = useState(false);
-  const [orderToDelete, setDeleteOrder] = useState(null);
-  const [orderToVerify, setVerifyOrder] = useState(null);
-  const [workshopEmail, setEmailWorkshop] = useState(null);
   const [vendors, setVendors] = useState([]);
 
   //donation tracker states
-  const [donations, setDonations] = useState([]);
-  const [donationUpdate, setDonationUpdate] = useState({ name: '', amount: 0 });
+  // const [donations, setDonations] = useState([]);
+  // const [donationUpdate, setDonationUpdate] = useState({ name: '', amount: 0 });
 
   const categories = [
     // '#IMADETHISwNAF',
@@ -66,7 +51,7 @@ function AdminManage(props) {
   ];
 
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    setChecked(event);
   };
 
   const handleSelfCollChange = (event) => {
@@ -77,16 +62,24 @@ function AdminManage(props) {
     setState({ ...state, [prop]: event.target.value });
   };
 
-  const handleDonationInputChange = (prop) => (event) => {
-    setDonationUpdate({ ...donationUpdate, [prop]: event.target.value });
-  };
+  // const handleDonationInputChange = (prop) => (event) => {
+  //   setDonationUpdate({ ...donationUpdate, [prop]: event.target.value });
+  // };
 
   const handleLoginClose = () => {
-    setAuth(true);
+    setAuth(false);
   };
 
-  const handleNotAuth = () => {
-    setAuth(false);
+  const downloadWorkshops = async () => {
+    const res = await workshopService.downloadWorkshops();
+    // console.log(auth);
+    if (res.status === 200) {
+      FileDownload(res.data, 'workshops.csv');
+    } else if (res.status === 401) {
+      setAuth(false);
+    } else {
+      alert(res.data.error);
+    }
   };
 
   const { promiseInProgress } = usePromiseTracker();
@@ -136,82 +129,18 @@ function AdminManage(props) {
     fetchWorkshopData();
   }, []);
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await donationService.getDonations();
-      if (res.status === 200) {
-        setDonations(res.data);
-      }
-      //  else {
-      //   alert('Error loading donations :(');
-      // }
-    }
-    fetchData();
-  }, []);
-
-  const handleConfirmVerify = (order_id) => {
-    setVerifyOrder(order_id);
-    setOpenVerify(true);
-  };
-
-  const handleConfirmDelete = (order_id) => {
-    setDeleteOrder(order_id);
-    setOpenDelete(true);
-  };
-
-  const handleConfirmEmail = (workshop_id) => {
-    setEmailWorkshop(workshop_id);
-    setOpenEmail(true);
-  };
-
-  const handleDialogResult = (continueAction) => {
-    if (openDelete) {
-      setOpenDelete(false);
-      if (continueAction) {
-        deleteOrder();
-      }
-    } else if (openVerify) {
-      setOpenVerify(false);
-      if (continueAction) {
-        verifyOrder();
-      }
-    } else if (openEmail) {
-      setOpenEmail(false);
-      if (continueAction) {
-        workshopSendReminder();
-      }
-    }
-  };
-  const verifyOrder = async () => {
-    if (orderToVerify == null) {
-      alert('No order selected to be verified!');
-    } else {
-      const res = await trackPromise(adminService.verifyOrder(orderToVerify));
-      // console.log(auth);
-      if (res.status === 200) {
-        history.go(0);
-      } else if (res.status === 401) {
-        setAuth(false);
-      } else {
-        alert(res.data.error);
-      }
-    }
-  };
-
-  const deleteOrder = async () => {
-    if (orderToDelete == null) {
-      alert('No order selected to be deleted!');
-    } else {
-      const res = await orderService.deleteOrder(orderToDelete);
-      if (res.status === 200) {
-        history.go(0);
-      } else if (res.status === 401) {
-        setAuth(false);
-      } else {
-        alert(`${res.status}, ${JSON.stringify(res.data)}`);
-      }
-    }
-  };
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const res = await donationService.getDonations();
+  //     if (res.status === 200) {
+  //       setDonations(res.data);
+  //     }
+  //     //  else {
+  //     //   alert('Error loading donations :(');
+  //     // }
+  //   }
+  //   fetchData();
+  // }, []);
 
   const downloadOrders = async () => {
     console.log(workshops);
@@ -238,61 +167,38 @@ function AdminManage(props) {
     }
   };
 
-  const downloadWorkshops = async () => {
-    const res = await workshopService.downloadWorkshops();
-    // console.log(auth);
-    if (res.status === 200) {
-      FileDownload(res.data, 'workshops.csv');
-    } else if (res.status === 401) {
-      setAuth(false);
-    } else {
-      alert(res.data.error);
-    }
-  };
+  // const downloadPhotos = async () => {
+  //   const res = await photoService.downloadPhotos();
+  //   if (res.status === 200) {
+  //     FileDownload(res.data, 'photos.csv');
+  //   } else if (res.status === 401) {
+  //     setAuth(false);
+  //   } else {
+  //     alert(res.data.error);
+  //   }
+  // };
 
-  const downloadIndivWorkshop = async (workshopId, workshopName) => {
-    const res = await workshopService.downloadIndivWorkshop(workshopId);
-    if (res.status === 200) {
-      FileDownload(res.data, `${workshopName}.csv`);
-    } else if (res.status === 401) {
-      setAuth(false);
-    } else {
-      alert(res.data.error);
-    }
-  };
+  // const downloadLuckyDraw = async () => {
+  //   const res = await adminService.downloadLuckyDraw();
+  //   if (res.status === 200) {
+  //     FileDownload(res.data, 'luckydraw.csv');
+  //   } else if (res.status === 401) {
+  //     setAuth(false);
+  //   } else {
+  //     alert(res.data);
+  //   }
+  // };
 
-  const downloadPhotos = async () => {
-    const res = await photoService.downloadPhotos();
-    if (res.status === 200) {
-      FileDownload(res.data, 'photos.csv');
-    } else if (res.status === 401) {
-      setAuth(false);
-    } else {
-      alert(res.data.error);
-    }
-  };
-
-  const downloadLuckyDraw = async () => {
-    const res = await adminService.downloadLuckyDraw();
-    if (res.status === 200) {
-      FileDownload(res.data, 'luckydraw.csv');
-    } else if (res.status === 401) {
-      setAuth(false);
-    } else {
-      alert(res.data);
-    }
-  };
-
-  const downloadVotes = async () => {
-    const res = await adminService.downloadVotes();
-    if (res.status === 200) {
-      FileDownload(res.data, 'photovotes.csv');
-    } else if (res.status === 401) {
-      setAuth(false);
-    } else {
-      alert(res.data);
-    }
-  };
+  // const downloadVotes = async () => {
+  //   const res = await adminService.downloadVotes();
+  //   if (res.status === 200) {
+  //     FileDownload(res.data, 'photovotes.csv');
+  //   } else if (res.status === 401) {
+  //     setAuth(false);
+  //   } else {
+  //     alert(res.data);
+  //   }
+  // };
 
   const sendEmails = async (event) => {
     event.preventDefault();
@@ -304,49 +210,21 @@ function AdminManage(props) {
     }
   };
 
-  const workshopSendReminder = async () => {
-    if (workshopEmail == null) {
-      alert('No workshop selected to email!');
-    }
-    const res = await trackPromise(
-      adminService.sendWorkshopReminderEmails(workshopEmail)
-    );
-    if (res.status === 200) {
-      alert('Successfully sent!');
-    } else {
-      alert(`${res.status}`);
-    }
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const newInput = {
-      points: state.points,
-      category: state.category,
-    };
-    const res = await adminService.addPoints(newInput, state.emailAddress);
-    if (res.status === 200) {
-      alert('Added points successfully');
-    } else {
-      alert('Error while adding points');
-    }
-  };
-
-  const handleDonationSubmit = async (event) => {
-    event.preventDefault();
-    const newInput = {
-      amount: parseFloat(donationUpdate.amount),
-    };
-    const res = await donationService.updateDonations(
-      donationUpdate.name,
-      newInput
-    );
-    if (res.status === 200) {
-      alert('Updated donation tracker successfully');
-    } else {
-      alert('Error while updating donation tracker');
-    }
-  };
+  // const handleDonationSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const newInput = {
+  //     amount: parseFloat(donationUpdate.amount),
+  //   };
+  //   const res = await donationService.updateDonations(
+  //     donationUpdate.name,
+  //     newInput
+  //   );
+  //   if (res.status === 200) {
+  //     alert('Updated donation tracker successfully');
+  //   } else {
+  //     alert('Error while updating donation tracker');
+  //   }
+  // };
 
   // function to bump workshop waitlist
   const bumpWorkshopWaitlist = async () => {
@@ -360,223 +238,214 @@ function AdminManage(props) {
     }
   };
 
+  function setAuthParentCallbackFalse() {
+    setAuth(false);
+  }
+
+  const [open, setOpen] = useState(true);
+
+  const date = [
+    { value: '23febslot1', label: '23 February 12-4pm' },
+    { value: '09marslot1', label: '9th March 2-6pm' }
+  ];
+
+  const [values, setValues] = useState({
+    username: '',
+    password: '',
+    showPassword: false,
+  });
+  const { user } = props;
+  const { parentCallBack } = props;
+
+  const handleFormChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const logIn = async (event) => {
+    event.preventDefault();
+
+    let res = null;
+    res = await trackPromise(
+      authService.adminLogin(values.username, values.password)
+    );
+
+    if (res.status === 200) {
+      setAuth(true);
+    } else {
+      alert(JSON.stringify(res.data.errors));
+    }
+
+  };
+
+  const inputRef = useRef();
+
   return (
     <>
       <LoadingSpinnerComponent />
-      {!auth && <AdminLogin parentCallback={handleLoginClose} />}
+      <Modal isOpen={!auth}>
+        <div class="h-full flex flex-col items-center justify-center">
+          <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
+            <button type="button" class="w-fit ml-auto mr-auto text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={() => history(-1)}>
+              <p class="flex-1 text-xl font-syne text-center"> Return to Previous Page </p>
+            </button>
+
+            <div class="p-2">
+              <p>Admin Login</p>
+
+              <form autoComplete="off" onSubmit={logIn}>
+                <Input
+                  label="Enter your username/email"
+                  id="username"
+                  onChange={handleFormChange('username')}
+                  color="secondary"
+                  required
+                />
+                <div
+                  onClick={() => inputRef.current.focus()}
+                >
+                  <label
+                    htmlFor="password"
+                    className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
+                  >
+                    Enter your password {<span className='text-red-500'>*</span>}
+                  </label>
+                  <div class="flex flex-row">
+                    <input
+                      ref={inputRef}
+                      type={values.showPassword ? 'text' : 'password'}
+                      name="password"
+                      onChange={handleFormChange('password')}
+                      className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                      id="password"
+                      placeholder=""
+                    />
+                    <button
+                      type="button"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      class="w-fit h-fit"
+                    >
+                      {
+                        values.showPassword ?
+                          <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z" />
+                          </svg>
+                          : <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                            <path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z" />
+                          </svg>
+                      }
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={promiseInProgress}
+                >
+                  Log in
+                </button>
+                <LoadingSpinnerComponent />
+              </form>
+            </div>
+          </div >
+        </div >
+      </Modal>
       {auth ? (
-        <div className={classes.root}>
-          <Typography className={classes.paddedItem} variant="h4">
+        <div>
+          <p>
             {checked === true ? 'Verified Orders' : 'Unverified Orders'}
-          </Typography>
+          </p>
           <Logout />
           <Switch
             checked={checked}
+            value={checked}
             onChange={handleChange}
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
-          {openDelete && (
-            <ConfirmationDialog
-              //callback
-              title="Delete Order?"
-              content={'Are you sure you want to remove this order?'}
-              parentCallback={handleDialogResult}
-            />
-          )}
-          {openVerify && (
-            <ConfirmationDialog
-              //callback
-              title="Verify Order?"
-              content={'Are you sure you want to verify this order?'}
-              parentCallback={handleDialogResult}
-            />
-          )}
-          <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Order Number</TableCell>
-                  <TableCell align="right">Buyer</TableCell>
-                  <TableCell align="right">Email Address</TableCell>
-                  <TableCell align="right">Contact number</TableCell>
-                  <TableCell align="right">Total</TableCell>
-                  <TableCell align="right">Date time</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {orders &&
-                  orders.map((order, index) => (
-                    <TableRow key={index}>
-                      <TableCell component="th" scope="row">
-                        {order.orderNumber}
-                      </TableCell>
-                      <TableCell align="right">{order.name}</TableCell>
-                      <TableCell align="right">{order.emailAddress}</TableCell>
-                      <TableCell align="right">{order.contactNumber}</TableCell>
-                      <TableCell align="right">
-                        {Number.isInteger(order.total)
-                          ? order.total
-                          : order.total.toFixed(2)}
-                      </TableCell>
-                      <TableCell align="right">{order.datetime}</TableCell>
-                      {!checked && (
-                        <>
-                          <IconButton
-                            edge="end"
-                            aria-label="download"
-                            disabled={promiseInProgress}
-                          >
-                            <DoneIcon
-                              onClick={() => handleConfirmVerify(order._id)}
-                            />
-                          </IconButton>
-                          <IconButton
-                            edge="end"
-                            aria-label="delete"
-                            disabled={promiseInProgress}
-                          >
-                            <DeleteIcon
-                              onClick={() => handleConfirmDelete(order._id)}
-                            />
-                          </IconButton>
-                        </>
-                      )}
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          {vendors &&
-            vendors.map((vendor, index) => (
-              <>
-                <Button
-                  key={index}
-                  variant="contained"
-                  color="default"
-                  className={classes.button}
-                  startIcon={<GetAppIcon />}
-                  onClick={() =>
-                    downloadVendorOrders(vendor._id, vendor.displayName)
-                  }
-                  disabled={promiseInProgress}
-                >
-                  Download {vendor.displayName} orders
-                </Button>
-                <br></br>
-              </>
-            ))}
-          <Button
-            variant="contained"
-            color="default"
-            className={classes.button}
-            startIcon={<GetAppIcon />}
+
+          <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+
+          <div class='flex flex-row flex-wrap gap-5'>
+            {vendors &&
+              vendors.map((vendor, index) => (
+                <>
+                  <button
+                    class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    key={index}
+                    onClick={() =>
+                      downloadVendorOrders(vendor._id, vendor.displayName)
+                    }
+                    disabled={promiseInProgress}
+                  >
+                    Download {vendor.displayName} orders
+                  </button>
+                </>
+              ))}
+          </div>
+
+          <button
             onClick={downloadOrders}
             disabled={promiseInProgress}
           >
             Download Orders
-          </Button>
-          <Typography className={classes.paddedItem} variant="h4">
+          </button>
+
+          <p>
             Send Reminder Emails
-          </Typography>
+          </p>
           <form
-            className={classes.form}
             autoComplete="off"
             onSubmit={sendEmails}
           >
-            <FormControl color="secondary" className={classes.formSection}>
-              <InputLabel>Self Collection Date</InputLabel>
-              <Select value={selfCollDate} onChange={handleSelfCollChange}>
-                {/* <MenuItem value={'18febslot1'}>18 February 12-2pm</MenuItem>
-                <MenuItem value={'18febslot2'}>18 February 6-8pm</MenuItem>
-                <MenuItem value={'11marslot1'}>11 March 12-2pm</MenuItem>
-                <MenuItem value={'11marslot2'}>11 March 6-8pm</MenuItem>
-                <MenuItem value={'25marslot1'}>25 March 12-2pm</MenuItem>
-                <MenuItem value={'25marslot2'}>25 March 6-8pm</MenuItem> */}
-                {/* <MenuItem value={'14febslot1'}>14 February 12-2pm</MenuItem>
-                <MenuItem value={'14febslot2'}>14 February 5-6.30pm</MenuItem> */}
-                <MenuItem value={'23febslot1'}>23 February 12-4pm</MenuItem>
-                <MenuItem value={'09marslot1'}>9th March 2-6pm</MenuItem>
+            <label>
+              Product Category:
+              <Select
+                id="product-category"
+                name="category"
+                required
+                options={date}
+                value={selfCollDate}
+                onChange={handleSelfCollChange}>
               </Select>
-            </FormControl>
-            <Button
-              type="submit"
-              variant="contained"
-              color="default"
-              className={classes.button}
-              startIcon={<MailIcon />}
-            >
+            </label>
+            <button type="submit" >
               Send Email
-            </Button>
+            </button>
           </form>
-          <Typography className={classes.paddedItem} variant="h4">
+
+          <p>
             Workshops
-          </Typography>
-          <Button
-            variant="contained"
-            color="default"
-            className={classes.button}
-            startIcon={<GetAppIcon />}
+          </p>
+          <button
             onClick={bumpWorkshopWaitlist}
           >
             Bump Workshop Waitlist
-          </Button>
+          </button>
 
-          {openEmail && (
-            <ConfirmationDialog
-              //callback
-              title="Send Email?"
-              content={'Are you sure you want to send emails?'}
-              parentCallback={handleDialogResult}
-            />
-          )}
-          <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Workshop</TableCell>
-                  <TableCell align="right">Sign Ups</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {workshops &&
-                  workshops.map((workshop, index) => (
-                    <TableRow key={index}>
-                      <TableCell component="th" scope="row">
-                        {workshop.name}
-                      </TableCell>
-                      <TableCell align="right">{`${workshop.registeredParticipants.length}/${workshop.maxParticipants}`}</TableCell>
-                      <IconButton edge="end" aria-label="download">
-                        <GetAppIcon
-                          onClick={() =>
-                            downloadIndivWorkshop(workshop._id, workshop.name)
-                          }
-                        />
-                      </IconButton>
-                      <IconButton edge="end" aria-label="emails">
-                        <MailIcon
-                          onClick={() => handleConfirmEmail(workshop._id)}
-                        />
-                      </IconButton>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <Button
-            variant="contained"
-            color="default"
-            className={classes.button}
-            startIcon={<GetAppIcon />}
+          <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+
+          <button
             onClick={downloadWorkshops}
           >
             Download All Workshop Sign Ups
-          </Button>
+          </button>
           <br></br>
+
           <VerifyWorkshops
-            handleNotAuth={handleNotAuth}
+            setAuthParentCallbackFalse={setAuthParentCallbackFalse}
             workshops={workshops}
           />
-          <Typography className={classes.paddedItem} variant="h4">
+
+          {/* <Typography className={classes.paddedItem} variant="h4">
             Photos
           </Typography>
           <Button
@@ -669,8 +538,8 @@ function AdminManage(props) {
               Add Points
             </Button>
           </form>
-          <br></br>
-          <Button
+          <br></br> */}
+          {/* <Button
             variant="contained"
             color="default"
             className={classes.button}
@@ -679,8 +548,8 @@ function AdminManage(props) {
             disabled={promiseInProgress}
           >
             Download Lucky Draw Data
-          </Button>
-          <Typography className={classes.paddedItem} variant="h4">
+          </Button> */}
+          {/* <Typography className={classes.paddedItem} variant="h4">
             Update Donation Tracker
           </Typography>
           <form
@@ -769,7 +638,7 @@ function AdminManage(props) {
             >
               Update Donation Tracker
             </Button>
-          </form>
+          </form> */}
         </div>
       ) : null}
     </>

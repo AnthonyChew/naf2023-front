@@ -75,6 +75,7 @@ function Table({ columns, data }) {
       ])
     }
   )
+  
   const history = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [editIsOpen, setEditIsOpen] = useState(false);
@@ -101,7 +102,7 @@ function Table({ columns, data }) {
 
   function editProduct(i) {
     setEditIsOpen(true);
-    console.log(editProps);
+    //console.log(editProps);
     setEditProps(page[i].original);
   }
 

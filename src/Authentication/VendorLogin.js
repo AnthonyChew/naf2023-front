@@ -10,6 +10,12 @@ import './tabsStyle.css';
 
 function VendorLogin(props) {
 
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const signUpCallback= () => {
+    setTabIndex(0);
+  }
+
   const { parentCallBack } = props;
   let history = useNavigate();
 
@@ -22,7 +28,7 @@ function VendorLogin(props) {
           </button>
 
           <div class="p-2">
-            <Tabs>
+            <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
               <TabList >
                 <Tab>Login</Tab>
                 <Tab >Sign Up</Tab>
@@ -33,7 +39,7 @@ function VendorLogin(props) {
               </TabPanel>
 
               <TabPanel >
-                <SignUpForm />
+                <SignUpForm parentCallBack={signUpCallback} />
               </TabPanel>
             </Tabs>
           </div>
