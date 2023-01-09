@@ -12,7 +12,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
         getTableProps,
         getTableBodyProps,
         headerGroups,
-        page,
+        rows,
         prepareRow,
     } = useTable(
         {
@@ -29,14 +29,14 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
 
     const handleConfirmEmail = (i) => {
         setIsOpenModal(true);
-        setEmailWorkshop(page[i].original);
+        setEmailWorkshop(rows[i].original);
     }
 
     const downloadIndivWorkshop = async (i) => {
 
-        const res = await workshopService.downloadIndivWorkshop(page[i]._id);
+        const res = await workshopService.downloadIndivWorkshop(rows[i]._id);
         if (res.status === 200) {
-            FileDownload(res.data, `${page[i].name}.csv`);
+            FileDownload(res.data, `${rows[i].name}.csv`);
         } else if (res.status === 401) {
             setAuthParentCallbackFalse();
         } else {
@@ -77,7 +77,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {page.map(
+                    {rows.map(
                         (row, i) => {
                             prepareRow(row);
                             return (
@@ -154,7 +154,7 @@ function AdminWorkshopTable(props) {
 
     return (
         <div class="flex flex-col items-center justify-center pb-5">
-            <Table columns={columns} data={rows} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
         </div>
     );
 

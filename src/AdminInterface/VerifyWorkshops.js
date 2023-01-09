@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import Select from 'react-select';
 import { useTable } from 'react-table'
@@ -8,7 +8,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page,
+    rows,
     prepareRow,
   } = useTable(
     {
@@ -34,7 +34,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map(
+          {rows.map(
             (row, i) => {
               prepareRow(row);
               return (
@@ -79,32 +79,43 @@ export default function VerifyWorkshops(props) {
   const [workshopVerify, setWorkshopVerify] = useState(null);
 
   const handleChange = (event) => {
+    console.log(event);
     const workshop = workshops.find(
-      (workshop) => workshop.name === event.target.value
+      (workshop) => workshop._id === event.value
     );
     setWorkshopVerify(workshop);
   };
+
+  const [workshopOptions, setWorkshopOptions] = useState([]);
+
+  useEffect(() => {
+    function generateWorkShopOption() {
+      let options = [];
+      {
+        workshops &&
+          workshops.map((workshop) => (
+            options.push({ value: workshop._id, label: workshop.name })
+          ))
+      }
+
+      return options;
+    }
+    setWorkshopOptions(generateWorkShopOption());
+  }, []);
 
   return (
     <>
       <LoadingSpinnerComponent />
       <p>Workshop</p>
       <Select
-        value={workshopVerify && workshopVerify.name}
+        options={workshopOptions}
         onChange={handleChange}
       >
-        <option aria-label="None" value="" />
-        {workshops &&
-          workshops.map((workshop) => (
-            <option key={workshop._id} value={workshop.name}>
-              {workshop.name}
-            </option>
-          ))}
       </Select>
-      
-      <div class="flex flex-col items-center justify-center pb-5">
-            <Table columns={columns} data={workshopVerify && workshopVerify.registeredParticipants} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
-        </div>
+
+      <div class="flex flex-col items-center justify-center pb-5 mt-5">
+        <Table columns={columns} data={workshopVerify ? workshopVerify.registeredParticipants ? workshopVerify.registeredParticipants : [] : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse}></Table>
+      </div>
     </>
   );
 }

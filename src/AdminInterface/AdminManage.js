@@ -51,7 +51,7 @@ function AdminManage(props) {
   ];
 
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    setChecked(event);
   };
 
   const handleSelfCollChange = (event) => {
@@ -367,25 +367,30 @@ function AdminManage(props) {
           <Logout />
           <Switch
             checked={checked}
+            value={checked}
             onChange={handleChange}
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
-          
-          {orders && <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} /> }
 
-          {vendors &&
-            vendors.map((vendor, index) => (
-              <>
-                <button key={index}
-                  onClick={() =>
-                    downloadVendorOrders(vendor._id, vendor.displayName)
-                  }
-                  disabled={promiseInProgress}
-                >
-                  Download {vendor.displayName} orders
-                </button>
-              </>
-            ))}
+          <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+
+          <div class='flex flex-row flex-wrap gap-5'>
+            {vendors &&
+              vendors.map((vendor, index) => (
+                <>
+                  <button
+                    class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    key={index}
+                    onClick={() =>
+                      downloadVendorOrders(vendor._id, vendor.displayName)
+                    }
+                    disabled={promiseInProgress}
+                  >
+                    Download {vendor.displayName} orders
+                  </button>
+                </>
+              ))}
+          </div>
 
           <button
             onClick={downloadOrders}
@@ -426,7 +431,7 @@ function AdminManage(props) {
             Bump Workshop Waitlist
           </button>
 
-          {/* <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} /> */}
+          <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
 
           <button
             onClick={downloadWorkshops}
@@ -435,10 +440,10 @@ function AdminManage(props) {
           </button>
           <br></br>
 
-          {/* <VerifyWorkshops
+          <VerifyWorkshops
             setAuthParentCallbackFalse={setAuthParentCallbackFalse}
             workshops={workshops}
-          /> */}
+          />
 
           {/* <Typography className={classes.paddedItem} variant="h4">
             Photos

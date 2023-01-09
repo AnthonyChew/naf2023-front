@@ -76,18 +76,17 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
 
     return (
         <>
-            {console.log(rows)}
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                <th>
+                                <th {...column.getHeaderProps()}>
                                     {column.render('Header')}
                                 </th>
                             ))
                             }
-                            <th>Order control</th>
+                            <th>Order control</th> 
                         </tr>
                     ))}
                 </thead>
@@ -203,7 +202,7 @@ function AdminOrderTable(props) {
 
     return (
         <div class="flex flex-col items-center justify-center pb-5">
-            <Table columns={columns} data={rows} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
         </div>
     );
 
