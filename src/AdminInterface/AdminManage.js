@@ -36,20 +36,6 @@ function AdminManage(props) {
   const [selfCollDate, setSelfCollDate] = useState('23febslot1');
   const [vendors, setVendors] = useState([]);
 
-  //donation tracker states
-  // const [donations, setDonations] = useState([]);
-  // const [donationUpdate, setDonationUpdate] = useState({ name: '', amount: 0 });
-
-  const categories = [
-    // '#IMADETHISwNAF',
-    // 'Workshop',
-    // 'Virtual Busking Quiz',
-    // 'Art-Verse Quiz',
-    'Workshop',
-    'Stamp Hunt Submission',
-    'Sticker Olympia Submission',
-  ];
-
   const handleChange = (event) => {
     setChecked(event);
   };
@@ -57,18 +43,22 @@ function AdminManage(props) {
   const handleSelfCollChange = (event) => {
     setSelfCollDate(event.target.value);
   };
-
-  const handleInputChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
-  };
-
-  // const handleDonationInputChange = (prop) => (event) => {
-  //   setDonationUpdate({ ...donationUpdate, [prop]: event.target.value });
-  // };
-
-  const handleLoginClose = () => {
-    setAuth(false);
-  };
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  useEffect(() => {
+    async function fetchWorkshopData() {
+      console.log('Fetch workshops');
+      await delay(2000);
+      const res = await adminService.getWorkshops(); //this line not getting workshops.
+      if (res.status === 200) {
+        setWorkshops(res.data);
+      } else if (res.status === 401) {
+        setAuth(false);
+      } else {
+        alert('Issues with fetching workshops');
+      }
+    }
+    fetchWorkshopData();
+  }, []);
 
   const downloadWorkshops = async () => {
     const res = await workshopService.downloadWorkshops();
@@ -114,36 +104,8 @@ function AdminManage(props) {
     fetchVendorData();
   }, [checked, auth]);
 
-  useEffect(() => {
-    async function fetchWorkshopData() {
-      console.log('Fetch workshops');
-      const res = await adminService.getWorkshops(); //this line not getting workshops.
-      if (res.status === 200) {
-        setWorkshops(res.data);
-      } else if (res.status === 401) {
-        setAuth(false);
-      } else {
-        alert('Issues with fetching workshops');
-      }
-    }
-    fetchWorkshopData();
-  }, []);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await donationService.getDonations();
-  //     if (res.status === 200) {
-  //       setDonations(res.data);
-  //     }
-  //     //  else {
-  //     //   alert('Error loading donations :(');
-  //     // }
-  //   }
-  //   fetchData();
-  // }, []);
-
   const downloadOrders = async () => {
-    console.log(workshops);
+    //console.log(workshops);
     const res = await orderService.downloadOrdersAdmin();
     // console.log(auth);
     if (res.status === 200) {
@@ -167,39 +129,6 @@ function AdminManage(props) {
     }
   };
 
-  // const downloadPhotos = async () => {
-  //   const res = await photoService.downloadPhotos();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'photos.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data.error);
-  //   }
-  // };
-
-  // const downloadLuckyDraw = async () => {
-  //   const res = await adminService.downloadLuckyDraw();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'luckydraw.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data);
-  //   }
-  // };
-
-  // const downloadVotes = async () => {
-  //   const res = await adminService.downloadVotes();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'photovotes.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data);
-  //   }
-  // };
-
   const sendEmails = async (event) => {
     event.preventDefault();
     const res = await trackPromise(adminService.sendEmails(selfCollDate));
@@ -209,22 +138,6 @@ function AdminManage(props) {
       alert(res.data.error);
     }
   };
-
-  // const handleDonationSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const newInput = {
-  //     amount: parseFloat(donationUpdate.amount),
-  //   };
-  //   const res = await donationService.updateDonations(
-  //     donationUpdate.name,
-  //     newInput
-  //   );
-  //   if (res.status === 200) {
-  //     alert('Updated donation tracker successfully');
-  //   } else {
-  //     alert('Error while updating donation tracker');
-  //   }
-  // };
 
   // function to bump workshop waitlist
   const bumpWorkshopWaitlist = async () => {
@@ -240,9 +153,7 @@ function AdminManage(props) {
 
   function setAuthParentCallbackFalse() {
     setAuth(false);
-  }
-
-  const [open, setOpen] = useState(true);
+  };
 
   const date = [
     { value: '23febslot1', label: '23 February 12-4pm' },
@@ -254,8 +165,6 @@ function AdminManage(props) {
     password: '',
     showPassword: false,
   });
-  const { user } = props;
-  const { parentCallBack } = props;
 
   const handleFormChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -360,7 +269,7 @@ function AdminManage(props) {
         </div >
       </Modal>
       {auth ? (
-        <div class='flex justify-center pt-5 min-h-screen bg-orange-400 bg-cover overflow-hidden bg-center ' style={{ backgroundImage: `url(${ProfileBg})` }}>
+        <div class='flex justify-center pt-32 pb-32 min-h-screen bg-orange-400 bg-cover overflow-hidden bg-center ' style={{ backgroundImage: `url(${ProfileBg})` }}>
           <div class='flex flex-col w-1/2 bg-gray-400/95 p-5 rounded-xl border-black border-2'>
 
             <Logout />

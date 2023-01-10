@@ -101,7 +101,7 @@ export default function VerifyWorkshops(props) {
       return options;
     }
     setWorkshopOptions(generateWorkShopOption());
-  }, []);
+  }, [workshops]);
 
   return (
     <div class='w-full'>
