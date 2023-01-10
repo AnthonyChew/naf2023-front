@@ -60,8 +60,8 @@ function Profile() {
           {
             <UserWorkshop
               handelToastCallback={handelToastCallback}
-              waitlistedWorkshops={profile.waitlistedWorkshops}
-              registeredWorkshops={profile.registeredWorkshops}
+              waitlistedWorkshops={profile && profile.waitlistedWorkshops}
+              registeredWorkshops={profile && profile.registeredWorkshops}
             />
           }
           {
