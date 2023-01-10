@@ -8,6 +8,7 @@ import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import ProfileBg from './svgs/profilebg.svg'
 import Modal from 'react-modal';
+import SocialLogin from '../Authentication/SocialLogin'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -45,12 +46,12 @@ function Profile() {
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      {/* <Modal
+      <Modal
         isOpen={!auth}
         onRequestClose={closeModal}
       >
         <SocialLogin />
-      </Modal> */}
+      </Modal>
       {(
         <>
           <ProfileHeader
