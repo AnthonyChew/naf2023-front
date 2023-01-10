@@ -22,6 +22,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
+        console.log(profile.registeredWorkshops);
       }
       else {
         setAuth(false);
@@ -49,6 +50,7 @@ function Profile() {
           <ProfileHeader
             displayName={profile && profile.displayName}
           />
+
           {
             <UserWorkshop
               waitlistedWorkshops={profile && profile.waitlistedWorkshops}

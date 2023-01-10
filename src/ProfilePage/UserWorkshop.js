@@ -102,7 +102,6 @@ function UserWorkshop(props) {
   }
 
   return (
-    <div class='flex justify-center items-center'>
     <div class="flex flex-col items-center justify-center pb-5 w-1/2">
       {open && (
         <WaitlistedWorkshops parentCallback={handleClose} workshops={waitlistedWorkshops} />
@@ -217,7 +216,6 @@ function UserWorkshop(props) {
           })
         )}
       </div>
-    </div>
     </div>
   );
 }
