@@ -65,7 +65,7 @@ const MarketPlaceLanding = () => {
   const dispatch = useDispatch();
 
   function handleAddProduct(e) {
-     console.log(oneproduct);
+    //console.log(oneproduct);
     const newProduct = {
       ...product,
       _id: oneproduct._id,

@@ -40,12 +40,13 @@ export default function SignupPopup(props) {
     if (acknowledgement === false) {
       setHelperText('Please indicate acknowledgement of terms and conditions.');
     } else {
+      toast("Signed up for workshop! Please check your email!");
       const res = await trackPromise(
         workshopService.signUpWorkshop(workshops[0]._id, state)
       );
       if (res.status === 200) {
-        handleClose(true);
         toast("Signed up for workshop! Please check your email!");
+        handleClose(true);
       } else if (res.status === 401) {
         setAuth(false);
       } else if (res.status === 400) {
