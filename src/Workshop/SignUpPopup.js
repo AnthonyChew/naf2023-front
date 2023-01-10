@@ -6,6 +6,9 @@ import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { usePromiseTracker } from 'react-promise-tracker';
 import Input from '../utils/Input';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function SignupPopup(props) {
   const { workshops, parentCallback } = props;
   const [state, setState] = useState({
@@ -42,6 +45,7 @@ export default function SignupPopup(props) {
       );
       if (res.status === 200) {
         handleClose(true);
+        toast("Signed up for workshop! Please check your email!");
       } else if (res.status === 401) {
         setAuth(false);
       } else if (res.status === 400) {
@@ -53,7 +57,7 @@ export default function SignupPopup(props) {
 
   return (
     <>
-      {!auth && <UserLogin parentCallback={handleLoginClose} />}
+      <UserLogin isOpen={!auth} parentCallback={handleLoginClose} />
       <div class="h-full flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center bg-white p-5 border-4 border-black rounded-lg">
           <form class="" autoComplete="off" onSubmit={signUpWorkshop}>
@@ -150,6 +154,11 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </div>
+      <ToastContainer position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick />
     </>
   );
 }
