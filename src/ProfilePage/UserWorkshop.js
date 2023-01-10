@@ -9,7 +9,7 @@ import ContestCard from './ContestCard';
 
 function UserWorkshop(props) {
   const history = useNavigate();
-  const { waitlistedWorkshops, registeredWorkshops } = props;
+  const { waitlistedWorkshops, registeredWorkshops , handelToastCallback } = props;
   const [open, setOpen] = useState(false);
   const [regWorkshop, setWorkshopCancel] = useState(null);
 
@@ -69,17 +69,17 @@ function UserWorkshop(props) {
       if (registered) {
         if (
           waitlistedWorkshops.length === 0 ||
-          selectedWorkshop.name.substring(0, 24) ===
-          'Arts Community Open Talk' ||
           !waitlistedWorkshops.find(
             (workshop) => workshop.numRegistered < workshop.maxParticipants
           )
         ) {
+          handelToastCallback();
           cancelRegisteredWorkshop(selectedWorkshop._id, null);
         } else {
           handleClickOpen(selectedWorkshop._id);
         }
       } else {
+        handelToastCallback();
         cancelWaitlistedWorkshop(selectedWorkshop._id);
       }
     }
@@ -102,7 +102,7 @@ function UserWorkshop(props) {
   }
 
   return (
-    <div class="flex flex-col items-center justify-center pb-5 w-1/2">
+    <div class="flex flex-col items-center justify-center pb-5">
       {open && (
         <WaitlistedWorkshops parentCallback={handleClose} workshops={waitlistedWorkshops} />
       )}

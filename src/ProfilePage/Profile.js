@@ -7,8 +7,10 @@ import Logout from '../Authentication/Logout';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import ProfileBg from './svgs/profilebg.svg'
-import SocialLogin from '../Authentication/SocialLogin';
 import Modal from 'react-modal';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Profile() {
   const [profile, setProfile] = useState(null);
@@ -36,16 +38,20 @@ function Profile() {
     setAuth(true);
   }
 
+  function handelToastCallback() {
+    toast("Workshop canceled!");
+  }
+
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
-      <Modal
+      {/* <Modal
         isOpen={!auth}
         onRequestClose={closeModal}
       >
         <SocialLogin />
-      </Modal>
-      {auth ? (
+      </Modal> */}
+      {(
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
@@ -53,8 +59,9 @@ function Profile() {
 
           {
             <UserWorkshop
-              waitlistedWorkshops={profile && profile.waitlistedWorkshops}
-              registeredWorkshops={profile && profile.registeredWorkshops}
+              handelToastCallback={handelToastCallback}
+              waitlistedWorkshops={profile.waitlistedWorkshops}
+              registeredWorkshops={profile.registeredWorkshops}
             />
           }
           {
@@ -63,8 +70,14 @@ function Profile() {
           }
 
           <Logout />
+
+          <ToastContainer position="bottom-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick />
         </>
-      ) : null}
+      )}
     </div>
   );
 }
