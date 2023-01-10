@@ -7,18 +7,15 @@ import { usePromiseTracker } from 'react-promise-tracker';
 import studentSevice from '../services/students';
 import Input from '../utils/Input';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 export default function SignupPopup(props) {
-  const { workshops, parentCallback } = props;
+  const { workshops, parentCallback , toastCallBack} = props;
   const [state, setState] = useState({
     name: '',
     contactNumber: '',
     emailAddress: '',
     matricNumber: '',
   });
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(null);
   const [acknowledgement, setAcknowledgment] = useState(false);
   const [helperText, setHelperText] = useState('');
   const { promiseInProgress } = usePromiseTracker();
@@ -56,12 +53,11 @@ export default function SignupPopup(props) {
     if (acknowledgement === false) {
       setHelperText('Please indicate acknowledgement of terms and conditions.');
     } else {
-      toast("Signed up for workshop! Please check your email!");
       const res = await trackPromise(
         workshopService.signUpWorkshop(workshops[0]._id, state)
       );
       if (res.status === 200) {
-        toast("Signed up for workshop! Please check your email!");
+        toastCallBack();
         handleClose(true);
       } else if (res.status === 401) {
         setAuth(false);
@@ -175,11 +171,7 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </div>
-      <ToastContainer position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick />
+  
     </>
   );
 }

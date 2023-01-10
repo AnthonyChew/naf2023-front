@@ -8,6 +8,9 @@ import SignUpsLogo from "./svgs/signups/workshopSignUpLogo.png";
 import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import BlueStar3 from "./svgs/workshop/workshops_bluestar3.svg";
 import BlueStar3Shadow from "./svgs/workshop/workshops_bluestar3shadow.svg";
 import RedStar1 from "./svgs/workshop/workshops_redstar1.svg";
@@ -45,6 +48,10 @@ const SignUp = () => {
       document.body.style.overflow = 'unset';
     }
   }, [modalOpen]);
+
+  function handelToastCallback(){
+      toast("Signed up for workshop! Please check your email!");
+  }
 
   return (
     <div
@@ -163,9 +170,14 @@ const SignUp = () => {
           CLICK HERE TO SIGN UP
         </button>
         <Modal isOpen={modalOpen}>
-          <SignUpPopup workshops={workshops} parentCallback = {() => setModalOpen(false)}></SignUpPopup>
+          <SignUpPopup workshops={workshops} toastCallBack={handelToastCallback} parentCallback = {() => setModalOpen(false)}></SignUpPopup>
         </Modal>
       </div>
+      <ToastContainer position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick />
     </div>
   );
 };
