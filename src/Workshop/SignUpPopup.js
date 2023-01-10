@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import UserLogin from '../Authentication/UserLogin';
 import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { usePromiseTracker } from 'react-promise-tracker';
+import studentSevice from '../services/students';
 import Input from '../utils/Input';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -21,6 +22,7 @@ export default function SignupPopup(props) {
   const [acknowledgement, setAcknowledgment] = useState(false);
   const [helperText, setHelperText] = useState('');
   const { promiseInProgress } = usePromiseTracker();
+  const [profile, setProfile] = useState(null);
 
   //DIALOG ACTIONS
   const handleClose = (isSuccess) => {
@@ -34,6 +36,20 @@ export default function SignupPopup(props) {
   const handleLoginClose = () => {
     setAuth(true);
   };
+
+  useEffect(() => {
+    async function fetchProfileData() {
+      const res = await trackPromise(studentSevice.getUser());
+      if (res.status === 200) {
+        setProfile(res.data);
+        setAuth(true);
+      }
+      else {
+        setAuth(false);
+      }
+    }
+    fetchProfileData();
+  }, [auth]);
 
   const signUpWorkshop = async (event) => {
     event.preventDefault();
