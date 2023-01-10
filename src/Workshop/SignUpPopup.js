@@ -68,6 +68,7 @@ export default function SignupPopup(props) {
             <div>
               <Input
                 name="name"
+                required
                 label="Full Name"
                 wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
                 id="component-simple"
@@ -78,6 +79,7 @@ export default function SignupPopup(props) {
               <Input
                 id="component-simple"
                 type="tel"
+                required
                 pattern='^[0-9]+$'
                 maxLength='15'
                 label="Contact No."
@@ -89,6 +91,7 @@ export default function SignupPopup(props) {
               <Input
                 id="component-simple"
                 type="email"
+                required
                 label="Email Address"
                 //inputProps={{ pattern: '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' }} // this pattern would allow some invalid gmails e.g. "abc"@gmail.com
                 inputProps={{ maxLength: 64 }}
@@ -100,6 +103,7 @@ export default function SignupPopup(props) {
               <Input
                 id="component-simple"
                 label="Matriculation Number/Staff ID"
+                required
                 wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
                 //inputProps={{ pattern: '^U[0-9]{7}[A-Z]$' }} // accepts 'U' as the first character, then 7 [0-9] characters, then a character
                 pattern='^[a-zA-Z0-9]+$'
