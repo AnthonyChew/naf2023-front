@@ -6,9 +6,9 @@ export default function ContestCard(props) {
   return (
     <div class="flex flex-col text-right">
         <img class="max-w-sm" src={image} alt={name} />
-      <h2>
+      <p class='text-2xl font-syne underline decoration-solid mb-2'>
         {name}
-      </h2>
+      </p>
     </div>
   );
 }

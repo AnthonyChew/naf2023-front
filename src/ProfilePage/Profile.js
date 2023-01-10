@@ -37,7 +37,7 @@ function Profile() {
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
-      <LoadingSpinnerComponent/>
+      <LoadingSpinnerComponent />
       <Modal
         isOpen={!auth}
         onRequestClose={closeModal}
@@ -49,14 +49,16 @@ function Profile() {
           <ProfileHeader
             displayName={profile && profile.displayName}
           />
-          {<UserWorkshop
-            waitlistedWorkshops={profile && profile.waitlistedWorkshops}
-            registeredWorkshops={profile && profile.registeredWorkshops}
-          />}
+          {
+            <UserWorkshop
+              waitlistedWorkshops={profile && profile.waitlistedWorkshops}
+              registeredWorkshops={profile && profile.registeredWorkshops}
+            />
+          }
           {
             profile && profile.pastOrders && (
-              <OrderTable pastOrders={profile.pastOrders} />
-            )}
+              <OrderTable pastOrders={profile.pastOrders} />)
+          }
 
           <Logout />
         </>
