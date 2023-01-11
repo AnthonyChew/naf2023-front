@@ -145,8 +145,7 @@ function VendorLogin() {
             </button>
 
             <Modal isOpen={open} onRequestClose={handleClose}>
-              <div class="w-full h-full" >
-                <div class="absolute w-full h-full -z-[2]" onClick={handleClose}></div>
+              <div class="relative w-full h-full overflow-y-auto" >
                 <AddProduct parentCallback={handleClose} type="add" />
               </div>
             </Modal>

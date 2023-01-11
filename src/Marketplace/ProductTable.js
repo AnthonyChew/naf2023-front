@@ -119,6 +119,10 @@ function Table({ columns, data }) {
     }
   }, [editIsOpen]);
 
+  function parentCallBack()
+  {
+    
+  }
   return (
     <>
       <table {...getTableProps()}>
@@ -167,7 +171,7 @@ function Table({ columns, data }) {
         </tbody>
       </table>
       <Modal isOpen={editIsOpen} onRequestClose={() => handleClose()}>
-        <div class="w-full h-full" >
+        <div class="relative w-full h-full overflow-y-auto" >
           {editProps && < AddProduct
             //callback
             pdtName={editProps.name}
@@ -185,7 +189,7 @@ function Table({ columns, data }) {
             pdtLeadtime={editProps.leadTime}
             pdtImages={editProps.images}
             _id={editProps._id}
-            parentCallback={() => handleClose()}
+            parentCallback={handleClose}
             type="edit"
           />}
 
