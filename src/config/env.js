@@ -16,6 +16,7 @@ const envConfig = {
     admin: 'admin',
     home: 'home',
     donations: 'donations',
+    image: 'images',
   },
 };
 

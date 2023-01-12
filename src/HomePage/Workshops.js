@@ -8,6 +8,7 @@ import {
   EffectFade,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate } from 'react-router-dom';
 
 // Import Swiper styles
 import "swiper/css";
@@ -25,13 +26,15 @@ import WorkshopTopRightYellowStar from "./svgs/workshop/WorkshopYellowStar.svg";
 import WorkshopBottomRightBlueStar from "./svgs/workshop/WorkshopBlueStar.svg";
 import LandingBg from "./svgs/landing/landingbg.svg";
 
+
 const Workshops = () => {
+  const history = useNavigate();
   return (
-    <div class="bg-NAFOrange bg-cover relative overflow-hidden" style={{ backgroundImage: `url(${LandingBg})`}}>
-        <img src={WorkshopTopLeftPurpleStar} class="hidden lg:block absolute top-[5%] left-[0%] z-10"></img>
-        <img src={WorkshopTopRightRedDot} class="hidden lg:block absolute top-[2%] right-[10%] z-10"></img>
-        <img src={WorkshopTopRightYellowStar} class="hidden lg:block absolute top-[5%] right-[0%] z-10"></img>
-        <img src={WorkshopBottomRightBlueStar} class="hidden lg:block absolute bottom-[-8%] right-[-5%] z-10"></img>
+    <div class="bg-NAFOrange bg-cover relative overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
+      <img src={WorkshopTopLeftPurpleStar} class="hidden lg:block absolute top-[5%] left-[0%] z-10"></img>
+      <img src={WorkshopTopRightRedDot} class="hidden lg:block absolute top-[2%] right-[10%] z-10"></img>
+      <img src={WorkshopTopRightYellowStar} class="hidden lg:block absolute top-[5%] right-[0%] z-10"></img>
+      <img src={WorkshopBottomRightBlueStar} class="hidden lg:block absolute bottom-[-8%] right-[-5%] z-10"></img>
 
 
 
@@ -77,11 +80,13 @@ const Workshops = () => {
               <div class="text-center">Pikachu</div>
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src="https://swiperjs.com/demos/images/nature-2.jpg"
-                alt=""
-              />
-              <div class="text-center">Pikachu</div>
+              <div class='cursor-pointer' onClick={() => history('/glimmer')}>
+                <img
+                  src="https://swiperjs.com/demos/images/nature-2.jpg"
+                  alt=""
+                />
+                <div class="text-center">Navigate Example</div>
+              </div>
             </SwiperSlide>
             <SwiperSlide>
               <img

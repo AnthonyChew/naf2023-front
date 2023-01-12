@@ -54,7 +54,7 @@ const Navbar = () => {
                             <Link to="/interstellar" class="link block py-2 hover:bg-gray-200" smooth>Interstellar</Link>
                             <Link to="/orbit" class="link block py-2 hover:bg-gray-200" smooth>Orbit</Link>
                             <Link to="/workshop" class="link block py-2 hover:bg-gray-200" smooth>Workshop</Link>
-                            <Link to="/picrew" class="link block py-2 hover:bg-gray-200" smooth>Piccrew</Link>
+                            <Link to="/picrew" class="link block py-2 hover:bg-gray-200" smooth>Picrew</Link>
 
 
                         </div>
