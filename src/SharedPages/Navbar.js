@@ -16,13 +16,13 @@ const Navbar = () => {
 
     const handleOutsideClicks =(event)=>{
         if(ProgrammesRef.current && !ProgrammesRef.current.contains(event.target)){
-            setIsProgrammesOpen(false);
+            // setIsProgrammesOpen(false);
          }
         if(NAFCACRef.current && !NAFCACRef.current.contains(event.target)){
-            setIsNAFxCACOpen(false)
+            // setIsNAFxCACOpen(false)
          };
          if(MobileRef.current && !MobileRef.current.contains(event.target)){
-            setIsNavOpen(false)
+            // setIsNavOpen(false)
          };
 
       };
