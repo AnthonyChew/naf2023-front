@@ -19,7 +19,7 @@ import Orbit from './Events/Orbit';
 import Interstellar from './Events/Interstellar';
 import Starburst from './Events/Starburst';
 import AdminManage from './AdminInterface/AdminManage'
-
+import MainCommittee from './AboutUs/MainCommittee';
 import {
   BrowserRouter,
   Routes,
@@ -70,6 +70,8 @@ function App() {
           <Route path="/afth" element={<NAFxAFTH />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/adminmanage" element={<AdminManage />} />
+          <Route path="/committee" element={<MainCommittee />} />
+
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
