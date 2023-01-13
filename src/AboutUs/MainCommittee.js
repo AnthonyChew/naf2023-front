@@ -52,11 +52,33 @@ import inka from './svgs/maincommittee/prog/inka.png';
 import ruiying from './svgs/maincommittee/prog/ruiying.png';
 
 
+//stars walao dont free flow the stars leh 
+import TopRightRedStar from './svgs/maincommittee/TopRightRedStar.svg';
+import TopRightWhiteDot from './svgs/maincommittee/TopRightWhiteDot.svg';
+import TopRightYellowStar from './svgs/maincommittee/TopRightYellowStar.svg';
+import TopLeftYellowStar from './svgs/maincommittee/TopLeftYellowStar.svg';
+import TopLeftSmallWhiteStar from './svgs/maincommittee/TopLeftSmallWhiteStar.svg';
+import TopLeftOrangeStar from './svgs/maincommittee/TopLeftOrangeStar.svg';
+import MiddleLeftRedStar from './svgs/maincommittee/MiddleLeftRedStar.svg';
+import MiddleRightYellowStar from './svgs/maincommittee/MiddleRightYellowStar.svg';
+import MiddleRightPurpleDot from './svgs/maincommittee/MiddleRightPurpleDot.svg';
+import BottomLeftPurpleStar from './svgs/maincommittee/BottomLeftPurpleStar.svg';
+import BottomLeftWhiteStar from './svgs/maincommittee/BottomLeftWhiteStar.svg';
+import BottomLeftYellowStar from './svgs/maincommittee/BottomLeftYellowStar.svg';
+import BottomRightOrangeStar from './svgs/maincommittee/BottomRightOrangeStar.svg';
+import BottomRightRedStar from './svgs/maincommittee/BottomRightRedStar.svg';
+import BottomRightWhiteDot from './svgs/maincommittee/BottomRightWhiteDot.svg';
+
+
+
+
+
+
 import LeftArrow from './svgs/maincommittee/LeftArrow.svg';
 import RightArrow from './svgs/maincommittee/RightArrow.svg';
 
 const MainCommittee = () => {
-  const images = [top4, exfio, business, publicity, prog,  tech];
+  const images = [top4, exfio, business, publicity, prog, tech];
   const techImages = [anthony, samuel, kish]
   const progImages = [emmy, evelyn, aida, cameron, coco, cynthia, inka, fahmy, ruiying]
   const pnpImages = [qihui, amber, cinwen, heather, jane, yongqi, xinhui, jess]
@@ -86,27 +108,49 @@ const MainCommittee = () => {
         break;
       case 5:
         setImgState(techImages);
-        break;  
+        break;
     }
     setGalleryState(0)
   }
 
   const ImageState = (val) => (event) => {
-    if (val > (imgState.length  - 1)) val = 0
+    if (val > (imgState.length - 1)) val = 0
     if (val < 0) val = (imgState.length - 1)
     setGalleryState(val)
   }
 
 
   return (
-    <div class="bg-NAFBlue min-h-screen pb-[10%]">
+
+
+    <div class="relative bg-NAFBlue min-h-screen pb-[10%] overflow-y-clip">
+      <img src={TopLeftSmallWhiteStar} class="absolute w-[3%] top-[0%] left-[10%] z-30"></img>
+      <img src={TopLeftOrangeStar} class="absolute top-[0%] left-[0%] z-30"></img>
+
+      <img src={TopRightRedStar} class="absolute w-[13%] top-[0%] right-[7%] z-30"></img>
+      <img src={TopRightWhiteDot} class="absolute w-[2%] top-[9%] right-[3%] z-30"></img>
+
+      <img src={MiddleLeftRedStar} class="absolute top-[19%] left-[0%]"></img>
+      <img src={MiddleRightYellowStar} class="absolute w-[20%] top-[19%] right-[0%]"></img>
+      <img src={MiddleRightPurpleDot} class="absolute w-[2%] top-[49%] right-[2%] z-30"></img>
+
+      <img src={BottomLeftPurpleStar} class="absolute bottom-[-12%] left-[0%]"></img>
+      <img src={BottomLeftWhiteStar} class="absolute bottom-[0%] left-[0%]"></img>
+      <img src={BottomLeftYellowStar} class="absolute bottom-[0%] left-[0%]"></img>
+
+
+
+
       <div class="mx-auto pt-[4%]">
         <img class="w-[50%] mx-auto" src={CommitteeLogo}></img>
-      </div> 
-      <div class="mt-5 w-[70%] mx-auto bg-white mb-5 border-3 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
+      </div>
+      <div class="relative mt-[2%] w-[85%] mx-auto bg-white mb-5 border-3 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
+        <img src={TopLeftYellowStar} class="absolute w-[28%] top-[-18%] left-[-3%]"></img>
+      <img src={TopRightYellowStar} class="absolute w-[8%] top-[-4%] right-[-5%] z-30"></img>
+
         <AppleHeader></AppleHeader>
-        <div class="flex">
-          <div class="flex-col basis-[20%]">
+        <div class="flex bg-white relative">
+          <div class="flex-col basis-[20%] bg-white">
             <div class="bg-gray-400 p-5 border border-black">
               {
                 images.map((oneImage, index) => (
@@ -114,7 +158,7 @@ const MainCommittee = () => {
                     <img class="w-[80%] mx-auto" src={oneImage} id={index} onClick={() => handleImageState(index)}></img>
                   </div>
                 ))
-                
+
               }
 
             </div>
@@ -124,7 +168,7 @@ const MainCommittee = () => {
             <div class="text-center mt-[4%] mx-10">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
             </div>
-              <div class="flex items-center justify-center mt-[5%]">
+            <div class="flex items-center justify-center mt-[5%]">
               <div >
                 <img class="" src={LeftArrow} onClick={ImageState(galleryState - 1)}></img>
               </div>
@@ -142,6 +186,7 @@ const MainCommittee = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   )
