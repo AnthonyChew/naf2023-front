@@ -14,34 +14,35 @@ const Navbar = () => {
     const NAFCACRef = useRef(null);
     const MobileRef = useRef(null);
 
-    const handleOutsideClicks =(event)=>{
-        if(ProgrammesRef.current && !ProgrammesRef.current.contains(event.target)){
-            // setIsProgrammesOpen(false);
-         }
-        if(NAFCACRef.current && !NAFCACRef.current.contains(event.target)){
-            // setIsNAFxCACOpen(false)
-         };
-         if(MobileRef.current && !MobileRef.current.contains(event.target)){
-            // setIsNavOpen(false)
-         };
+    const handleOutsideClicks = (event) => {
+        if (ProgrammesRef.current && !ProgrammesRef.current.contains(event.target)) {
+            setIsProgrammesOpen(false);
+        }
+        if (NAFCACRef.current && !NAFCACRef.current.contains(event.target)) {
+            setIsNAFxCACOpen(false)
+        };
+        if (MobileRef.current && !MobileRef.current.contains(event.target)) {
+            setIsNavOpen(false)
+        };
 
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         // Bind the event listener
         document.addEventListener("mousedown", handleOutsideClicks);
-          return () => {
+        return () => {
             // Unbind the event listener on clean up
             document.removeEventListener("mousedown", handleOutsideClicks);
         };
-    }, [ProgrammesRef, NAFCACRef,MobileRef ]);
-      
+    }, [ProgrammesRef, NAFCACRef, MobileRef]);
+
     return (
 
 
         <div >
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
-                <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
-
+                <Link to="/" class="link" smooth>
+                    <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
+                </Link>
                 <div class="relative hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
                     <Link to="/" class="link" smooth>HOME</Link>
                     <Link to="/about" class="link" smooth>ABOUT</Link>
@@ -62,7 +63,7 @@ const Navbar = () => {
                     <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
                     <div class="relative" ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
-                        <div  className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
                         </div>
                     </div>
@@ -94,7 +95,7 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div ref={MobileRef}>
-                        <Link onClick={() => setIsNavOpen(false)}  to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
+                        <Link onClick={() => setIsNavOpen(false)} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
                         <Link onClick={() => setIsNavOpen(false)} to="/about" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ABOUT</Link>
                         <div class="relative p-4 text-sm" >
                             <Link onClick={() => setIsMobileProgrammesOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >PROGRAMMES</Link>

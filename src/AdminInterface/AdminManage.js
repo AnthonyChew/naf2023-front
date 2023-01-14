@@ -9,6 +9,7 @@ import Logout from '../Authentication/Logout';
 import Switch from "react-switch";
 import AdminOrderTable from './AdminOrderTable';
 import AdminWorkshopTable from './AdminWorkshopTable';
+import PicrewImageManage from './PicrewImageManage';
 import Select from 'react-select';
 import authService from '../services/auth';
 
@@ -41,7 +42,7 @@ function AdminManage(props) {
   };
 
   const handleSelfCollChange = (event) => {
-    setSelfCollDate(event.target.value);
+    setSelfCollDate(event);
   };
   const delay = ms => new Promise(res => setTimeout(res, ms));
   useEffect(() => {
@@ -194,6 +195,16 @@ function AdminManage(props) {
 
   };
 
+  const events = [
+    { value: 'Glimmer', label: 'Glimmer' },
+    { value: 'Starburst', label: 'Starburst' },
+    { value: 'Interstellar', label: 'Interstellar' },
+    { value: 'Orbit', label: 'Orbit' },
+    { value: 'Nebula', label: 'Nebula' },
+  ]
+
+
+
   const inputRef = useRef();
 
   return (
@@ -208,32 +219,26 @@ function AdminManage(props) {
             </button>
 
             <div class="p-2">
-              <p>Admin Login</p>
-
               <form autoComplete="off" onSubmit={logIn}>
                 <Input
                   label="Enter your username/email"
                   id="username"
                   onChange={handleFormChange('username')}
-                  color="secondary"
+                  wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
                   required
                 />
                 <div
-                  onClick={() => inputRef.current.focus()}
+                  class='border-2 border-black rounded-2xl mb-2'
                 >
-                  <label
-                    htmlFor="password"
-                    className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
-                  >
-                    Enter your password {<span className='text-red-500'>*</span>}
-                  </label>
-                  <div class="flex flex-row">
-                    <input
+                  <div class="flex flex-row pb-1">
+                    <Input
+                      label="Enter your password"
                       ref={inputRef}
                       type={values.showPassword ? 'text' : 'password'}
                       name="password"
+                      required
                       onChange={handleFormChange('password')}
-                      className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                      wrapperClassName="w-full"
                       id="password"
                       placeholder=""
                     />
@@ -241,7 +246,7 @@ function AdminManage(props) {
                       type="button"
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
-                      class="w-fit h-fit"
+                      class="w-fit h-fit self-end pr-2 pb-1"
                     >
                       {
                         values.showPassword ?
@@ -259,6 +264,7 @@ function AdminManage(props) {
                 <button
                   type="submit"
                   disabled={promiseInProgress}
+                  class="w-fit ml-auto mr-auto text-xl bg-blue-600 text-white border-4 border-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Log in
                 </button>
@@ -268,9 +274,10 @@ function AdminManage(props) {
           </div >
         </div >
       </Modal>
+
       {auth ? (
         <div class='flex justify-center pt-32 pb-32 min-h-screen bg-orange-400 bg-cover overflow-hidden bg-center ' style={{ backgroundImage: `url(${ProfileBg})` }}>
-          <div class='flex flex-col w-1/2 bg-gray-400/95 p-5 rounded-xl border-black border-2'>
+          <div class='flex flex-col w-2/3 bg-gray-400/95 p-5 rounded-xl border-black border-2'>
 
             <Logout />
 
@@ -295,7 +302,7 @@ function AdminManage(props) {
                 vendors.map((vendor, index) => (
                   <>
                     <button
-                      class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                       key={index}
                       onClick={() =>
                         downloadVendorOrders(vendor._id, vendor.displayName)
@@ -337,9 +344,11 @@ function AdminManage(props) {
                   value={selfCollDate}
                   onChange={handleSelfCollChange}>
                 </Select>
-                <button type="submit" class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2">
-                  Send Email
-                </button>
+                <div class='flex w-full justify-center'>
+                  <button type="submit" class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2">
+                    Send Email
+                  </button>
+                </div>
               </form>
             </div>
 
@@ -368,6 +377,24 @@ function AdminManage(props) {
                 workshops={workshops}
               />
             </div>
+
+            <PicrewImageManage />
+
+            {/* <div class='flex flex-col justify-center items-center border-black border-2 p-2 rounded-xl mb-2 gap-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Event Photos
+              </p>
+              <Select
+                id="product-category"
+                name="category"
+                required
+                options={events}
+                value={event}
+                onChange={handleEventChange}>
+              </Select>
+            </div> */}
+
+
             {/* <Typography className={classes.paddedItem} variant="h4">
             Photos
           </Typography>

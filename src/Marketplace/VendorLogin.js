@@ -89,7 +89,7 @@ function VendorLogin() {
       {auth ? (
         <div class='flex flex-col justify-center items-center gap-5'>
           <p class='text-2xl font-syne underline decoration-solid'>
-            VENDOR LOGIN
+            VENDOR MANAGEMENT
           </p>
           <p class='text-2xl font-syne underline decoration-solid'>
             Welcome back, {profile && profile.displayName}!
@@ -121,7 +121,7 @@ function VendorLogin() {
 
           <>
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={editProfile}
             >
               <p class="flex-1 text-2xl font-syne text-center">  Edit Profile </p>
@@ -137,7 +137,7 @@ function VendorLogin() {
 
           <>
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={handleClickOpen}
               id="addProduct"
             >
@@ -153,7 +153,7 @@ function VendorLogin() {
           <ProductTable rows={profile && profile.products} />
           <div  >
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={downloadOrders}>
               <p class="flex-1 text-2xl font-syne text-center"> Download orders </p>
             </button>

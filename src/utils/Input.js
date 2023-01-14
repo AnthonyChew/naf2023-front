@@ -37,7 +37,7 @@ const Input = (props) => {
                         <input
                             ref={inputRef}
                             type='number'
-                            class='w-full px-2 pr-2 pb-1.5 text-primary outline-none text-xl font-light rounded-2xl'
+                            class='w-full px-2 pr-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
                             id={id}
                             placeholder={placeholder}
                             required={required}
@@ -48,7 +48,7 @@ const Input = (props) => {
                     <input
                         ref={inputRef}
                         type={type}
-                        class='w-full px-2 pb-1.5 text-primary outline-none text-xl font-light rounded-2xl'
+                        class='w-full px-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
                         id={id}
                         placeholder={placeholder}
                         required={required}

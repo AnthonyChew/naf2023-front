@@ -205,15 +205,15 @@ const MarketPlaceLanding = () => {
       <div class="flex font-syne">
         {/* product part */}
         <div class="basis-5/6">
-          <div class=" flex flex-wrap">
+          <div class=" flex flex-wrap p-5">
             {
               products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
-                  <div class="oneItem-img">
+                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
+                  <div class="oneItem-img border-black border-b-2">
                     <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
                   </div>
-                  <div class="oneItem-caption">
-                    <div>Name: {oneItem.name}</div>
+                  <div class="oneItem-caption p-1 bg-gray-500">
+                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
                     <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
 
                     <div>Price: ${oneItem.price}</div>

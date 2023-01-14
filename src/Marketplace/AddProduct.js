@@ -433,7 +433,7 @@ export default function AddProduct(props) {
 
   return (
     <div class='w-full flex flex-col justify-center items-center'>
-      <div class="bg-white p-4 border-black border-2 mt-2 rounded-xl mb-2">
+      <div class="bg-white p-4 border-black border-2 mt-2 rounded-xl mb-2 w-2/3">
         <div class='text-2xl font-syne underline decoration-solid' id="Add new product">
           {type === 'add' ? 'Add New Product' : 'Edit Product'}
         </div>
