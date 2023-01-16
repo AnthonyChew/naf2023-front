@@ -66,7 +66,7 @@ export default function SignUpForm(props) {
   const passwordRef = useRef();
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit} >
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <Input
         name="username"
         label="Username"
