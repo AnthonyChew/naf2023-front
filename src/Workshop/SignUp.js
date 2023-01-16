@@ -29,18 +29,10 @@ import YellowBall from "./svgs/workshop/workshops_yellowball.svg";
 import "./ModalStyle.css";
 import SignUpPopup from "./SignUpPopup";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [workshops, setWorkshops] = useState([]);
+  const workshop = props.workshop;
   
-  useEffect(() => {
-    async function fetchWorkshopData() {
-      const res = await trackPromise(workshopService.getAll());
-      setWorkshops(res.data);
-    }
-    fetchWorkshopData();
-  }, []);
-
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden';
@@ -170,7 +162,7 @@ const SignUp = () => {
           CLICK HERE TO SIGN UP
         </button>
         <Modal isOpen={modalOpen}>
-          <SignUpPopup workshops={workshops} toastCallBack={handelToastCallback} parentCallback = {() => setModalOpen(false)}></SignUpPopup>
+          <SignUpPopup workshop={workshop} toastCallBack={handelToastCallback} parentCallback = {() => setModalOpen(false)}></SignUpPopup>
         </Modal>
       </div>
       <ToastContainer position="bottom-left"

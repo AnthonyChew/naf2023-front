@@ -1,5 +1,5 @@
 {
-  "name": "naf2024front",
+  "name": "naf2023front",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +31,8 @@
     "redux-thunk": "^2.3.0",
     "swiper": "^8.4.5",
     "web-vitals": "^2.1.4",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "moment": "^2.29.1"
   },
   "scripts": {
     "start": "react-scripts start",

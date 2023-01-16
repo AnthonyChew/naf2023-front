@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import googleSignIn from '../Marketplace/svgs/google_signin.jpg';
 
 export default function SignupPopup(props) {
-  const { workshops, parentCallback , toastCallBack} = props;
+  const { workshop, parentCallback , toastCallBack} = props;
   const [state, setState] = useState({
     name: '',
     contactNumber: '',
@@ -59,7 +59,7 @@ export default function SignupPopup(props) {
       setHelperText('Please indicate acknowledgement of terms and conditions.');
     } else {
       const res = await trackPromise(
-        workshopService.signUpWorkshop(workshops[0]._id, state)
+        workshopService.signUpWorkshop(workshop.id, state)
       );
       if (res.status === 200) {
         toastCallBack();
@@ -75,6 +75,12 @@ export default function SignupPopup(props) {
   const history = useNavigate();
 
   const googleUrl = `${config.backendUrl}/api/auth/google/login/`;
+
+  function returnToPrevPage(){
+    parentCallback();
+    history(-1);
+  }
+
   return (
     <>
        <Modal
@@ -84,7 +90,7 @@ export default function SignupPopup(props) {
         <div h-full class="h-full flex flex-col items-center justify-center">
           <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
             <button type="button" class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-              onClick={() => history(-1)}>
+              onClick={() => returnToPrevPage()}>
               <p class="flex-1 text-2xl font-syne text-center"> Return to Previous Page </p>
             </button>
 
@@ -103,7 +109,7 @@ export default function SignupPopup(props) {
         <div class="flex flex-col items-center justify-center bg-white p-5 border-4 border-black rounded-lg">
           <form class="" autoComplete="off" onSubmit={signUpWorkshop}>
             <p class='text-2xl font-syne underline decoration-solid mb-2'>
-              {workshops[0] && workshops[0].name}
+              {workshop && workshop.name}
             </p>
 
             <div>

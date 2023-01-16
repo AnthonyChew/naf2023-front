@@ -42,15 +42,28 @@ function PicrewImageManage() {
         setPhotoModalContent('');
     }
 
-    const verfiyImage = async () => {
-        image.verified = true;
+    const modalHandle = async () => {
+        if (photoModalContent === "Do you want to verify") {
+            image.verified = true;
 
-        const res = await trackPromise(imageService.postVerifyImage(image));
-        if (res.status === 200) {
-            history(0);
+            const res = await trackPromise(imageService.postVerifyImage(image));
+            if (res.status === 200) {
+                history(0);
+            }
+
+            setImage(null);
+        }
+        else {
+            const res = await trackPromise(imageService.deleteImage(image));
+            if (res.status === 200) {
+                history(0);
+            }
+
+            setImage(null);
         }
 
-        setImage(null);
+        setPhotoModal(false);
+
     }
 
     const history = useNavigate();
@@ -68,7 +81,7 @@ function PicrewImageManage() {
                                 class="inline-block px-6 py-2.5 bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                 No
                             </button>
-                            <button type="button" onClick={verfiyImage}
+                            <button type="button" onClick={modalHandle}
                                 class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                 Yes
                             </button>

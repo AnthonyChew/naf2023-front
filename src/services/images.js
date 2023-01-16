@@ -3,7 +3,6 @@ import config from '../config/env';
 const baseUrl = config.endpoints.image;
 
 const getVerifiedImages = async () => {
-  // console.log(`Product to be added${newProduct}`);
   try {
     const res = await axiosConfig({
       method: 'get',
@@ -15,8 +14,21 @@ const getVerifiedImages = async () => {
   }
 };
 
+const deleteImage = async (img) => {
+  try {
+    const res = await axiosConfig({
+      method: 'delete',
+      url: `${baseUrl}/delete`,
+      data: img,
+    });
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
+
 const getAllImages = async () => {
-  // console.log(`Product to be added${newProduct}`);
   try {
     const res = await axiosConfig({
       method: 'get',
@@ -30,7 +42,6 @@ const getAllImages = async () => {
 
 
 const addImages = async (newimg) => {
-    // console.log(`Product to be added${newProduct}`);
     try {
       const res = await axiosConfig({
         method: 'post',
@@ -47,7 +58,6 @@ const addImages = async (newimg) => {
   };
 
   const postVerifyImage = async (img) => {
-    // console.log(`Product to be added${newProduct}`);
     try {
       const res = await axiosConfig({
         method: 'put',
@@ -62,8 +72,9 @@ const addImages = async (newimg) => {
 
 
   export default {
-    getVerifiedImages,
     getAllImages,
+    deleteImage,
+    getVerifiedImages,
     addImages,
     postVerifyImage,
   };
