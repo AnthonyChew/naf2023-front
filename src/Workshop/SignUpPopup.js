@@ -59,7 +59,7 @@ export default function SignupPopup(props) {
       setHelperText('Please indicate acknowledgement of terms and conditions.');
     } else {
       const res = await trackPromise(
-        workshopService.signUpWorkshop(workshop.id, state)
+        workshopService.signUpWorkshop(workshop._id, state)
       );
       if (res.status === 200) {
         toastCallBack();
