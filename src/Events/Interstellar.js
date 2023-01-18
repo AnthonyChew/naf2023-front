@@ -63,7 +63,8 @@ const Interstellar = () => {
       <EventHeader img={InterStellarLogo} text=""></EventHeader>
       <div class="flex w-[85%] mx-auto text-center">
         <div class="basis-full">
-          <EventCard button="Click here to register" href="/" bgColor={bgcolor} title="REGISTER FOR INTERSTELLAR" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
+          <EventCard button="Click here to register" href="/" bgColor={bgcolor} title="REGISTER FOR INTERSTELLAR" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="
+"></EventCard>
         </div>
       </div>
       <div class="flex w-[85%] mx-auto text-center">
@@ -76,7 +77,9 @@ const Interstellar = () => {
             bgColor={bgcolor} 
             title="WORKSHOPS" 
             date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library"
-             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
+             content="
+             Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. 
+             Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations. "></EventCard>
       </div>
     </div>
   )

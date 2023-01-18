@@ -17,7 +17,7 @@ const Nebula = () => {
           <EventCard bgColor={bgcolor} title="BLAST OF TUNES" date="18 Mar 2023, 5:00pm - 6:00pm, NLB Library" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
         </div>
         <div class="basis-full lg:basis-[30%]">
-          <EventCard bgColor={bgcolor} title="BRILLIANCE" date="<Date, time, location>" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
+          <EventCard bgColor={bgcolor} title="BRILLIANCE" date="<Date, time, location>" content="Brilliance is an extravagant fashion show where models and designers are able to showcase their talents on a wider and public scale. Click to view our spectacular designers and their stunning designs!"></EventCard>
         </div>
       </div>
       {/* 2nd row */}
