@@ -46,7 +46,7 @@ import MarketPlaceBlue4Star4 from './svgs/MarketPlace/MarketPlaceBlue4Star4.svg'
 const Marketplace = () => {
   return (
     <div class="bg-NAFPink flex relative flex-col min-h-screen overflow-hidden justify-center">
-      <div class="mx-auto my-0 w-[90%] md:w-[80%] lg:w-2/3 h-1/4 text-center">
+      <div class="mx-auto my-0 w-[90%] md:w-[80%] lg:w-2/3 h-1/4 text-center z-30">
         <img src={MarketPlaceLogo} class="my-6 mx-auto w-[90%]"></img>
         <Link to='/marketplace'>
         <button class="bg-NAFBlue w-[45%] md:w-1/3 text-xs md:text-base lg:text-lg font-syneBold text-white mx-auto py-4 px-1 border-2 border-black rounded-lg">SEE ALL PRODUCTS</button>
