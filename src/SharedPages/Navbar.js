@@ -86,6 +86,10 @@ const Navbar = () => {
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
                         <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
+                            <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
+                            <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
+                            <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
+
                         </div>
                     </div>
                     <Link to="/" class="link" smooth>FAQ</Link>
@@ -142,7 +146,10 @@ const Navbar = () => {
                         <div class="relative p-4 text-sm">
                             <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsMobileNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
-                                <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
+                            <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
+                            <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
+                            <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
+                            <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
                             </div>
                         </div>
                         <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
