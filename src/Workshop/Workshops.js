@@ -93,7 +93,7 @@ const Workshops = (props) => {
       <img class="absolute right-[4%] bottom-[2%] w-[8%]" src={BlueStar2} />
       {/* Header */}
       <img class="relative pt-10 pb-5 ml-[23%] w-[58%]" src={workshops_Logo} />
-      <div class="z-10 relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
+      <div class="relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
