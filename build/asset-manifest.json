@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9c0bbeb7.css",
-    "main.js": "/static/js/main.6d968b7f.js",
+    "main.css": "/static/css/main.bcc8ff1d.css",
+    "main.js": "/static/js/main.28428402.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -46,6 +46,7 @@
     "static/media/pikachu2.png": "/static/media/pikachu2.68bfdb3a60ea2809d269.png",
     "static/media/top4.png": "/static/media/top4.bc52280030cfd1ab1055.png",
     "static/media/ex.png": "/static/media/ex.841c3f5d8d19b858762c.png",
+    "static/media/Syne-ExtraBold.ttf": "/static/media/Syne-ExtraBold.ec26051cf662d73d9c4d.ttf",
     "static/media/Syne-Bold.ttf": "/static/media/Syne-Bold.17bf8885cfa0dfe236df.ttf",
     "static/media/Syne-Medium.ttf": "/static/media/Syne-Medium.f087f08f5384f48ee701.ttf",
     "static/media/MarketPlaceOrbit2.svg": "/static/media/MarketPlaceOrbit2.e7f3dd74dc8660b2dc8c106c60f35849.svg",
@@ -281,12 +282,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.9c0bbeb7.css.map": "/static/css/main.9c0bbeb7.css.map",
-    "main.6d968b7f.js.map": "/static/js/main.6d968b7f.js.map",
+    "main.bcc8ff1d.css.map": "/static/css/main.bcc8ff1d.css.map",
+    "main.28428402.js.map": "/static/js/main.28428402.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c0bbeb7.css",
-    "static/js/main.6d968b7f.js"
+    "static/css/main.bcc8ff1d.css",
+    "static/js/main.28428402.js"
   ]
 }
