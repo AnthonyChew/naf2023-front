@@ -12,6 +12,7 @@ import AdminWorkshopTable from './AdminWorkshopTable';
 import PicrewImageManage from './PicrewImageManage';
 import Select from 'react-select';
 import authService from '../services/auth';
+import AdminImageUpload from './AdminImageUpload'
 
 import FileDownload from 'js-file-download';
 import { useNavigate } from 'react-router-dom';
@@ -195,13 +196,6 @@ function AdminManage(props) {
 
   };
 
-  const events = [
-    { value: 'Glimmer', label: 'Glimmer' },
-    { value: 'Starburst', label: 'Starburst' },
-    { value: 'Interstellar', label: 'Interstellar' },
-    { value: 'Orbit', label: 'Orbit' },
-    { value: 'Nebula', label: 'Nebula' },
-  ]
 
 
 
@@ -379,7 +373,7 @@ function AdminManage(props) {
             </div>
 
             <PicrewImageManage />
-
+            <AdminImageUpload />
             {/* <div class='flex flex-col justify-center items-center border-black border-2 p-2 rounded-xl mb-2 gap-2'>
               <p class='text-2xl font-syne underline decoration-solid'>
                 Event Photos

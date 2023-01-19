@@ -57,6 +57,22 @@ const addImages = async (newimg) => {
     }
   };
 
+  const adminAddImages = async (newimg) => {
+    try {
+      const res = await axiosConfig({
+        method: 'post',
+        url: `${baseUrl}/adminUploadImage`,
+        data: newimg,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return res;
+    } catch (err) {
+      return err.response;
+    }
+  };
+
   const postVerifyImage = async (img) => {
     try {
       const res = await axiosConfig({
@@ -76,5 +92,6 @@ const addImages = async (newimg) => {
     deleteImage,
     getVerifiedImages,
     addImages,
+    adminAddImages,
     postVerifyImage,
   };

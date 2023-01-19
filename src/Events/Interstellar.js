@@ -4,6 +4,7 @@ import EventHeader from './EventHeader'
 import InterStellarLogo from './svgs/Interstellar.png'
 import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
+import Filter from './FilterWorkshops';
 
 const Interstellar = () => {
   const bgcolor = "bg-NAFOrange";
@@ -67,19 +68,20 @@ const Interstellar = () => {
 "></EventCard>
         </div>
       </div>
+
+      <div class="flex flex-col lg:justify-around items-end justify-end mb-5 md:mr-32  ml-1 mr-1 flex-wrap">
+        <Filter filterCallback={(filterOptions) => { setFilter(filterOptions); setSort(filterOptions); }}></Filter>
+      </div>
       <div class="flex w-[85%] mx-auto text-center">
-          <EventCard
-            workshops={
-              filter.length === 0
-                ? workshops.sort((a, b) => compare(sort, a, b))
-                : workshops.sort((a, b) => compare(sort, a, b)).filter((workshop) => filter.includes(workshop.category))
-            }
-            bgColor={bgcolor} 
-            title="WORKSHOPS" 
-            date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library"
-             content="
-             Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. 
-             Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations. "></EventCard>
+        <EventCard
+          workshops={
+            workshops.sort((a, b) => compare(sort, a, b))
+          }
+          bgColor={bgcolor}
+          title="WORKSHOPS"
+          date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library"
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
+
       </div>
     </div>
   )

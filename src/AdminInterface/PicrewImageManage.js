@@ -15,8 +15,6 @@ function PicrewImageManage() {
     useEffect(() => {
         async function fetchAllImage() {
             const res = await trackPromise(imageService.getAllImages());
-            const res1 = await trackPromise(imageService.getVerifiedImages());
-            console.log(res1);
             if (res.status === 200) {
                 setPicrewImage(res.data.filter(image => image.workShopName.includes('Picrew')));
             }

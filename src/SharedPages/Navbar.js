@@ -137,8 +137,6 @@ const Navbar = () => {
                                 <Link to="/starburst" class="link block py-2 px-3 hover:bg-gray-200" smooth>Starburst</Link>
                                 <Link to="/interstellar" class="link block py-2 px-3 hover:bg-gray-200" smooth>Interstellar</Link>
                                 <Link to="/orbit" class="link block py-2 px-3 hover:bg-gray-200" smooth>Orbit</Link>
-                                <Link to="/workshop" class="link block py-2 px-3 hover:bg-gray-200" smooth>Workshop</Link>
-                                <Link to="/picrew" class="link block pt-2 px-3 hover:bg-gray-200" smooth>Picrew</Link>
 
                             </div>
                         </div>

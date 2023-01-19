@@ -21,7 +21,7 @@ const Info = () => {
         <div class="flex flex-row pt-10">
           <div class="flex basis-1/2 text-sm justify-center items-center z-20">
             <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            Building on the work of our predecessors, we aim to be a platform for different art forms, as well as the student body, to come together and commemorate their own strengths and each other. We hope to nurture a collaborative spirit in celebrating the arts in unity.
             </div>
           </div>
           <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
@@ -40,7 +40,7 @@ const Info = () => {
           </div>
           <div class="flex basis-full text-sm justify-center items-center z-20">
             <div class="mx-20 lg:mx-40 font-syne text-white text-base text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            Building on the work of our predecessors, we aim to be a platform for different art forms, as well as the student body, to come together and commemorate their own strengths and each other. We hope to nurture a collaborative spirit in celebrating the arts in unity.
             </div>
           </div>        
         </div>
@@ -54,7 +54,7 @@ const Info = () => {
         </div>
         <div class="flex basis-full lg:basis-1/2 text-sm justify-center items-center z-20">
           <div class="mx-20 lg:mx-40 font-syne text-white text-base text-center lg:text-right md:text-md lg:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+          Supernova likens our process of encouraging collaboration to the fusion of different elements. We aim to draw members of our different NTU communities in, providing them the space they need to explore, create and appreciate.
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@ const Info = () => {
         <div class="flex flex-row pb-10">
           <div class="flex basis-1/2 text-sm justify-center items-center z-20">
             <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            This year, we intend to pave the way to going beyond in nurturing NTU's arts scene. By doing so, we look to enrich the lives of all collaborators and benefactors, even likening this to - as our theme suggests - a brilliant burst of light.
             </div>
           </div>
           <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
@@ -84,7 +84,7 @@ const Info = () => {
           </div>
           <div class="flex basis-full text-sm text-center justify-center items-center z-20">
             <div class="mx-20 lg:mx-40 font-syne text-white text-base md:text-md lg:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+            This year, we intend to pave the way to going beyond in nurturing NTU's arts scene. By doing so, we look to enrich the lives of all collaborators and benefactors, even likening this to - as our theme suggests - a brilliant burst of light.
             </div>
           </div>
         </div>
