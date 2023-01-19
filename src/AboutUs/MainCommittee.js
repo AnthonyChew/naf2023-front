@@ -87,27 +87,34 @@ const MainCommittee = () => {
   const bzImages = [ray, faith, syarifah]
   const [imgState, setImgState] = useState(top4Images)
   const [galleryState, setGalleryState] = useState(0)
+  const [shortDes, setShortDes] = useState("The Top 4 comprises these individuals who work hard to lead the main committee! They provide support for the 30 brains behind the festival and coordinate the many moving parts of NAF'23.")
 
   const handleImageState = (val) => {
     console.log(val)
     switch (val) {
       case 0:
         setImgState(top4Images);
+        setShortDes("The Top 4 comprises these individuals who work hard to lead the main committee! They provide support for the 30 brains behind the festival and coordinate the many moving parts of NAF'23.")
         break;
       case 1:
         setImgState(exfioImages);
+        setShortDes("Our guardian angels! Our ex-officios support us every step of the way, providing the best guidance and advice to push the NAF team in the right direction.")
         break;
       case 2:
         setImgState(bzImages);
+        setShortDes("In charge of securing funds and our wonderful goodie bags for NAF'23, our Business Managers reach out to sponsors to make the festival a possibility!")
         break;
       case 3:
         setImgState(pnpImages);
+        setShortDes("The creative minds behind the festival, the P&P team designs all publicity materials for the arts festival with great care and publicises our event through online and physical avenues.")
         break;
       case 4:
         setImgState(progImages);
+        setShortDes("The masterminds behind the wide variety of programmes planned for this year's NAF, our programmers have poured in their time and effort into the endeavour of making this event a success. We sincerely hope you will enjoy it!")
         break;
       case 5:
         setImgState(techImages);
+        setShortDes("From coding to handling all things tech, the Digital Logistics Team! With them, NAF has been able to smoothly transit into a hybrid event – with both the marketplace and concert being accessible on our very own website.")
         break;
     }
     setGalleryState(0)
@@ -171,7 +178,7 @@ const MainCommittee = () => {
           </div>
           <div class="basis-[80%] bg-white">
             <div class="text-center mt-[4%] md:mx-10 mx-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia. Mauris a massa sed orci vestibulum pretium. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Etiam vitae lobortis lacus, at vestibulum mi. Mauris aliquet elit sed libero pharetra vestibulum.
+              {shortDes}
             </div>
             <div class="flex items-center justify-center mt-[5%]">
               <div >
