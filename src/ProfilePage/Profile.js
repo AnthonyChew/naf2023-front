@@ -52,7 +52,7 @@ function Profile() {
       >
         <SocialLogin />
       </Modal>
-      {(
+      {profile &&(
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}

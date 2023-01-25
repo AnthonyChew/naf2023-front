@@ -282,7 +282,7 @@ const Payment = () => {
   return (
     <>
       <Modal
-        isOpen={!true}
+        isOpen={!auth}
         onRequestClose={closeModal}
       >
         <div h-full class="h-full flex flex-col items-center justify-center">
@@ -473,13 +473,13 @@ const Payment = () => {
                 <hr class='bg-black h-1 mt-16' />
                 <div class="flex flex-col w-[100%]">
                   {/* <p class="font-syne text-xl lg:text-3xl">Subtotal: ${subtotalPrice}</p><br></br> */}
-                  <div class='flex'>
-                    <p class="font-syne basis-3/4 text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12">Shipping:</p>
-                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12"> ${shipping}</p>
+                  <div class='flex mb-6 mt-12 lg:mb-12 lg:mt-12'>
+                    <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Shipping:</p>
+                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl"> ${shipping}</p>
                   </div>
-                  <div class='flex'>
-                    <p class="font-syne basis-3/4 text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12">Subtotal:</p>
-                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12"> ${state.total}</p>
+                  <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
+                    <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Subtotal:</p>
+                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl"> ${state.total}</p>
                   </div>
                 </div>
                 <hr class='bg-black h-1 mb-8' />
