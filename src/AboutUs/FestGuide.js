@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import WhatIsNTUArtsFestival from "./svgs/FestGuide/WhatIsNTUArtsFestival.png";
 import AppleHeader from "../SharedPages/AppleHeader";
 import BigWhiteStar from "./svgs/FestGuide/BigWhiteStar.svg";
@@ -9,10 +9,44 @@ import SmallPurpleDot from "./svgs/FestGuide/SmallPurpleDot.svg";
 import SmallRedStar from "./svgs/FestGuide/SmallRedStar.svg";
 import SmallWhiteDot from "./svgs/FestGuide/SmallWhiteDot.svg";
 import MediumPurpleStar from "./svgs/FestGuide/MediumPurpleStar.svg";
+import festGuide from "./pdfs/Festival Guide-03.pdf";
+import { Document, Page, pdfjs } from 'react-pdf';
+import "./pdf.css";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const FestGuide = () => {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const PDF_VIEWPORT_FACTOR = 0.5;
+  const [pdfWidth, setPDFWidth] = useState(
+    window.innerWidth * PDF_VIEWPORT_FACTOR
+  );
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
+  window.addEventListener('resize', function () {
+    setPDFWidth(window.innerWidth * PDF_VIEWPORT_FACTOR);
+  });
+
+  function changePage(offset) {
+    setPageNumber((prevPageNumber) => prevPageNumber + offset);
+  }
+
+  function previousPage() {
+    changePage(-1);
+  }
+
+  function nextPage() {
+    changePage(1);
+  }
+
 
   return (
+
     <div class="flex relative lg:min-h-screen bg-NAFYellow">
 
       <div class=" flex flex-row w-[100%] mt-20 lg:mt-32 mx-10 sm:mb-20 md:mb-0 flex-wrap">
@@ -31,7 +65,7 @@ const FestGuide = () => {
         <div class="relative lg:basis-1/2 mb-10 lg:mb-20 ">
           <img src={WhatIsNTUArtsFestival} class=""></img>
           <h1 class="my-5 md:mr-10 font-syne font-normal text-lg lg:text-2xl ">
-          Occurring from February to March 2023, NTU Arts Festival 2023 (NAF) is a Special Project under NTU Cultural Activities Club (CAC) which aims to develop NTU’s potential as a cultural hub and establish itself as a premiere event that will be placed on the cultural and arts calendar of Singapore. Involving the 23 CAC Member Clubs and established arts and cultural groups within NTU, NAF 2023 aims to promote the understanding and appreciation of the arts within the NTU community and bring our NTU Arts scene to greater acknowledgement in the wider local arts scene. This year, NAF 2023 will consist of 4 main segments of programmes: Glimmer, Starburst, Interstellar and Orbit.
+            Occurring from February to March 2023, NTU Arts Festival 2023 (NAF) is a Special Project under NTU Cultural Activities Club (CAC) which aims to develop NTU’s potential as a cultural hub and establish itself as a premiere event that will be placed on the cultural and arts calendar of Singapore. Involving the 23 CAC Member Clubs and established arts and cultural groups within NTU, NAF 2023 aims to promote the understanding and appreciation of the arts within the NTU community and bring our NTU Arts scene to greater acknowledgement in the wider local arts scene. This year, NAF 2023 will consist of 4 main segments of programmes: Glimmer, Starburst, Interstellar and Orbit.
           </h1>
           {/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
           <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
@@ -44,15 +78,41 @@ const FestGuide = () => {
         <div class="lg:relative lg:basis-1/2 basis-full mb-20">
           <div class="mx-auto w-[100%] lg:w-[80%] h-[100%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-[100%] border-solid p-5">
-              <iframe
-                class=" w-full h-[95%] "
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+            <div class="h-fit border-solid  pl-1 pt-1">
+              <Document file={festGuide}
+                onLoadSuccess={onDocumentLoadSuccess}
+                onLoadError={console.error}
+              >
+                <div class='flex md:flex-row md:gap-2 justify-around items-center ml-auto mr-auto pr-1'>
+                  <Page
+                    pageNumber={pageNumber}
+                    width={Math.min(Math.min(pdfWidth / 0.5, 300), 650)}
+                  />
+                  {window.innerWidth >= 1700 && 
+                  ( pageNumber < numPages && <Page
+                    pageNumber={pageNumber + 1}
+                    width={Math.min(Math.min(pdfWidth / 0.5, 300), 650)}
+                  />)
+                  }
+                </div>
+              </Document>
+              <div class='flex flex-row justify-around items-center'>
+                <button
+                  onClick={previousPage}
+                  disabled={pageNumber <= 1}
+                >
+                  Previous
+                </button>
+                <p>
+                  Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+                </p>
+                <button
+                  onClick={nextPage}
+                  disabled={pageNumber >= numPages}
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b046b036.css",
-    "main.js": "/static/js/main.5ec1e6d6.js",
+    "main.css": "/static/css/main.a7ff037d.css",
+    "main.js": "/static/js/main.177df144.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -15,6 +15,7 @@
     "static/media/qihui.png": "/static/media/qihui.9a04954ed083353e6a4b.png",
     "static/media/yongqi.png": "/static/media/yongqi.75816f892e437d204c66.png",
     "static/media/amber.png": "/static/media/amber.6460cd8f27ab9afe5682.png",
+    "static/media/Festival Guide-03.pdf": "/static/media/Festival Guide-03.a9387e5d3e2e6ff38343.pdf",
     "static/media/anthony.png": "/static/media/anthony.9c6a8a8243413f5a2350.png",
     "static/media/nicole.png": "/static/media/nicole.c1eec649dd86933e78cb.png",
     "static/media/fahmy.png": "/static/media/fahmy.fd2d7105cc7779a18e80.png",
@@ -282,12 +283,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.b046b036.css.map": "/static/css/main.b046b036.css.map",
-    "main.5ec1e6d6.js.map": "/static/js/main.5ec1e6d6.js.map",
+    "main.a7ff037d.css.map": "/static/css/main.a7ff037d.css.map",
+    "main.177df144.js.map": "/static/js/main.177df144.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b046b036.css",
-    "static/js/main.5ec1e6d6.js"
+    "static/css/main.a7ff037d.css",
+    "static/js/main.177df144.js"
   ]
 }
