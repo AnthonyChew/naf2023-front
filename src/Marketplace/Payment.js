@@ -185,6 +185,8 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
+    data.append('newImages', images[0]);
+    data.append('images', JSON.stringify([]));
     //console.log(data);
     const res = await trackPromise(orderService.postOrder(data));
     if (res.status === 200) {
@@ -203,7 +205,7 @@ const Payment = () => {
     name: yup.string().required("Name is required").min(6),
     contactNumber: yup.string().required("Contact Number is required").min(6, "Please enter a valid contact number"),
     emailAddress: yup.string().email("Please enter a valid email").required("Email is required"),
-    deliveryAddress: yup.string().required("Delivery address is required"),
+    deliveryAddress: devlivery ? yup.string().required("Delivery address is required") : null,
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -218,7 +220,14 @@ const Payment = () => {
       alert("Please select delivery option for all products.")
     }
     else {
-      updateOrderForm(data);
+      if(images.length <= 0) 
+      {
+        alert("Please upload your tranction screenshoot !");
+      }
+      else
+      {
+        updateOrderForm(data);
+      }
       //console.log(orderForm);
     }
   };
@@ -260,7 +269,9 @@ const Payment = () => {
   const [images, setImages] = useState([]);
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: 'image/*',
+    accept: {
+      'image/jpeg': ['.jpeg', '.png']
+    },
     onDrop: (acceptedFiles) => {
       let allFiles = images;
       acceptedFiles.forEach((file) => allFiles.push(file));
