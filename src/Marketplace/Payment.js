@@ -167,8 +167,6 @@ const Payment = () => {
 
   async function updateOrderForm(data) {
 
-    const form_data = new FormData();
-
     purchases.forEach((purchase, i) => {
       purchase['collection'] = collection['radio' + i];
       delete purchase['name'];
@@ -187,7 +185,13 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = { ...data, newImages: images[0], images: [] };
+    data = { ...data, newImages: images[0], images: JSON.stringify([]) };
+
+    const form_data = new FormData();
+
+    for (var key in data) {
+      form_data.append(key, data[key]);
+    }
 
     //console.log(form_data.get());
     const res = await trackPromise(orderService.postOrder(form_data));
