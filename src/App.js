@@ -24,6 +24,8 @@ import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
 import NAFxCS from './NAFxCAC/NAFxCS';
 import NAFxJDC from './NAFxCAC/NAFxJDC';
+import FAQ from './FAQ/FAQ';
+import PrivacyPolicy from './FAQ/PrivacyPolicy';
 
 import {
   BrowserRouter,
@@ -79,6 +81,8 @@ function App() {
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/adminmanage" element={<AdminManage />} />
           <Route path="/committee" element={<MainCommittee />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
 
         </Routes>
         <Footer></Footer>

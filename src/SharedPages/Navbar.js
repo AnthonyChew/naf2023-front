@@ -63,7 +63,7 @@ const Navbar = () => {
                     <Link to="/" class="link" smooth>HOME</Link>
                     <div class="relative" ref={AboutUsRef} onClick={() => setIsAboutUsOpen((prev) => !prev)}>
                         <Link class="link" smooth>ABOUT</Link>
-                        <div className={isAboutUsOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isAboutUsOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>Fest Guide</Link>
                             <Link to="/committee" class="link block py-2 px-3 hover:bg-gray-200" smooth>Main Committee</Link>
                             <Link to="/" class="link block py-2 px-3 hover:bg-gray-200" smooth>Partners</Link>
@@ -71,20 +71,20 @@ const Navbar = () => {
                     </div>
                     <div class="relative" ref={ProgrammesRef} onClick={() => setIsProgrammesOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton" >PROGRAMMES</Link>
-                        <div className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
-                            <Link to="/nebula" class="link block py-2 hover:bg-gray-200" smooth>Nebula</Link>
+                            {/* <Link to="/nebula" class="link block py-2 hover:bg-gray-200" smooth>Nebula</Link> */}
                             <Link to="/starburst" class="link block py-2 hover:bg-gray-200" smooth>Starburst</Link>
                             <Link to="/interstellar" class="link block py-2 hover:bg-gray-200" smooth>Interstellar</Link>
                             <Link to="/orbit" class="link block py-2 hover:bg-gray-200" smooth>Orbit</Link>
-                            <Link to="/workshop" class="link block py-2 hover:bg-gray-200" smooth>Workshop</Link>
-                            <Link to="/picrew" class="link block py-2 hover:bg-gray-200" smooth>Picrew</Link>
+                            {/* <Link to="/workshop" class="link block py-2 hover:bg-gray-200" smooth>Workshop</Link>
+                            <Link to="/picrew" class="link block py-2 hover:bg-gray-200" smooth>Picrew</Link> */}
                         </div>
                     </div>
                     <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
-                    <div class="relative" ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
+                    <div class="relative " ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
-                        <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
                             <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
                             <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
@@ -92,7 +92,7 @@ const Navbar = () => {
 
                         </div>
                     </div>
-                    <Link to="/" class="link" smooth>FAQ</Link>
+                    <Link to="/FAQ" class="link" smooth>FAQ</Link>
                 </div>
                 <div class="flex w-[100%] items-center justify-end lg:contents lg:w-[auto]">
                     <Link to="/cart" class="link" smooth><img src={CartIcon} class="w-[35px] h-[35px] mr-8"></img></Link>

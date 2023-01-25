@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a7ff037d.css",
-    "main.js": "/static/js/main.177df144.js",
+    "main.css": "/static/css/main.d8b1da4a.css",
+    "main.js": "/static/js/main.d5ec7dfe.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -36,6 +36,7 @@
     "static/media/faith.png": "/static/media/faith.076e74afad1100e34ab3.png",
     "static/media/coco.png": "/static/media/coco.eda42a88563558bbed47.png",
     "static/media/inka.png": "/static/media/inka.30779fbaa121eec2fa3e.png",
+    "static/media/poweredByDCMF.png": "/static/media/poweredByDCMF.6bbfdd39223ae7a1d6de.png",
     "static/media/landingbg.svg": "/static/media/landingbg.35358d0b1831bca17ba5152dbd49f5b5.svg",
     "static/media/bg.svg": "/static/media/bg.b78c53148a8e05af91fd95c8b4e87cf6.svg",
     "static/media/whatsonbg.svg": "/static/media/whatsonbg.b78c53148a8e05af91fd95c8b4e87cf6.svg",
@@ -45,6 +46,7 @@
     "static/media/prog.png": "/static/media/prog.01e1cbd936aaa254eb9e.png",
     "static/media/business.png": "/static/media/business.a4f3f348046110323f19.png",
     "static/media/pikachu2.png": "/static/media/pikachu2.68bfdb3a60ea2809d269.png",
+    "static/media/poweredByMJD.png": "/static/media/poweredByMJD.aec113ba1181870824a1.png",
     "static/media/top4.png": "/static/media/top4.bc52280030cfd1ab1055.png",
     "static/media/ex.png": "/static/media/ex.841c3f5d8d19b858762c.png",
     "static/media/Syne-ExtraBold.ttf": "/static/media/Syne-ExtraBold.ec26051cf662d73d9c4d.ttf",
@@ -64,6 +66,7 @@
     "static/media/NAF_Logo.svg": "/static/media/NAF_Logo.488a97b36521c87b2e53149f59ccd37f.svg",
     "static/media/google_signin.jpg": "/static/media/google_signin.30ac25873072260edeb5.jpg",
     "static/media/Image.svg": "/static/media/Image.32d9e42d9d6e9a5f771f2f1903f5391e.svg",
+    "static/media/poweredByMyULife.png": "/static/media/poweredByMyULife.312c69395b55ce2639e1.png",
     "static/media/MarketPlace Logo.svg": "/static/media/MarketPlace Logo.991aa336a42a2e23b333f9304ec991c7.svg",
     "static/media/landingInstagram.svg": "/static/media/landingInstagram.a167688aa806d9875df3088523f7694a.svg",
     "static/media/workshops_Logo.svg": "/static/media/workshops_Logo.6d68d5670ec6904594385ee8959bfcb9.svg",
@@ -283,12 +286,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.a7ff037d.css.map": "/static/css/main.a7ff037d.css.map",
-    "main.177df144.js.map": "/static/js/main.177df144.js.map",
+    "main.d8b1da4a.css.map": "/static/css/main.d8b1da4a.css.map",
+    "main.d5ec7dfe.js.map": "/static/js/main.d5ec7dfe.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7ff037d.css",
-    "static/js/main.177df144.js"
+    "static/css/main.d8b1da4a.css",
+    "static/js/main.d5ec7dfe.js"
   ]
 }

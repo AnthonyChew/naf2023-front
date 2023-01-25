@@ -5,6 +5,7 @@ import { trackPromise } from 'react-promise-tracker';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { useDropzone } from 'react-dropzone';
+import config from '../config/env';
 
 function AdminImageManage() {
 
@@ -54,11 +55,23 @@ function AdminImageManage() {
     const history = useNavigate();
 
     const events = [
-        { value: 'Glimmer', label: 'Glimmer' },
-        { value: 'Starburst', label: 'Starburst' },
-        { value: 'Interstellar', label: 'Interstellar' },
-        { value: 'Orbit', label: 'Orbit' },
-        { value: 'Nebula', label: 'Nebula' },
+        { value: config.events.PoetrySuperbowl, label: config.events.PoetrySuperbowl },
+        { value: config.events.StyleIt, label: config.events.StyleIt},
+        { value: config.events.SilkscreenPainting, label: config.events.SilkscreenPainting },
+        { value: config.events.JaguaInkTattoos, label: config.events.JaguaInkTattoos },
+        { value: config.events.ArtJamming, label: config.events.ArtJamming },
+        { value: config.events.WaxStamping, label:  config.events.WaxStamping},
+        { value: config.events.JewelleryMaking, label: config.events.JewelleryMaking },
+        { value: config.events.JapaneseBookBinding, label: config.events.JapaneseBookBinding },
+        { value: config.events.Poetry, label: config.events.Poetry },
+        { value: config.events.ContemporaryDance, label: config.events.ContemporaryDance },
+        { value: config.events.KpopDance, label: config.events.KpopDance },
+        { value: config.events.MalayDance, label: config.events.MalayDance },
+        { value: config.events.DancesportAcademy, label: config.events.DancesportAcademy },
+        { value: config.events.MiniaturePainting, label: config.events.MiniaturePainting },
+        { value: config.events.JazzAndBluesMusic, label: config.events.JazzAndBluesMusic },
+        { value: config.events.PopularMusicArrangement, label: config.events.PopularMusicArrangement },
+        { value: config.events.TheatreGames, label: config.events.TheatreGames },
     ]
 
     const handleSubmit = async () => {

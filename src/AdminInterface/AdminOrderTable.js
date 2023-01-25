@@ -194,16 +194,41 @@ function AdminOrderTable(props) {
                         Header: 'Date Time',
                         accessor: 'datetime',
                     },
+                    {
+                        Header: 'Images',
+                        accessor: 'images',
+                        Cell: (value) => <img class='max-w-xs max-h-48' onClick={() => handleImageClick(value.value !== undefined && value.value[0])} src={value.value !== undefined && value.value[0]} />
+                    },
                 ],
             },
         ],
     )
 
-    const { rows, setAuthParentCallbackFalse } = props;
+    const [image, setImage] = useState(null);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
+    function handleImageClick(value) {
+        setImage(value);
+        setIsOpenModal(true);
+    }
+
+    const handleCloseModal = () => {
+        setIsOpenModal(false);
+        setImage(null);
+    };
+
+    const { rows, setAuthParentCallbackFalse } = props;
     return (
         <div class="flex flex-col items-center justify-center pb-5">
-        <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
+                <div class="w-full h-full" onClick={handleCloseModal} >
+                    <div class="w-fit h-full ml-auto mr-auto border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
+                        <img className='w-full h-full' src={image} />
+                    </div>
+                </div>
+            </Modal>
+
         </div>
     );
 

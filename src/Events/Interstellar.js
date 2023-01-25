@@ -62,12 +62,12 @@ const Interstellar = () => {
   return (
     <div class="relative bg-NAFOrange pb-20">
       <EventHeader img={InterStellarLogo} text=""></EventHeader>
-      <div class="flex w-[85%] mx-auto text-center">
+      {/* <div class="flex w-[85%] mx-auto text-center">
         <div class="basis-full">
           <EventCard button="Click here to register" href="/" bgColor={bgcolor} title="REGISTER FOR INTERSTELLAR" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="
 "></EventCard>
         </div>
-      </div>
+      </div> */}
 
       <div class="flex flex-col lg:justify-around items-end justify-end mb-5 md:mr-32  ml-1 mr-1 flex-wrap">
         <Filter filterCallback={(filterOptions) => { setFilter(filterOptions); setSort(filterOptions); }}></Filter>

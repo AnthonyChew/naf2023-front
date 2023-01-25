@@ -50,7 +50,7 @@ const EventCard = (props) => {
                     {
                         workshops.map((workshop) => {
                             return (
-                                <div class='flex flex-col md:flex-row md:w-[40%] md:h-[30%] gap-10 items-center justify-around p-3 border-2 border-black ml-1 mr-1 bg-NAFOrange md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
+                                <div class='flex flex-col md:flex-row md:w-[40%] md:h-[30%] gap-10 items-center  min-w-0 justify-around p-3 border-2 border-black ml-1 mr-1 bg-NAFOrange md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
                                     <img class='basis-1/3 w-[200px] h-[200px]' src={workshop.images[0]} />
                                     <div class='basis-2/3 flex flex-col max-w-[90%] md:max-w-full min-w-0'>
                                         <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap md:max-w-fit max-w-[90%]">{workshop.name}</p>
@@ -60,7 +60,7 @@ const EventCard = (props) => {
                                                 ? 'Unlimited'
                                                 : workshop.maxParticipants - workshop.numRegistered}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center md:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Category:{workshop.category}
                                         </p>
                                         <p class="font-syne self-center md:self-start">
