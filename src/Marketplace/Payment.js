@@ -125,12 +125,13 @@ const Payment = () => {
       }
     });
 
-    for (let i = 0; i < products.length; i++) {
-      if (collection["radio" + i] === 'delivery') {
+    for(let i = 0; i < products.length;i++)
+    {
+      if (collection["radio" + i] === 'delivery') { 
         setDelivery(true);
         break;
       }
-      else {
+      else{
         setDelivery(false);
       }
     }
@@ -165,8 +166,19 @@ const Payment = () => {
     setPurchases(purchases);
   }, [state.addedProducts]);
 
-  async function updateOrderForm(data) {
+  function buildFormData(formData, data, parentKey) {
+    if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
+      Object.keys(data).forEach(key => {
+        buildFormData(formData, data[key], parentKey ? `${parentKey}[${key}]` : key);
+      });
+    } else {
+      const value = data == null ? '' : data;
+  
+      formData.append(parentKey, value);
+    }
+  }
 
+  async function updateOrderForm(data) {
     purchases.forEach((purchase, i) => {
       purchase['collection'] = collection['radio' + i];
       delete purchase['name'];
@@ -185,17 +197,12 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
+    data = {...data , newImages : images[0] , images : []};
 
-    const form_data = new FormData();
+    const formData = new FormData();
+    buildFormData(formData, data);
 
-    for (var key in data) {
-      form_data.append(key, JSON.stringify(data[key]));
-    }
-    form_data.append('newImages', images[0]);
-    form_data.append('images', JSON.stringify([]));
-
-    //console.log(form_data.get('newImages'));
-    const res = await trackPromise(orderService.postOrder(form_data));
+    const res = await trackPromise(orderService.postOrder(formData));
     if (res.status === 200) {
       dispatch(resetCart());
       history('/submitted');
@@ -227,10 +234,12 @@ const Payment = () => {
       alert("Please select delivery option for all products.")
     }
     else {
-      if (images.length <= 0) {
+      if(images.length <= 0) 
+      {
         alert("Please upload your tranction screenshoot !");
       }
-      else {
+      else
+      {
         updateOrderForm(data);
       }
       //console.log(orderForm);
