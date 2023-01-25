@@ -200,19 +200,19 @@ const Payment = () => {
     form_data.append('newImages', images[0]);
     form_data.append('images', JSON.stringify([]));
 
-    form_data.forEach( e => console.log(e));
+    //form_data.forEach( e => console.log(e));
     
-    // const res = await trackPromise(orderService.postOrder(form_data));
-    // if (res.status === 200) {
-    //   dispatch(resetCart());
-    //   history('/submitted');
-    // } else if (res.status === 401) {
-    //   // console.log(res);
-    //   setAuth(false);
-    //   alert('Please login to complete your payment');
-    // } else {
-    //   alert(res.data.error);
-    // }
+    const res = await trackPromise(orderService.postOrder(form_data));
+    if (res.status === 200) {
+      dispatch(resetCart());
+      history('/submitted');
+    } else if (res.status === 401) {
+      // console.log(res);
+      setAuth(false);
+      alert('Please login to complete your payment');
+    } else {
+      alert(res.data.error);
+    }
   }
 
   const schema = yup.object().shape({
