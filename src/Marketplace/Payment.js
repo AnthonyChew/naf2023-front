@@ -190,10 +190,10 @@ const Payment = () => {
     const form_data = new FormData();
 
     for (var key in data) {
-      form_data.append(key, data[key]);
+      form_data.append(key, JSON.stringify(data[key]));
     }
 
-    //console.log(form_data.get());
+    //console.log(form_data.get('newImages'));
     const res = await trackPromise(orderService.postOrder(form_data));
     if (res.status === 200) {
       dispatch(resetCart());
