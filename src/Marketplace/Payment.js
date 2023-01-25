@@ -197,7 +197,7 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = {...data , newImages : images[0] , images : JSON.stringify([])};
+    data = {...data , newImages : images[0] , images : []};
 
     const formData = new FormData();
     buildFormData(formData, data);
