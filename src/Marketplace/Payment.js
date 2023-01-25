@@ -185,24 +185,10 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
+    data = { ...data, newImages: images[0], images: [] };
 
-    const form_data = new FormData();
-
-    for (var key in data) {
-      if(key === 'contactNumber')
-      {
-        form_data.append(key, data[key]);
-      }
-      else{
-        form_data.append(key, JSON.stringify(data[key]));
-      }
-    }
-    form_data.append('newImages', images[0]);
-    form_data.append('images', JSON.stringify([]));
-
-    //form_data.forEach( e => console.log(e));
-    
-    const res = await trackPromise(orderService.postOrder(form_data));
+    //console.log(form_data.get('newImages'));
+    const res = await trackPromise(orderService.postOrder(data));
     if (res.status === 200) {
       dispatch(resetCart());
       history('/submitted');
