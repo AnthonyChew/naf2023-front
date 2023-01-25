@@ -16,6 +16,7 @@ import Modal from 'react-modal';
 import config from '../config/env';
 import studentSevice from '../services/students';
 import { useDropzone } from 'react-dropzone';
+import Select from 'react-select';
 
 import PaymentPurple8Star1 from './svgs/Payment/PaymentPurple8Star1.svg'
 import PaymentBlue4Star1 from './svgs/Payment/PaymentBlue4Star1.svg'
@@ -107,6 +108,7 @@ const Payment = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [purchases, setPurchases] = useState([]);
   const [devlivery, setDelivery] = useState(false);
+  const [selfCollection, setSelfCollection] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -125,14 +127,15 @@ const Payment = () => {
       }
     });
 
-    for(let i = 0; i < products.length;i++)
-    {
-      if (collection["radio" + i] === 'delivery') { 
+    setDelivery(false);
+    setSelfCollection(false);
+    for (let i = 0; i < products.length; i++) {
+
+      if (collection["radio" + i] === 'delivery') {
         setDelivery(true);
-        break;
       }
-      else{
-        setDelivery(false);
+      if (collection["radio" + i] === 'selfCollection') {
+        setSelfCollection(true);
       }
     }
 
@@ -173,7 +176,7 @@ const Payment = () => {
       });
     } else {
       const value = data == null ? '' : data;
-  
+
       formData.append(parentKey, value);
     }
   }
@@ -192,12 +195,12 @@ const Payment = () => {
       if (collection['radio' + i] === 'delivery')
         purchase['deliveryAddress'] = data.deliveryAddress;
       else if (collection['radio' + i] === 'selfCollection')
-        purchase['collectionDate'] = "23febslot1";
+        purchase['collectionDate'] = selectedDate;
     });
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = {...data , newImages : images[0] , images : []};
+    data = { ...data, newImages: images[0], images: [] };
 
     const formData = new FormData();
     buildFormData(formData, data);
@@ -234,12 +237,10 @@ const Payment = () => {
       alert("Please select delivery option for all products.")
     }
     else {
-      if(images.length <= 0) 
-      {
+      if (images.length <= 0) {
         alert("Please upload your tranction screenshoot !");
       }
-      else
-      {
+      else {
         updateOrderForm(data);
       }
       //console.log(orderForm);
@@ -304,10 +305,23 @@ const Payment = () => {
   });
 
   const googleUrl = `${config.backendUrl}/api/auth/google/login/`;
+
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleEventChange = (event) => {
+    setSelectedDate(event);
+  }
+
+  const dates = [
+    { value: "20febslot1", label: "20 Feb 2023" },
+    { value: "06marslot1", label: "6 March 2023" },
+    { value: "15marslot1", label: "15 March 2023" },
+  ]
+
   return (
     <>
       <Modal
-        isOpen={!auth}
+        isOpen={!true}
         onRequestClose={closeModal}
       >
         <div h-full class="h-full flex flex-col items-center justify-center">
@@ -410,12 +424,15 @@ const Payment = () => {
 
 
 
-                <div class="mt-4">
-                  <p class="font-syneBold text-lg lg:text-3xl">Choose self-collection or delivery for each item:</p><br></br>
-                  <p class="font-syne text-md lg:text-2xl">
-                    For self-collection, the vendor will be in contract with you.<br></br>
-                    For delivery, check your email for delivery details.
-                  </p>
+                <div class="mt-4 flex md:flex-row flex-col">
+                  <div class='basis-3/4'>
+                    <p class="font-syneBold text-lg lg:text-3xl">Choose self-collection or delivery for each item:</p><br></br>
+                    <p class="font-syne text-md lg:text-2xl">
+                      For self-collection, the vendor will be in contract with you.<br></br>
+                      For delivery, check your email for delivery details.
+                    </p>
+                  </div>
+
                 </div>
 
                 {/* insert data here */}
@@ -464,7 +481,19 @@ const Payment = () => {
                 }
 
                 {
-                  devlivery && <div className="mb-6 lg:mb-12">
+                  selfCollection &&
+                  <>
+                    <p class='self-center font-syneBold text-md lg:text-3xl whitespace-nowrap mt-10'>Self Collection Date:</p>
+                    <Select
+                      required
+                      options={dates}
+                      value={selectedDate}
+                      onChange={handleEventChange}>
+                    </Select>
+                  </>
+                }
+                {
+                  devlivery && <div className="mb-6 lg:mb-12 mt-5">
                     <label className={`font-syneBold text-lg lg:text-3xl ${errors.address ? "text-red-400" : "text-black"}`}>Delivery Address:</label>
                     <input className={`outline-none border-3 w-[100%] px-2 mt-4 font-syne text-3xl leading-loose placeholder-gray-200 ${errors.address ? "border-red-400" : "border-black"}`}
                       type="text" name="deliveryAddress" placeholder="address"{...register("deliveryAddress")} />
@@ -477,7 +506,7 @@ const Payment = () => {
                 }
 
 
-                <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit">
+                <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full">
                   <img class='basis-1/3' src={QRCode}></img>
                   {images.length <= 0 ?
                     <div class="border-dashed border-gray-400 border-2 rounded-lg flex items-center justify-center min-h-full pl-10 pr-10" {...getRootProps()}>
@@ -487,11 +516,11 @@ const Payment = () => {
                         files (Squared images are preferred)
                       </p>
                     </div> :
-                    <div class="flex flex-col relative items-end min-h-full pl-10 pr-10 ">
-                      <button class="absolute" onClick={() => setImages([])}>
+                    <div class="flex md:flex-row flex-col relative items-end min-h-full pl-10 pr-10 md:max-w-[50%]">
+                      <button class="absolute self-start right-0" onClick={() => setImages([])}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" /></svg>
                       </button>
-                      <img class='flex-around self-center ' src={images && images[0].preview} onLoad={() => { URL.revokeObjectURL(images[0].preview) }} />
+                      <img class='flex-around self-center' src={images && images[0].preview} onLoad={() => { URL.revokeObjectURL(images[0].preview) }} />
                     </div>
                   }
                 </div>

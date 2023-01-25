@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8e10d0d3.css",
-    "main.js": "/static/js/main.1cea80ce.js",
+    "main.css": "/static/css/main.fba0688b.css",
+    "main.js": "/static/js/main.437f4b6b.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -286,12 +286,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.8e10d0d3.css.map": "/static/css/main.8e10d0d3.css.map",
-    "main.1cea80ce.js.map": "/static/js/main.1cea80ce.js.map",
+    "main.fba0688b.css.map": "/static/css/main.fba0688b.css.map",
+    "main.437f4b6b.js.map": "/static/js/main.437f4b6b.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e10d0d3.css",
-    "static/js/main.1cea80ce.js"
+    "static/css/main.fba0688b.css",
+    "static/js/main.437f4b6b.js"
   ]
 }
