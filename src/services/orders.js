@@ -58,6 +58,9 @@ const postOrder = async (newOrder) => {
       method: 'post',
       url: `${baseUrl}/`,
       data: newOrder,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     });
     return res;
   } catch (err) {

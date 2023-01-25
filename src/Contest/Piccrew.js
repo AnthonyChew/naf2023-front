@@ -309,14 +309,14 @@ const Piccrew = () => {
             <div class='flex basis-1/2 justify-end' onClick={fetchProfileData}>
               {
                 profile ?
-                    <button type='button' {...getRootProps()} class="mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">
-                      UPLOAD YOUR DESIGN
-                      <input {...getInputProps()} />
-                    </button>
+                  <button type='button' {...getRootProps()} class="mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">
+                    UPLOAD YOUR DESIGN
+                    <input {...getInputProps()} />
+                  </button>
                   :
-                    <button type='button' class="mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">
-                      UPLOAD YOUR DESIGN
-                    </button>
+                  <button type='button' class="mr-10 bg-[#F9346C] border-2 lg:border-4 border-black rounded-md px-1 lg:px-10 py-3 lg:py-6 font-syneBold text-sm lg:text-lg text-white z-20">
+                    UPLOAD YOUR DESIGN
+                  </button>
               }
             </div>
             <div class='flex basis-1/2 justify-start'>

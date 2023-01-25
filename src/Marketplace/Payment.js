@@ -125,13 +125,12 @@ const Payment = () => {
       }
     });
 
-    for(let i = 0; i < products.length;i++)
-    {
-      if (collection["radio" + i] === 'delivery') { 
+    for (let i = 0; i < products.length; i++) {
+      if (collection["radio" + i] === 'delivery') {
         setDelivery(true);
         break;
       }
-      else{
+      else {
         setDelivery(false);
       }
     }
@@ -167,6 +166,9 @@ const Payment = () => {
   }, [state.addedProducts]);
 
   async function updateOrderForm(data) {
+
+    const form_data = new FormData();
+
     purchases.forEach((purchase, i) => {
       purchase['collection'] = collection['radio' + i];
       delete purchase['name'];
@@ -185,9 +187,10 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = {...data , newImages : images[0] };
-    console.log(data);
-    const res = await trackPromise(orderService.postOrder(data));
+    data = { ...data, newImages: images[0], images: JSON.stringify([]) };
+
+    //console.log(form_data.get());
+    const res = await trackPromise(orderService.postOrder(form_data));
     if (res.status === 200) {
       dispatch(resetCart());
       history('/submitted');
@@ -219,12 +222,10 @@ const Payment = () => {
       alert("Please select delivery option for all products.")
     }
     else {
-      if(images.length <= 0) 
-      {
+      if (images.length <= 0) {
         alert("Please upload your tranction screenshoot !");
       }
-      else
-      {
+      else {
         updateOrderForm(data);
       }
       //console.log(orderForm);
