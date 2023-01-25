@@ -185,8 +185,8 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = {...data , newImages : images[0] , images : JSON.stringify([])};
-    //console.log(data);
+    data = {...data , newImages : images[0] , images : []};
+    // console.log(data);
     const res = await trackPromise(orderService.postOrder(data));
     if (res.status === 200) {
       dispatch(resetCart());
@@ -292,7 +292,7 @@ const Payment = () => {
   return (
     <>
       <Modal
-        isOpen={!auth}
+        isOpen={!true}
         onRequestClose={closeModal}
       >
         <div h-full class="h-full flex flex-col items-center justify-center">
