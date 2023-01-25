@@ -185,8 +185,7 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data.append('newImages', images[0]);
-    data.append('images', JSON.stringify([]));
+    data = {...data , 'newImages': images[0] , 'images': JSON.stringify([])};
     //console.log(data);
     const res = await trackPromise(orderService.postOrder(data));
     if (res.status === 200) {
