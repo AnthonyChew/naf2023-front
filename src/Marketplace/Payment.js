@@ -185,13 +185,14 @@ const Payment = () => {
     delete data['deliveryAddress'];
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
-    data = { ...data, newImages: images[0], images: JSON.stringify([]) };
 
     const form_data = new FormData();
 
     for (var key in data) {
       form_data.append(key, JSON.stringify(data[key]));
     }
+    form_data.append('newImages', images[0]);
+    form_data.append('images', JSON.stringify([]));
 
     //console.log(form_data.get('newImages'));
     const res = await trackPromise(orderService.postOrder(form_data));
