@@ -45,7 +45,7 @@ const Piccrew = () => {
   const [auth, setAuth] = useState(true);
   const [profile, setProfile] = useState(null);
   const [allImages, setAllImages] = useState(null);
-
+  //allImages = [{"id": sdada, "images": ["asdadas"]},{"id": sdada, "images": ["asdadas"]},{"id": sdada, "images": ["asdadas"]},{"id": sdada, "images": ["asdadas"]}, ]
   const handleLoginClose = () => {
     setAuth(true);
   };
@@ -54,6 +54,7 @@ const Piccrew = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getAllImages());
       if (res.status === 200) {
+        console.log(res.data)
         setAllImages(res.data.filter(image => image.workShopName.includes('Picrew')));
       }
     }
@@ -268,6 +269,18 @@ const Piccrew = () => {
               onSlideChange={() => console.log('slide change')}
               loop={true}
             >
+              {/* {
+                for oneImage in allImages (python)
+                allImages.map(oneImage)
+
+
+                alllimages.map((oneImage) => (
+                  <SwiperSlide>
+                  <img src={oneImage.images[0]} alt="" />
+                  <div class="text-center">Pikachu</div>
+                </SwiperSlide>
+                ))
+              } */}
               <SwiperSlide>
                 <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="" />
                 <div class="text-center">Pikachu</div>

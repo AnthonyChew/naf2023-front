@@ -6,7 +6,7 @@ const getVerifiedImages = async () => {
   try {
     const res = await axiosConfig({
       method: 'get',
-      url: `${baseUrl}/`,
+      url: `${baseUrl}/all`,
     });
     return res;
   } catch (err) {
@@ -32,7 +32,7 @@ const getAllImages = async () => {
   try {
     const res = await axiosConfig({
       method: 'get',
-      url: `${baseUrl}/all`,
+      url: `${baseUrl}/`,
     });
     return res;
   } catch (err) {
