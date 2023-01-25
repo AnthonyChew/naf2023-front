@@ -189,10 +189,6 @@ const Payment = () => {
     const form_data = new FormData();
 
     for (var key in data) {
-      if(key === 'contactNumber')
-      {
-      form_data.append(key, data[key]);
-      }
       form_data.append(key, JSON.stringify(data[key]));
     }
     form_data.append('newImages', images[0]);
