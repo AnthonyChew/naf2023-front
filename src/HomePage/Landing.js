@@ -23,7 +23,7 @@ const Landing = () => {
         <AppleHeader title={"www.aboutus.com"}></AppleHeader>
         <div class="h-full w-full border-solid "  >
           <div class="p-5 bg-white">
-            <iframe class="h-[35em] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="md:h-[35em] h-[25em] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
           <img class="hidden lg:block absolute top-[67%] left-[5%]" src={LeftBigBlueStarIcon}></img>

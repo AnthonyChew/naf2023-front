@@ -68,7 +68,7 @@ const FestGuide = () => {
             Occurring from February to March 2023, NTU Arts Festival 2023 (NAF) is a Special Project under NTU Cultural Activities Club (CAC) which aims to develop NTU’s potential as a cultural hub and establish itself as a premiere event that will be placed on the cultural and arts calendar of Singapore. Involving the 23 CAC Member Clubs and established arts and cultural groups within NTU, NAF 2023 aims to promote the understanding and appreciation of the arts within the NTU community and bring our NTU Arts scene to greater acknowledgement in the wider local arts scene. This year, NAF 2023 will consist of 4 main segments of programmes: Glimmer, Starburst, Interstellar and Orbit.
           </h1>
           {/*./pdfs/Sample pdf document.pdf  padding: 15px 32px; */}
-          <a type="submit" href="/AboutUs/pdfs/Sample pdf document.pdf" download="Sample pdf document.pdf"
+          <a type="submit" href={festGuide} download="NAF2023_FestGuide.pdf"
             class="justify-center hover:bg-violet-700 py-[5%] mt-2 w-[300px] h-[60px] py-[17px] box-border text-center items-center font-syne font-weight: 700; text-zinc-50 px-2 border-2 border-indigo-500/100 bg-NAFPurple rounded-lg"
           >
             DOWNLOAD FEST GUIDE
@@ -78,12 +78,12 @@ const FestGuide = () => {
         <div class="lg:relative lg:basis-1/2 basis-full mb-20">
           <div class="mx-auto w-[100%] lg:w-[80%] h-[100%] bg-white align-center border-4 border-black shadow-[15px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-fit border-solid  pl-1 pt-1">
+            <div class="flex flex-col h-fit border-solid justify-center pb-10 pl-1">
               <Document file={festGuide}
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={console.error}
               >
-                <div class='flex md:flex-row md:gap-2 justify-around items-center ml-auto mr-auto pr-1'>
+                <div class='flex md:flex-row md:gap-2 justify-around items-center ml-auto mr-auto pr-1 '>
                   <Page
                     pageNumber={pageNumber}
                     width={Math.min(Math.min(pdfWidth / 0.5, 300), 650)}
@@ -96,8 +96,9 @@ const FestGuide = () => {
                   }
                 </div>
               </Document>
-              <div class='flex flex-row justify-around items-center'>
+              <div class='flex flex-row justify-around items-center mt-5'>
                 <button
+                class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                   onClick={previousPage}
                   disabled={pageNumber <= 1}
                 >
@@ -107,6 +108,7 @@ const FestGuide = () => {
                   Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
                 </p>
                 <button
+                class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                   onClick={nextPage}
                   disabled={pageNumber >= numPages}
                 >
