@@ -80,7 +80,7 @@ function Profile() {
               handelToastCallback={handelToastCallback}
               waitlistedWorkshops={profile && profile.waitlistedWorkshops}
               registeredWorkshops={profile && profile.registeredWorkshops}
-              _id={profile && profile._id["$oid"]}
+              _id={profile && profile._id}
             />
           }
           {
