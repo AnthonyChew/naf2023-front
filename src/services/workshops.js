@@ -18,6 +18,22 @@ const signUpWorkshop = async (workshop_id, user) => {
   }
 };
 
+const uploadPaymentWorkshop = async (workshop_id, image) => {
+  try {
+    const res = await axiosConfig({
+      method: 'patch',
+      url: `${baseUrl}/${workshop_id}/uploadImage/`,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      data: image,
+    });
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
 const getAll = async () => {
   try {
     const res = await axiosConfig({
@@ -107,4 +123,5 @@ export default {
   unregisterWaitlistWorkshop,
   unregisterRegisterWorkshop,
   getAll,
+  uploadPaymentWorkshop,
 };

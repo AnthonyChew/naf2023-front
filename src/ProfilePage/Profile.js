@@ -40,13 +40,13 @@ function Profile() {
     setAuth(true);
   }
 
-  function parentReturnCallBack(){
+  function parentReturnCallBack() {
     document.body.style.overflow = 'unset';
     history(-1);
   }
 
-  function handelToastCallback() {
-    toast("Workshop canceled!");
+  function handelToastCallback(data) {
+    toast(data);
   }
 
   useEffect(() => {
@@ -59,6 +59,7 @@ function Profile() {
 
   let history = useNavigate();
 
+
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
       <LoadingSpinnerComponent />
@@ -66,9 +67,9 @@ function Profile() {
         isOpen={!auth}
         onRequestClose={closeModal}
       >
-        <SocialLogin parentReturnCallBack = {parentReturnCallBack}/>
+        <SocialLogin parentReturnCallBack={parentReturnCallBack} />
       </Modal>
-      {profile &&(
+      {profile && (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
@@ -79,6 +80,7 @@ function Profile() {
               handelToastCallback={handelToastCallback}
               waitlistedWorkshops={profile && profile.waitlistedWorkshops}
               registeredWorkshops={profile && profile.registeredWorkshops}
+              _id={profile && profile._id["$oid"]}
             />
           }
           {

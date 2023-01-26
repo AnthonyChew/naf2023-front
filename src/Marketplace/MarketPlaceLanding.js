@@ -180,7 +180,7 @@ const MarketPlaceLanding = () => {
     if (e == "modal-outside") {
       setIsOpen(false);
     }
-    else if (e.target.id == "modal-outside" ) {
+    else if (e.target.id == "modal-outside") {
       setIsOpen(false);
     }
   }
@@ -272,12 +272,12 @@ const MarketPlaceLanding = () => {
             <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none" id="modal-box">
               <AppleHeader />
               <div class="flex items-center justify-end mb-8">
-                        <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
-                            <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
+                <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
+                  <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
               <div class="modal-body relative p-2 md:p-10 text-center lg:text-left">
                 <div class="w-[70%] lg:w-[30%] inline-block text-center">
                   <Swiper
