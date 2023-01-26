@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserLogin from '../Authentication/UserLogin';
 import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import googleSignIn from '../Marketplace/svgs/google_signin.jpg';
 
 export default function SignupPopup(props) {
-  const { workshop, parentCallback , toastCallBack} = props;
+  const { workshop, parentCallback, toastCallBack } = props;
   const [state, setState] = useState({
     name: '',
     contactNumber: '',
@@ -76,14 +76,14 @@ export default function SignupPopup(props) {
 
   const googleUrl = `${config.backendUrl}/api/auth/google/login/`;
 
-  function returnToPrevPage(){
+  function returnToPrevPage() {
     parentCallback();
     history(-1);
   }
 
   return (
     <>
-       <Modal
+      <Modal
         isOpen={!auth}
         onRequestClose={handleLoginClose}
       >
@@ -105,7 +105,7 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </Modal>
-      <div class="h-full flex flex-col items-center justify-center">
+      {auth && <div class="h-full flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center bg-white p-5 border-4 border-black rounded-lg">
           <form class="" autoComplete="off" onSubmit={signUpWorkshop}>
             <p class='text-2xl font-syne underline decoration-solid mb-2'>
@@ -205,7 +205,8 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </div>
-  
+      }
+
     </>
   );
 }
