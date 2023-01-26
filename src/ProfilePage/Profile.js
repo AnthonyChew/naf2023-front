@@ -26,7 +26,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
-        console.log(profile.registeredWorkshops);
+        console.log(profile);
       }
       else {
         setAuth(false);
