@@ -248,7 +248,7 @@ function UserWorkshop(props) {
           registeredWorkshops &&
           registeredWorkshops.map((workshop, index) => {
             let imageFile;
-            let currentUser = workshop.registeredParticipants.filter(user => user._id.includes(_id))[0];
+            let currentUser = workshop.registeredParticipants[0];
             if (workshop.images.length > 0) {
               imageFile = workshop.images[0];
             }
