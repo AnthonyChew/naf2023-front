@@ -80,7 +80,7 @@ function AdminImageManage() {
                 // console.log('POSTING', state);
                 const newImage = new FormData();
                 newImage.append('workShopName', JSON.stringify(selectedEvent.value));
-                newImage.append('verified', JSON.stringify(false));
+                newImage.append('verified', JSON.stringify(true));
                 newImage.append('newImages', uploadImage[i]);
                 newImage.append('images', JSON.stringify([]));
 
@@ -132,7 +132,7 @@ function AdminImageManage() {
                 )
             );
             handleSubmit();
-        }
+        },
     });
 
     return (
