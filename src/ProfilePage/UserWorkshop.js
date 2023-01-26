@@ -125,7 +125,7 @@ function UserWorkshop(props) {
     );
     if (res.status === 200) {
       handelToastCallback("Image uploaded!");
-      closeModal();
+      history(0);
     }
     else {
       // console.log(res.data);
@@ -258,7 +258,7 @@ function UserWorkshop(props) {
                 <ContestCard key={index} name={workshop.name} image={imageFile} />
                 <div class="flex gap-4 justify-end w-full">
                   {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verified</p>}
-                  {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Paid</p>}
+                  {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verifying</p>}
                   {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-black border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
                  
                   <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
