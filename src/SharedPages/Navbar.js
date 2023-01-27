@@ -124,7 +124,7 @@ const Navbar = () => {
                         <div class="relative p-4 text-sm" >
                             <Link onClick={() => setIsMobileAboutUsOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >ABOUT</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileAboutUsOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
-                                <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>Fest Guide</Link>
+                                <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>About The Festival</Link>
                                 <Link to="/committee" class="link block py-2 px-3 hover:bg-gray-200" smooth>Main Committee</Link>
                                 <Link to="/" class="link block py-2 px-3 hover:bg-gray-200" smooth>Partners</Link>
                             </div>
