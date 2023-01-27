@@ -64,7 +64,7 @@ const Navbar = () => {
                     <div class="relative" ref={AboutUsRef} onClick={() => setIsAboutUsOpen((prev) => !prev)}>
                         <Link class="link" smooth>ABOUT</Link>
                         <div className={isAboutUsOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
-                            <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>Fest Guide</Link>
+                            <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>About The Festival</Link>
                             <Link to="/committee" class="link block py-2 px-3 hover:bg-gray-200" smooth>Main Committee</Link>
                             <Link to="/" class="link block py-2 px-3 hover:bg-gray-200" smooth>Partners</Link>
                         </div>
