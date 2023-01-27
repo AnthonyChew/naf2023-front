@@ -2,21 +2,29 @@ import React from 'react'
 import AboutxCAC from './AboutxCAC'
 import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
 import GalleryxCAC from './GalleryxCAC'
-import AFTHLogo from './svgs/AFTHLogo.png'
+import AFTHTextLogo from './svgs/AFTH/AFTHTextLogo.png'
+import AFTHLogo from './svgs/AFTH/AFTHLogo.png'
+import AFTHMiniAd from './svgs/AFTH/AFTHMiniAd.png'
+import AFTH_1 from './svgs/AFTH/AFTH_1.jpg'
+import AFTH_2 from './svgs/AFTH/AFTH_2.jpg'
+import AFTH_3 from './svgs/AFTH/AFTH_3.jpg'
+import AFTH_4 from './svgs/AFTH/AFTH_4.jpg'
+import AFTH_5 from './svgs/AFTH/AFTH_5.jpg'
 import ThemexCAC from './ThemexCAC'
 import ContactxCAC from './ContactxCAC'
 const NAFxAFTH = () => {
-    const text = "urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis"
-    const imgs = [1,2,3,4]
+    const description = "Arts From The Heart is a Special Project under NTU CAC. Established in 2004, the NTU CAC Arts From The Heart (AFTH) is an annual Charity Project organised by the club. As the charity arm of NTU CAC, our vision is to help the less fortunate in the society by involving all our 24 member clubs and integrating each member club’s specialisation to put up an extravagant performance. Through the 18 years of operation, AFTH has supported many other non-profit organisations such as the Down Syndrome Association, Chen Su Lan Methodist Children’s Home and Asian Women’s Welfare Association – Teach Me services, Club Rainbow, Dyslexia Association of Singapore, Singapore Children’s Society, The Salvation Army, Singapore Cancer Society, Singapore Association for Mental Health and Samaritans of Singapore."
+    const theme = "In our pursuit of goals and endless hustling, we often forget to take a step back and leave some time for ourselves. This year’s space-themed AFTH carnival, YOUniverse, seeks to raise awareness of mental health, while conveying the message of self-growth at one’s own pace. Our mental health journey is an individual experience that cannot be compared. In your universe, you’re free to grow in your own space and time. "
+    const imgs = [AFTH_1,AFTH_2,AFTH_3,AFTH_4, AFTH_5]
     return (
         <div class="relative bg-NAFBlue py-[50px]">
             <div>
-                <img class="mx-auto" src={AFTHLogo}></img>
+                <img class="mx-auto" src={AFTHTextLogo}></img>
             </div>
-            <AboutxCAC title="About AFTH" img={QRCode} content={text}></AboutxCAC>
-            <GalleryxCAC title="AFTH Gallery"></GalleryxCAC>
-            <ThemexCAC title="THEME: AFTH" imgs={imgs} content={text}></ThemexCAC>
-            <ContactxCAC facebook="www.facebook.com" instagram="www.instagram.com" email="email.com"></ContactxCAC>
+            <AboutxCAC title="About AFTH" img={AFTHLogo} content={description}></AboutxCAC>
+            <GalleryxCAC title="AFTH Gallery" imgs={imgs}></GalleryxCAC>
+            <ThemexCAC title="THEME: YOUniverse" imgs={imgs} content={theme}></ThemexCAC>
+            <ContactxCAC facebook="www.facebook.com/cacafth" instagram="www.instagram.com/cac_afth" email="email.com"></ContactxCAC>
         </div>
     )
 }

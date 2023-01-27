@@ -19,6 +19,7 @@ import Orbit from './Events/Orbit';
 import Interstellar from './Events/Interstellar';
 import Starburst from './Events/Starburst';
 import AdminManage from './AdminInterface/AdminManage'
+import Partners from './Partners/Partners';
 import MainCommittee from './AboutUs/MainCommittee';
 import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
@@ -26,6 +27,7 @@ import NAFxCS from './NAFxCAC/NAFxCS';
 import NAFxJDC from './NAFxCAC/NAFxJDC';
 import FAQ from './FAQ/FAQ';
 import PrivacyPolicy from './FAQ/PrivacyPolicy';
+
 
 import {
   BrowserRouter,
@@ -80,10 +82,10 @@ function App() {
           <Route path="/top" element={<NAFxTOP />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/adminmanage" element={<AdminManage />} />
+          <Route path='/partners' element={<Partners />} />
           <Route path="/committee" element={<MainCommittee />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

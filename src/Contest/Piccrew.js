@@ -60,10 +60,8 @@ const Piccrew = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getAllImages());
       if (res.status === 200) {
-        console.log(res.data);
-        setAllImages(
-          res.data.filter((image) => image.workShopName.includes("Picrew"))
-        );
+        console.log(res.data)
+        setAllImages(res.data.filter(image => image.workShopName.includes(config.events.Piccrew)));
       }
     }
     fetchAllImage();

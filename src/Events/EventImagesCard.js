@@ -7,7 +7,7 @@ const EventImagesCard = (props) => {
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
     return (
         <div class="bg-white w-[85%] h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
-            <div class="font-yerk italic text-2xl font-bold mt-2">{props.title}</div>
+            <div class="font-syneExtraBold text-2xl font-bold mt-2">{props.title}</div>
             <div className={"w-full mt-3"}>
                 <div className={"w-[80%] lg:w-[30%] mx-auto rounded-lg p-1 " + props.bgColor + textColorCondition}>
                     {props.date}
