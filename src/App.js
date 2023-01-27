@@ -19,7 +19,6 @@ import Orbit from './Events/Orbit';
 import Interstellar from './Events/Interstellar';
 import Starburst from './Events/Starburst';
 import AdminManage from './AdminInterface/AdminManage'
-import Partners from './Partners/Partners';
 import MainCommittee from './AboutUs/MainCommittee';
 import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
@@ -36,6 +35,7 @@ import {
   Link,
 } from "react-router-dom";
 import ScrolltoTop from './utils/ScrolltoTop';
+import Partners from './AboutUs/Partners';
 
 
 
