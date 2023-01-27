@@ -137,7 +137,7 @@ const Orbit = () => {
               <div class="flex flex-row flex-wrap justify-center">
                 {
                   content.map((one, index) => (
-                    <div class="basis-[90%] lg:basis-[40%] md:mx-5 lg:px-5 mb-[4rem]">
+                    <div class="basis-[90%] lg:basis-[46%] md:mx-5 lg:px-5 mb-[4rem]">
                       <div class='flex flex-wrap md:flex-nowrap md:flex-row p-3 border-2 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)] h-[100%]'>
                         <img class='basis-[100%] md:basis-[40%] w-[200px] h-[200px]' src={one.image} />
                         <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full min-w-0'>
