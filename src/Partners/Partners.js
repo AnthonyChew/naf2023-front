@@ -36,42 +36,41 @@ const Partners = () => {
         <div class="relative bg-NAFPink pt-16 pb-24 overflow-hidden">
             <img src={Purple8Star1} class="z-10 absolute w-[350px] top-[0%]"></img>
             <img src={Orange8Star1} class="z-10 absolute w-[310px] -top-[3.5%] right-[2%]"></img>
-            <img src={BigWhiteDot} class="z-10 absolute w-[32px] top-[12%] right-[13.5%]"></img>
+            <img src={BigWhiteDot} class="z-10 hidden lg:block absolute w-[32px] top-[12%] right-[13.5%]"></img>
             <img src={Yellow4Star1} class="z-10 absolute w-[135px] top-[9.8%] right-[3.5%]"></img>
-            <img src={Blue4Star1} class="z-10 absolute w-[200px] top-[23.6%] left-[0%]"></img>
-            <img src={SmallWhiteDot} class="z-10 absolute w-[28px] top-[36%] left-[2%]"></img>
+            <img src={Blue4Star1} class="z-10 hidden lg:block absolute w-[200px] top-[23.6%] left-[0%]"></img>
+            <img src={SmallWhiteDot} class="z-10 hidden lg:block absolute w-[28px] top-[36%] left-[2%]"></img>
             <img src={Orange4Star1} class="z-10 absolute w-[250px] top-[41%] left-[0%]"></img>
             <img src={Blue8Star1} class="z-10 absolute w-[280px] top-[33%] right-[0%]"></img>
-            <img src={Yellow8Star1} class="z-10 absolute w-[170px] bottom-[34%] right-[0%]"></img>
-            <img src={Blue4Star2} class="z-10 absolute w-[140px] bottom-[16%] left-[2%]"></img>
+            <img src={Yellow8Star1} class="z-10 hidden lg:block absolute w-[170px] bottom-[34%] right-[0%]"></img>
+            <img src={Blue4Star2} class="z-10 hidden lg:block absolute w-[140px] bottom-[16%] left-[2%]"></img>
             <img src={Yellow8Star2} class="z-10 absolute w-[300px] -bottom-[4%] left-[0%]"></img>
-            <img src={SmallWhiteDot} class="z-10 absolute w-[28px] bottom-[26%] right-[2%]"></img>
-            <img src={Blue4Star3} class="z-10 w-[170px] absolute bottom-[2%] right-[0%]"></img>
-            <img src={Purple8Star2} class="z-10 hidden absolute bottom-[0%]"></img>
-            <img src={Purple4Star1} class="z-10 absolute w-[180px] -bottom-[4%] left-[16%]"></img>
-            <img src={Yellow4Star2} class="z-10 absolute w-[140px] -bottom-[2.5%] left-[46%]"></img>
+            <img src={SmallWhiteDot} class="z-10 hidden lg:block absolute w-[28px] bottom-[26%] right-[2%]"></img>
+            <img src={Blue4Star3} class="z-10 hidden lg:block w-[170px] absolute bottom-[2%] right-[0%]"></img>
+            <img src={Purple4Star1} class="z-10 hidden lg:block absolute w-[180px] -bottom-[4%] left-[16%]"></img>
+            <img src={Yellow4Star2} class="z-10 hidden lg:block absolute w-[140px] -bottom-[2.5%] left-[46%]"></img>
             <img src={Orange8Star2} class="z-10 absolute w-[270px] -bottom-[6%] right-[15%]"></img>
 
-            <div class="relative">
+            <div class="relative z-20">
                 <img src={TextLogo} class="mx-auto w-[65%]"></img>
                 <p class="font-syne text-white text-center text-2xl pt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="z-20 relative flex w-[90%] mx-auto text-center justify-between mt-20">
-                <div class="basis-[27%] pt-8 pb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                    <p class="text-4xl font-syneBold font-extrabold mb-4">Organised by</p>
+            <div class="z-20 relative flex flex-wrap w-[90%] mx-auto text-center justify-between mt-20">
+                <div class="basis-[100%] min-[900px]:basis-[35%] min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4">Organised by</p>
                     <img src={NTUCACLogo} class="mx-auto h-[250px]"></img>
                     <p class="text-xl font-syne">NTU Cultural Activities Club</p>
                 </div>
-                <div class="basis-[40%] pt-8 pb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                    <p class="text-4xl font-syneBold font-extrabold mb-4">Powered by</p>
-                    <div class="flex px-4">
-                        <div class="basis-[50%]">
+                <div class="basis-[100%] min-[900px]:basis-[60%] min-[1600px]:basis-[40%] min-[1600px]:mx-6 pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4">Powered by</p>
+                    <div class="flex flex-wrap px-4">
+                        <div class="basis-[100%] md:basis-[50%]">
                             <div class="flex h-[250px] justify-center">
                                 <img src={MyULifeLogo} class="mx-auto w-[222px]"></img>
                             </div>
                             <p class="text-xl font-syne">MyULife</p>
                         </div>
-                        <div class="basis-[50%]">
+                        <div class="basis-[100%] md:basis-[50%]">
                             <div class="flex h-[250px] justify-center">
                                 
                             </div>
@@ -79,29 +78,29 @@ const Partners = () => {
                         </div>
                     </div>
                 </div>
-                <div class="basis-[27%] pt-8 pb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                    <p class="text-4xl font-syneBold font-extrabold mb-4 px-8">Official Productions Partner</p>
+                <div class="basis-[100%] min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4 px-8">Official Productions Partner</p>
                 </div>
             </div>
 
-            <div class="z-20 relative w-[90%] min-h-[1000px] bg-white mx-auto mt-20 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
+            <div class="z-20 relative w-[90%] min-h-[1000px] bg-white mx-auto mt-12 border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
                 <AppleHeader></AppleHeader>
-                <p class="text-4xl font-syneBold font-extrabold py-10">Sponsored By</p>
+                <p class="text-3xl lg:text-4xl font-syneExtraBold py-12">Sponsored By</p>
                 <div class="flex flex-row min-h-[800px]">
                     <div class="basis-[50%] border-r-2 border-black pt-6">
-                        <p class="text-3xl font-syne mx-auto mb-12">Gold Sponsors</p>
+                        <p class="text-3xl lg:text-4xl font-syne mx-auto mb-12">Gold Sponsors</p>
                         <div class="flex flex-wrap">
-                            <img src={ActiveRed} class="mx-auto w-[240px]"></img>
-                            <img src={Cloversoft} class="mx-auto w-[200px]"></img>
-                            <img src={CreativeEateries} class="mx-auto w-[240px]"></img>
-                            <img src={MerchandiseMaverick} class="mx-auto w-[240px]"></img>
-                            <img src={MGP} class="mx-auto w-[170px]"></img>
-                            <img src={SelfPhotoStudio} class="mx-auto w-[200px]"></img>
+                            <img src={ActiveRed} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                            <img src={Cloversoft} class="mx-auto px-4 pb-4 w-[200px]"></img>
+                            <img src={CreativeEateries} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                            <img src={MerchandiseMaverick} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                            <img src={MGP} class="mx-auto px-4 pb-4 w-[170px]"></img>
+                            <img src={SelfPhotoStudio} class="mx-auto px-4 pb-4 w-[200px]"></img>
                         </div>
                     </div>
                     <div class="basis-[50%] pt-6">
-                        <p class="text-3xl font-syne mx-auto mb-12">Silver Sponsors</p>
-                        <img src={CommCube} class="mx-auto"></img>
+                        <p class="text-3xl lg:text-4xl font-syne mx-auto mb-12">Silver Sponsors</p>
+                        <img src={CommCube} class="mx-auto px-6"></img>
                     </div>
                 </div>
             </div>
