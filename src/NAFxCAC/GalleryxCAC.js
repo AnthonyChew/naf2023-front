@@ -17,15 +17,15 @@ const GalleryxCAC = (props) => {
   
   return (
     <div>
-    <div class="bg-white w-[90%] lg:w-[80%] h-fit mt-5 mx-auto border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
+    <div class="bg-white w-[90%] lg:w-[80%] h-fit mt-5 mx-auto border-4 border-black md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
         <div class="text-center">
             <div class="font-syne font-bold text-2xl border-b-4 border-black py-4 v">{props.title}</div>
-            <div><img class="mx-auto h-[650px]" src={imgState[galleryState]}/></div>
+            <div><img class="mx-auto h-[400px] md:h-[500px] lg:h-[650px]" src={imgState[galleryState]}/></div>
         </div>
     </div>
-    <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-1/4 mt-10">
-          <img class="inline-block w-[15%]" src={LeftArrow}  onClick={ImageState(galleryState - 1)}></img>
-          <img class="inline-block w-[15%]" src={RightArrow}  onClick={ImageState(galleryState+ 1)}></img>
+    <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 md:w-1/4 mt-10">
+          <img class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" src={LeftArrow}  onClick={ImageState(galleryState - 1)}></img>
+          <img class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" src={RightArrow}  onClick={ImageState(galleryState+ 1)}></img>
         </div>
 
     </div>
