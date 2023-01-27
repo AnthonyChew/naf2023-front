@@ -133,7 +133,7 @@ export default function VerifyWorkshops(props) {
           {
             Header: 'Status',
             accessor: 'verified',
-            Cell: (value) =>  <p>{value.value.toString()}</p>
+            Cell: (value) =>  <p>{value.value !== undefined && value.value.toString()}</p>
           },
           {
             Header: 'Images',
