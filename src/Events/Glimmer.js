@@ -272,7 +272,7 @@ const Glimmer = () => {
         </div>
         <div>
           <div>
-            <div class="flex flex-row pt-[2%] lg:pt-20 pb-20 lg:pb-40 justify-between mx-3">
+            <div class="flex flex-row pt-[2%] lg:pt-20 pb-20 justify-between mx-3">
               <div class="md:basis-1/2" onClick={fetchProfileData}>
                 {profile ? (
                   <button
