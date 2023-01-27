@@ -34,10 +34,10 @@ import SmallWhiteDot from './svgs/partners/SmallWhiteDot.svg'
 const Partners = () => {
     return (
         <div class="relative bg-NAFPink pt-16 pb-24 overflow-hidden">
-            <img src={Purple8Star1} class="z-10 absolute w-[350px] top-[0%]"></img>
-            <img src={Orange8Star1} class="z-10 hidden lg:block absolute w-[310px] -top-[3.5%] right-[2%]"></img>
-            <img src={BigWhiteDot} class="z-10 hidden lg:block absolute w-[32px] top-[12%] right-[13.5%]"></img>
-            <img src={Yellow4Star1} class="z-10 absolute w-[135px] top-[9.8%] right-[3.5%]"></img>
+            <img src={Purple8Star1} class="absolute w-[350px] top-[0%]"></img>
+            <img src={Orange8Star1} class="hidden lg:block absolute w-[310px] -top-[3.5%] right-[2%]"></img>
+            <img src={BigWhiteDot} class="hidden lg:block absolute w-[32px] top-[12%] right-[13.5%]"></img>
+            <img src={Yellow4Star1} class="absolute w-[135px] top-[9.8%] right-[3.5%]"></img>
             <img src={Blue4Star1} class="z-10 hidden lg:block absolute w-[200px] top-[23.6%] left-[0%]"></img>
             <img src={SmallWhiteDot} class="z-10 hidden lg:block absolute w-[28px] top-[36%] left-[2%]"></img>
             <img src={Orange4Star1} class="z-10 absolute w-[250px] top-[41%] left-[0%]"></img>
@@ -51,11 +51,11 @@ const Partners = () => {
             <img src={Yellow4Star2} class="z-10 hidden lg:block absolute w-[140px] -bottom-[2.5%] left-[46%]"></img>
             <img src={Orange8Star2} class="z-10 hidden lg:block absolute w-[270px] -bottom-[6%] right-[15%]"></img>
 
-            <div class="relative z-20">
+            <div class="relative">
                 <img src={TextLogo} class="mx-auto w-[90%] lg:w-[65%]"></img>
                 <p class="font-syne text-white text-center text-lg md:text-2xl pt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div class="z-20 relative flex flex-wrap w-[90%] mx-auto text-center justify-between mt-20">
+            <div class="relative flex flex-wrap w-[90%] mx-auto text-center justify-between mt-20">
                 <div class="basis-[100%] min-[900px]:basis-[35%] min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
                     <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4">Organised by</p>
                     <img src={NTUCACLogo} class="mx-auto h-[200px] lg:h-[250px]"></img>
