@@ -42,7 +42,7 @@ export default function LoginForm(props) {
         authService.adminLogin(values.username, values.password)
       );
     }
-    
+
     if (res.status === 200) {
       history(0);
     } else {
@@ -59,25 +59,24 @@ export default function LoginForm(props) {
         label="Enter your username/email"
         id="username"
         onChange={handleChange('username')}
-        color="secondary"
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
         required
       />
       <div
-        onClick={() => inputRef.current.focus()}
+        class='border-2 border-black rounded-2xl mb-2'
       >
-        <label
+        <p
           htmlFor="password"
-          className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
+          class='text-xl font-light placeholder-gray-gray4 px-2 pt-1.5'
         >
           Enter your password {<span className='text-red-500'>*</span>}
-        </label>
-        <div class="flex flex-row">
+        </p>
+        <div class="flex flex-row ">
           <input
-            ref={inputRef}
             type={values.showPassword ? 'text' : 'password'}
+            class="w-full px-2 pb-1.5 border-0 border-white rounded-2xl pl-2"
             name="password"
             onChange={handleChange('password')}
-            className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
             id="password"
             placeholder=""
           />
@@ -85,7 +84,7 @@ export default function LoginForm(props) {
             type="button"
             onClick={handleClickShowPassword}
             onMouseDown={handleMouseDownPassword}
-            class="w-fit h-fit"
+            class="w-fit h-fit pr-2"
           >
             {
               values.showPassword ?
@@ -103,6 +102,7 @@ export default function LoginForm(props) {
       <button
         type="submit"
         disabled={promiseInProgress}
+        class="w-fit ml-auto mr-auto text-xl bg-blue-600 text-white border-4 border-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
         Log in
       </button>

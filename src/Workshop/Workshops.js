@@ -20,14 +20,17 @@ import BallShadow from "./svgs/workshop/workshops_BallShadow.svg";
 import RedBall from "./svgs/workshop/workshops_RedBall.svg";
 import WhiteBall from "./svgs/workshop/workshops_WhiteBall.svg";
 import PurpleBall from "./svgs/workshop/workshops_PurpleBall.svg";
+import workshops from "../services/workshops";
 
 const classNames = {
   tabActive: " bg-white pt-1 border-2 border-black",
   tabInactive:
     "bg-gray-300 border-y-2 border-y-gray-300 border-r-2 border-r-black py-1",
 };
-const Workshops = () => {
+const Workshops = (props) => {
   const [active, setActive] = useState(0);
+  const workshop = props.workshop
+
   return (
     <div class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFOrange pb-20 px-[5%] lg:px-32">
       {/* Top Left */}
@@ -90,14 +93,14 @@ const Workshops = () => {
       <img class="absolute right-[4%] bottom-[2%] w-[8%]" src={BlueStar2} />
       {/* Header */}
       <img class="relative pt-10 pb-5 ml-[23%] w-[58%]" src={workshops_Logo} />
-      <div class="z-10 relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+      <div class="relative mb-10 mx-[10%] lg:mx-[15%] font-semibold text-center text-xs sm:text-sm md:text-md lg:text-xl">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
       </div>
       {/* Stars */}
       <img
@@ -112,7 +115,7 @@ const Workshops = () => {
             active === 0 ? classNames.tabActive : classNames.tabInactive
           } text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center`}
         >
-          Henna Tattoos
+          {workshop && workshop.name}
         </div>
         <div
           onClick={() => setActive(1)}
@@ -135,26 +138,20 @@ const Workshops = () => {
       {/*  */}
       <div class="z-10 relative flex border-solid bg-white border-2 border-black w-full shadow-[20px_20px_0_0_rgba(0,0,0)] p-[5%]">
         {/* Image */}
-        <div class=" bg-gray-300 h-auto lg:h-80 w-4/12 mr-[8%] flex items-center justify-center">
-          IMAGE OF WORKSHOP
+        <div class=" h-auto lg:h-80 w-4/12 mr-[8%] flex items-center justify-center">
+          <img src={workshop && workshop.images[0]} />
         </div>
         {/* Text Area */}
         <div class=" flex w-8/12 flex-col gap-y-2 sm:gap-y-5">
           <p class="font-Ubuntu sm:text-lg md:text-2xl lg:text-4xl font-bold flex justify-self-start">
             {active === 0
-              ? "Henna Tattoos"
+              ? workshop && workshop.name
               : active === 1
               ? "Photobooth"
               : "Art Movie Screening"}
           </p>
           <p class="text-left text-[10px] sm:text-sm md:text-md lg:text-lg font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+              {workshop && workshop.description}
           </p>
         </div>
       </div>

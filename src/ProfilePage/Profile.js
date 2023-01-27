@@ -7,8 +7,12 @@ import Logout from '../Authentication/Logout';
 import { LoadingSpinnerComponent } from '../utils/LoadingSpinnerComponent';
 import { trackPromise } from 'react-promise-tracker';
 import ProfileBg from './svgs/profilebg.svg'
-import SocialLogin from '../Authentication/SocialLogin';
 import Modal from 'react-modal';
+import SocialLogin from '../Authentication/SocialLogin'
+import { useNavigate } from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Profile() {
   const [profile, setProfile] = useState(null);
@@ -22,6 +26,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
+        console.log(res.data);
       }
       else {
         setAuth(false);
@@ -35,32 +40,63 @@ function Profile() {
     setAuth(true);
   }
 
+  function parentReturnCallBack() {
+    document.body.style.overflow = 'unset';
+    history(-1);
+  }
+
+  function handelToastCallback(data) {
+    toast(data);
+  }
+
+  useEffect(() => {
+    if (!auth) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [auth]);
+
+  let history = useNavigate();
+
+
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
-      <LoadingSpinnerComponent/>
+      <LoadingSpinnerComponent />
       <Modal
         isOpen={!auth}
         onRequestClose={closeModal}
       >
-        <SocialLogin />
+        <SocialLogin parentReturnCallBack={parentReturnCallBack} />
       </Modal>
-      {auth ? (
+      {profile && (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
           />
-          {<UserWorkshop
-            waitlistedWorkshops={profile && profile.waitlistedWorkshops}
-            registeredWorkshops={profile && profile.registeredWorkshops}
-          />}
+
+          {
+            <UserWorkshop
+              handelToastCallback={handelToastCallback}
+              waitlistedWorkshops={profile && profile.waitlistedWorkshops}
+              registeredWorkshops={profile && profile.registeredWorkshops}
+              _id={profile && profile._id}
+            />
+          }
           {
             profile && profile.pastOrders && (
-              <OrderTable pastOrders={profile.pastOrders} />
-            )}
+              <OrderTable pastOrders={profile.pastOrders} />)
+          }
 
           <Logout />
+
+          <ToastContainer position="bottom-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick />
         </>
-      ) : null}
+      )}
     </div>
   );
 }

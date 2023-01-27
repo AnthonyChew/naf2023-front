@@ -20,6 +20,14 @@ import Interstellar from './Events/Interstellar';
 import Starburst from './Events/Starburst';
 import AdminManage from './AdminInterface/AdminManage'
 import Partners from './Partners/Partners';
+import MainCommittee from './AboutUs/MainCommittee';
+import NAFxAFTH from './NAFxCAC/NAFxAFTH';
+import NAFxTOP from './NAFxCAC/NAFxTOP';
+import NAFxCS from './NAFxCAC/NAFxCS';
+import NAFxJDC from './NAFxCAC/NAFxJDC';
+import FAQ from './FAQ/FAQ';
+import PrivacyPolicy from './FAQ/PrivacyPolicy';
+
 
 import {
   BrowserRouter,
@@ -28,7 +36,7 @@ import {
   Link,
 } from "react-router-dom";
 import ScrolltoTop from './utils/ScrolltoTop';
-import NAFxAFTH from './NAFxCAC/NAFxAFTH';
+
 
 
 function Home() {
@@ -69,9 +77,15 @@ function App() {
           <Route path="/interstellar" element={<Interstellar />} />
           <Route path="/starburst" element={<Starburst />} />
           <Route path="/afth" element={<NAFxAFTH />} />
+          <Route path="/jdc" element={<NAFxJDC />} />
+          <Route path="/cs" element={<NAFxCS />} />
+          <Route path="/top" element={<NAFxTOP />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/adminmanage" element={<AdminManage />} />
           <Route path='/partners' element={<Partners />} />
+          <Route path="/committee" element={<MainCommittee />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

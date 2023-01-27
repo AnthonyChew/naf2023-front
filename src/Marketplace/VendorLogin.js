@@ -75,45 +75,45 @@ function VendorLogin() {
   };
 
   useEffect(() => {
-    if (open) {
+    if (open || edit || !auth) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [open]);
+  }, [open, edit , auth]);
 
 
   return (
     <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
       <LoadingSpinnerComponent />
       {auth ? (
-        <div class='flex flex-col justify-center items-center gap-5'>
-          <p>
-            VENDOR LOGIN
+        <div class='flex flex-col justify-center items-center gap-5'>                                                                                                
+          <p class='text-2xl font-syne underline decoration-solid'>
+            VENDOR MANAGEMENT
           </p>
-          <p >
+          <p class='text-2xl font-syne underline decoration-solid'>
             Welcome back, {profile && profile.displayName}!
           </p>
-          <p>
+          <p class='text-2xl font-syne underline decoration-solid'>
             {profile && profile.description}
           </p>
           {contactNumber ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Contact number: {contactNumber}
             </p>
           ) : null}
           {emailAddress ? (
-            <p >
+            <p class='text-2xl font-syne underline decoration-solid'>
               Email address: {emailAddress}
             </p>
           ) : null}
           {instagramAccount ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Social media: {instagramAccount}
             </p>
           ) : null}
           {website ? (
-            <p>
+            <p class='text-2xl font-syne underline decoration-solid'>
               Website: {website}
             </p>
           ) : null}
@@ -121,25 +121,23 @@ function VendorLogin() {
 
           <>
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={editProfile}
             >
               <p class="flex-1 text-2xl font-syne text-center">  Edit Profile </p>
             </button>
             <Modal isOpen={edit} onRequestClose={handleClose}>
-              <div class="w-full h-full " >
-              <EditVendor
-                //callback
-                parentCallback={handleClose}
-                vendor={profile}
-              />
-              </div>
+                <EditVendor
+                  //callback
+                  parentCallback={handleClose}
+                  vendor={profile}
+                />
             </Modal>
           </>
 
           <>
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={handleClickOpen}
               id="addProduct"
             >
@@ -147,15 +145,15 @@ function VendorLogin() {
             </button>
 
             <Modal isOpen={open} onRequestClose={handleClose}>
-              <div class="w-full h-full " >
-                <AddProduct  parentCallback={handleClose} type="add" />
+              <div class="relative w-full h-full overflow-y-auto" >
+                <AddProduct parentCallback={handleClose} type="add" />
               </div>
             </Modal>
           </>
           <ProductTable rows={profile && profile.products} />
           <div  >
             <button
-              class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={downloadOrders}>
               <p class="flex-1 text-2xl font-syne text-center"> Download orders </p>
             </button>

@@ -14,7 +14,7 @@ const formReducer = (state, event) => {
 };
 
 export default function SignUpForm(props) {
-  
+
   const { parentCallBack } = props;
 
   const [formData, setFormData] = useReducer(formReducer, {
@@ -66,7 +66,7 @@ export default function SignUpForm(props) {
   const passwordRef = useRef();
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit} >
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <Input
         name="username"
         label="Username"
@@ -74,25 +74,20 @@ export default function SignUpForm(props) {
         value={formData.username}
         onChange={handleChange}
         inputProps={{ maxLength: 32 }}
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
       />
       <div
-        class="border transition duration-150 ease-in-out"
-        onClick={() => passwordRef.current.focus()}
+        class='border-2 border-black rounded-2xl mb-2'
       >
-        <label
-          htmlFor="password"
-          className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
-        >
-          Password {<span class='text-red-500'>*</span>}
-        </label>
         <div class="flex flex-row">
-          <input
-            ref={passwordRef}
+          <Input
+            label="Enter your password"
             type={formData.showPassword ? 'text' : 'password'}
-            value={formData.password}
-            onChange={handleChange}
             name="password"
-            class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+            value={formData.password}
+            required
+            onChange={handleChange}
+            wrapperClassName="w-full "
             id="password"
             placeholder=""
           />
@@ -100,7 +95,7 @@ export default function SignUpForm(props) {
             type="button"
             onClick={handleClickShowPassword}
             onMouseDown={handleMouseDownPassword}
-            class="w-fit h-fit"
+            class="w-fit h-fit self-end pr-2 pb-1"
           >
             {
               formData.showPassword ?
@@ -121,6 +116,7 @@ export default function SignUpForm(props) {
         value={formData.displayName}
         onChange={handleChange}
         inputProps={{ maxLength: 100 }}
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
       />
       <Input
         name="emailAddress"
@@ -131,6 +127,7 @@ export default function SignUpForm(props) {
         inputProps={{ maxLength: 64 }}
         value={formData.emailAddress}
         onChange={handleChange}
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
       />
       <Input
         name="surcharge"
@@ -142,12 +139,13 @@ export default function SignUpForm(props) {
         placeholder="0"
         value={formData.surcharge}
         required
-        onChange={handleChange}/>
+        onChange={handleChange}
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2" />
 
-      <div class='border transition duration-150 ease-in-out'>
+      <div class="border-2 border-black w-full rounded-2xl mb-2">
         <label class="float pb-0 pl-2 pointer-events-none">Description</label>
         <textarea
-          class="w-full outline-none pl-2"
+          class="w-full outline-none pl-2 rounded-2xl"
           name="description"
           label="Description"
           rows={2}
@@ -157,14 +155,15 @@ export default function SignUpForm(props) {
       </div>
 
       <Input
-            name="contactNumber"
-            label="Contact Number"
-            type="tel"
-            pattern='^[689][0-9]{7}$'  // accepts '6', '8' or '9' as the first character, then 7 more [0-9] characters
-            value={formData.contactNumber}
-            errorMessage='Please enter a Singapore number'
-            onChange={handleChange}
-          />
+        name="contactNumber"
+        label="Contact Number"
+        type="tel"
+        pattern='^[689][0-9]{7}$'  // accepts '6', '8' or '9' as the first character, then 7 more [0-9] characters
+        value={formData.contactNumber}
+        errorMessage='Please enter a Singapore number'
+        onChange={handleChange}
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
+      />
 
       <Input
         name="instagramAccount"
@@ -172,6 +171,7 @@ export default function SignUpForm(props) {
         value={formData.instagramAccount}
         onChange={handleChange}
         pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
       />
       <Input
         name="website"
@@ -180,11 +180,13 @@ export default function SignUpForm(props) {
         value={formData.website}
         onChange={handleChange}
         pattern='^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
+        wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
       />
 
       <button
         type="submit"
         disabled={promiseInProgress}
+        class="w-fit ml-auto mr-auto text-xl bg-blue-600 text-white border-4 border-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
         Submit
       </button>

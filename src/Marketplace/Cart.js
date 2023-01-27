@@ -29,9 +29,17 @@ const Cart = () => {
   const postOrder = async () => {
     const res = await authService.checkAuthStudent();
     if (res.status === 401) {
+      alert("Please login first!")
       setAuth(false);
     } else if (res.status === 200) {
-      history('/Payment');
+      if(products.length > 0)
+      {
+        history('/Payment');
+      }
+      else
+      {
+        alert("There's no product in cart!")
+      }
     }
   };
 
@@ -99,7 +107,7 @@ const Cart = () => {
             <div class="flex flex-col md:flex-[25%] flex-[33%] items-center justify-center">
               <button onClick={postOrder}
                 type="button" class="mt-10 w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                <p class="flex-1 md:text-2xl text-sm font-syne text-center" onClick={() => history("/payment")}> Check Out </p>
+                <p class="flex-1 md:text-2xl text-sm font-syne text-center"> Check Out </p>
               </button>
             </div>
           </div>

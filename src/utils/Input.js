@@ -17,17 +17,17 @@ const Input = (props) => {
     const inputRef = useRef();
 
     return (
-        <div className={wrapperClassName}>
+        <div class={wrapperClassName}>
             <div
-                class={`border transition duration-150 ease-in-out ${error
+                class={` ${error
                     ? 'focus-within:border-red border-red'
-                    : 'focus-within:border-primary border-gray-gray4'
+                    : ''
                     }`}
                 onClick={() => inputRef.current.focus()}
             >
                 <label
                     htmlFor={id}
-                    class='text-base text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
+                    class='text-xl text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
                 >
                     {label} {required && <span class='text-red-500'>*</span>}
                 </label>
@@ -37,7 +37,7 @@ const Input = (props) => {
                         <input
                             ref={inputRef}
                             type='number'
-                            class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                            class='w-full px-2 pr-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
                             id={id}
                             placeholder={placeholder}
                             required={required}
@@ -48,7 +48,7 @@ const Input = (props) => {
                     <input
                         ref={inputRef}
                         type={type}
-                        class='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                        class='w-full px-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
                         id={id}
                         placeholder={placeholder}
                         required={required}

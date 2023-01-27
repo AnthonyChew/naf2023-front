@@ -42,10 +42,11 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
     };
 
     const verifyOrder = async () => {
+        console.log(order);
         if (order == null) {
             alert('No order selected to be verified!');
         } else {
-            const res = await trackPromise(adminService.verifyOrder(order));
+            const res = await trackPromise(adminService.verifyOrder(order._id));
             // console.log(auth);
             if (res.status === 200) {
                 history(0);
@@ -86,7 +87,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                                 </th>
                             ))
                             }
-                            <th>Order control</th> 
+                            <th>Order control</th>
                         </tr>
                     ))}
                 </thead>
@@ -123,13 +124,13 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                     <div class="w-fit mx-auto translate-y-[200%]" >
                         <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
                             <p class="font-yerk text-xl text-black">Verified Order</p>
-                            <p class='mb-5'>Do you want to verify {order &&order.orderNumber} ?</p>
+                            <p class='mb-5'>Do you want to verify {order && order.orderNumber} ?</p>
                             <div class='flex flex-row justify-end gap-2'>
-                                <button onClick={verifyOrder}
+                                <button onClick={handleCloseModal}
                                     class="inline-block px-6 py-2.5 bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     No
                                 </button>
-                                <button type="button" onClick={handleCloseModal}
+                                <button type="button" onClick={verifyOrder}
                                     class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     Yes
                                 </button>
@@ -193,16 +194,41 @@ function AdminOrderTable(props) {
                         Header: 'Date Time',
                         accessor: 'datetime',
                     },
+                    {
+                        Header: 'Images',
+                        accessor: 'images',
+                        Cell: (value) => <img class='max-w-xs max-h-48' onClick={() => handleImageClick(value.value !== undefined && value.value[0])} src={value.value !== undefined && value.value[0]} />
+                    },
                 ],
             },
         ],
     )
 
-    const { rows, setAuthParentCallbackFalse } = props;
+    const [image, setImage] = useState(null);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
+    function handleImageClick(value) {
+        setImage(value);
+        setIsOpenModal(true);
+    }
+
+    const handleCloseModal = () => {
+        setIsOpenModal(false);
+        setImage(null);
+    };
+
+    const { rows, setAuthParentCallbackFalse } = props;
     return (
         <div class="flex flex-col items-center justify-center pb-5">
             <Table columns={columns} data={rows ? rows : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
+                <div class="w-full h-full" onClick={handleCloseModal} >
+                    <div class="w-fit h-full ml-auto mr-auto border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
+                        <img className='w-full h-full' src={image} />
+                    </div>
+                </div>
+            </Modal>
+
         </div>
     );
 

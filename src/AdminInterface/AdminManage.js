@@ -9,8 +9,10 @@ import Logout from '../Authentication/Logout';
 import Switch from "react-switch";
 import AdminOrderTable from './AdminOrderTable';
 import AdminWorkshopTable from './AdminWorkshopTable';
+import PicrewImageManage from './PicrewImageManage';
 import Select from 'react-select';
 import authService from '../services/auth';
+import AdminImageUpload from './AdminImageUpload'
 
 import FileDownload from 'js-file-download';
 import { useNavigate } from 'react-router-dom';
@@ -20,13 +22,13 @@ import { usePromiseTracker } from 'react-promise-tracker';
 import VerifyWorkshops from './VerifyWorkshops';
 import Modal from 'react-modal';
 import Input from '../utils/Input';
-
+import ProfileBg from '../ProfilePage/svgs/profilebg.svg'
 
 function AdminManage(props) {
   const history = useNavigate();
   const [orders, setOrders] = useState([]);
   const [workshops, setWorkshops] = useState([]);
-  const [auth, setAuth] = useState(null);
+  const [auth, setAuth] = useState(true);
   const [checked, setChecked] = useState(false);
   const [state, setState] = useState({
     emailAddress: '',
@@ -36,39 +38,29 @@ function AdminManage(props) {
   const [selfCollDate, setSelfCollDate] = useState('23febslot1');
   const [vendors, setVendors] = useState([]);
 
-  //donation tracker states
-  // const [donations, setDonations] = useState([]);
-  // const [donationUpdate, setDonationUpdate] = useState({ name: '', amount: 0 });
-
-  const categories = [
-    // '#IMADETHISwNAF',
-    // 'Workshop',
-    // 'Virtual Busking Quiz',
-    // 'Art-Verse Quiz',
-    'Workshop',
-    'Stamp Hunt Submission',
-    'Sticker Olympia Submission',
-  ];
-
   const handleChange = (event) => {
     setChecked(event);
   };
 
   const handleSelfCollChange = (event) => {
-    setSelfCollDate(event.target.value);
+    setSelfCollDate(event);
   };
-
-  const handleInputChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
-  };
-
-  // const handleDonationInputChange = (prop) => (event) => {
-  //   setDonationUpdate({ ...donationUpdate, [prop]: event.target.value });
-  // };
-
-  const handleLoginClose = () => {
-    setAuth(false);
-  };
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  useEffect(() => {
+    async function fetchWorkshopData() {
+      //console.log('Fetch workshops');
+      await delay(2000);
+      const res = await adminService.getWorkshops(); //this line not getting workshops.
+      if (res.status === 200) {
+        setWorkshops(res.data);
+      } else if (res.status === 401) {
+        setAuth(false);
+      } else {
+        alert('Issues with fetching workshops');
+      }
+    }
+    fetchWorkshopData();
+  }, []);
 
   const downloadWorkshops = async () => {
     const res = await workshopService.downloadWorkshops();
@@ -114,36 +106,8 @@ function AdminManage(props) {
     fetchVendorData();
   }, [checked, auth]);
 
-  useEffect(() => {
-    async function fetchWorkshopData() {
-      console.log('Fetch workshops');
-      const res = await adminService.getWorkshops(); //this line not getting workshops.
-      if (res.status === 200) {
-        setWorkshops(res.data);
-      } else if (res.status === 401) {
-        setAuth(false);
-      } else {
-        alert('Issues with fetching workshops');
-      }
-    }
-    fetchWorkshopData();
-  }, []);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await donationService.getDonations();
-  //     if (res.status === 200) {
-  //       setDonations(res.data);
-  //     }
-  //     //  else {
-  //     //   alert('Error loading donations :(');
-  //     // }
-  //   }
-  //   fetchData();
-  // }, []);
-
   const downloadOrders = async () => {
-    console.log(workshops);
+    //console.log(workshops);
     const res = await orderService.downloadOrdersAdmin();
     // console.log(auth);
     if (res.status === 200) {
@@ -167,39 +131,6 @@ function AdminManage(props) {
     }
   };
 
-  // const downloadPhotos = async () => {
-  //   const res = await photoService.downloadPhotos();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'photos.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data.error);
-  //   }
-  // };
-
-  // const downloadLuckyDraw = async () => {
-  //   const res = await adminService.downloadLuckyDraw();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'luckydraw.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data);
-  //   }
-  // };
-
-  // const downloadVotes = async () => {
-  //   const res = await adminService.downloadVotes();
-  //   if (res.status === 200) {
-  //     FileDownload(res.data, 'photovotes.csv');
-  //   } else if (res.status === 401) {
-  //     setAuth(false);
-  //   } else {
-  //     alert(res.data);
-  //   }
-  // };
-
   const sendEmails = async (event) => {
     event.preventDefault();
     const res = await trackPromise(adminService.sendEmails(selfCollDate));
@@ -209,22 +140,6 @@ function AdminManage(props) {
       alert(res.data.error);
     }
   };
-
-  // const handleDonationSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const newInput = {
-  //     amount: parseFloat(donationUpdate.amount),
-  //   };
-  //   const res = await donationService.updateDonations(
-  //     donationUpdate.name,
-  //     newInput
-  //   );
-  //   if (res.status === 200) {
-  //     alert('Updated donation tracker successfully');
-  //   } else {
-  //     alert('Error while updating donation tracker');
-  //   }
-  // };
 
   // function to bump workshop waitlist
   const bumpWorkshopWaitlist = async () => {
@@ -240,9 +155,7 @@ function AdminManage(props) {
 
   function setAuthParentCallbackFalse() {
     setAuth(false);
-  }
-
-  const [open, setOpen] = useState(true);
+  };
 
   const date = [
     { value: '23febslot1', label: '23 February 12-4pm' },
@@ -254,8 +167,6 @@ function AdminManage(props) {
     password: '',
     showPassword: false,
   });
-  const { user } = props;
-  const { parentCallBack } = props;
 
   const handleFormChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -285,6 +196,9 @@ function AdminManage(props) {
 
   };
 
+
+
+
   const inputRef = useRef();
 
   return (
@@ -293,38 +207,32 @@ function AdminManage(props) {
       <Modal isOpen={!auth}>
         <div class="h-full flex flex-col items-center justify-center">
           <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
-            <button type="button" class="w-fit ml-auto mr-auto text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            <button type="button" class="w-fit ml-auto mr-auto text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               onClick={() => history(-1)}>
               <p class="flex-1 text-xl font-syne text-center"> Return to Previous Page </p>
             </button>
 
             <div class="p-2">
-              <p>Admin Login</p>
-
               <form autoComplete="off" onSubmit={logIn}>
                 <Input
                   label="Enter your username/email"
                   id="username"
                   onChange={handleFormChange('username')}
-                  color="secondary"
+                  wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
                   required
                 />
                 <div
-                  onClick={() => inputRef.current.focus()}
+                  class='border-2 border-black rounded-2xl mb-2'
                 >
-                  <label
-                    htmlFor="password"
-                    className='text-xs text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
-                  >
-                    Enter your password {<span className='text-red-500'>*</span>}
-                  </label>
-                  <div class="flex flex-row">
-                    <input
+                  <div class="flex flex-row pb-1">
+                    <Input
+                      label="Enter your password"
                       ref={inputRef}
                       type={values.showPassword ? 'text' : 'password'}
                       name="password"
+                      required
                       onChange={handleFormChange('password')}
-                      className='w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md'
+                      wrapperClassName="w-full"
                       id="password"
                       placeholder=""
                     />
@@ -332,7 +240,7 @@ function AdminManage(props) {
                       type="button"
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
-                      class="w-fit h-fit"
+                      class="w-fit h-fit self-end pr-2 pb-1"
                     >
                       {
                         values.showPassword ?
@@ -350,6 +258,7 @@ function AdminManage(props) {
                 <button
                   type="submit"
                   disabled={promiseInProgress}
+                  class="w-fit ml-auto mr-auto text-xl bg-blue-600 text-white border-4 border-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Log in
                 </button>
@@ -359,93 +268,128 @@ function AdminManage(props) {
           </div >
         </div >
       </Modal>
+
       {auth ? (
-        <div>
-          <p>
-            {checked === true ? 'Verified Orders' : 'Unverified Orders'}
-          </p>
-          <Logout />
-          <Switch
-            checked={checked}
-            value={checked}
-            onChange={handleChange}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
+        <div class='flex justify-center pt-32 pb-32 min-h-screen bg-orange-400 bg-cover overflow-hidden bg-center ' style={{ backgroundImage: `url(${ProfileBg})` }}>
+          <div class='flex flex-col w-2/3 bg-gray-400/95 p-5 rounded-xl border-black border-2'>
 
-          <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            <Logout />
 
-          <div class='flex flex-row flex-wrap gap-5'>
-            {vendors &&
-              vendors.map((vendor, index) => (
-                <>
-                  <button
-                    class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    key={index}
-                    onClick={() =>
-                      downloadVendorOrders(vendor._id, vendor.displayName)
-                    }
-                    disabled={promiseInProgress}
-                  >
-                    Download {vendor.displayName} orders
+            <div class='border-black border-2 mt-2 p-2 rounded-xl mb-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                {checked === true ? 'Verified Orders' : 'Unverified Orders'}
+              </p>
+              <div class='mb-2'>
+                <Switch
+                  checked={checked}
+                  value={checked}
+                  onChange={handleChange}
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </div>
+
+              <AdminOrderTable rows={orders} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+            </div>
+
+            <div class='flex flex-row flex-wrap gap-5 border-black border-2 p-2 rounded-xl mb-2'>
+              {vendors &&
+                vendors.map((vendor, index) => (
+                  <>
+                    <button
+                      class="w-fit text-white border-4 border-black bg-[#0071C6] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      key={index}
+                      onClick={() =>
+                        downloadVendorOrders(vendor._id, vendor.displayName)
+                      }
+                      disabled={promiseInProgress}
+                    >
+                      Download {vendor.displayName} orders
+                    </button>
+                  </>
+                ))}
+            </div>
+
+            <div class='flex w-full justify-center'>
+              <button
+                onClick={downloadOrders}
+                disabled={promiseInProgress}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mb-2"
+              >
+                Download Orders
+              </button>
+            </div>
+
+            <div class='border-black border-2 p-2 rounded-xl mb-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Send Reminder Emails
+              </p>
+              <form
+                autoComplete="off"
+                onSubmit={sendEmails}
+              >
+                <p class='text-xl font-syne underline decoration-solid mb-1'>
+                  Product Category:
+                </p>
+                <Select
+                  id="product-category"
+                  name="category"
+                  required
+                  options={date}
+                  value={selfCollDate}
+                  onChange={handleSelfCollChange}>
+                </Select>
+                <div class='flex w-full justify-center'>
+                  <button type="submit" class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2">
+                    Send Email
                   </button>
-                </>
-              ))}
-          </div>
+                </div>
+              </form>
+            </div>
 
-          <button
-            onClick={downloadOrders}
-            disabled={promiseInProgress}
-          >
-            Download Orders
-          </button>
+            <div class='flex flex-col justify-center items-center border-black border-2 p-2 rounded-xl mb-2 gap-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Workshops
+              </p>
+              <button
+                onClick={bumpWorkshopWaitlist}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2"
+              >
+                Bump Workshop Waitlist
+              </button>
 
-          <p>
-            Send Reminder Emails
-          </p>
-          <form
-            autoComplete="off"
-            onSubmit={sendEmails}
-          >
-            <label>
-              Product Category:
+              <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
+
+              <button
+                onClick={downloadWorkshops}
+                class="w-fit text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mt-2"
+              >
+                Download All Workshop Sign Ups
+              </button>
+
+              <VerifyWorkshops
+                setAuthParentCallbackFalse={setAuthParentCallbackFalse}
+                workshops={workshops}
+              />
+            </div>
+
+            <PicrewImageManage />
+            <AdminImageUpload />
+            {/* <div class='flex flex-col justify-center items-center border-black border-2 p-2 rounded-xl mb-2 gap-2'>
+              <p class='text-2xl font-syne underline decoration-solid'>
+                Event Photos
+              </p>
               <Select
                 id="product-category"
                 name="category"
                 required
-                options={date}
-                value={selfCollDate}
-                onChange={handleSelfCollChange}>
+                options={events}
+                value={event}
+                onChange={handleEventChange}>
               </Select>
-            </label>
-            <button type="submit" >
-              Send Email
-            </button>
-          </form>
+            </div> */}
 
-          <p>
-            Workshops
-          </p>
-          <button
-            onClick={bumpWorkshopWaitlist}
-          >
-            Bump Workshop Waitlist
-          </button>
 
-          <AdminWorkshopTable rows={workshops} setAuthParentCallbackFalse={setAuthParentCallbackFalse} />
-
-          <button
-            onClick={downloadWorkshops}
-          >
-            Download All Workshop Sign Ups
-          </button>
-          <br></br>
-
-          <VerifyWorkshops
-            setAuthParentCallbackFalse={setAuthParentCallbackFalse}
-            workshops={workshops}
-          />
-
-          {/* <Typography className={classes.paddedItem} variant="h4">
+            {/* <Typography className={classes.paddedItem} variant="h4">
             Photos
           </Typography>
           <Button
@@ -539,7 +483,7 @@ function AdminManage(props) {
             </Button>
           </form>
           <br></br> */}
-          {/* <Button
+            {/* <Button
             variant="contained"
             color="default"
             className={classes.button}
@@ -549,7 +493,7 @@ function AdminManage(props) {
           >
             Download Lucky Draw Data
           </Button> */}
-          {/* <Typography className={classes.paddedItem} variant="h4">
+            {/* <Typography className={classes.paddedItem} variant="h4">
             Update Donation Tracker
           </Typography>
           <form
@@ -639,9 +583,12 @@ function AdminManage(props) {
               Update Donation Tracker
             </Button>
           </form> */}
+          </div>
         </div>
-      ) : null}
+      ) : null
+      }
     </>
+
   );
 }
 

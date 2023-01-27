@@ -65,7 +65,7 @@ const MarketPlaceLanding = () => {
   const dispatch = useDispatch();
 
   function handleAddProduct(e) {
-     console.log(oneproduct);
+    //console.log(oneproduct);
     const newProduct = {
       ...product,
       _id: oneproduct._id,
@@ -180,7 +180,7 @@ const MarketPlaceLanding = () => {
     if (e == "modal-outside") {
       setIsOpen(false);
     }
-    else if (e.target.id == "modal-outside" ) {
+    else if (e.target.id == "modal-outside") {
       setIsOpen(false);
     }
   }
@@ -205,15 +205,15 @@ const MarketPlaceLanding = () => {
       <div class="flex font-syne">
         {/* product part */}
         <div class="basis-5/6">
-          <div class=" flex flex-wrap">
+          <div class=" flex flex-wrap p-5">
             {
               products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                <div class="mx-10 my-10 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
-                  <div class="oneItem-img">
+                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
+                  <div class="oneItem-img border-black border-b-2">
                     <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
                   </div>
-                  <div class="oneItem-caption">
-                    <div>Name: {oneItem.name}</div>
+                  <div class="oneItem-caption p-1 bg-gray-500">
+                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
                     <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
 
                     <div>Price: ${oneItem.price}</div>
@@ -272,12 +272,12 @@ const MarketPlaceLanding = () => {
             <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none" id="modal-box">
               <AppleHeader />
               <div class="flex items-center justify-end mb-8">
-                        <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
-                            <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
+                <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
+                  <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
               <div class="modal-body relative p-2 md:p-10 text-center lg:text-left">
                 <div class="w-[70%] lg:w-[30%] inline-block text-center">
                   <Swiper

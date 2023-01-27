@@ -36,7 +36,7 @@ export default function CartCard(props) {
 
         if (modalIsOpen) {
             document.body.style.overflow = 'hidden';
-        } 
+        }
         else {
             document.body.style.overflow = 'unset';
         }
@@ -54,6 +54,7 @@ export default function CartCard(props) {
 
     const removeItem = () => {
         dispatch(removeProductFromCart(_id, size, colour));
+        closeModal();
     };
 
     function openModal() {
@@ -78,7 +79,7 @@ export default function CartCard(props) {
             </div>
             <div class="flex flex-col flex-1 min-w-1 justify-center md:gap-1">
                 <p class="md:text-3xl text-lg min-w-1 font-syne overflow-hidden min-h-1 max-w-[100%] basis-[30%] md:max-h-none text-ellipsis">{name}</p>
-                {attribute1 && <p  class="md:text-lg text-xs font-syne">{attribute1}: {colour}</p>}
+                {attribute1 && <p class="md:text-lg text-xs font-syne">{attribute1}: {colour}</p>}
                 {attribute2 && <p class="md:text-lg text-xs font-syne">{attribute2}: {size}</p>}
                 <button class="text-lg text-start decoration-solid underline-offset-1" onClick={openModal} data-bs-toggle="modal" data-bs-target={"#model-" + index}>
 
@@ -90,34 +91,34 @@ export default function CartCard(props) {
                     onRequestClose={closeModal}
                     onClick={closeModal}
                 >
-                    <div class="w-full h-full" onClick={closeModal}>
-                        <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                            <div class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                                <h5 class="text-xl font-medium leading-normal text-gray-800" >
-                                    Remove product from cart?
-                                </h5>
-                            </div>
-                            <div class="modal-body relative p-4">
-                                <p>Are you sure you want to remove <br />"{quantity}x {name}
-                                    {
-                                        attribute1.length && `with ${attribute1}: ${colour}` 
-                                    }
-                                    {
-                                        attribute2.length && ` and ${attribute2}: ${size}` 
-                                    }"</p>
-                            </div>
-                            <div class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                                <button type="button" onClick={removeItem}
-                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
-                                    data-bs-dismiss="modal">
-                                    Yes
-                                </button>
-                                <button type="button"
-                                    class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                                    onClick={closeModal}>
-                                    No
-                                </button>
-                            </div>
+                    <div class="absolute w-full h-full overflow-x-hidden" onClick={closeModal}></div>
+                    <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current overflow-x-hidden overflow-y-hidden">
+                        <div class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                            <h5 class="text-xl font-medium leading-normal text-gray-800" >
+                                Remove product from cart?
+                            </h5>
+                        </div>
+                        <div class="modal-body relative p-4">
+                            <p>Are you sure you want to remove <br />"{quantity}x {name}
+                                {
+                                    attribute1.length && `with ${attribute1}: ${colour}`
+                                }
+                                {
+                                    attribute2.length && ` and ${attribute2}: ${size}`
+                                }"</p>
+                        </div>
+                        <div class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                        <button type="button"
+                                class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                onClick={closeModal}>
+                                No
+                            </button>
+                            <button type="button" onClick={removeItem}
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  ml-1"
+                                data-bs-dismiss="modal">
+                                Yes
+                            </button>
+
                         </div>
                     </div>
                 </Modal>

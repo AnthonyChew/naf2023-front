@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
         syne: ["Syne"],
         syneBold: ["SyneBold"],
+        syneExtraBold: ["SyneExtraBold"],
         yerk: ["Yerk"],
         yerkItalic: ["YerkItalic"]
       },

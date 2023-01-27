@@ -34,9 +34,9 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
 
     const downloadIndivWorkshop = async (i) => {
 
-        const res = await workshopService.downloadIndivWorkshop(rows[i]._id);
+        const res = await workshopService.downloadIndivWorkshop(rows[i].original._id);
         if (res.status === 200) {
-            FileDownload(res.data, `${rows[i].name}.csv`);
+            FileDownload(res.data, `${rows[i].original.name}.csv`);
         } else if (res.status === 401) {
             setAuthParentCallbackFalse();
         } else {
@@ -67,7 +67,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                <th>
+                                <th  {...column.getHeaderProps()}>
                                     {column.render('Header')}
                                 </th>
                             ))
@@ -95,7 +95,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
                                         </button>
 
                                         <button class="block m-auto" onClick={() => handleConfirmEmail(i)}>
-                                            <p class="underline decoration-solid">Delete</p>
+                                            <p class="underline decoration-solid">Send Reminder</p>
                                         </button>
                                     </td>
                                 </tr>

@@ -6,7 +6,7 @@ const AboutxCAC = (props) => {
         <AppleHeader></AppleHeader>
         <div class="text-center">
             <div class="font-syne font-bold text-2xl my-5">{props.title}</div>
-            <div><img class="mx-auto" src={props.img}/></div>
+            <div><img class="w-[500px] mx-auto" src={props.img}/></div>
             <div class="mx-5 mt-5">{props.content}</div>
         </div>
     </div>

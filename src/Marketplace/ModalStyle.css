@@ -15,6 +15,7 @@
 .ReactModal__Content--after-open{
     background-color:  transparent !important;
     border: 0 !important;
+    overflow: hidden !important;
 }
 
 

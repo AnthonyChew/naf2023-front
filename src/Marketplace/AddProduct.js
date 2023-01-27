@@ -267,6 +267,7 @@ export default function AddProduct(props) {
 
   const handleCategoryChange = (event) => {
     setState({ ...state, category: event.value });
+    setCatChoice(event);
   };
 
   //ADD IMAGES DROPZONE
@@ -431,296 +432,314 @@ export default function AddProduct(props) {
   ];
 
   return (
-    <div class="bg-white p-2">
-      <div class='text-xl font-syne underline decoration-solid' id="Add new product">
-        {type === 'add' ? 'Add New Product' : 'Edit Product'}
-      </div>
-      <div>
-        <div>
-          Please fill in the following form to add your product:
+    <div class='w-full flex flex-col justify-center items-center'>
+      <div class="bg-white p-4 border-black border-2 mt-2 rounded-xl mb-2 w-2/3">
+        <div class='text-2xl font-syne underline decoration-solid' id="Add new product">
+          {type === 'add' ? 'Add New Product' : 'Edit Product'}
         </div>
-        <form
-          autoComplete="off"
-          onSubmit={handleSubmit}
-          class='flex flex-col gap-2'
-        >
-          <Input
-            required
-            id="name"
-            label="Product Name"
-            type="text"
-            onChange={handleInputChange('name')}
-            defaultValue={pdtName}
-          />
-          <div class='border transition duration-150 ease-in-out'>
-            <label class=" float pb-0 pl-2 pointer-events-none">Description</label>
-            <textarea
-              class="w-full outline-none pl-2"
-              id="description"
-              label="Product Description"
-              type="text"
-              name="description"
-              rows="5"
-              onChange={handleInputChange('description')}
-              defaultValue={pdtDesc}
-            />
-          </div>
-          <Input
-            label="Price"
-            id="price"
-            value={state.price}
-            onChange={handleInputChange('price')}
-            type="currency"
-            defaultValue={pdtPrice}
-            required
-          />
-
-          <label>
-            Product Category:
-            <Select
-              id="product-category"
-              name="category"
-              required
-              value={catChoice}
-              options={pdtCategories}
-              onChange={handleCategoryChange}>
-            </Select>
-          </label>
-
-
-          <p class='text-xl font-syne underline decoration-solid'>Product Options</p>
-          <div >
-            Add Attribute 1
-            <input type="checkbox"
-              checked={state.addAttribute1}
-              onChange={handleChange}
-              name="addAttribute1"
-            />
-            {state.addAttribute1 && (
-              <div>
-                <Input
-                  required
-                  id="attribute1"
-                  label="Attribute 1 (e.g. colour, size)"
-                  type="text"
-                  value={state.attribute1}
-                  onChange={handleInputChange('attribute1')}
-                />
-                <CreatableSelect
-                  isMulti
-                  isClearable
-                  inputValue={attb1InputValue}
-                  onChange={handleDeleteAttribute1Chip}
-                  onInputChange={(newValue) => setAttb1Input(newValue)}
-                  label="Attribute 1 Options"
-                  color="secondary"
-                  variant="outlined"
-                  name="attribute1options"
-                  onKeyDown={handleAddAttribute1Chip}
-                  value={attb1Value}
-                />
-                <p>
-                  **Please press Enter after each attribute option
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div>
-            Add Attribute 2
-            <input type="checkbox"
-              checked={state.addAttribute2}
-              onChange={handleChange}
-              name="addAttribute2"
-            />
-          </div>
-          {state.addAttribute2 && (
-            <div >
-              <Input
-                required
-                id="attribute2"
-                label="Attribute 2 (e.g. colour, size)"
-                type="text"
-                value={state.attribute2}
-                onChange={handleInputChange('attribute2')}
-              />
-              <CreatableSelect
-                isMulti
-                isClearable
-                inputValue={attb2InputValue}
-                onChange={handleDeleteAttribute2Chip}
-                onInputChange={(newValue) => setAttb2Input(newValue)}
-                label="Attribute 1 Options"
-                color="secondary"
-                variant="outlined"
-                name="attribute1options"
-                onKeyDown={handleAddAttribute2Chip}
-                value={attb2Value}
-              />
-              <p>
-                Please press Enter after each attribute option
-              </p>
-            </div>
-          )}
-
-          <div>
-            Pre-Order
-            <input
-              type="checkbox"
-              checked={state.isPreOrder}
-              onChange={handleChange}
-              name="isPreOrder"
-            />
-
-          </div>
-
-          {state.isPreOrder && (
-            <div >
-
-              <p>Lead Time</p>
-              <Input
-                id="leadTime"
-                onChange={handleInputChange('leadTime')}
-                labelWidth={80}
-                type="number"
-                defaultValue={state.leadTime}
-              />
-              <p>
-                Product lead time indicates the minimum number of days
-                the order must be placed before collection.
-              </p>
-            </div>
-          )}
-
-          <div>
-            <p >
-              Product Variant Quantities
-            </p>
-            <ul>
-              {tableRow.map((colour, colourIndex) => {
-                return tableCol.map((size, sizeIndex) => {
-                  const labelId = `${colour}-${size}`;
-                  //console.log(tableRow)
-                  const label =
-                    colour === '' && size === ''
-                      ? 'Original'
-                      : colour.toUpperCase() + ' ' + size.toUpperCase();
-                  return (
-                    <li key={labelId} >
-                      <p id={labelId} style={{ display: 'inline-block' }} >{`Variant: ${label}`}</p>
-                      <div style={{ display: 'inline-block', paddingLeft: 15 }}>
-                        <div>
-                          Unlimited Quantity
-                          <input type="checkbox"
-                            // edge="center"
-                            onChange={handleToggle(
-                              `${colour}-${size}`,
-                              colourIndex,
-                              sizeIndex
-                            )}
-                            checked={
-                              checked.indexOf(`${colour}-${size}`) !== -1
-                            }
-                          // inputProps={{ 
-                          //   'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
-                          // }}
-                          />
-                        </div>
-
-                        {checked.indexOf(`${colour}-${size}`) === -1 && (
-                          <Input
-                            required
-                            label="Quantity"
-                            type="number"
-                            size="small"
-                            onChange={handleQtyChange(
-                              colourIndex,
-                              sizeIndex,
-                              false
-                            )}
-                            defaultValue={
-                              quantity[colourIndex][sizeIndex] < 999999
-                                ? quantity[colourIndex][sizeIndex]
-                                : ''
-                            }
-                          />
-                        )}
-                      </div>
-                    </li>
-                  );
-                });
-              })}
-            </ul>
-          </div>
-
-          <p>
-            Product Collection Options
+        <div>
+          <p class='text-xl font-syne underline decoration-solid'>
+            *Please fill in the following form to add your product:
           </p>
-          <div>
-            Allow self-collection
-            <input type="checkbox"
-              checked={state.canCollect}
-              onChange={handleChange}
-              name="canCollect"
+          <form
+            autoComplete="off"
+            onSubmit={handleSubmit}
+            class='flex flex-col gap-2'
+          >
+            <Input
+              required
+              id="name"
+              label="Product Name"
+              wrapperClassName="border-2 border-black w-full rounded-2xl"
+              type="text"
+              onChange={handleInputChange('name')}
+              defaultValue={pdtName}
             />
-          </div>
-
-          <div>
-            Allow delivery
-            <input type="checkbox"
-              checked={state.canDeliver}
-              onChange={handleChange}
-              name="canDeliver"
+            <div class="border-2 border-black w-full rounded-2xl">
+              <label class=" float pb-0 pl-2 pointer-events-none">Description</label>
+              <textarea
+                class="w-full outline-none pl-2"
+                id="description"
+                label="Product Description"
+                type="text"
+                name="description"
+                rows="5"
+                onChange={handleInputChange('description')}
+                defaultValue={pdtDesc}
+              />
+            </div>
+            <Input
+              label="Price"
+              id="price"
+              value={state.price}
+              wrapperClassName="border-2 w-full border-black rounded-2xl"
+              onChange={handleInputChange('price')}
+              type="currency"
+              defaultValue={pdtPrice}
+              required
             />
-          </div>
+            <div class='flex flex-row border-black border-2 p-2 rounded-xl mb-2'>
+              <p class='min-w-fit self-center text-center'>
+                Product Category:
+                <span class='text-red-500 mr-1'>*</span>
+              </p>
+              <div class='w-full'>
+                <Select
+                  id="product-category"
+                  name="category"
+                  required
+                  value={catChoice}
+                  options={pdtCategories}
+                  onChange={handleCategoryChange}>
+                </Select>
+              </div>
 
+            </div>
 
-          <p class='text-xl font-syne underline decoration-solid'>Product Images</p>
-          <div class="border-dashed border-gray-400 border-2 rounded-lg p-10 flex items-center justify-center" {...getRootProps()}>
-            <input {...getInputProps()} />
-            <p>
-              Drag and drop your product images here, or click to select
-              files (Squared images are preferred)
-            </p>
-          </div>
-          <aside class='flex flex-row'>
-            {images.map((file) => (
-              <div key={file.name}>
-                <button class="absolute" onClick={() => removeImage(file)}>
+            <div class='flex flex-col border-black border-2 p-2 rounded-xl mb-2 gap-2'>
+              <p class='text-xl font-syne underline decoration-solid'>Product Options</p>
+              <div >
+                Add Attribute 1
+                <span class='text-red-500 mr-1'>*</span>
+                <input type="checkbox"
+                  checked={state.addAttribute1}
+                  onChange={handleChange}
+                  name="addAttribute1"
+                />
 
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" /></svg>
-                </button>
+                {state.addAttribute1 && (
+                  <div>
+                    <Input
+                      required
+                      id="attribute1"
+                      label="Attribute 1 (e.g. colour, size)"
+                      wrapperClassName="border border-black w-full rounded-2xl mb-2"
+                      type="text"
+                      value={state.attribute1}
+                      onChange={handleInputChange('attribute1')}
+                    />
+
+                    <CreatableSelect
+                      isMulti
+                      isClearable
+                      inputValue={attb1InputValue}
+                      onChange={handleDeleteAttribute1Chip}
+                      onInputChange={(newValue) => setAttb1Input(newValue)}
+                      label="Attribute 1 Options"
+                      variant="outlined"
+                      name="attribute1options"
+                      onKeyDown={handleAddAttribute1Chip}
+                      value={attb1Value}
+                    />
+                    <p>
+                      **Please press Enter after each attribute option
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <hr class='bg-black h-0.5 ' />
+
+              <div>
+                Add Attribute 2
+                <input type="checkbox"
+                  checked={state.addAttribute2}
+                  onChange={handleChange}
+                  name="addAttribute2"
+                />
+              </div>
+              {state.addAttribute2 && (
                 <div >
+                  <Input
+                    required
+                    id="attribute2"
+                    label="Attribute 2 (e.g. colour, size)"
+                    wrapperClassName="border border-black w-full rounded-2xl mb-2"
+                    type="text"
+                    value={state.attribute2}
+                    onChange={handleInputChange('attribute2')}
+                  />
+                  <CreatableSelect
+                    isMulti
+                    isClearable
+                    inputValue={attb2InputValue}
+                    onChange={handleDeleteAttribute2Chip}
+                    onInputChange={(newValue) => setAttb2Input(newValue)}
+                    label="Attribute 1 Options"
+                    color="secondary"
+                    variant="outlined"
+                    name="attribute1options"
+                    onKeyDown={handleAddAttribute2Chip}
+                    value={attb2Value}
+                  />
+                  <p>
+                    Please press Enter after each attribute option
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div class='flex flex-col border-black border-2 p-2 rounded-xl mb-2'>
+              <div>
+                Pre-Order
+                <input
+                  type="checkbox"
+                  checked={state.isPreOrder}
+                  onChange={handleChange}
+                  name="isPreOrder"
+                />
+              </div>
+
+              {state.isPreOrder && (
+                <div >
+                  <Input
+                    id="leadTime"
+                    onChange={handleInputChange('leadTime')}
+                    label="Lead Time"
+                    wrapperClassName="border border-black w-full rounded-2xl mb-2"
+                    name="leadTime"
+                    type="number"
+                    defaultValue={state.leadTime}
+                  />
+                  <p>
+                    Product lead time indicates the minimum number of days
+                    the order must be placed before collection.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div class='border-black border-2 p-2 rounded-xl mb-2'>
+              <p >
+                Product Variant Quantities
+              </p>
+              <ul>
+                {tableRow.map((colour, colourIndex) => {
+                  return tableCol.map((size, sizeIndex) => {
+                    const labelId = `${colour}-${size}`;
+                    //console.log(tableRow)
+                    const label =
+                      colour === '' && size === ''
+                        ? 'Original'
+                        : colour.toUpperCase() + ' ' + size.toUpperCase();
+                    return (
+                      <li key={labelId} class='border border-black p-1 mb-1'>
+                        <p id={labelId} class='text-xl font-syne underline decoration-solid'>{`Variant: ${label}`}</p>
+                        <div style={{ display: 'inline-block', paddingLeft: 15 }}>
+                          <div>
+                            Unlimited Quantity
+                            <input type="checkbox"
+                              // edge="center"
+                              onChange={handleToggle(
+                                `${colour}-${size}`,
+                                colourIndex,
+                                sizeIndex
+                              )}
+                              checked={
+                                checked.indexOf(`${colour}-${size}`) !== -1
+                              }
+                            // inputProps={{ 
+                            //   'aria-labelledby': `unlimited quantity for variant ${colour}-${size}`,
+                            // }}
+                            />
+                          </div>
+
+                          {checked.indexOf(`${colour}-${size}`) === -1 && (
+                            <Input
+                              required
+                              label="Quantity"
+                              type="number"
+                              size="small"
+                              wrapperClassName="border border-black w-full rounded-2xl mb-2"
+                              onChange={handleQtyChange(
+                                colourIndex,
+                                sizeIndex,
+                                false
+                              )}
+                              defaultValue={
+                                quantity[colourIndex][sizeIndex] < 999999
+                                  ? quantity[colourIndex][sizeIndex]
+                                  : ''
+                              }
+                            />
+                          )}
+                        </div>
+                      </li>
+                    );
+                  });
+                })}
+              </ul>
+            </div>
+
+            <div class='flex flex-row border-black border-2 p-2 rounded-xl mb-2 gap-5'>
+              <p>
+                Product Collection Options:
+                <span class='text-red-500 ml-1'>*</span>
+              </p>
+              <div>
+                Allow self-collection
+                <input type="checkbox"
+                  checked={state.canCollect}
+                  onChange={handleChange}
+                  name="canCollect"
+                />
+              </div>
+
+              <div>
+                Allow delivery
+                <input type="checkbox"
+                  checked={state.canDeliver}
+                  onChange={handleChange}
+                  name="canDeliver"
+                />
+              </div>
+            </div>
+
+            <p class='text-xl font-syne underline decoration-solid'>Product Images</p>
+            <div class="border-dashed border-gray-400 border-2 rounded-lg p-10 flex items-center justify-center" {...getRootProps()}>
+              <input {...getInputProps()} />
+              <p>
+                Drag and drop your product images here, or click to select
+                files (Squared images are preferred)
+              </p>
+            </div>
+            <aside class='flex flex-row max-w-3xl overflow-x-auto'>
+              {images.map((file) => (
+                <div class='relative ml-3 border-2 p-1 border-black' key={file.name}>
+                  <button class="absolute" onClick={() => removeImage(file)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" /></svg>
+                  </button>
                   {typeof file.preview === 'undefined' ? (
-                    <img src={file} />
+                    <img class='max-w-xs max-h-48' src={file} />
                   ) : (
-                    <img class='max-w-sm' src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} />
+                    <img class='max-w-xs max-h-48' src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} />
                   )}
                 </div>
-              </div>
-            ))}
-          </aside>
-          <button
-            type="submit"
-            disabled={promiseInProgress}
-          >
-            {type === 'add' ? 'Add Product' : 'Update Product'}
-          </button>
-          <p style={{ color: 'red' }}>
-            {helperText}
-          </p>
+              ))}
+            </aside>
+            <button
+              type="submit"
+              class=" text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              disabled={promiseInProgress}
+            >
+              {type === 'add' ? 'Add Product' : 'Update Product'}
+            </button>
+            <p style={{ color: 'red' }}>
+              {helperText}
+            </p>
 
-          <button
-            onClick={handleClose}
-            disabled={promiseInProgress}
-          >
-            Cancel
-          </button>
-          <LoadingSpinnerComponent />
-        </form>
-      </div >
-
-
+            <button
+              onClick={handleClose}
+              type="button"
+              class=" text-white border-4 border-black bg-#0071C6 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              disabled={promiseInProgress}
+            >
+              Cancel
+            </button>
+            <LoadingSpinnerComponent />
+          </form>
+        </div >
+      </div>
     </div>
   );
 }

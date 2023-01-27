@@ -3,7 +3,7 @@ import AppleHeader from '../SharedPages/AppleHeader'
 import LandingBg from './svgs/landing/landingbg.svg'
 import InstagramIcon from './svgs/landing/landingInstagram.svg'
 import FacebookIcon from './svgs/landing/landingFacebook.svg'
-import TikTok from './svgs/landing/landingTikTok.svg'
+import TikTokIcon from './svgs/landing/landingTikTok.svg'
 import LeftBigBlueStarIcon from './svgs/landing/landingBlueStar.svg'
 import MiddleYellowDotIcon from './svgs/landing/landingYellowDot.svg'
 import MiddleRedStarIcon from './svgs/landing/landingRedStar.svg'
@@ -23,7 +23,7 @@ const Landing = () => {
         <AppleHeader title={"www.aboutus.com"}></AppleHeader>
         <div class="h-full w-full border-solid "  >
           <div class="p-5 bg-white">
-            <iframe class="h-[35em] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="md:h-[35em] h-[25em] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
           <img class="hidden lg:block absolute top-[67%] left-[5%]" src={LeftBigBlueStarIcon}></img>
@@ -46,9 +46,18 @@ const Landing = () => {
                 </p>
 
                 <div class="flex items-center justify-center gap-[3em] pb-[1em]">
-                  <img class="max-w-[5em]" src={InstagramIcon}></img>
-                  <img class="max-w-[5em]" src={FacebookIcon}></img>
-                  <img class="max-w-[5em]" src={TikTok}></img>
+                  <a href='https://www.facebook.com/ntuartsfestival/'>
+                    <img src={FacebookIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px]  mx-2"></img>
+                  </a>
+
+                  <a href='https://www.instagram.com/ntuartsfestival/?hl=en'>
+                    <img src={InstagramIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px] mx-2"></img>
+                  </a>
+
+
+                  <a href='https://www.instagram.com/ntuartsfestival/?hl=en'>
+                    <img src={TikTokIcon} class="w-[35px] h-[35px] md:w-[50px] md:h-[50px]  mx-2"></img>
+                  </a>
                 </div>
               </div>
             </div>

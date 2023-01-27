@@ -5,10 +5,10 @@ export default function ContestCard(props) {
 
   return (
     <div class="flex flex-col text-right">
-        <img class="max-w-sm" src={image} alt={name} />
-      <h2>
+        <img class="md:max-w-sm max-w-xs" src={image}  />
+      <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>
         {name}
-      </h2>
+      </p>
     </div>
   );
 }
