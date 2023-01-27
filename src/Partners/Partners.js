@@ -52,7 +52,7 @@ const Partners = () => {
             <img src={Yellow4Star2} class="z-10 absolute w-[140px] -bottom-[2.5%] left-[46%]"></img>
             <img src={Orange8Star2} class="z-10 absolute w-[270px] -bottom-[6%] right-[15%]"></img>
 
-            <div class="z-20 relative">
+            <div class="relative">
                 <img src={TextLogo} class="mx-auto w-[65%]"></img>
                 <p class="font-syne text-white text-center text-2xl pt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>

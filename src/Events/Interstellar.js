@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import EventCard from './EventCard'
 import EventHeader from './EventHeader'
-import InterStellarLogo from './svgs/Interstellar.png'
+import InterStellarLogo from './svgs/Interstellar2.png'
 import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
 import Filter from './FilterWorkshops';
 
 const Interstellar = () => {
-  const bgcolor = "bg-NAFOrange";
+  const bgcolor = "bg-NAFPurple";
 
   function compare(sortType, a, b) {
     // console.log(sortType, a, b);
@@ -54,14 +54,15 @@ const Interstellar = () => {
   useEffect(() => {
     async function fetchWorkshopData() {
       const res = await trackPromise(workshopService.getAll());
+      console.log(res.data);
       setWorkshops(res.data);
     }
     fetchWorkshopData();
   }, []);
 
   return (
-    <div class="relative bg-NAFOrange pb-20">
-      <EventHeader img={InterStellarLogo} text=""></EventHeader>
+    <div class="relative bg-NAFPurple pb-20">
+      <EventHeader img={InterStellarLogo} text="Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations."></EventHeader>
       {/* <div class="flex w-[85%] mx-auto text-center">
         <div class="basis-full">
           <EventCard button="Click here to register" href="/" bgColor={bgcolor} title="REGISTER FOR INTERSTELLAR" date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library" content="

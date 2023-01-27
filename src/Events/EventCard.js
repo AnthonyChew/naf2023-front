@@ -33,7 +33,7 @@ const EventCard = (props) => {
     return (
         <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
             <div class="font-syneExtraBold text-2xl font-bold mt-2">{props.title}</div>
-            {!workshops && <div className={"rounded-lg p-1 mt-3 w-fit px-10 mx-auto " + props.bgColor + textColorCondition}>{props.date}</div>}
+            {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 mt-3 w-fit px-10 mx-5 md:mx-auto " + props.bgColor + textColorCondition}>{props.date}</div></div>}
             <div className={"mt-3 mx-3 text-md whitespace-pre-wrap"}>{props.content}</div>
             {
                 props.button ?
