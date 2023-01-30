@@ -72,35 +72,48 @@ const Workshops = () => {
             onSlideChange={() => console.log("slide change")}
             loop={true}
           >
-            <SwiperSlide>
-              <img
-                src="https://swiperjs.com/demos/images/nature-1.jpg"
-                alt=""
-              />
-              <div class="text-center">Pikachu</div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div class='cursor-pointer' onClick={() => history('/glimmer')}>
+            <SwiperSlide >
+              <div class='flex flex-col justify-center items-center'>
                 <img
-                  src="https://swiperjs.com/demos/images/nature-2.jpg"
+                  src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674565052.jpeg"
                   alt=""
+                  class='h-[250px] w-[350px]'
                 />
-                <div class="text-center">Navigate Example</div>
+                <div class="text-center font-syne">Laura Jane Poetry S1</div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div class='flex flex-col justify-center items-center'>
+                <img
+                  src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674577379+(1).jpeg"
+                  alt=""
+                  class='h-[250px] w-[350px]'
+                />
+                <div class="text-center font-syne">MLCS</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src="https://swiperjs.com/demos/images/nature-3.jpg"
-                alt=""
-              />
-              <div class="text-center">Pikachu</div>
+              <div class='flex flex-col justify-center items-center'>
+                <img
+                  src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/minis1.jpg"
+                  alt=""
+                  class='h-[250px] w-[350px]'
+                />
+                <div class="text-center font-syne">Minature Painting</div>
+              </div>
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src="https://swiperjs.com/demos/images/nature-4.jpg"
-                alt=""
-              />
-              <div class="text-center">Pikachu</div>
+              <div class='flex flex-col justify-center items-center'>
+                <div class='cursor-pointer' onClick={() => history('/glimmer')}>
+                  <img
+                    src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/image_6487327+(1).JPG"
+                    alt=""
+                    class='h-[250px] w-[350px]'
+                  />
+                  <div class="text-center font-syne text-lg">Theatre Games</div>
+                </div>
+              </div>
             </SwiperSlide>
           </Swiper>
         </div>

@@ -57,12 +57,12 @@ const EventCard = (props) => {
                                     <img class='basis-1/3 w-[200px] h-[200px]' src={workshop.images[0]} />
                                     <div class='basis-2/3 flex flex-col max-w-[90%] md:max-w-full min-w-0'>
                                         <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap md:max-w-fit max-w-[90%]">{workshop.name}</p>
-                                        <div className={"p-1 w-fit px-10 my-2 bg-NAFPurple text-white"}>
+                                        <p class=" text-bg text-purple-400 self-start">
                                             Vacancies:
                                             {workshop.maxParticipants - workshop.numRegistered > 1000
                                                 ? 'Unlimited'
                                                 : workshop.maxParticipants - workshop.numRegistered}
-                                        </div>
+                                        </p>
 
                                         <p class="font-syne self-center md:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Category:{workshop.category}
@@ -79,14 +79,6 @@ const EventCard = (props) => {
                                         <p class="font-syne self-center md:self-start">
                                             Duration: {workshop.duration} minutes
                                         </p>
-                                        <button
-                                            onClick={() => signUp(workshop)}
-                                            class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
-                                        >
-                                            <p class="font-syne self-center md:self-start">
-                                                Sign Up
-                                            </p>
-                                        </button>
                                     </div>
                                     {
                                         current_date <= workshop.date &&

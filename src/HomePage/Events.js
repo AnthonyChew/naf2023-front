@@ -19,10 +19,10 @@ import Pikachu4 from './svgs/events/pikachu4.jpg';
 import AppleHeader from '../SharedPages/AppleHeader';
 
 const Events = () => {
-  const imgGallery = [  {image:Pikachu1 , location: 'Linkway, LT1A' , name:'Glimmer' , date:'14 - 24 FEB 2023'},
-                        {image:Pikachu2 , location: 'Foyer @ LT1A' , name:'Starburst' ,  date:'6 - 10 MAR 2023'},
-                        {image:Pikachu3 , location: 'TRs, LWN Study Room, Nanyang House, NIE' , name:'Interstellar' , date:'6 - 17 MAR 2023' },
-                        {image:Pikachu4 , location: 'Green Lawn @ NS Linkway Nanyang Auditorium' , name:'Orbit ' , date:'6 FEB - 17 MAR 2023' }];
+  const imgGallery = [  {image:Pikachu1 , location: 'Linkway, LT1A' , name:'GLIMMER' , date:'14 - 24 FEB 2023'},
+                        {image:Pikachu2 , location: 'Foyer @ LT1A' , name:'STARBURST' ,  date:'6 - 10 MAR 2023'},
+                        {image:Pikachu3 , location: 'TRs, LWN Study Room, Nanyang House, NIE' , name:'INTERSTELLAR' , date:'6 - 17 MAR 2023' },
+                        {image:Pikachu4 , location: 'Green Lawn @ NS Linkway Nanyang Auditorium' , name:'ORBIT ' , date:'6 FEB - 17 MAR 2023' }];
   const [imgState, setImgState] = useState(0)
   const ImageState = (val) => (event) => {
     if (val > 3) val = 0
@@ -61,15 +61,15 @@ const Events = () => {
 
         <img src={SmallWhiteStar} class="hidden lg:block absolute bottom-[10%] right-[-1%]" ></img>
         <div class="relative">
-          <img src={EventLogo} class="w-3/4"></img>
+          <img src={EventLogo}></img>
           <div class="mt-10 w-[90%]">
             {
               imgGallery.map((oneImage, index) => (
                 <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
                  "text-black bg-white rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
                  onClick={ImageState(index)} >
-                  <div class="font-yerkItalic text-xl">{oneImage.name}</div>
-                  <div class="font-syne font-bold text-m">{oneImage.date},{<br/>} 	&lt;{oneImage.location}&gt;</div>
+                  <div class="font-syneExtraBold text-3xl text-ellipsis whitespace-nowrap overflow-hidden ">{oneImage.name}</div>
+                  <div class="font-syneBold text-m">{oneImage.date},{<br/>} 	&lt;{oneImage.location}&gt;</div>
                 </div>
               ))
             }
