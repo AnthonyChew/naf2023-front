@@ -81,7 +81,7 @@ const Interstellar = () => {
           bgColor={bgcolor}
           title="WORKSHOPS"
           date="18 Mar 2023, 6:15pm - 7:00pm, NLB Library"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia risus lorem, ut efficitur nisi facilisis id. Morbi molestie neque eu urna tincidunt lacinia."></EventCard>
+          content="Workshops: Browse through the workshops provided and choose to your own liking! Workshops will be held from 6 March to 17 March"></EventCard>
 
       </div>
     </div>

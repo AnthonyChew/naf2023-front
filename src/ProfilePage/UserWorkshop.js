@@ -190,15 +190,17 @@ function UserWorkshop(props) {
       </Modal>
 
       <Modal isOpen={payment} onRequestClose={closeModal}>
-        <div class="w-full h-full">
-          <div class="top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-            <div class="flex items-center justify-end mb-8 mr-5 mt-5">
-              <button class="navbar-close" onClick={() => closeModal()}>
+      <div class=" w-full h-full border-4 border-black rounded-md overflow-y-auto bg-white">
+          <div class="top-[90%] md:top-[65%] left-1/2 right-auto  h-fit bottom-auto -translate-x-1/2 -translate-y-1/2 relative flex flex-col w-full pointer-events-auto  bg-clip-padding outline-none text-current md:pl-5 md:pr-5 pl-1 pr-1">
+            <div class='md:pr-5 md:pt-5'>
+              <button class='float-right' onClick={() => closeModal()}>
                 <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
             </div>
+            <p class='text-center md:text-xl font-syneBold'>Payment Proof</p>
+            <p class='text-center md:text-xl font-syne'>Scan the QR Code below for payment and upload a screenshot once you’re done.</p>
             <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full justify-around md:pl-0 md:pr-0 pl-1 pr-1">
               <img class='basis-1/3' src={QRCode}></img>
               {images.length <= 0 ?
@@ -216,6 +218,12 @@ function UserWorkshop(props) {
                   <img class='flex-around self-center' src={images && images[0].preview} onLoad={() => { URL.revokeObjectURL(images[0].preview) }} />
                 </div>
               }
+            </div>
+            
+            <hr class='bg-black h-1' />
+            <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
+              <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Subtotal:</p>
+              <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl whitespace-nowrap"> $ 3.50</p>
             </div>
             {
               images.length > 0 &&

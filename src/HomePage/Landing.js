@@ -38,11 +38,10 @@ const Landing = () => {
             <div class="h-fit bg-white">
               <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">
                 <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                </p>
-
-                <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
+                NTU Arts Festival is finally back! From 14 February to 17 March, get a taste of NTU's colourful arts scene through various activities planned and curated just for you; From exciting performances to engaging workshops, it's the perfect opportunity to explore and appreciate the arts.
+                <br/>
+                <br/>
+                Guided by our theme of "Supernova", this year's festival promises to deliver a joyful and explosive return to physical activities for the student population to enjoy. See you there!
                 </p>
 
                 <div class="flex items-center justify-center gap-[3em] pb-[1em]">

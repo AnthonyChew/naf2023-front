@@ -15,6 +15,7 @@ import SalsaenSync from './svgs/Orbit/SalsaenSync.JPG';
 import SymphonicBand from './svgs/Orbit/SymphonicBand.JPG';
 import WeeWeeKim from './svgs/Orbit/WeeWeeKim.PNG';
 import WORLD from './svgs/Orbit/WORLD.jpeg';
+import Harmonix from './svgs/Orbit/Harmonix.jpeg';
 
 
 
@@ -23,7 +24,7 @@ const Orbit = () => {
 
   const content = [
     {
-    image: "",
+    image: Harmonix,
     title: "Harmonix CAC",
     desc: "NTU Harmonix is a vibrant and thriving family with members who have the passion to share their love for music using only their voices. Harmonix has been working towards bringing a different sound to the college community as well as the local a cappella scene. With a blend of different personalities and colourful vocals, they strive to showcase a coherent and sophisticated sound and sensational harmonies to engage and entertain audiences."
   },
@@ -50,12 +51,12 @@ const Orbit = () => {
   {
     image: JnB,
     title: "Jazz and Blues",
-    desc: "the only blue i know is the sky"
+    desc: "NTU Jazz and Blues Club is a diverse club, comprised of like-minded individuals, all sharing a love for the art of expression that is music. We take the cultivation of talent very seriously, and have implemented a leadership structure to reflect just that, with mandatory sectional training and “clinics” conducted by seasoned veterans in the jazz and blues scene. We have been committed to sharing our passion through organising performances both in and outside of NTU."
   },
   {
     image: Hall10Jamband,
-    title: "Hall 10 Band",
-    desc: "FASTER CHOP CHOP"
+    title: "The Eviction Notices",
+    desc: "The Eviction Notices is Hall 10’s collective of musicians with varying music tastes, but the same love for music. In this exclusive performance, they bring you a mixture of musicians from 3 different bands across various years - playing songs that you’ll definitely know and enjoy!"
   },
   {
     image: WORLD,
@@ -74,13 +75,8 @@ const Orbit = () => {
   },
   {
     image: NusaSarjana,
-    title: "Nusa Sarjana",
-    desc: "Nusa Sarjana is a male Dikir Barat group from NTU-NIE students. They are the first dikir barat group at the University level to participate in inter-schools competition, Piala Suara Serumpun (PSS), where they had won fourth place in 2019, and 2nd place for male category in 2022. They have been actively participating in various performances both internally and externally over the years such as Perbayu’s Annual Welcome Tea and Freshmen Orientation Programme."
-  },
-  {
-    image: DewiSamudera,
-    title: "Dewi Samudera",
-    desc: "Dewi Samudera, which means “Goddesses of the Sea”, is NTU-NIE’s very own female dikir barat group. Dewi Samudera has participated in many competitions such as Piala Suara Serumpun, as well as NTU-NIE events such as Rentak Budaya. Dewi Samudera also organised their own production, HAWA: Harakah Wanita in conjunction with International Womens’ Day."
+    title: "Nusa Sarjana & Dewi Samudera",
+    desc: "Nusa Sarjana\nNusa Sarjana is a male Dikir Barat group from NTU-NIE students. They are the first dikir barat group at the University level to participate in inter-schools competition, Piala Suara Serumpun (PSS), where they had won fourth place in 2019, and 2nd place for male category in 2022. They have been actively participating in various performances both internally and externally over the years such as Perbayu’s Annual Welcome Tea and Freshmen Orientation Programme.\nDewi Samudera\nDewi Samudera, which means “Goddesses of the Sea”, is NTU-NIE’s very own female dikir barat group. Dewi Samudera has participated in many competitions such as Piala Suara Serumpun, as well as NTU-NIE events such as Rentak Budaya. Dewi Samudera also organised their own production, HAWA: Harakah Wanita in conjunction with International Womens’ Day."
   },
   {
     image: SalsaenSync,
@@ -139,7 +135,7 @@ const Orbit = () => {
                   content.map((one, index) => (
                     <div class="basis-[90%] lg:basis-[46%] md:mx-5 lg:px-5 mb-[4rem]">
                       <div class='flex flex-wrap md:flex-nowrap md:flex-row p-3 border-2 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)] h-[100%]'>
-                        <img class='basis-[100%] md:basis-[40%] w-[200px] h-[200px]' src={one.image} />
+                        <img class='basis-[100%] md:basis-[40%] self-center w-[200px] h-[200px]' src={one.image} />
                         <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full min-w-0'>
                           <div class="mt-3">
                             <div class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap text-center bg-NAFPink w-[100%] md:w-[90%] md:px-3 md:mx-auto">{one.title}</div>

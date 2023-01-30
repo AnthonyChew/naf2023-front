@@ -49,13 +49,7 @@ const Gallery = () => {
       />
       <img class="relative mx-auto w-[80%] md:w-[40%] mb-[3%]" src={Logo} />
       <div class="z-10 relative mb-[3%] mx-[10%] lg:mx-[15%] font-semibold text-white text-center text-xs sm:text-sm md:text-md lg:text-xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+      Browse through the gallery to find out more about what to expect duirng the workshop!
       </div>
       <div className="flex flex-row">
         <div className="z-10 gallery-prevEl" />

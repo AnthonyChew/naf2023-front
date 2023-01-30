@@ -321,7 +321,7 @@ const Payment = () => {
   return (
     <>
       <Modal
-        isOpen={!true}
+        isOpen={!auth}
         onRequestClose={closeModal}
       >
         <div h-full class="h-full flex flex-col items-center justify-center">
