@@ -54,7 +54,7 @@ const Navbar = () => {
     return (
 
 
-        <div >
+        <div class="z-50 fixed w-full bg-white">
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <Link to="/" class="link" smooth>
                     <img src={NAFLogo} class="w-[200px] h-[120px] flex-initial"></img>
@@ -81,7 +81,7 @@ const Navbar = () => {
                             <Link to="/picrew" class="link block py-2 hover:bg-gray-200" smooth>Picrew</Link>
                         </div>
                     </div>
-                    <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
+                    <Link to="/marketplace" class="link" smooth>ARTS MARKET</Link>
                     <div class="relative" ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
                         <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
@@ -140,7 +140,7 @@ const Navbar = () => {
 
                             </div>
                         </div>
-                        <Link onClick={() => closeEntireMobileNavbar()} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>MARKETPLACE</Link>
+                        <Link onClick={() => closeEntireMobileNavbar()} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ARTS MARKET</Link>
                         <div class="relative p-4 text-sm">
                             <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsMobileNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
