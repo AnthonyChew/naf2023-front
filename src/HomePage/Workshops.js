@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navigation,
   Pagination,
@@ -27,8 +27,22 @@ import WorkshopBottomRightBlueStar from "./svgs/workshop/WorkshopBlueStar.svg";
 import LandingBg from "./svgs/landing/landingbg.svg";
 
 
+
+
 const Workshops = () => {
   const history = useNavigate();
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 1250) {
+      setNum(1);
+    }
+    else {
+
+      setNum(3);
+    }
+  });
+  const [num, setNum] = useState(3);
+
   return (
     <div class="bg-NAFOrange bg-cover relative overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
       <img src={WorkshopTopLeftPurpleStar} class="hidden lg:block absolute top-[5%] left-[0%] z-10"></img>
@@ -55,7 +69,7 @@ const Workshops = () => {
               EffectFade,
             ]}
             spaceBetween={50}
-            slidesPerView={3}
+            slidesPerView={num}
             navigation={true}
             pagination={{
               el: ".swiper-custom-pagination",
@@ -77,7 +91,7 @@ const Workshops = () => {
                 <img
                   src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674565052.jpeg"
                   alt=""
-                  class='h-[250px] w-[350px]'
+                  class='md:h-[250px] md:w-[350px] '
                 />
                 <div class="text-center font-syne">Laura Jane Poetry S1</div>
               </div>
@@ -88,7 +102,7 @@ const Workshops = () => {
                 <img
                   src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674577379+(1).jpeg"
                   alt=""
-                  class='h-[250px] w-[350px]'
+                  class='md:h-[250px] md:w-[350px]'
                 />
                 <div class="text-center font-syne">MLCS</div>
               </div>
@@ -98,7 +112,7 @@ const Workshops = () => {
                 <img
                   src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/minis1.jpg"
                   alt=""
-                  class='h-[250px] w-[350px]'
+                  class='md:h-[250px] md:w-[350px]'
                 />
                 <div class="text-center font-syne">Minature Painting</div>
               </div>
@@ -109,7 +123,7 @@ const Workshops = () => {
                   <img
                     src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/image_6487327+(1).JPG"
                     alt=""
-                    class='h-[250px] w-[350px]'
+                    class='md:h-[250px] md:w-[350px]'
                   />
                   <div class="text-center font-syne text-lg">Theatre Games</div>
                 </div>
