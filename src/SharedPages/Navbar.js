@@ -61,17 +61,17 @@ const Navbar = () => {
                 </Link>
                 <div class="relative hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
                     <Link to="/" class="link" smooth>HOME</Link>
-                    <div class="relative" ref={AboutUsRef} onClick={() => setIsAboutUsOpen((prev) => !prev)}>
+                    <div class="relative" ref={AboutUsRef} onMouseEnter={() => setIsAboutUsOpen(true)} onMouseLeave={() => setIsAboutUsOpen(false)} onClick={() => setIsAboutUsOpen((prev) => !prev)}>
                         <Link class="link" smooth>ABOUT</Link>
-                        <div className={isAboutUsOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isAboutUsOpen ? "absolute z-100 font-medium left-[-75%] top-[100%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>About The Festival</Link>
                             <Link to="/committee" class="link block py-2 px-3 hover:bg-gray-200" smooth>Main Committee</Link>
                             <Link to="/partners" class="link block py-2 px-3 hover:bg-gray-200" smooth>Partners</Link>
                         </div>
                     </div>
-                    <div class="relative" ref={ProgrammesRef} onClick={() => setIsProgrammesOpen((prev) => !prev)}>
+                    <div class="relative" ref={ProgrammesRef} onMouseEnter={() => setIsProgrammesOpen(true)} onMouseLeave={() => setIsProgrammesOpen(false)} onClick={() => setIsProgrammesOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton" >PROGRAMMES</Link>
-                        <div className={isProgrammesOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isProgrammesOpen ? "absolute z-100 font-medium left-[-8%] top-[100%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
                             {/* <Link to="/nebula" class="link block py-2 hover:bg-gray-200" smooth>Nebula</Link> */}
                             <Link to="/starburst" class="link block py-2 hover:bg-gray-200" smooth>Starburst</Link>
@@ -82,9 +82,9 @@ const Navbar = () => {
                         </div>
                     </div>
                     <Link to="/marketplace" class="link" smooth>MARKETPLACE</Link>
-                    <div class="relative " ref={NAFCACRef} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
+                    <div class="relative " ref={NAFCACRef}  onMouseEnter={() => setIsNAFxCACOpen(true)} onMouseLeave={() => setIsNAFxCACOpen(false)} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
-                        <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[10%] top-[200%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
+                        <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[-41.5%] top-[100%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
                             <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
                             <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
             </div>
             {/* navbar mobile menu */}
             <div className={isNavOpen ? "navbar-menu relative z-50" : "navbar-menu relative z-50 hidden"}>
-                <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+                <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25 "></div>
                 <nav class="fixed top-0 right-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
                     <div class="flex items-center justify-end mb-8">
                         <button class="navbar-close" onClick={() => closeEntireMobileNavbar()}>
@@ -119,9 +119,9 @@ const Navbar = () => {
                             </svg>
                         </button>
                     </div>
-                    <div ref={MobileRef}>
-                        <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
-                        <div class="relative p-4 text-sm" >
+                    <div class="font-syne" ref={MobileRef}>
+                        <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link block p-4 text-lg font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth >HOME</Link>
+                        <div class="relative p-4 text-lg " >
                             <Link onClick={() => setIsMobileAboutUsOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >ABOUT</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileAboutUsOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
                                 <Link to="/about" class="link block py-2 px-3 hover:bg-gray-200" smooth>About The Festival</Link>
@@ -129,7 +129,7 @@ const Navbar = () => {
                                 <Link to="/partners" class="link block py-2 px-3 hover:bg-gray-200" smooth>Partners</Link>
                             </div>
                         </div>
-                        <div class="relative p-4 text-sm" >
+                        <div class="relative p-4 text-lg" >
                             <Link onClick={() => setIsMobileProgrammesOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >PROGRAMMES</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileProgrammesOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
                                 <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
@@ -140,8 +140,9 @@ const Navbar = () => {
 
                             </div>
                         </div>
-                        <Link onClick={() => closeEntireMobileNavbar()} to="/marketplace" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>MARKETPLACE</Link>
-                        <div class="relative p-4 text-sm">
+
+                        <Link onClick={() => closeEntireMobileNavbar()} to="/marketplace" class="link block p-4 text-lg font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>ARTS MARKET</Link>
+                        <div class="relative p-4 text-lg">
                             <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsMobileNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
@@ -150,7 +151,7 @@ const Navbar = () => {
                             <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
                             </div>
                         </div>
-                        <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
+                        <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link text-lg block p-4 font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>
                     </div>
                 </nav>
             </div>
