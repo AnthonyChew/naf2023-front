@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5410cddd.css",
-    "main.js": "/static/js/main.0e1d5ca0.js",
+    "main.css": "/static/css/main.c71e8f50.css",
+    "main.js": "/static/js/main.5544a3ef.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/TOP_2.jpg": "/static/media/TOP_2.1bd31c23945f4ef0214b.jpg",
     "static/media/TOP_1.jpg": "/static/media/TOP_1.cbc95fd3cc9df431696c.jpg",
@@ -116,20 +116,21 @@
     "static/media/TextLogo.png": "/static/media/TextLogo.bc490d957cbe7d1d1cb0.png",
     "static/media/Image.svg": "/static/media/Image.32d9e42d9d6e9a5f771f2f1903f5391e.svg",
     "static/media/poweredByMyULife.png": "/static/media/poweredByMyULife.312c69395b55ce2639e1.png",
-    "static/media/MarketPlace Logo.svg": "/static/media/MarketPlace Logo.991aa336a42a2e23b333f9304ec991c7.svg",
+    "static/media/WhatIsNTUArtsFestival.png": "/static/media/WhatIsNTUArtsFestival.6454fa1ad03bbbb10822.png",
     "static/media/landingInstagram.svg": "/static/media/landingInstagram.a167688aa806d9875df3088523f7694a.svg",
     "static/media/MerchandiseMaverick.svg": "/static/media/MerchandiseMaverick.d673c64771fd739c90e3cac2518081c5.svg",
     "static/media/workshops_Logo.svg": "/static/media/workshops_Logo.6d68d5670ec6904594385ee8959bfcb9.svg",
     "static/media/Yerk-Italic.otf": "/static/media/Yerk-Italic.cb3d37ec4d0946237822.otf",
-    "static/media/OrderSubmitted.png": "/static/media/OrderSubmitted.e19560ab4477d1b235d0.png",
     "static/media/Yerk-Regular.otf": "/static/media/Yerk-Regular.cfe7ebec32db0e86e154.otf",
-    "static/media/WhatIsNTUArtsFestival.png": "/static/media/WhatIsNTUArtsFestival.05d78ef0f2884671732c.png",
+    "static/media/OrderSubmitted.png": "/static/media/OrderSubmitted.6847f3ff701f6e914913.png",
+    "static/media/MarketPlaceLogo.png": "/static/media/MarketPlaceLogo.f42b9a12dd7293bcf963.png",
     "static/media/landingTikTok.svg": "/static/media/landingTikTok.85bbe43eba5e7b286d1ea12d322c26d9.svg",
     "static/media/Header.png": "/static/media/Header.df6a114cd5fcfd6c0254.png",
+    "static/media/MarketPlace Logo.png": "/static/media/MarketPlace Logo.eff8ee813e01ba9d772c.png",
+    "static/media/WorkshopLogo.png": "/static/media/WorkshopLogo.58fe4a699ac715d9bf2c.png",
     "static/media/CommitteeLogo.png": "/static/media/CommitteeLogo.3fc52de07c46e258eea5.png",
-    "static/media/MarketPlaceLogo.png": "/static/media/MarketPlaceLogo.9ef88fbf837b5b6dae1a.png",
-    "static/media/PaymentLogo.png": "/static/media/PaymentLogo.3377fe34111599cc269a.png",
     "static/media/workshopSignUpLogo.png": "/static/media/workshopSignUpLogo.cf9dd15daefbf935e4d6.png",
+    "static/media/whatsonLogo.png": "/static/media/whatsonLogo.68c00272c00cc437ef6d.png",
     "static/media/JDCTextLogo.png": "/static/media/JDCTextLogo.dbb7aca427257cd2d690.png",
     "static/media/landingFacebook.svg": "/static/media/landingFacebook.49a4cbf6bf0f0f061842b9e0942a7b4b.svg",
     "static/media/QRCode.svg": "/static/media/QRCode.54ad632b64242fe3bca9e7fd3ff62582.svg",
@@ -351,12 +352,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.5410cddd.css.map": "/static/css/main.5410cddd.css.map",
-    "main.0e1d5ca0.js.map": "/static/js/main.0e1d5ca0.js.map",
+    "main.c71e8f50.css.map": "/static/css/main.c71e8f50.css.map",
+    "main.5544a3ef.js.map": "/static/js/main.5544a3ef.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5410cddd.css",
-    "static/js/main.0e1d5ca0.js"
+    "static/css/main.c71e8f50.css",
+    "static/js/main.5544a3ef.js"
   ]
 }

@@ -74,7 +74,7 @@ const Glimmer = () => {
       newImage.append('newImages', images[0]);
       newImage.append('images', JSON.stringify([]));
       let res;
-      res = await trackPromise(imageService.addImages(newImage)); 
+      res = await trackPromise(imageService.addImages(newImage));
 
       if (res.status === 200) {
         console.log("image uploaded");
@@ -150,6 +150,14 @@ const Glimmer = () => {
         img={GlimmerLogo}
         text="Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. Participate in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie"
       ></EventHeader>
+      <div class="flex w-[85%] mx-auto text-center flex-wrap justify-between">
+        <div class="basis-full lg:basis-[45%]">
+          <EventCard bgColor={bgcolor} title="PUBLICITY BOOTH" date="14 to 17 Feb, 11am to 5pm, Concourse area @ South Spine" content="Come down to our publicity booth at Linkway to learn more about our upcoming events!"></EventCard>
+        </div>
+        <div class="basis-full lg:basis-[45%]">
+          <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date="24 Feb, 5pm to 10pm, LT1A" content="Join us for a night of unforgettable movies will "></EventCard>
+        </div>
+      </div>
       <div class="bg-white w-[85%] h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
         <div class="font-syneExtraBold text-2xl font-bold mt-2">
           CREATE YOUR OWN PICREW
