@@ -117,7 +117,7 @@ const Workshops = (props) => {
         >
           {workshop && workshop.name}
         </div>
-        <div
+        {/* <div
           onClick={() => setActive(1)}
           class={`${
             active === 1 ? classNames.tabActive : classNames.tabInactive
@@ -132,7 +132,7 @@ const Workshops = (props) => {
           } text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center`}
         >
           Art Movie Screening
-        </div>
+        </div> */}
       </div>
 
       {/*  */}

@@ -14,11 +14,12 @@ const getWorkshops = async () => {
   }
 };
 
-const verifyOrder = async (orderId) => {
+const verifyWorkshop = async (workshop_id,data) => {
   try {
     const res = await axiosConfig({
-      method: 'post',
-      url: `${baseUrl}/${orderId}/orderVerify/`,
+      method: 'patch',
+      url: `${baseUrl}/${workshop_id}/verify/`,
+      data: data
     });
     return res;
   } catch (err) {
@@ -26,15 +27,11 @@ const verifyOrder = async (orderId) => {
   }
 };
 
-const verifyWorkshop = async (studentId, workshopName) => {
+const verifyOrder = async (orderId) => {
   try {
     const res = await axiosConfig({
       method: 'post',
-      url: `${baseUrl}/workshopVerify/`,
-      params: {
-        studentId,
-        workshopName,
-      },
+      url: `${baseUrl}/${orderId}/orderVerify/`,
     });
     return res;
   } catch (err) {
@@ -55,11 +52,12 @@ const sendEmails = async (selfCollDate) => {
   }
 };
 
-const sendWorkshopReminderEmails = async (workshop_id) => {
+const sendWorkshopReminderEmails = async (workshop_id, user) => {
   try {
     const res = await axiosConfig({
       method: 'post',
-      url: `${baseUrl}/reminderEmail/${workshop_id}`,
+      url: `${baseUrl}/reminderEmail/${workshop_id}`, 
+      data: user
     });
     return res;
   } catch (err) {
@@ -110,7 +108,7 @@ const downloadVotes = async () => {
 };
 
 // JT: added call to bumpWaitlist endpoint
-const bumpWaitlist = async() => {
+const bumpWaitlist = async () => {
   try {
     const res = await axiosConfig({
       method: 'post',
@@ -124,9 +122,9 @@ const bumpWaitlist = async() => {
 
 export default {
   getWorkshops,
+  verifyWorkshop,
   sendEmails,
   verifyOrder,
-  verifyWorkshop,
   addPoints,
   sendWorkshopReminderEmails,
   downloadLuckyDraw,

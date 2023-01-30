@@ -9,6 +9,7 @@ import { trackPromise } from 'react-promise-tracker';
 import ProfileBg from './svgs/profilebg.svg'
 import Modal from 'react-modal';
 import SocialLogin from '../Authentication/SocialLogin'
+import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,7 +26,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
-        console.log(profile.registeredWorkshops);
+        console.log(res.data);
       }
       else {
         setAuth(false);
@@ -39,9 +40,25 @@ function Profile() {
     setAuth(true);
   }
 
-  function handelToastCallback() {
-    toast("Workshop canceled!");
+  function parentReturnCallBack() {
+    document.body.style.overflow = 'unset';
+    history(-1);
   }
+
+  function handelToastCallback(data) {
+    toast(data);
+  }
+
+  useEffect(() => {
+    if (!auth) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [auth]);
+
+  let history = useNavigate();
+
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
@@ -50,9 +67,9 @@ function Profile() {
         isOpen={!auth}
         onRequestClose={closeModal}
       >
-        <SocialLogin />
+        <SocialLogin parentReturnCallBack={parentReturnCallBack} />
       </Modal>
-      {profile &&(
+      {profile && (
         <>
           <ProfileHeader
             displayName={profile && profile.displayName}
@@ -63,6 +80,7 @@ function Profile() {
               handelToastCallback={handelToastCallback}
               waitlistedWorkshops={profile && profile.waitlistedWorkshops}
               registeredWorkshops={profile && profile.registeredWorkshops}
+              _id={profile && profile._id}
             />
           }
           {

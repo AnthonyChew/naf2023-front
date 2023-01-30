@@ -1,6 +1,6 @@
 import React, { useState, Component, useEffect} from "react";
 import { Link } from "react-router-dom";
-import MarketPlaceLogo from './svgs/MarketPlace/MarketPlace Logo.svg'
+import MarketPlaceLogo from './svgs/MarketPlace/MarketPlace Logo.png'
 
 import MarketPlaceOrbit1 from './svgs/MarketPlace/MarketPlaceOrbit1.svg'
 import MarketPlaceOrbit2 from './svgs/MarketPlace/MarketPlaceOrbit2.svg'

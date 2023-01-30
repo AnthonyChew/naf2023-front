@@ -2,21 +2,28 @@ import React from 'react'
 import AboutxCAC from './AboutxCAC'
 import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
 import GalleryxCAC from './GalleryxCAC'
-import AFTHLogo from './svgs/AFTHLogo.png'
+import JDCTextLogo from './svgs/JDC/JDCTextLogo.png'
+import JDCLogo from './svgs/JDC/JDCLogo.png'
+import JDCMiniAd from './svgs/JDC/JDCMiniAd.png'
+import JDC_1 from './svgs/JDC/JDC_1.JPG'
+import JDC_2 from './svgs/JDC/JDC_2.jpg'
+import JDC_3 from './svgs/JDC/JDC_3.jpg'
+import JDC_4 from './svgs/JDC/JDC_4.JPG'
 import ThemexCAC from './ThemexCAC'
 import ContactxCAC from './ContactxCAC'
 const NAFxJDC = () => {
-    const text = "urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis"
-    const imgs = [1,2,3,4]
+    const description = "Joint Dance Concert (JDC) is NTU’s largest and most highly anticipated annual dance concert featuring the nine dance clubs of CAC. Over the years, JDC has continuously achieved the impressive feat of being a sold-out concert, as a result of providing captivating performances for audience members Since its inaugural concert in 2007, JDC has been providing a platform for our talented dancers to showcase their skills while pursuing their passion in dance, alongside offering an opportunity for all others to cultivate their appreciation for this form of art. As Singapore transitioned towards endemic living in the past year, JDC 2022 successfully delivered its first live concert, after two years of online productions due to COVID-19 restrictions. With JDC 2023 right around the corner, we aim to continue offering an authentic experience to dancers and audience members alike through another live show."
+    const theme = "An old showman, who makes a living capitalising off the odd powers of his performers, uses his dark magic to give life to a puppet. Follow Alice’s discovery of the tale of Pinocchio – the puppet that was turned into a boy, and journey alongside Pinocchio in the retelling of how his life came to be. Alice’s encounter with fairytales is few and far between, but it seems she may find out that these stories are not as fictional as they seem."
+    const imgs = [JDC_1,JDC_2,JDC_3,JDC_4]
     return (
         <div class="relative bg-NAFBlue py-[50px]">
             <div>
-                <img class="mx-auto" src={AFTHLogo}></img>
+                <img class="mx-auto" src={JDCTextLogo}></img>
             </div>
-            <AboutxCAC title="About AFTH" img={QRCode} content={text}></AboutxCAC>
-            <GalleryxCAC title="AFTH Gallery"></GalleryxCAC>
-            <ThemexCAC title="THEME: AFTH" imgs={imgs} content={text}></ThemexCAC>
-            <ContactxCAC facebook="www.facebook.com" instagram="www.instagram.com" email="email.com"></ContactxCAC>
+            <AboutxCAC title="About JDC" img={JDCLogo} content={description}></AboutxCAC>
+            <GalleryxCAC title="JDC Gallery" imgs={imgs}></GalleryxCAC>
+            <ThemexCAC title="THEME: Stories After Dark" imgs={imgs} content={theme}></ThemexCAC>
+            <ContactxCAC facebook="www.facebook.com/JointDanceConcert" instagram="www.instagram.com/ntucacjdc" email="email.com"></ContactxCAC>
         </div>
     )
 }

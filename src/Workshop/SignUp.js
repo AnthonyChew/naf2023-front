@@ -129,10 +129,7 @@ const SignUp = (props) => {
         <div class="basis-1/2 md:w-1/2 md:mt-0 mt-[22%] bg-white border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)]">
           <AppleHeader title={"www.signupguidelines.com"}></AppleHeader>
           <p class="h-fit  p-5 font-semibold text-center text-xs sm:text-sm md:text-md lg:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget
-            eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam,
-            lobortis tellus sed, vulputate diam. Orci varius natoque penatibus
-            et magnis dis parturient montes.
+          Registration: Registration will open on the first day of Glimmer, 13 February 2023 until 5 March 2023. Workshops will be allocated on a first-come-first-serve basis!
           </p>
         </div>
              

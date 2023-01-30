@@ -24,6 +24,9 @@ import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
 import NAFxCS from './NAFxCAC/NAFxCS';
 import NAFxJDC from './NAFxCAC/NAFxJDC';
+import FAQ from './FAQ/FAQ';
+import PrivacyPolicy from './FAQ/PrivacyPolicy';
+
 
 import {
   BrowserRouter,
@@ -32,6 +35,7 @@ import {
   Link,
 } from "react-router-dom";
 import ScrolltoTop from './utils/ScrolltoTop';
+import Partners from './AboutUs/Partners';
 
 
 
@@ -79,7 +83,6 @@ function App() {
           <Route path="/vendorlogin" element={<div class='pt-[6%]'><VendorLogin /></div>} />
           <Route path="/adminmanage" element={<div class='pt-[6%]'><AdminManage /></div>} />
           <Route path="/committee" element={<div class='pt-[6%]'><MainCommittee /></div>} />
-
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

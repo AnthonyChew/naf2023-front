@@ -75,19 +75,19 @@ function VendorLogin() {
   };
 
   useEffect(() => {
-    if (open || edit) {
+    if (open || edit || !auth) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [open, edit]);
+  }, [open, edit , auth]);
 
 
   return (
     <div class="relative pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" >
       <LoadingSpinnerComponent />
       {auth ? (
-        <div class='flex flex-col justify-center items-center gap-5'>  00r6                                                                                                   
+        <div class='flex flex-col justify-center items-center gap-5'>                                                                                                
           <p class='text-2xl font-syne underline decoration-solid'>
             VENDOR MANAGEMENT
           </p>
