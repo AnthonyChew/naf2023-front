@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import workshopService from '../services/workshops';
 import WaitlistedWorkshops from './WaitlistedWorkshops';
 import { useNavigate } from 'react-router-dom';
@@ -156,6 +156,14 @@ function UserWorkshop(props) {
     multiple: false
   });
 
+  useEffect(() => {
+    if (payment || confirmCancel) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [payment,confirmCancel]);
+
   return (
     <div class="flex flex-col items-center justify-center pb-5">
       {open && (
@@ -222,7 +230,7 @@ function UserWorkshop(props) {
             
             <hr class='bg-black h-1' />
             <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
-              <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Subtotal:</p>
+              <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Total:</p>
               <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl whitespace-nowrap"> $ 3.50</p>
             </div>
             {
