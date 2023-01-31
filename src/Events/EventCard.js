@@ -53,13 +53,14 @@ const EventCard = (props) => {
                     {
                         workshops.map((workshop) => {
                             return (
-                                <div class='flex flex-col md:flex-row md:w-[40%] md:h-[30%] gap-10 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
-                                    <img class='basis-1/3 w-[200px] h-[200px]' src={workshop.images[0]} />
+                                <div class='flex flex-col md:flex-row md:w-[40%] md:h-[30%] gap-2 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
+                                    <div class="focused-image-container max-h-[300px] w-full basis-1/3 overflow-hidden">
+                                        <img class='focused-image' src={workshop.images[0]} data-focus-x="0.34" data-focus-y="-0.34" />
+                                    </div>
                                     <div class='basis-2/3 flex flex-col max-w-[90%] md:max-w-full min-w-0'>
                                         <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap md:max-w-fit max-w-[90%]">{workshop.name}</p>
-                                        <p class=" text-bg text-purple-400 self-start">
-                                            Vacancies:
-                                            {workshop.maxParticipants - workshop.numRegistered > 1000
+                                        <p class=" text-bg text-NAFPurple self-center md:self-start ">
+                                            Vacancies: {workshop.maxParticipants - workshop.numRegistered > 1000
                                                 ? 'Unlimited'
                                                 : workshop.maxParticipants - workshop.numRegistered}
                                         </p>
@@ -67,7 +68,7 @@ const EventCard = (props) => {
                                         <p class="font-syne self-center md:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Category:{workshop.category}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center md:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Organisor: {workshop.organizer}
                                         </p>
                                         <p class="font-syne self-center md:self-start">
@@ -79,16 +80,37 @@ const EventCard = (props) => {
                                         <p class="font-syne self-center md:self-start">
                                             Duration: {workshop.duration} minutes
                                         </p>
+                                        <div class='flex md:justify-end justify-center gap-2 mt-2 '>
+                                            <button
+                                                onClick={() => signUp(workshop)}
+                                                class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                            >
+                                                <p class="font-syne self-center md:self-start px-1">
+                                                    Sign Up
+                                                </p>
+                                            </button>
+                                            <button
+                                                onClick={() => signUp(workshop)}
+                                                class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                            >
+                                                <p class="font-syne self-center md:self-start px-1">
+                                                    Sign Up
+                                                </p>
+                                            </button>
+                                        </div>
+
                                     </div>
                                     {
                                         current_date <= workshop.date &&
                                         <button onClick={() => history('/workshop')} />
                                     }
                                 </div>
+
                             )
                         })
                     }
                 </div>
+
             </div>
 
     )
