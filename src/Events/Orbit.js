@@ -173,7 +173,7 @@ const Orbit = () => {
                           </div>
                           <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full min-w-0'>
                             <div class="mt-3">
-                              <div class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap text-center bg-NAFPink w-[100%] md:w-[90%] md:px-3 md:mx-auto">{one.title}</div>
+                              <div class="text-2xl text-white font-syne text-ellipsis overflow-hidden whitespace-nowrap text-center bg-NAFPink w-[100%] md:w-[90%] md:px-3 md:mx-auto">{one.title}</div>
                               <div class="font-syne text-left w-[100%] md:w-[90%] mt-3 mx-auto max-h-[20%] ">{one.desc}</div>
                             </div>
                           </div>
