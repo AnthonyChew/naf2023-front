@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
+    "image-focus": "^1.2.1",
     "js-file-download": "^0.4.12",
     "moment": "^2.29.1",
     "react": "^18.2.0",
