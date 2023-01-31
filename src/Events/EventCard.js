@@ -59,7 +59,7 @@ const EventCard = (props) => {
                                     </div>
                                     <div class='basis-2/3 flex flex-col max-w-[90%] md:max-w-full min-w-0'>
                                         <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap md:max-w-fit max-w-[90%]">{workshop.name}</p>
-                                        <p class=" text-bg text-NAFPurple self-center md:self-start ">
+                                        <p class=" text-bg font-syne text-NAFPurple self-center md:self-start ">
                                             Vacancies: {workshop.maxParticipants - workshop.numRegistered > 1000
                                                 ? 'Unlimited'
                                                 : workshop.maxParticipants - workshop.numRegistered}
