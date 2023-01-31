@@ -177,12 +177,12 @@ const MainCommittee = () => {
 
           </div>
           <div class="basis-[80%] bg-white">
-            <div class="text-center mt-[4%] md:mx-10 mx-2">
+            <div class="text-center mt-[4%] md:mx-10 mx-2 font-syne md:text-xl">
               {shortDes}
             </div>
             <div class="flex items-center justify-center mt-[5%]">
               <div >
-                <img class="" src={LeftArrow} onClick={ImageState(galleryState - 1)}></img>
+                <img class="cursor-pointer" src={LeftArrow} onClick={ImageState(galleryState - 1)}></img>
               </div>
               <div>
                 <div class="mx-6 border-3 border-black shadow-[10px_10px_0_0_rgba(0,0,0)]">
@@ -192,7 +192,7 @@ const MainCommittee = () => {
               </div>
 
               <div>
-                <img class="" src={RightArrow} onClick={ImageState(galleryState + 1)}></img>
+                <img class="cursor-pointer" src={RightArrow} onClick={ImageState(galleryState + 1)}></img>
 
               </div>
             </div>
