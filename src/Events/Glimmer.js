@@ -146,7 +146,7 @@ const Glimmer = () => {
           </div>
         </div>
       </Modal>
-      <div class='md:w-[70%] mx-auto'>
+      <div class='xl:w-[70%] mx-auto'>
       <EventHeader
         img={GlimmerLogo}
         text="Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. Participate in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie."

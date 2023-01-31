@@ -8,8 +8,8 @@ const AboutUs = () => {
   return (
 
     <div>
-      <FestGuide></FestGuide>
-      <Info></Info>
+        <FestGuide></FestGuide>
+        <Info></Info>
     </div>
 
   )
