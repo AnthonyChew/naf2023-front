@@ -17,7 +17,7 @@ import WeeWeeKim from './svgs/Orbit/WeeWeeKim.PNG';
 import WORLD from './svgs/Orbit/WORLD.jpeg';
 import Harmonix from './svgs/Orbit/Harmonix.jpeg';
 import FocusedImage from '../SharedPages/FocusImage.js';
-
+import EventImagesCard from './EventImagesCard'
 
 const Orbit = () => {
   const bgcolor = "bg-NAFPink"
@@ -115,6 +115,7 @@ const Orbit = () => {
       y:0.40,
     },
   ]
+  const imgs = [1, 2, 3, 4]
   return (
     <div class="relative bg-NAFPink pb-20">
       <div class='md:w-[70%] mx-auto'>
@@ -127,12 +128,12 @@ const Orbit = () => {
             <EventCard bgColor={bgcolor} title="ONLINE ARTS MARKET" date={"6 February 2023 to 10 February 2023, 12pm to 6pm\nHosted on the NAF website"} content="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventCard>
           </div>
         </div>
-        <div class="flex w-[80%] mx-auto text-center">
+        <div class="flex mx-auto text-center w-[90%] md:w-[94%]">
           <div class="basis-full">
-            <EventCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway" content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventCard>
+            <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway"  imgs={imgs} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
-        <div class="flex w-[90%] md:w-[80%] mx-auto text-center">
+        <div class="flex w-[90%] md:w-[80%] mx-auto text-center mt-20">
           <div class="basis-full">
             <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
               <div class="font-syneExtraBold text-2xl font-bold mt-2">OPHIUCHUS</div>
