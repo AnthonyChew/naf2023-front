@@ -5,6 +5,11 @@
   margin-right: auto;
 }
 
+.swiper-wrapper{
+  display: flex;
+  justify-items: center;
+}
+
 .gallery-swiper-slide {
   text-align: center;
   font-size: 18px;
