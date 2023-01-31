@@ -95,7 +95,7 @@ const Orbit = () => {
     },
     {
       image: NusaSarjana,
-      title: "Nusa Sarjana & Dewi Samudera",
+      title: "Nusa Sarjana",
       desc: "Nusa Sarjana\nNusa Sarjana is a male Dikir Barat group from NTU-NIE students. They are the first dikir barat group at the University level to participate in inter-schools competition, Piala Suara Serumpun (PSS), where they had won fourth place in 2019, and 2nd place for male category in 2022. They have been actively participating in various performances both internally and externally over the years such as Perbayu’s Annual Welcome Tea and Freshmen Orientation Programme.",
       x:0.45,
       y:0.1,
@@ -133,11 +133,11 @@ const Orbit = () => {
             <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway"  imgs={imgs} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
-        <div class="flex w-[90%] md:w-[80%] mx-auto text-center mt-20">
+        <div class="flex w-[90%] md:w-[80%] mx-auto text-center  mt-20">
           <div class="basis-full">
-            <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
+            <div class="min-h-[300px]  bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
               <div class="font-syneExtraBold text-2xl font-bold mt-2">OPHIUCHUS</div>
-              <div class="rounded-lg mx-auto p-1 mt-3 bg-NAFPink text-white w-fit px-10 font-syne">9 March, 7:30pm to 9:30pm, Nanyang Auditorium</div>
+              <div class="rounded-lg mx-auto p-1 mt-3 bg-NAFPink text-white w-fit lg:px-10 font-syne">9 March, 7:30pm to 9:30pm, Nanyang Auditorium</div>
               <div class="mt-3 mx-3 text-md md:w-[50%] md:mx-auto text-center whitespace-pre-wrap font-syne">Come enjoy a night of performances at Ophiuchus. Our very own NTU students will be there showcasing their musical talents. With 10 performances lined up, it would be an exciting night ahead! Grab tickets with your friends for just $5. Ticket sales will be donated to our beneficiaries SOS and SAMH.</div>
               <div class="mt-7 mx-3">
                 <Link to="" type="button"
@@ -166,16 +166,16 @@ const Orbit = () => {
                 <div class="flex flex-row flex-wrap justify-center">
                   {
                     content.map((one, index) => (
-                      <div class="basis-[90%] lg:basis-[46%] md:mx-5 lg:px-5 mb-[4rem]">
+                      <div class="basis-[90%] lg:basis-[46%]  md:mx-5 lg:px-5 mb-[4rem]">
                         <div class='flex flex-wrap md:flex-nowrap md:flex-col p-3 border-2 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)] h-[100%]'>
 
                           <div class='h-32 w-full'>
                             <FocusedImage class='focused-image'  imageSrc={one.image} x={one.x} y={one.y} ></FocusedImage>
                           </div>
-                          <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full min-w-0'>
-                            <div class="mt-3">
+                          <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full  min-w-0'>
+                            <div class="mt-3 ">
                               <div class="text-2xl text-white font-syne text-ellipsis overflow-hidden whitespace-nowrap text-center bg-NAFPink w-[100%] md:w-[90%] md:px-3 md:mx-auto">{one.title}</div>
-                              <div class="font-syne text-left w-[100%] md:w-[90%] mt-3 mx-auto max-h-[20%] ">{one.desc}</div>
+                              <div class="font-syne max-h-[200px] text-left w-[100%]  md:w-[90%] mt-3 mx-auto overflow-y-auto">{one.desc}</div>
                             </div>
                           </div>
                         </div>
