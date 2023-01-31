@@ -8,6 +8,7 @@ import { addProductToCart } from '../reducer/CartReducer';
 import { trackPromise } from 'react-promise-tracker';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -212,9 +213,9 @@ const MarketPlaceLanding = () => {
                   <div class="oneItem-img border-black border-b-2">
                     <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
                   </div>
-                  <div class="oneItem-caption p-1 bg-gray-500">
-                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
-                    <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
+                  <div class="oneItem-caption p-1 bg-white">
+                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">{oneItem.name}</div>
+                    <div class=" text-ellipsis text-sm overflow-hidden whitespace-nowrap">{oneItem.vendorName}</div>
 
                     <div>Price: ${oneItem.price}</div>
 
@@ -267,18 +268,18 @@ const MarketPlaceLanding = () => {
         appElement={document.getElementById('root') || undefined} // weird error if dont add this
         shouldCloseOnOverlayClick={true}
       >
-        <div class="w-full h-full " onClick={(e) => closeModal(e)} id="modal-outside" >
+        <div class="w-full h-full overflow-y-auto" onClick={(e) => closeModal(e)} id="modal-outside" >
           <div class="w-[100%] md:w-[70%] mx-auto " >
-            <div class=" border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none " id="modal-box">
-              <AppleHeader />
-              <div class="flex items-center justify-end mb-8">
+            <div class="shadow-lg relative pointer-events-auto bg-white bg-clip-padding border-4 border-black" id="modal-box">
+              {/* <AppleHeader /> */}
+              <div class="flex items-center justify-end mb-8 bg-headerGray border-b-4 border-black ">
                 <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
                   <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
                 </button>
               </div>
-              <div class="modal-body relative p-2 md:p-10 text-center lg:text-left">
+              <div class="modal-body relative p-2 md:p-10 text-center lg:text-left ">
                 <div class="w-[70%] lg:w-[30%] inline-block text-center">
                   <Swiper
                     // install Swiper modules
@@ -310,6 +311,7 @@ const MarketPlaceLanding = () => {
                 </div>  {/* end of left side */}
                 <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
                   <div class="font-syneBold text-xl text-black">{oneproduct.name}</div>
+                  <div class="font-syneBold text-sm text-black">{oneproduct.vendorName}</div>
                   {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
                     {oneproduct.colours.map((colour, index) => {
                       return (
@@ -317,7 +319,7 @@ const MarketPlaceLanding = () => {
                           <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
                           <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
                             <div class="block text-center w-[100%]">
-                              <div class="w-full text-m font-semibold">{colour}</div>
+                              <div class="w-full text-m font-syne">{colour}</div>
                             </div>
                           </label>
                         </li>
@@ -347,7 +349,7 @@ const MarketPlaceLanding = () => {
                     </div>
                     <div class="w-[70%] md:w-auto">
                       <button type="button" onClick={handleConfirmationModal}
-                        class="inline-block px-6 py-2.5 w-[100%] md:w-auto bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                        class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                         Add to Cart
                       </button>
                     </div>
@@ -361,15 +363,15 @@ const MarketPlaceLanding = () => {
                       <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
                         <div class="w-fit mx-auto translate-y-[100%] md:translate-y-[200%] " >
                           <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5 overflow-y-auto" id="modal-box">
-                            <p class="font-yerk text-xl text-black">Add product</p>
-                            <p class='mb-5'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
+                            <p class="font-syne text-xl text-black">Add product</p>
+                            <p class='mb-5 font-syne'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
                             <div class='flex flex-row justify-end gap-2'>
                               <button onClick={closeConfirmation}
-                                class="inline-block px-6 py-2.5 bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                class="inline-block px-6 py-2.5 font-syne bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                 No
                               </button>
                               <button type="button" onClick={handleAddProduct}
-                                class="inline-block px-6 py-2.5 bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                class="inline-block px-6 py-2.5 font-syne bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                 Yes
                               </button>
                             </div>
