@@ -14,6 +14,19 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import MiddleLeftPinkStart from './svgs/MiddleLeftPinkStar.svg';
+import MiddleLeftYellowSparkle from './svgs/MiddleLeftYellowSparkle.svg';
+import MiddleRightBlueDot from './svgs/MiddleRightBlueDot.svg';
+import MiddleRightWhiteSparkle from './svgs/MiddleRightWhiteSparkle.svg';
+import MiddleRightYellowSparkle from './svgs/MiddleRightYellowSparkle.svg';
+
+import TopLeftBlueSparkle from './svgs/TopLeftBlueSparkle.svg';
+import TopLeftOrangeStar from './svgs/TopLeftOrangeStar.svg';
+import TopLeftYellowStar from './svgs/TopLeftYellowStar.svg';
+import TopRightBlueSparkle from './svgs/TopRightBlueSparkle.svg';
+import TopRightPinkStar from './svgs/TopRightPinkStar.svg';
+import TopRightYellowSparkle from './svgs/TopRightYellowSparkle.svg';
+
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
@@ -62,6 +75,20 @@ function Profile() {
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
+
+      <img class='absolute left-[0%] top-[60%] lg:block hidden' src={MiddleLeftPinkStart} />
+      <img class='absolute left-[15%] top-[70%]' src={MiddleLeftYellowSparkle} />
+      <img class='absolute left-[15%] top-[50%] lg:block hidden' src={TopLeftBlueSparkle} />
+      <img class='absolute left-[5%] top-[0%]' src={TopLeftOrangeStar} />
+      <img class='absolute left-[0%] top-[20%] lg:block hidden' src={TopLeftYellowStar} />
+
+      <img class='absolute right-[5%] top-[85%] lg:block hidden' src={MiddleRightBlueDot} />
+      <img class='absolute right-[15%] top-[78%]' src={MiddleRightWhiteSparkle} />
+      <img class='absolute right-[5%] top-[70%]' src={MiddleRightYellowSparkle} />
+      <img class='absolute right-[5%] top-[8%] lg:block hidden' src={TopRightBlueSparkle} />
+      <img class='absolute right-[0%] top-[30%] lg:block hidden' src={TopRightPinkStar} />
+      <img class='absolute right-[15%] top-[20%]' src={TopRightYellowSparkle} />
+      
       <LoadingSpinnerComponent />
       <Modal
         isOpen={!auth}

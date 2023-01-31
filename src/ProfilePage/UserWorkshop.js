@@ -165,7 +165,7 @@ function UserWorkshop(props) {
   }, [payment,confirmCancel]);
 
   return (
-    <div class="flex flex-col items-center justify-center pb-5">
+    <div class="flex relative flex-col items-center justify-center pb-5 z-50 px-1 lg:px-0">
       {open && (
         <WaitlistedWorkshops parentCallback={handleClose} workshops={waitlistedWorkshops} />
       )}
@@ -275,7 +275,7 @@ function UserWorkshop(props) {
                 <div class="flex gap-4 justify-end w-full">
                   {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verified</p>}
                   {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verifying</p>}
-                  {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-black border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
+                  {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#E70A0A] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
                  
                   <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
                     onClick={() => onClickPayment(workshop)}>
