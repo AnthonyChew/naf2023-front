@@ -7,26 +7,34 @@ const GalleryxCAC = (props) => {
   // {image:Pikachu2 , location: 'Foyer @ LT1A' , name:'Starburst' ,  date:'6 - 10 MAR 2023'},
   // {image:Pikachu3 , location: 'TRs, LWN Study Room, Nanyang House, NIE' , name:'Interstellar' , date:'6 - 17 MAR 2023' },
   // {image:Pikachu4 , location: 'Green Lawn @ NS Linkway Nanyang Auditorium' , name:'Orbit ' , date:'6 FEB - 17 MAR 2023' }];
-    const [imgState, setImgState] = useState(props.imgs)
-    const [galleryState, setGalleryState] = useState(0)
-    const ImageState = (val) => (event) => {
-      if (val > (imgState.length - 1)) val = 0
-      if (val < 0) val = (imgState.length - 1)
-      setGalleryState(val)
-    }
-  
+  const [imgState, setImgState] = useState(props.imgs)
+  const [galleryState, setGalleryState] = useState(0)
+  const ImageState = (val) => (event) => {
+    if (val > (imgState.length - 1)) val = 0
+    if (val < 0) val = (imgState.length - 1)
+    setGalleryState(val)
+  }
+
   return (
     <div>
-    <div class="bg-white w-[90%] lg:w-[80%] h-fit mt-5 mx-auto border-4 border-black md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
+      <div class="bg-white w-[90%] lg:w-[80%] h-fit mt-5 mx-auto border-4 border-black md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
         <div class="text-center">
-            <div class="font-syne font-bold text-2xl border-b-4 border-black py-4 v">{props.title}</div>
-            <div><img class="mx-auto h-[400px] md:h-[500px] lg:h-[650px]" src={imgState[galleryState]}/></div>
+          <div class="font-syne font-bold text-lg lg:text-2xl border-b-4 border-black py-4 v">{props.title}</div>
+          <div><img class=" w-full" src={imgState[galleryState]} /></div>
         </div>
-    </div>
-    <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 md:w-1/4 mt-10">
-          <img class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" src={LeftArrow}  onClick={ImageState(galleryState - 1)}></img>
-          <img class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" src={RightArrow}  onClick={ImageState(galleryState+ 1)}></img>
+      </div>
+      <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 md:w-1/4 mt-10 ">
+        <div class="bg-NAFPurple border-4 border-black px-5 pt-5 pb-4">
+          <button class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" onClick={ImageState(galleryState - 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" class='h-10 w-10' viewBox="0 0 384 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
+          </button>
         </div>
+        <div class="bg-NAFPurple border-4 border-black px-5 pt-5 pb-4">
+          <button class="inline-block w-[15%] md:w-[30%] lg:w-[15%]" onClick={ImageState(galleryState + 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" class='h-10 w-10' viewBox="0 0 384 512"><path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" /></svg>
+          </button>
+        </div>
+      </div>
 
     </div>
 

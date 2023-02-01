@@ -131,74 +131,78 @@ const MainCommittee = () => {
 
 
     <div class="relative bg-NAFBlue min-h-screen pb-[10%] overflow-y-clip">
-      <img src={TopLeftSmallWhiteStar} class="hidden lg:block absolute w-[3%] top-[0%] left-[10%] z-30"></img>
-      <img src={TopLeftOrangeStar} class="hidden lg:block absolute top-[0%] left-[0%] z-30"></img>
 
-      <img src={TopRightRedStar} class="hidden lg:block absolute w-[13%] top-[0%] right-[7%] z-30"></img>
-      <img src={TopRightWhiteDot} class="hidden lg:block absolute w-[2%] top-[9%] right-[3%] z-30"></img>
+      <div class='lg:w-[70%] mx-auto'>
+        <img src={TopLeftSmallWhiteStar} class="hidden lg:block absolute w-[3%] top-[0%] left-[10%] z-30"></img>
+        <img src={TopLeftOrangeStar} class="hidden lg:block absolute top-[0%] left-[0%] z-30"></img>
 
-      <img src={MiddleLeftRedStar} class="hidden lg:block absolute top-[19%] left-[0%]"></img>
-      <img src={MiddleRightYellowStar} class="hidden lg:block absolute w-[20%] top-[19%] right-[0%]"></img>
-      <img src={MiddleRightPurpleDot} class="hidden lg:block absolute w-[2%] top-[49%] right-[2%] z-30"></img>
+        <img src={TopRightRedStar} class="hidden lg:block absolute w-[13%] top-[0%] right-[7%] z-30"></img>
+        <img src={TopRightWhiteDot} class="hidden lg:block absolute w-[2%] top-[9%] right-[3%] z-30"></img>
 
-      <img src={BottomLeftPurpleStar} class="hidden lg:block absolute bottom-[-12%] left-[0%]"></img>
+        <img src={MiddleLeftRedStar} class="hidden lg:block absolute top-[19%] left-[0%]"></img>
+        <img src={MiddleRightYellowStar} class="hidden lg:block absolute w-[20%] top-[19%] right-[0%]"></img>
+        <img src={MiddleRightPurpleDot} class="hidden lg:block absolute w-[2%] top-[49%] right-[2%] z-30"></img>
 
-      <img src={BottomRightOrangeStar} class="hidden lg:block absolute bottom-[-8%] right-[0%] z-10"></img>
-      <img src={BottomRightWhiteDot} class="hidden lg:block absolute bottom-[-12%] right-[0%]"></img>
+        <img src={BottomLeftPurpleStar} class="hidden lg:block absolute bottom-[-12%] left-[0%]"></img>
 
-      {/* <img src={BottomLeftWhiteStar} class="absolute bottom-[0%] left-[0%]"></img> */}
+        <img src={BottomRightOrangeStar} class="hidden lg:block absolute bottom-[-8%] right-[0%]"></img>
+        <img src={BottomRightWhiteDot} class="hidden lg:block absolute bottom-[-12%] right-[0%]"></img>
+
+        {/* <img src={BottomLeftWhiteStar} class="absolute bottom-[0%] left-[0%]"></img> */}
 
 
 
 
-      <div class="mx-auto pt-[4%]">
-        <img class="lg:w-[70%] mx-auto" src={CommitteeLogo}></img>
-      </div>
-      <div class="relative mt-[2%] w-[95%] md:w-[85%] mx-auto bg-white mb-5 border-3 border-black md:shadow-[20px_20px_0_0_rgba(0,0,0)]">
-        <img src={TopLeftYellowStar} class="hidden lg:block absolute w-[28%] top-[-18%] left-[-3%]"></img>
-      <img src={TopRightYellowStar} class="hidden lg:block absolute w-[8%] top-[-4%] right-[-5%] z-30"></img>
-      <img src={BottomLeftYellowStar} class="hidden lg:block absolute w-[8%] bottom-[18%] left-[-4%] z-10"></img>
-      <img src={BottomRightRedStar} class="hidden lg:block absolute w-[8%] bottom-[-6%] right-[15%] z-30"></img>
+        <div class="mx-auto pt-[4%]">
+          <img class="lg:w-[70%] mx-auto" src={CommitteeLogo}></img>
+        </div>
+        <div class="relative mt-[2%] w-[95%] md:w-[85%] mx-auto bg-white mb-5 border-3 border-black md:shadow-[20px_20px_0_0_rgba(0,0,0)]">
+          <img src={TopLeftYellowStar} class="hidden lg:block absolute w-[28%] top-[-18%] left-[-3%]"></img>
+          <img src={TopRightYellowStar} class="hidden lg:block absolute w-[8%] top-[-4%] right-[-5%] z-30"></img>
+          <img src={BottomLeftYellowStar} class="hidden lg:block absolute w-[8%] bottom-[18%] left-[-4%] z-10"></img>
+          <img src={BottomRightRedStar} class="hidden lg:block absolute w-[8%] bottom-[-6%] right-[15%] z-30"></img>
 
-        <AppleHeader></AppleHeader>
-        <div class="flex bg-white relative">
-          <div class="flex-col lg:basis-[15%] bg-white  basis-[30%]">
-            <div class="bg-gray-400 py-2 px-1 md:p-5  border border-black h-[100%]">
-              {
-                images.map((oneImage, index) => (
-                  <div class="my-3">
-                    <img class="w-[100%] lg:w-[80%] mx-auto" src={oneImage} id={index} onClick={() => handleImageState(index)}></img>
-                  </div>
-                ))
+          <AppleHeader></AppleHeader>
+          <div class="flex bg-white relative">
+            {/* left side */}
+            <div class="flex-col lg:basis-[15%] bg-white  basis-[30%]">
+              <div class="bg-gray-400 py-2 px-1 md:p-5  border border-black h-[100%]">
+                {
+                  images.map((oneImage, index) => (
+                    <div class="my-3">
+                      <img class="w-[100%] lg:w-[80%] mx-auto" src={oneImage} id={index} onClick={() => handleImageState(index)}></img>
+                    </div>
+                  ))
 
-              }
+                }
 
-            </div>
-
-          </div>
-          <div class="basis-[80%] bg-white">
-            <div class="text-center mt-[4%] md:mx-10 mx-2">
-              {shortDes}
-            </div>
-            <div class="flex items-center justify-center mt-[5%]">
-              <div >
-                <img class="" src={LeftArrow} onClick={ImageState(galleryState - 1)}></img>
               </div>
-              <div>
-                <div class="mx-6 border-3 border-black shadow-[10px_10px_0_0_rgba(0,0,0)]">
-                  <img class="w-[100%]" src={imgState[galleryState]}></img>
+
+            </div>
+            {/* right side */}
+            <div class="basis-[80%] bg-white pb-20">
+              <div class="text-center mt-[4%] md:mx-10 mx-2 font-syne md:text-xl">
+                {shortDes}
+              </div>
+              <div class="flex items-center justify-center mt-[5%]">
+                <div >
+                  <img class="cursor-pointer" src={LeftArrow} onClick={ImageState(galleryState - 1)}></img>
+                </div>
+                <div>
+                  <div class="mx-6 border-3 border-black shadow-[10px_10px_0_0_rgba(0,0,0)]">
+                    <img class="w-[100%]" src={imgState[galleryState]}></img>
+                  </div>
+
                 </div>
 
-              </div>
+                <div>
+                  <img class="cursor-pointer" src={RightArrow} onClick={ImageState(galleryState + 1)}></img>
 
-              <div>
-                <img class="" src={RightArrow} onClick={ImageState(galleryState + 1)}></img>
-
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   )

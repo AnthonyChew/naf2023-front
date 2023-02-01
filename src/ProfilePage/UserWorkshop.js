@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import workshopService from '../services/workshops';
 import WaitlistedWorkshops from './WaitlistedWorkshops';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
 
 function UserWorkshop(props) {
   const history = useNavigate();
-  const { waitlistedWorkshops, registeredWorkshops, handelToastCallback , _id} = props;
+  const { waitlistedWorkshops, registeredWorkshops, handelToastCallback, _id } = props;
   const [open, setOpen] = useState(false);
   const [regWorkshop, setWorkshopCancel] = useState(null);
 
@@ -162,10 +162,10 @@ function UserWorkshop(props) {
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [payment,confirmCancel]);
+  }, [payment, confirmCancel]);
 
   return (
-    <div class="flex flex-col items-center justify-center pb-5">
+    <div class="flex relative flex-col items-center justify-center pb-5 z-50 px-1 lg:px-0">
       {open && (
         <WaitlistedWorkshops parentCallback={handleClose} workshops={waitlistedWorkshops} />
       )}
@@ -198,7 +198,7 @@ function UserWorkshop(props) {
       </Modal>
 
       <Modal isOpen={payment} onRequestClose={closeModal}>
-      <div class=" w-full h-full border-4 border-black rounded-md overflow-y-auto bg-white">
+        <div class=" w-full h-full border-4 border-black rounded-md overflow-y-auto bg-white">
           <div class="top-[90%] md:top-[65%] left-1/2 right-auto  h-fit bottom-auto -translate-x-1/2 -translate-y-1/2 relative flex flex-col w-full pointer-events-auto  bg-clip-padding outline-none text-current md:pl-5 md:pr-5 pl-1 pr-1">
             <div class='md:pr-5 md:pt-5'>
               <button class='float-right' onClick={() => closeModal()}>
@@ -227,7 +227,7 @@ function UserWorkshop(props) {
                 </div>
               }
             </div>
-            
+
             <hr class='bg-black h-1' />
             <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
               <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Total:</p>
@@ -247,8 +247,8 @@ function UserWorkshop(props) {
         </div>
       </Modal>
 
-      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1 mb-5 shadow-[10px_10px_0_0_rgba(0,0,0)]" >
-        <p class="text-2xl font-syneBold text-white mb-2">
+      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1 mb-5 shadow-[10px_10px_0_0_rgba(0,0,0)]  md:min-w-[40%]" >
+        <p class="text-2xl font-syneBold text-white mb-2 text-center md:text-left">
           CONFIRMED WORKSHOPS
         </p>
         {registeredWorkshops && registeredWorkshops.length === 0 ? (
@@ -270,22 +270,25 @@ function UserWorkshop(props) {
             }
 
             return (
-              <div class="mb-5">
-                <ContestCard key={index} name={workshop.name} image={imageFile} />
-                <div class="flex gap-4 justify-end w-full">
-                  {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verified</p>}
-                  {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verifying</p>}
-                  {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-black border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
-                 
-                  <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
-                    onClick={() => onClickPayment(workshop)}>
-                    Make payment</button>
-                  <button
-                    onClick={() => onClickCancelReg(workshop)}
-                    disabled={promiseInProgress}
-                  >
-                    <p class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800">Cancel</p>
-                  </button>
+              <div class="mb-5 flex md:flex-row flex-col gap-5">
+                <ContestCard key={index} image={imageFile} />
+                <div class="flex flex-col justify-end items-center md:items-end w-full">
+                  <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
+                  <div class='flex flex-row gap-5'>
+                    {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verified</p>}
+                    {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verifying</p>}
+                    {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#E70A0A] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
+
+                    <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
+                      onClick={() => onClickPayment(workshop)}>
+                      Make payment</button>
+                    <button
+                      onClick={() => onClickCancelReg(workshop)}
+                      disabled={promiseInProgress}
+                    >
+                      <p class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800">Cancel</p>
+                    </button>
+                  </div>
                 </div>
               </div>
             );
@@ -293,8 +296,8 @@ function UserWorkshop(props) {
         )}
       </div>
 
-      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1  shadow-[10px_10px_0_0_rgba(0,0,0)]">
-        <p class="text-2xl font-syneBold text-white mb-2">
+      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1  shadow-[10px_10px_0_0_rgba(0,0,0)] md:min-w-[40%]">
+      <p class="text-2xl font-syneBold text-white mb-2 text-center md:text-left">
           WAITLISTED WORKSHOPS
         </p>
         {waitlistedWorkshops && waitlistedWorkshops.length === 0 ? (
@@ -309,20 +312,16 @@ function UserWorkshop(props) {
               imageFile = workshop.images[0];
             }
             return (
-              <div class="mb-5">
-                <ContestCard key={index} name={workshop.name} image={imageFile} />
-                <div class="flex justify-end w-full">
+              <div class="mb-5 flex md:flex-row flex-col gap-5">
+                <ContestCard key={index} image={imageFile} />
+                <div class="flex flex-col justify-center items-center md:items-end w-full">
+                  <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
                   <button
                     onClick={() => onClickCancelWait(workshop)}
                     disabled={promiseInProgress}
                   >
                     <div class="flex flex-row">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="24" height="24"
-                        viewBox="0 0 24 24">
-                        <path d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 20.522222 5.1913289 21.05461 5.5683594 21.431641 C 5.9453899 21.808671 6.4777778 22 7 22 L 17 22 C 17.522222 22 18.05461 21.808671 18.431641 21.431641 C 18.808671 21.05461 19 20.522222 19 20 L 19 5 L 20 5 L 20 3 L 15 3 L 14 2 L 10 2 z M 7 5 L 17 5 L 17 20 L 7 20 L 7 5 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z"></path>
-                      </svg>
-                      <p class='text-xl font-syne underline decoration-solid mb-2'>Cancel</p>
+                      <p  class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800">Cancel</p>
                     </div>
                   </button>
                 </div>

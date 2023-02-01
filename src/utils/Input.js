@@ -25,12 +25,12 @@ const Input = (props) => {
                     }`}
                 onClick={() => inputRef.current.focus()}
             >
-                <label
+                <p
                     htmlFor={id}
-                    class='text-xl text-primary font-light placeholder-gray-gray4 px-2 pt-1.5'
+                    class='text-xl placeholder-gray-gray4 px-2 pt-1.5 font-syne'
                 >
                     {label} {required && <span class='text-red-500'>*</span>}
-                </label>
+                </p>
                 {type === 'currency' ?
                     <div class='flex flex-row'>
                         <span class='pl-2'>$</span>

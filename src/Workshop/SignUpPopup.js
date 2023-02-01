@@ -117,7 +117,7 @@ export default function SignupPopup(props) {
                 name="name"
                 required
                 label="Full Name"
-                wrapperClassName="border-2 border-black w-full rounded-2xl mb-2"
+                wrapperClassName="border-2  border-black w-full rounded-2xl mb-2"
                 id="component-simple"
                 value={state.name}
                 onChange={handleChange('name')}
@@ -158,10 +158,12 @@ export default function SignupPopup(props) {
                 value={state.matricNumber}
                 onChange={handleChange('matricNumber')}
               />
-
-              <p class='text-xl font-syne mb-2'>
+              <p class='text-xl font-syne mb-2 text-red-600'>
                 *This workshop is only available for NTU students/staff. Your
                 identity will be confirmed on the day of the workshop.
+              </p>
+              <p class='text-xl font-syne mb-2 text-red-600'>
+                *Do remeber to make a payment at the profile page.
               </p>
             </div>
 
@@ -186,13 +188,13 @@ export default function SignupPopup(props) {
                 type="submit"
                 color="secondary"
                 disabled={promiseInProgress}
-                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                class="inline-block px-6 py-2.5 font-syne bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
               >
                 Sign Up
               </button>
               <button
                 type="button"
-                class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                class="inline-block px-6 py-2.5 font-syne bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
                 onClick={() => handleClose(false)}
                 disabled={promiseInProgress}
               >

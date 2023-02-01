@@ -1,14 +1,11 @@
 import React from 'react';
 
 export default function ContestCard(props) {
-  const { name, image } = props;
+  const {  image } = props;
 
   return (
     <div class="flex flex-col text-right">
-        <img class="md:max-w-sm max-w-xs" src={image}  />
-      <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>
-        {name}
-      </p>
+        <img class="md:max-w-[200px] max-w-xs self-center" src={image}  />
     </div>
   );
 }

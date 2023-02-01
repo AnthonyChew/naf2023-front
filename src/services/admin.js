@@ -5,7 +5,7 @@ const getWorkshops = async () => {
   try {
     const res = await axiosConfig({
       method: 'get',
-      url: `${baseUrl}/workshops/`,
+      url: `${baseUrl}/workshops`,
     });
     console.log(res);
     return res;

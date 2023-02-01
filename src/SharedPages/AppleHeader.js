@@ -14,7 +14,7 @@ const AppleHeader = ({ title, backgroundColor="bg-headerGray" }) => {
       <img class="inline ml-2" src={RedButton}></img>
 
       </div>
-      <div class="inline-block">
+      <div class="inline-block font-syneBold">
         {title}
       </div>
     </div>

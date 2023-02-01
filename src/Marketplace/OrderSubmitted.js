@@ -33,7 +33,7 @@ import SubmittedPurpleDot from './svgs/submitted/SubmittedPurpleDot.svg'
 
 const OrderSubmitted = () => {
   return (
-    <div class="bg-NAFPink relative min-h-screen flex flex-col justify-center overflow-hidden z-10">
+    <div class="bg-NAFPink relative min-h-screen flex flex-col justify-center overflow-hidden">
       <img src={SubmittedWhiteDot} class="absolute top-[29%] left-[2.6%] hidden lg:block"></img>      
       <img src={SubmittedYellow8Star1} class="absolute top-[1.7%] left-[1.3%]"></img>
       <img src={SubmittedOrangeDot} class="absolute top-[6.1%] left-[13%] hidden lg:block"></img>

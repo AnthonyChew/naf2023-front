@@ -34,9 +34,9 @@ const EventCard = (props) => {
     return (
         !workshops ?
             <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                <div class="font-syneExtraBold text-2xl font-bold mt-2">{props.title}</div>
-                {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 mt-3 w-fit px-10 mx-5 md:mx-auto " + props.bgColor + textColorCondition}>{props.date}</div></div>}
-                <div className={"mt-3 mx-3 text-md whitespace-pre-wrap"}>{props.content}</div>
+                <div class="font-syneExtraBold text-2xl font-bold mt-2 md:whitespace-nowrap">{props.title}</div>
+                {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 font-syne mt-3 w-fit px-10 mx-5 md:mx-auto " + props.bgColor + textColorCondition}>{props.date.split('\n').map(str => <p>{str}</p>)}</div></div>}
+                <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>{props.content}</div>
                 {
                     props.button ?
                         <div class="mt-7 mx-3">
@@ -49,54 +49,68 @@ const EventCard = (props) => {
             </div >
             :
             <div class="min-h-[300px] w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7">
-                <div class='flex md:flex-wrap md:flex-row flex-col justify-around gap-10 mt-5'>
+                <div class='flex lg:flex-wrap lg:flex-row flex-col justify-around gap-10 mt-5'>
                     {
                         workshops.map((workshop) => {
                             return (
-                                <div class='flex flex-col md:flex-row md:w-[40%] md:h-[30%] gap-10 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
-                                    <img class='basis-1/3 w-[200px] h-[200px]' src={workshop.images[0]} />
-                                    <div class='basis-2/3 flex flex-col max-w-[90%] md:max-w-full min-w-0'>
-                                        <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap md:max-w-fit max-w-[90%]">{workshop.name}</p>
-                                        <div className={"p-1 w-fit px-10 my-2 bg-NAFPurple text-white"}>
-                                            Vacancies:
-                                            {workshop.maxParticipants - workshop.numRegistered > 1000
+                                <div class='flex flex-col lg:flex-row lg:w-[40%] lg:h-[30%] gap-2 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
+                                    <div class="focused-image-container max-h-[300px] w-full basis-1/3 overflow-hidden">
+                                        <img class='focused-image' src={workshop.images[0]} data-focus-x="0.34" data-focus-y="-0.34" />
+                                    </div>
+                                    <div class='basis-2/3 flex flex-col max-w-[90%] lg:max-w-full min-w-0'>
+                                        <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap lg:max-w-fit max-w-[90%]">{workshop.name}</p>
+                                        <p class=" text-bg font-syne text-NAFPurple self-center lg:self-start ">
+                                            Vacancies: {workshop.maxParticipants - workshop.numRegistered > 1000
                                                 ? 'Unlimited'
                                                 : workshop.maxParticipants - workshop.numRegistered}
-                                        </div>
+                                        </p>
 
-                                        <p class="font-syne self-center md:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
+                                        <p class="font-syne self-center lg:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Category:{workshop.category}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center lg:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                             Organisor: {workshop.organizer}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center lg:self-start">
                                             Date: {workshop.date && workshop.date.substr(0, 10)}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center lg:self-start">
                                             Time: {workshop.startTime} - {calculateEndTime(workshop.startTime, workshop.duration)}
                                         </p>
-                                        <p class="font-syne self-center md:self-start">
+                                        <p class="font-syne self-center lg:self-start">
                                             Duration: {workshop.duration} minutes
                                         </p>
-                                        <button
-                                            onClick={() => signUp(workshop)}
-                                            class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
-                                        >
-                                            <p class="font-syne self-center md:self-start">
-                                                Sign Up
-                                            </p>
-                                        </button>
+                                        <div class='flex lg:justify-end justify-center gap-2 mt-2 '>
+                                            <button
+                                                onClick={() => signUp(workshop)}
+                                                class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                            >
+                                                <p class="font-syne self-center lg:self-start px-1">
+                                                    Sign Up
+                                                </p>
+                                            </button>
+                                            <button
+                                                onClick={() => signUp(workshop)}
+                                                class=" lg:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                            >
+                                                <p class="font-syne self-center lg:self-start px-1">
+                                                    Sign Up
+                                                </p>
+                                            </button>
+                                        </div>
+
                                     </div>
                                     {
                                         current_date <= workshop.date &&
                                         <button onClick={() => history('/workshop')} />
                                     }
                                 </div>
+
                             )
                         })
                     }
                 </div>
+
             </div>
 
     )
