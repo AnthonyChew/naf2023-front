@@ -18,6 +18,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,6 +32,21 @@ import 'swiper/css/effect-fade';
 import FileUploader from './FileUploader'
 
 
+import TopRightRedStar from './svgs/Glimmer/TopRightRedStar.svg';
+import TopRightOrangeStar from './svgs/Glimmer/TopRightOrangeStar.svg';
+
+import TopLeftYellowStar from './svgs/Glimmer/TopLeftYellowStar.svg';
+import TopLeftOrangeDot from './svgs/Glimmer/TopLeftOrangeDot.svg';
+
+import MiddleLeftPurpleStar from './svgs/Glimmer/MiddleLeftPurpleStar.svg';
+import MiddleLeftRedDot from './svgs/Glimmer/MiddleLeftRedDot.svg';
+
+import MiddleYellowStar from './svgs/Glimmer/MiddleYellowStar.svg';
+
+import BottomLeftWhiteStar from './svgs/Glimmer/BottomLeftWhiteStar.svg';
+import BottomRightPurpleStar from './svgs/Glimmer/BottomRightPurpleStar.svg';
+import BottomRightOrangeStar from './svgs/Glimmer/BottomRightOrangeStar.svg';
+import BottomRightYellowDot from './svgs/Glimmer/BottomRightYellowDot.svg';
 
 
 const Glimmer = () => {
@@ -124,7 +142,32 @@ const Glimmer = () => {
 
 
   return (
-    <div class="relative bg-NAFBlue pb-20 ">
+    <div class="relative bg-NAFBlue pb-20 overflow-hidden">
+            <img src={TopRightRedStar} class="hidden lg:block absolute top-[0%] right-[0%]"></img>
+            <img src={TopRightOrangeStar} class="hidden md:block absolute top-[0%] right-[15%]"></img>
+
+            <img src={TopLeftYellowStar} class="hidden lg:block absolute top-[-5%] left-[0%]"></img>
+            <img src={TopLeftOrangeDot} class="hidden lg:block absolute top-[15%] left-[20%]"></img>
+
+            <img src={MiddleLeftPurpleStar} class="absolute top-[44%] left-[5%]"></img>
+            <img src={MiddleLeftRedDot} class="absolute top-[44%] left-[2%]"></img>
+
+            <img src={MiddleYellowStar} class="absolute top-[40%] right-[12%]"></img>
+            <img src={BottomLeftWhiteStar} class="hidden lg:block absolute bottom-[-20%] left-[0%]"></img>
+
+          <img src={BottomRightPurpleStar} class="absolute bottom-[-5%] right-[4%]"></img> 
+          <img src={BottomRightOrangeStar} class="absolute bottom-[10%] right-[0%]"></img> 
+          <img src={BottomRightYellowDot} class="absolute bottom-[8%] right-[3%]"></img> 
+
+
+
+{/* 
+
+
+            <img src={MiddleRightPurpleStar} class="hidden md:block absolute top-[51%] left-[0%]"></img>
+
+            <img src={BottomLeftOrangeStar} class="hidden md:block absolute bottom-[-3%] left-[0%] w-[15%]"></img>
+            <img src={BottomRightRedStar} class="hidden md:block absolute bottom-[10%] right-[0%]"></img> */}
       <Modal isOpen={!auth} onRequestClose={handleLoginClose}>
         <div h-full class="h-full flex flex-col items-center justify-center">
           <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
@@ -151,7 +194,7 @@ const Glimmer = () => {
         img={GlimmerLogo}
         text="Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. Participate in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie."
       ></EventHeader>
-      <div class="flex w-[85%] mx-auto text-center flex-wrap justify-between">
+      <div class="flex w-[90%] mx-auto text-center flex-wrap justify-between relative">
         <div class="basis-full lg:basis-[45%]">
           <EventCard bgColor={bgcolor} title="PUBLICITY BOOTH" date={"14 to 17 Feb, 11am to 5pm,\nConcourse area @ South Spine"} content="Come down to our publicity booth at Linkway to learn more about our upcoming events!"></EventCard>
         </div>
@@ -159,7 +202,7 @@ const Glimmer = () => {
           <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date={"24 Feb, 5pm to 10pm,\nLT1A"} content="Join us for a night of unforgettable movies will "></EventCard>
         </div>
       </div>
-      <div class="bg-white w-[85%] h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
+      <div class="bg-white w-[90%] h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center relative">
         <div class="font-syneExtraBold text-2xl font-bold mt-2">
           CREATE YOUR OWN NAF PICREW
         </div>

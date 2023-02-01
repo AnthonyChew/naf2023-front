@@ -19,6 +19,23 @@ import Harmonix from './svgs/Orbit/Harmonix.jpeg';
 import FocusedImage from '../SharedPages/FocusImage.js';
 import EventImagesCard from './EventImagesCard'
 
+
+import TopRightBlueStar from './svgs/Orbit/TopRightBlueStar.svg';
+import TopLeftPurpleStar from './svgs/Orbit/TopLeftPurpleStar.svg';
+
+import MiddleLeftOrangeStar from './svgs/Orbit/MiddleLeftOrangeStar.svg';
+import MiddleLeftWhiteDot from './svgs/Orbit/MiddleLeftWhiteDot.svg';
+import MiddleLeftBlueStar from './svgs/Orbit/MiddleLeftBlueStar.svg';
+import MiddleLeftYellowStar from './svgs/Orbit/MiddleLeftYellowStar.svg';
+
+import MiddleRightPurpleStar from './svgs/Orbit/MiddleRightPurpleStar.svg';
+import MiddleRightOrangeStar from './svgs/Orbit/MiddleRightOrangeStar.svg';
+import MiddleRightYellowStar from './svgs/Orbit/MiddleRightYellowStar.svg';
+import MiddleRightWhiteDot from './svgs/Orbit/MiddleRightWhiteDot.svg';
+
+import BottomLeftYellowStar from './svgs/Orbit/BottomLeftYellowStar.svg';
+import BottomRightBlueStar from './svgs/Orbit/BottomRightBlueStar.svg';
+
 const Orbit = () => {
   const bgcolor = "bg-NAFPink"
 
@@ -117,10 +134,41 @@ const Orbit = () => {
   ]
   const imgs = [1, 2, 3, 4]
   return (
-    <div class="relative bg-NAFPink pb-20">
-      <div class='md:w-[70%] mx-auto'>
+    <div class="relative bg-NAFPink pb-20 overflow-hidden">
+            <img src={TopLeftPurpleStar} class="hidden lg:blockabsolute top-[0%] left-[0%]"></img>
+            <img src={TopRightBlueStar} class="absolute top-[-2%] right-[0%]"></img>
+
+            <img src={MiddleLeftYellowStar} class="absolute top-[13%] left-[0%]"></img>
+            <img src={MiddleLeftBlueStar} class="absolute top-[30%] left-[0%]"></img>
+            <img src={MiddleLeftWhiteDot} class="absolute top-[34%] left-[1%]"></img>
+            <img src={MiddleLeftOrangeStar} class="absolute top-[70%] left-[0%]"></img>
+
+            <img src={MiddleRightOrangeStar} class="absolute top-[17%] right-[0%]"></img>
+            <img src={MiddleRightYellowStar} class="absolute top-[34%] right-[0%]"></img>
+            <img src={MiddleRightWhiteDot} class="absolute top-[60%] right-[0%]"></img>
+            <img src={MiddleRightPurpleStar} class="absolute top-[61%] right-[0%]"></img>
+            <img src={BottomLeftYellowStar} class="absolute bottom-[-1%] left-[-1%]"></img>
+            <img src={BottomRightBlueStar} class="absolute bottom-[5%] right-[0%]"></img>
+
+
+            {/* <img src={MiddleLeftRedStar} class="absolute top-[31%] left-[0%]"></img>
+            <img src={MiddleLeftWhiteDot} class="absolute top-[30%] left-[3%]"></img>
+
+            <img src={MiddleRightOrangeStar} class="hidden md:block absolute top-[34%] right-[0%]"></img>
+
+            <img src={MiddleRightBlueStar} class="hidden md:block absolute top-[65%] right-[0%]"></img>
+            <img src={MiddleRightWhiteDot} class="absolute top-[62%] right-[3%]"></img>
+
+            <img src={MiddleRightPurpleStar} class="hidden md:block absolute top-[51%] left-[0%]"></img>
+
+            <img src={BottomLeftOrangeStar} class="hidden md:block absolute bottom-[-3%] left-[0%] w-[15%]"></img>
+            <img src={BottomRightRedStar} class="hidden md:block absolute bottom-[10%] right-[0%]"></img> */}
+
+
+
+      <div class='mx-auto relative'>
         <EventHeader img={OrbitLogo} text="This year's NAF Internal Showcase, titled Orbit, presents various performances, art showcases, fun activities and booths. It aims to act as a platform for the NTU community to be more involved in as well as gain exposure and newfound interest to NTU's arts scene."></EventHeader>
-        <div class="flex w-[80%] mx-auto text-center flex-wrap justify-between">
+        <div class="flex w-[90%] mx-auto text-center flex-wrap justify-between">
           <div class="basis-full lg:basis-[45%]">
             <EventCard bgColor={bgcolor} title="PHYSICAL ARTS MARKET" date={"20 February 2023 to 24 February 2023\n6 March 2023 to 10 March 2023\n15 to 17 March 2023, 11pm - 5pm\nThe Green Space @ North Spine"} content="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventCard>
           </div>
@@ -128,12 +176,12 @@ const Orbit = () => {
             <EventCard bgColor={bgcolor} title="ONLINE ARTS MARKET" date={"6 February 2023 to 10 February 2023, 12pm to 6pm\nHosted on the NAF website"} content="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventCard>
           </div>
         </div>
-        <div class="flex mx-auto text-center w-[90%] md:w-[94%]">
+        <div class="flex mx-auto text-center w-[90%]">
           <div class="basis-full">
             <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway"  imgs={imgs} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
-        <div class="flex w-[90%] md:w-[80%] mx-auto text-center  mt-20">
+        <div class="flex w-[90%] mx-auto text-center  mt-20">
           <div class="basis-full">
             <div class="min-h-[300px]  bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
               <div class="font-syneExtraBold text-2xl font-bold mt-2">OPHIUCHUS</div>

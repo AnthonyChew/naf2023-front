@@ -6,6 +6,13 @@ import workshopService from '../services/workshops';
 import { trackPromise } from 'react-promise-tracker';
 import Filter from './FilterWorkshops';
 
+
+import LeftBottomTornado from './svgs/Interstellar/LeftBottomTornado.svg';
+import LeftTornado from './svgs/Interstellar/LeftTornado.svg';
+import RightTornado from './svgs/Interstellar/RightTornado.svg';
+
+
+
 const Interstellar = () => {
   const bgcolor = "bg-NAFPurple";
 
@@ -62,7 +69,11 @@ const Interstellar = () => {
 
   return (
     <div class="relative bg-NAFPurple pb-20">
-      <div class='md:w-[70%] mx-auto'>
+            <img src={LeftTornado} class="absolute top-[12%] right-[0%]"></img>
+            <img src={RightTornado} class="absolute top-[30%] right-[0%]"></img>
+            <img src={LeftBottomTornado} class="absolute top-[64%] right-[0%]"></img>
+
+      <div class='md:w-[70%] mx-auto relative'>
         <EventHeader img={InterStellarLogo} text="Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations."></EventHeader>
         {/* <div class="flex w-[85%] mx-auto text-center">
         <div class="basis-full">
