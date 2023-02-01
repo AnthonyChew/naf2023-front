@@ -145,7 +145,7 @@ const MainCommittee = () => {
 
         <img src={BottomLeftPurpleStar} class="hidden lg:block absolute bottom-[-12%] left-[0%]"></img>
 
-        <img src={BottomRightOrangeStar} class="hidden lg:block absolute bottom-[-8%] right-[0%] z-10"></img>
+        <img src={BottomRightOrangeStar} class="hidden lg:block absolute bottom-[-8%] right-[0%]"></img>
         <img src={BottomRightWhiteDot} class="hidden lg:block absolute bottom-[-12%] right-[0%]"></img>
 
         {/* <img src={BottomLeftWhiteStar} class="absolute bottom-[0%] left-[0%]"></img> */}
@@ -164,6 +164,7 @@ const MainCommittee = () => {
 
           <AppleHeader></AppleHeader>
           <div class="flex bg-white relative">
+            {/* left side */}
             <div class="flex-col lg:basis-[15%] bg-white  basis-[30%]">
               <div class="bg-gray-400 py-2 px-1 md:p-5  border border-black h-[100%]">
                 {
@@ -178,7 +179,8 @@ const MainCommittee = () => {
               </div>
 
             </div>
-            <div class="basis-[80%] bg-white">
+            {/* right side */}
+            <div class="basis-[80%] bg-white pb-20">
               <div class="text-center mt-[4%] md:mx-10 mx-2 font-syne md:text-xl">
                 {shortDes}
               </div>
