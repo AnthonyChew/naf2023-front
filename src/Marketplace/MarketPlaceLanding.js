@@ -24,6 +24,36 @@ import Quantity from '../utils/Quantity';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+import OrangeDot from './svgs/marketplace/OrangeDot.svg';
+import WhiteDot from './svgs/marketplace/WhiteDot.svg';
+import PurpleDot from './svgs/marketplace/PurpleDot.svg';
+import BlueDot from './svgs/marketplace/BlueDot.svg';
+
+import TopRightPurpleStar from './svgs/marketplace/TopRightPurpleStar.svg';
+import TopRightYellowStar from './svgs/marketplace/TopRightYellowStar.svg';
+
+import TopLeftBlueStar from './svgs/marketplace/TopLeftBlueStar.svg';
+import TopLeftYellowStar from './svgs/marketplace/TopLeftYellowStar.svg';
+
+
+import MiddleLeftYellowStar from './svgs/marketplace/MiddleLeftYellowStar.svg';
+
+import MiddleRightYellowStar from './svgs/marketplace/MiddleRightYellowStar.svg';
+import MiddleRightPurpleStar from './svgs/marketplace/MiddleRightPurpleStar.svg';
+
+import MiddleBlueStar from './svgs/marketplace/MiddleBlueStar.svg';
+import MiddleOrangeStar from './svgs/marketplace/MiddleOrangeStar.svg';
+
+
+import BottomLeftBlueStar from './svgs/marketplace/BottomLeftBlueStar.svg';
+import BottomRightOrangeStar from './svgs/marketplace/BottomRightOrangeStar.svg';
+import BottomRightPurpleStar from './svgs/marketplace/BottomRightPurpleStar.svg';
+import BottomRightYellowStar from './svgs/marketplace/BottomRightYellowStar.svg';
+import BottomMiddlePurpleStar from './svgs/marketplace/BottomMiddlePurpleStar.svg';
+
+
 const MarketPlaceLanding = () => {
   const [allproducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
@@ -192,7 +222,37 @@ const MarketPlaceLanding = () => {
 
   return (
     <div class="bg-NAFPink bg-cover min-h-screen relative overflow-hidden">
-      <div class='md:w-[70%] mx-auto'>
+
+      <img src={TopLeftBlueStar} class="absolute top-[-5%] left-[5%]"></img>
+      <img src={TopLeftYellowStar} class="absolute top-[4%] left-[0%]"></img>
+
+
+      <img src={TopRightPurpleStar} class="absolute top-[-7%] right-[0%]"></img>
+      <img src={TopRightYellowStar} class="absolute top-[8%] right-[17%]"></img>
+      <img src={WhiteDot} class="absolute top-[1%] right-[20%]"></img>
+
+
+      <img src={MiddleOrangeStar} class="absolute top-[34%] right-[20%]"></img>
+      <img src={BlueDot} class="absolute top-[34%] right-[40%]"></img>
+      <img src={OrangeDot} class="absolute top-[55%] left-[30%]"></img>
+
+
+      <img src={MiddleLeftYellowStar} class="absolute top-[61%] left-[0%]"></img>
+
+      <img src={MiddleRightPurpleStar} class="absolute top-[48%] right-[0%]"></img>
+      <img src={MiddleRightYellowStar} class="absolute top-[69%] right-[0%]"></img>
+
+      <img src={BottomLeftBlueStar} class="absolute bottom-[-3%] left-[0%]"></img>
+      <img src={BottomMiddlePurpleStar} class="hidden md:block absolute bottom-[10%] left-[20%]"></img>
+
+      <img src={BottomRightPurpleStar} class="absolute bottom-[13%] right-[5%]"></img>
+      <img src={WhiteDot} class="absolute bottom-[13%] right-[21%]"></img>
+
+      <img src={BottomRightYellowStar} class="absolute bottom-[4%] right-[30%]"></img>
+      <img src={BottomRightOrangeStar} class="absolute bottom-[-4%] right-[0%]"></img>
+
+
+      <div class='md:w-[80%] mx-auto relative'>
         <div class="flex relative flex-col items-center">
           <img class="my-10 w-[80%] lg:w-[40%]" src={MarketPlaceLogo}></img>
           <div class="font-syne w-[60%] text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>

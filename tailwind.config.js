@@ -11,7 +11,8 @@ module.exports = {
         'NAFBlue' : '#0071C6',
         'NAFYellow': '#FCF43D',
         'NAFPink': '#F9346C',
-        'NAFOrange': '#FF8B13'
+        'NAFOrange': '#FF8B13',
+        'NAFRed' : '#BB2751',
       },
       fontFamily: {
         syne: ["Syne"],
