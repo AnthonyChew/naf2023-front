@@ -17,16 +17,31 @@ const Footer = () => {
           <img class="mx-auto my-0 w-[30%] md:w-[70%] lg:w-[auto]" src={CAC_Logo}></img>
         </div>
       </div>
-      <div class="basis-1/2 md:basis-1/4">
-        <div>Powered By</div>
-        <div class="flex pt-5 ">
-
-          <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
-          <img src={MJD_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
-          <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
+      <div class="basis-1/2 md:basis-1/">
+        <div className='flex gap-20'>
+          <div>
+            <div class='text-center '>Powered By</div>
+            <div class="flex pt-5 ">
+              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
+              <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
+            </div>
+          </div>
+          <div class='md:block hidden'>
+            <div  class='text-center '> Official Production Partner</div>
+            <div class="flex pt-5 ">
+              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[300px] lg:h-[40px] xl:w-[300px] xl:h-[40px] md:w-[350px] md:h-[55px] mx-2"></img>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="w-[100%] md:basis-1/4 md:w-[auto] text-center">
+      <div class="md:hidden w-[100%] md:basis-1/4 md:w-[auto] text-center  md:mt-0 mt-5">
+        <div > Official Production Partner</div>
+        <div class="flex pt-5 justify-center">
+          <img src={MJD_logo} class="w-[200px] h-[35px] md:w-[400px] md:h-[75px]  mx-2"></img>
+        </div>
+      </div>
+
+      <div class="w-[100%] md:basis-1/4 md:w-[auto] text-center ">
         <div>Social Media</div>
         <div class="flex gap-3 pt-5 justify-center">
           <a href='https://www.facebook.com/ntuartsfestival/'>
