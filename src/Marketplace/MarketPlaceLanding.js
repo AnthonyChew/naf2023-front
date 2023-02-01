@@ -65,7 +65,7 @@ const MarketPlaceLanding = () => {
   const [filterOptions, setFilterOptions] = useState([1, 2]);
 
   // No of Records to be displayed on each page   
-  const [recordsPerPage] = useState(10);
+  const [recordsPerPage] = useState(15);
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [confirmationIsOpen, setConfirmationIsOpen] = useState(false);
@@ -227,6 +227,7 @@ const MarketPlaceLanding = () => {
       <img src={TopLeftYellowStar} class="absolute top-[4%] left-[0%]"></img>
 
 
+
       <img src={TopRightPurpleStar} class="absolute top-[-7%] right-[0%]"></img>
       <img src={TopRightYellowStar} class="absolute top-[8%] right-[17%]"></img>
       <img src={WhiteDot} class="absolute top-[1%] right-[20%]"></img>
@@ -251,6 +252,20 @@ const MarketPlaceLanding = () => {
       <img src={BottomRightYellowStar} class="absolute bottom-[4%] right-[30%]"></img>
       <img src={BottomRightOrangeStar} class="absolute bottom-[-4%] right-[0%]"></img>
 
+        {/* product and ads */}
+      <div class="flex font-syne">
+        {/* product part */}
+        <div class="lg:basis-5/6">
+          <div class=" flex flex-wrap p-5 max-h-[700px] overflow-y-auto">
+            {
+              products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
+                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
+                  <div class="oneItem-img border-black border-b-2">
+                    <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
+                  </div>
+                  <div class="oneItem-caption p-1 bg-gray-500">
+                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
+                    <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
 
       <div class='md:w-[80%] mx-auto relative'>
         <div class="flex relative flex-col items-center">
@@ -316,10 +331,10 @@ const MarketPlaceLanding = () => {
           </div>
 
 
-          {/* ad stuff */}
-          <div class="basis-1/6">
-            <div class="w-[200px] h-[500px] bg-gray-500 mr-10">
-            </div>
+        {/* ad stuff */}
+        <div class="basis-1/6 hidden lg:block">
+          <div class="w-[200px] h-[500px] bg-gray-500 mr-10">
+
           </div>
         </div>
         {/* Modal */}

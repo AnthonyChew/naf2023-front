@@ -59,33 +59,30 @@ function App() {
       <ScrolltoTop />
         <Navbar></Navbar>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/programmes" element={<WorkshopMain />} />
-          <Route path="/workshop" element={<WorkshopMain />} />
-          <Route path="/marketplace" element={<MarketPlace />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/submitted" element={<OrderSubmitted />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/picrew" element={<Piccrew />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/glimmer" element={<Glimmer />} />
-          <Route path="/nebula" element={<Nebula />} />
-          <Route path="/orbit" element={<Orbit />} />
-          <Route path="/interstellar" element={<Interstellar />} />
-          <Route path="/starburst" element={<Starburst />} />
-          <Route path="/afth" element={<NAFxAFTH />} />
-          <Route path="/jdc" element={<NAFxJDC />} />
-          <Route path="/cs" element={<NAFxCS />} />
-          <Route path="/top" element={<NAFxTOP />} />
-          <Route path="/vendorlogin" element={<VendorLogin />} />
-          <Route path="/adminmanage" element={<AdminManage />} />
-          <Route path='/partners' element={<Partners />} />
-          <Route path="/committee" element={<MainCommittee />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/" element={<div class='pt-[6%]'><Home /></div>} />
+          <Route path="*" element={<div class='pt-[6%]'><Home /></div>} />
+          <Route path="/about" element={<div class='pt-[6%]'><AboutUs /></div>} />
+          <Route path="/programmes" element={<div class='pt-[6%]'><WorkshopMain /></div>} />
+          <Route path="/workshop" element={<div class='pt-[6%]'><WorkshopMain /></div>} />
+          <Route path="/marketplace" element={<div class='pt-[6%]'><MarketPlace /></div>} />
+          <Route path="/payment" element={<div class='pt-[6%]'><Payment /></div>} />
+          <Route path="/submitted" element={<div class='pt-[6%]'><OrderSubmitted /></div>} />
+          <Route path="/events" element={<div class='pt-[6%]'><Events /></div>} />
+          <Route path="/cart" element={<div class='pt-[6%]'><Cart /></div>} />
+          <Route path="/picrew" element={<div class='pt-[6%]'><Piccrew /></div>} />
+          <Route path="/profile" element={<div class='pt-[6%]'><Profile /></div>} />
+          <Route path="/glimmer" element={<div class='pt-[6%]'><Glimmer /></div>} />
+          <Route path="/nebula" element={<div class='pt-[6%]'><Nebula /></div>} />
+          <Route path="/orbit" element={<div class='pt-[6%]'><Orbit /></div>} />
+          <Route path="/interstellar" element={<div class='pt-[6%]'><Interstellar /></div>} />
+          <Route path="/starburst" element={<div class='pt-[6%]'><Starburst /></div>} />
+          <Route path="/afth" element={<div class='pt-[6%]'><NAFxAFTH /></div>} />
+          <Route path="/jdc" element={<div class='pt-[6%]'><NAFxJDC /></div>} />
+          <Route path="/cs" element={<div class='pt-[6%]'><NAFxCS /></div>} />
+          <Route path="/top" element={<div class='pt-[6%]'><NAFxTOP /></div>} />
+          <Route path="/vendorlogin" element={<div class='pt-[6%]'><VendorLogin /></div>} />
+          <Route path="/adminmanage" element={<div class='pt-[6%]'><AdminManage /></div>} />
+          <Route path="/committee" element={<div class='pt-[6%]'><MainCommittee /></div>} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
