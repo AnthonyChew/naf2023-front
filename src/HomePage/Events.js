@@ -11,18 +11,20 @@ import SmallWhiteStar from './svgs/events/eventsSmallWhiteStar.svg';
 import WhiteDot from './svgs/events/eventsWhiteDot.svg';
 import RedDot from './svgs/events/eventsRedDot.svg';
 import TopRightYellowStar from './svgs/events/eventsTopRightYellowStar.svg'
+import ClickImage from './svgs/events/eventsClickImage.svg';
 
 import Pikachu1 from './svgs/events/pikachu1.png';
 import Pikachu2 from './svgs/events/pikachu2.png';
 import Pikachu3 from './svgs/events/pikachu3.jpg';
 import Pikachu4 from './svgs/events/pikachu4.jpg';
 import AppleHeader from '../SharedPages/AppleHeader';
+import { Link } from 'react-router-dom';
 
 const Events = () => {
-  const imgGallery = [  {image:Pikachu1 , location: 'Linkway, LT1A' , name:'GLIMMER' , date:'14 - 24 FEB 2023'},
-                        {image:Pikachu2 , location: 'Foyer @ LT1A' , name:'STARBURST' ,  date:'6 - 10 MAR 2023'},
-                        {image:Pikachu3 , location: 'TRs, LWN Study Room, Nanyang House, NIE' , name:'INTERSTELLAR' , date:'6 - 17 MAR 2023' },
-                        {image:Pikachu4 , location: 'Green Lawn @ NS Linkway Nanyang Auditorium' , name:'ORBIT ' , date:'6 FEB - 17 MAR 2023' }];
+  const imgGallery = [{ image: Pikachu1, location: 'Linkway, LT1A', name: 'GLIMMER', date: '14 - 24 FEB 2023', link: '/glimmer' },
+  { image: Pikachu2, location: 'Foyer @ LT1A', name: 'STARBURST', date: '6 - 10 MAR 2023', link: '/starburst' },
+  { image: Pikachu3, location: 'TRs, LWN Study Room, Nanyang House, NIE', name: 'INTERSTELLAR', date: '6 - 17 MAR 2023', link: '/interstellar' },
+  { image: Pikachu4, location: 'Green Lawn @ NS Linkway Nanyang Auditorium', name: 'ORBIT ', date: '6 FEB - 17 MAR 2023', link: '/orbit' }];
   const [imgState, setImgState] = useState(0)
   const ImageState = (val) => (event) => {
     if (val > 3) val = 0
@@ -37,7 +39,8 @@ const Events = () => {
       </div>
       <img src={TopRightYellowStar} class="hidden lg:block absolute top-[-22%] right-[-10%] z-30 "></img>
       <img src={RedDot} class="hidden lg:block absolute top-[15%] left-[0%] z-10" ></img>
-      <img src={BigWhiteStar} class="hidden lg:block absolute bottom-[10%] left-[-1%] z-10" ></img>
+      <img src={BigWhiteStar} class="absolute bottom-[10%] left-[-1%] z-10 w-[30%] md:w-[auto]" ></img>
+      <img src={ClickImage} class="absolute top-[15%] md:top-[0%] left-[0%] z-10 w-[30%] md:w-[auto]"></img>
 
       {/* left side */}
       <div class="w-[70%] bg-NAFYellow grow relative flex flex-col flex-wrap align-center justify-center">
@@ -46,11 +49,17 @@ const Events = () => {
 
         <div class="lg:h-2/4 my-0 mx-auto p-10 relative lg:max-w-[50%] h-[300px]">
           <img src={BigPurpleStar} class="hidden lg:block absolute top-[-5%] left-[-5%]" ></img>
-          <img src={imgGallery[imgState].image} class="h-full w-full"></img>
+          <Link to={imgGallery[imgState].link}>
+            <img src={imgGallery[imgState].image} to={imgGallery[imgState].link} class="h-full w-full"></img>
+          </Link>
         </div>
-        <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-1/4">
-          <img class="inline-block w-3/4 lg:w-[auto]" src={LeftArrow} onClick={ImageState(imgState-1)}></img>
-          <img class="inline-block w-3/4 lg:w-[auto]" src={RightArrow} onClick={ImageState(imgState+1)}></img>
+        <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 lg:w-1/4">
+          <div>
+            <img class="inline-block w-3/4 lg:w-[auto]" src={LeftArrow} onClick={ImageState(imgState - 1)}></img>
+          </div>
+          <div>
+            <img class="inline-block w-3/4 lg:w-[auto]" src={RightArrow} onClick={ImageState(imgState + 1)}></img>
+          </div>
         </div>
 
       </div>
@@ -66,10 +75,10 @@ const Events = () => {
             {
               imgGallery.map((oneImage, index) => (
                 <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
-                 "text-black bg-white rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"} 
-                 onClick={ImageState(index)} >
+                  "text-black bg-white rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"}
+                  onClick={ImageState(index)} >
                   <div class="font-syneExtraBold text-3xl text-ellipsis whitespace-nowrap overflow-hidden ">{oneImage.name}</div>
-                  <div class="font-syneBold text-m">{oneImage.date},{<br/>} 	&lt;{oneImage.location}&gt;</div>
+                  <div class="font-syneBold text-m">{oneImage.date},{<br />} 	&lt;{oneImage.location}&gt;</div>
                 </div>
               ))
             }

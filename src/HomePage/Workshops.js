@@ -45,10 +45,10 @@ const Workshops = () => {
 
   return (
     <div class="bg-NAFOrange bg-cover relative overflow-hidden" style={{ backgroundImage: `url(${LandingBg})` }}>
-      <img src={WorkshopTopLeftPurpleStar} class="hidden lg:block absolute top-[5%] left-[0%] z-10"></img>
-      <img src={WorkshopTopRightRedDot} class="hidden lg:block absolute top-[2%] right-[10%] z-10"></img>
+      <img src={WorkshopTopLeftPurpleStar} class="absolute top-[5%] left-[0%] z-10 w-[20%] md:w-[auto]"></img>
+      <img src={WorkshopTopRightRedDot} class="absolute top-[2%] right-[10%] z-10"></img>
       <img src={WorkshopTopRightYellowStar} class="hidden lg:block absolute top-[5%] right-[0%] z-10"></img>
-      <img src={WorkshopBottomRightBlueStar} class="hidden lg:block absolute bottom-[-8%] right-[-5%] z-10"></img>
+      <img src={WorkshopBottomRightBlueStar} class="absolute bottom-[-8%] right-[-5%] z-10 w-[40%] md:w-auto"></img>
 
 
 
@@ -93,7 +93,7 @@ const Workshops = () => {
                   alt=""
                   class='md:h-[250px] md:w-[350px] '
                 />
-                <div class="text-center font-syne">Laura Jane Poetry S1</div>
+                <div class="text-center font-syne mt-3">Laura Jane Poetry S1</div>
               </div>
             </SwiperSlide>
 
@@ -104,7 +104,7 @@ const Workshops = () => {
                   alt=""
                   class='md:h-[250px] md:w-[350px]'
                 />
-                <div class="text-center font-syne">MLCS</div>
+                <div class="text-center font-syne mt-3">MLCS</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -114,7 +114,7 @@ const Workshops = () => {
                   alt=""
                   class='md:h-[250px] md:w-[350px]'
                 />
-                <div class="text-center font-syne">Minature Painting</div>
+                <div class="text-center font-syne mt-3">Minature Painting</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -125,7 +125,7 @@ const Workshops = () => {
                     alt=""
                     class='md:h-[250px] md:w-[350px]'
                   />
-                  <div class="text-center font-syne text-lg">Theatre Games</div>
+                  <div class="text-center font-syne text-lg mt-3">Theatre Games</div>
                 </div>
               </div>
             </SwiperSlide>
