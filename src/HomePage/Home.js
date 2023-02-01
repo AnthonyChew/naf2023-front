@@ -5,11 +5,9 @@ import WhatsOn from './WhatsOn'
 import Events from './Events'
 import Workshops from './Workshops'
 import Marketplace from './Marketplace'
-import Navbar from '../SharedPages/Navbar'
-import Footer from '../SharedPages/Footer'
-import AboutUs from '../AboutUs/AboutUs'
 
 const Home = () => {
+  document.body.style.overflow = 'unset';
   return (
     <div>
         <Landing></Landing>

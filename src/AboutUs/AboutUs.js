@@ -5,9 +5,9 @@ import DirectorNote from './DirectorNote'
 import FestGuide from './FestGuide'
 import Info from './Info'
 
-const AboutUs = () => {
+const AboutUs = () => {      
+  document.body.style.overflow = 'unset';
   return (
-
     <div>
         <FestGuide></FestGuide>
         <Info></Info>

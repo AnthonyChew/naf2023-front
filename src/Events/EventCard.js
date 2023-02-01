@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import moment from 'moment';
+import FocusedImage from '../SharedPages/FocusImage.js';
 
 const EventCard = (props) => {
     function calculateEndTime(startTime, duration) {
@@ -35,7 +36,7 @@ const EventCard = (props) => {
         !workshops ?
             <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
                 <div class="font-syneExtraBold text-2xl font-bold mt-2 md:whitespace-nowrap">{props.title}</div>
-                {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 font-syne mt-3 w-fit px-10 mx-5 md:mx-auto " + props.bgColor + textColorCondition}>{props.date.split('\n').map(str => <p>{str}</p>)}</div></div>}
+                {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 font-syne mt-3 w-fit px-10 mx-5 sm:mx-auto " + props.bgColor + textColorCondition}>{props.date.split('\n').map(str => <p>{str}</p>)}</div></div>}
                 <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>{props.content}</div>
                 {
                     props.button ?
@@ -54,8 +55,8 @@ const EventCard = (props) => {
                         workshops.map((workshop) => {
                             return (
                                 <div class='flex flex-col lg:flex-row lg:w-[40%] lg:h-[30%] gap-2 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
-                                    <div class="focused-image-container max-h-[300px] w-full basis-1/3 overflow-hidden">
-                                        <img class='focused-image' src={workshop.images[0]} data-focus-x="0.34" data-focus-y="-0.34" />
+                                    <div class='md:w-[280px] md:h-[200px] w-[200px] h-[100px]'>
+                                        <FocusedImage class='focused-image' imageSrc={workshop.images[0]} x={0} y={0} ></FocusedImage>
                                     </div>
                                     <div class='basis-2/3 flex flex-col max-w-[90%] lg:max-w-full min-w-0'>
                                         <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap lg:max-w-fit max-w-[90%]">{workshop.name}</p>

@@ -134,7 +134,7 @@ function AdminImageManage() {
             handleSubmit();
         },
     });
-
+    document.body.style.overflow = 'unset';
     return (
         <>
             <Modal isOpen={photoModal} onRequestClose={handlePhotoModalClose}>

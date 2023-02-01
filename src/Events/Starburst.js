@@ -23,6 +23,7 @@ const Starburst = () => {
     const bgcolor = "bg-NAFYellow"
     const imgs = [1, 2, 3, 4]
 
+    document.body.style.overflow = 'unset';
     return (
         <div class="relative bg-NAFYellow pb-20">
             <img src={TopLeftBlueStar} class="hidden md:block absolute top-[0%] left-[0%]"></img>

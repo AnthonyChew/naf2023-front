@@ -41,6 +41,7 @@ import BottomRightPurpleStar from './svgs/BottomRightPurpleStar.svg';
 import BottomRightYellowStar from './svgs/BottomRightYellowStar.svg';
 
 const NAFxTOP = () => {
+    document.body.style.overflow = 'unset';
     const description = "CAC Transition and Orientation Program (TOP) is one of the major events organised by CAC. Filled with fun and exciting activities that vary from exploring the NTU campus and venturing around interesting spots and landmarks on the NTU campus, CAC TOP serves to facilitate freshmen around the new varsity environment as well as to foster deep and long-lasting friendships among participants. With TOP’23 coming up, CAC TOP aims to welcome undergraduates from all faculties to create a memorable experience and build long-lasting friendships!"
     const theme = ""
     const imgs = [TOP_1, TOP_2, TOP_3, TOP_4, TOP_5]

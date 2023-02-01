@@ -140,7 +140,7 @@ const Glimmer = () => {
 
   const googleUrl = `${config.backendUrl}/api/auth/google/login/`;
 
-
+  document.body.style.overflow = 'unset';
   return (
     <div class="relative bg-NAFBlue pb-20 overflow-hidden">
             <img src={TopRightRedStar} class="hidden lg:block absolute top-[0%] right-[0%]"></img>

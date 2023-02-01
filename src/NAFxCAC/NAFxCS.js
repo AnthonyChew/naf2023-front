@@ -41,6 +41,7 @@ import BottomRightPurpleStar from './svgs/BottomRightPurpleStar.svg';
 import BottomRightYellowStar from './svgs/BottomRightYellowStar.svg';
 
 const NAFxCS = () => {
+    document.body.style.overflow = 'unset';
     const description = "Organized by NTU Cultural Activities Club (CAC), CenterStage 2023 is back revamped as a campus-wide all-inclusive talent competition, seeking to unearth hidden talents amongst the NTU community by providing them with an accessible and professional platform to compete with other talents. CenterStage allows contestants to perform and showcase any form of talent, from dance and music, to even unconventional talents such as stand-up comedy and magic."
     const theme = "Our theme this year is Y2K, a popular fashion theme from the 2000s. Through this Y2K theme, we hope to give our contestants a sense of nostalgia, by bringing them back in time to relive their childhood memories, or even fulfill their childhood dreams of performing on stage!"
     const imgs = [CS_1, CS_2, CS_3, CS_4]

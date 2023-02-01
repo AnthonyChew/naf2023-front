@@ -136,6 +136,8 @@ const MarketPlaceLanding = () => {
     toast("Added to cart!");
   }
 
+
+
   const nextPage = () => {
     if (currentPage !== totalPages) setCurrentPage(currentPage + 1)
   }
@@ -220,6 +222,7 @@ const MarketPlaceLanding = () => {
     setConfirmationIsOpen(false);
   }
 
+  document.body.style.overflow = 'unset';
   return (
     <div class="bg-NAFPink bg-cover min-h-screen relative overflow-hidden">
 
@@ -252,21 +255,6 @@ const MarketPlaceLanding = () => {
       <img src={BottomRightYellowStar} class="absolute bottom-[4%] right-[30%]"></img>
       <img src={BottomRightOrangeStar} class="absolute bottom-[-4%] right-[0%]"></img>
 
-        {/* product and ads */}
-      <div class="flex font-syne">
-        {/* product part */}
-        <div class="lg:basis-5/6">
-          <div class=" flex flex-wrap p-5 max-h-[700px] overflow-y-auto">
-            {
-              products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
-                  <div class="oneItem-img border-black border-b-2">
-                    <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
-                  </div>
-                  <div class="oneItem-caption p-1 bg-gray-500">
-                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
-                    <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
-
       <div class='md:w-[80%] mx-auto relative'>
         <div class="flex relative flex-col items-center">
           <img class="my-10 w-[80%] lg:w-[40%]" src={MarketPlaceLogo}></img>
@@ -279,19 +267,19 @@ const MarketPlaceLanding = () => {
         </div>
 
         {/* product and ads */}
-        <div class="flex font-syne">
-          {/* product part */}
-          <div class="basis-5/6">
-            <div class=" flex flex-wrap p-5">
-              {
-                products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                  <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
-                    <div class="oneItem-img border-black border-b-2">
-                      <img src={oneItem.images[0]} class="min-w-[200px] h-[200px]"></img>
-                    </div>
-                    <div class="oneItem-caption p-1 bg-white">
-                      <div class="text-ellipsis overflow-hidden whitespace-nowrap">{oneItem.name}</div>
-                      <div class=" text-ellipsis text-sm overflow-hidden whitespace-nowrap">{oneItem.vendorName}</div>
+      <div class="flex font-syne">
+        {/* product part */}
+        <div class="lg:basis-5/6">
+          <div class=" flex flex-wrap p-5">
+            {
+              products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
+                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
+                  <div class="oneItem-img border-black border-b-2">
+                    <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
+                  </div>
+                  <div class="oneItem-caption p-1 bg-gray-500">
+                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
+                    <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
 
                       <div>Price: ${oneItem.price}</div>
 
@@ -331,152 +319,154 @@ const MarketPlaceLanding = () => {
           </div>
 
 
-        {/* ad stuff */}
-        <div class="basis-1/6 hidden lg:block">
-          <div class="w-[200px] h-[500px] bg-gray-500 mr-10">
+          {/* ad stuff */}
+          <div class="basis-1/6 hidden lg:block">
+            <div class="w-[200px] h-[500px] bg-gray-500 mr-10">
 
+            </div>
           </div>
-        </div>
-        {/* Modal */}
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={() => closeModal("modal-outside")}
-          appElement={document.getElementById('root') || undefined} // weird error if dont add this
-          shouldCloseOnOverlayClick={true}
-        >
-          <div class="w-full h-full overflow-y-auto" onClick={(e) => closeModal(e)} id="modal-outside" >
-            <div class="w-[100%] md:w-[70%] mx-auto " >
-              <div class="shadow-lg relative pointer-events-auto bg-white bg-clip-padding border-4 border-black" id="modal-box">
-                {/* <AppleHeader /> */}
-                <div class="flex items-center justify-end mb-8 bg-headerGray border-b-4 border-black ">
-                  <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
-                    <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                  </button>
-                </div>
-                <div class="modal-body relative p-2 md:p-10 text-center lg:text-left ">
-                  <div class="w-[70%] lg:w-[30%] inline-block text-center">
-                    <Swiper
-                      // install Swiper modules
-                      modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade]}
-                      spaceBetween={50}
-                      slidesPerView={1}
-                      pagination={{
-                        el: '.swiper-custom-pagination',
-                        clickable: true,
-                        renderBullet: function (index, className) {
-                          return '<span class="' + className + '"><img class="pagination-bullet"/></span>';
+          {/* Modal */}
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={() => closeModal("modal-outside")}
+            appElement={document.getElementById('root') || undefined} // weird error if dont add this
+            shouldCloseOnOverlayClick={true}
+          >
+            <div class="w-full h-full overflow-y-auto" onClick={(e) => closeModal(e)} id="modal-outside" >
+              <div class="w-[100%] md:w-[70%] mx-auto " >
+                <div class="shadow-lg relative pointer-events-auto bg-white bg-clip-padding border-4 border-black" id="modal-box">
+                  {/* <AppleHeader /> */}
+                  <div class="flex items-center justify-end mb-8 bg-headerGray border-b-4 border-black ">
+                    <button class="navbar-close" onClick={() => closeModal("modal-outside")}>
+                      <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="modal-body relative p-2 md:p-10 text-center lg:text-left ">
+                    <div class="w-[70%] lg:w-[30%] inline-block text-center">
+                      <Swiper
+                        // install Swiper modules
+                        modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade]}
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        pagination={{
+                          el: '.swiper-custom-pagination',
+                          clickable: true,
+                          renderBullet: function (index, className) {
+                            return '<span class="' + className + '"><img class="pagination-bullet"/></span>';
+                          }
+
+                        }}
+                        loop={true}
+                      >
+                        {
+                          oneproduct.images.map((oneImg, index) => (
+                            <SwiperSlide>
+                              <img src={oneImg} alt="" class="max-h-[300px] h-[100%] w-[100%] r" />
+                            </SwiperSlide>
+                          ))
                         }
 
-                      }}
-                      loop={true}
-                    >
-                      {
-                        oneproduct.images.map((oneImg, index) => (
-                          <SwiperSlide>
-                            <img src={oneImg} alt="" class="max-h-[300px] h-[100%] w-[100%] r" />
-                          </SwiperSlide>
-                        ))
-                      }
-
-                    </Swiper>
-                    <div class="text-center mb-10">
-                      <div className="swiper-custom-pagination" />
-                    </div>
-                  </div>  {/* end of left side */}
-                  <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
-                    <div class="font-syneBold text-xl text-black">{oneproduct.name}</div>
-                    <div class="font-syneBold text-sm text-black">{oneproduct.vendorName}</div>
-                    {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
-                      {oneproduct.colours.map((colour, index) => {
-                        return (
-                          <li class="mx-2 my-2 min-w-[50px]">
-                            <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
-                            <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
-                              <div class="block text-center w-[100%]">
-                                <div class="w-full text-m font-syne">{colour}</div>
-                              </div>
-                            </label>
-                          </li>
-                        )
-                      })}
-                    </ul>}
-
-                    {oneproduct.sizes && <ul class="flex w-full mt-5 flex-wrap">
-                      {oneproduct.sizes.map((sizes, index) => {
-                        return (
-                          <li class="mx-2 my-2 min-w-[50px]">
-                            <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
-                            <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
-                              <div class="block text-center w-[100%]">
-                                <div class="w-full text-m font-semibold">{sizes}</div>
-                              </div>
-                            </label>
-                          </li>
-                        )
-                      })}
-                    </ul>}
-
-                    <div class="flex my-5 gap-5 flex-wrap justify-center md:justify-between lg:justify-start">
-                      <div class="relative border-2 border-black w-[70%] md:w-auto">
-                        <p class="absolute -top-[40%] left-[5%] bg-white font-syne ">Quantity</p>
-                        <Quantity class="basis-1/3 mr-3" quantity={quantity} changeState={(type) => setQuantity(type)} />
+                      </Swiper>
+                      <div class="text-center mb-10">
+                        <div className="swiper-custom-pagination" />
                       </div>
-                      <div class="w-[70%] md:w-auto">
-                        <button type="button" onClick={handleConfirmationModal}
-                          class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
-                          Add to Cart
-                        </button>
-                      </div>
-                      {productError && <p class="text-red-500">{productError}</p>}
+                    </div>  {/* end of left side */}
+                    <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
+                      <div class="font-syneBold text-xl text-black">{oneproduct.name}</div>
+                      <div class="font-syneBold text-sm text-black">{oneproduct.vendorName}</div>
+                      {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
+                        {oneproduct.colours.map((colour, index) => {
+                          return (
+                            <li class="mx-2 my-2 min-w-[50px]">
+                              <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
+                              <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                                <div class="block text-center w-[100%]">
+                                  <div class="w-full text-m font-syne">{colour}</div>
+                                </div>
+                              </label>
+                            </li>
+                          )
+                        })}
+                      </ul>}
 
-                      <Modal
-                        isOpen={confirmationIsOpen}
-                        onRequestClose={closeConfirmation}
-                        shouldCloseOnOverlayClick={true}
-                      >
-                        <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
-                          <div class="w-fit mx-auto translate-y-[100%] md:translate-y-[200%] " >
-                            <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5 overflow-y-auto" id="modal-box">
-                              <p class="font-syne text-xl text-black">Add product</p>
-                              <p class='mb-5 font-syne'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
-                              <div class='flex flex-row justify-end gap-2'>
-                                <button onClick={closeConfirmation}
-                                  class="inline-block px-6 py-2.5 font-syne bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
-                                  No
-                                </button>
-                                <button type="button" onClick={handleAddProduct}
-                                  class="inline-block px-6 py-2.5 font-syne bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
-                                  Yes
-                                </button>
+                      {oneproduct.sizes && <ul class="flex w-full mt-5 flex-wrap">
+                        {oneproduct.sizes.map((sizes, index) => {
+                          return (
+                            <li class="mx-2 my-2 min-w-[50px]">
+                              <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
+                              <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                                <div class="block text-center w-[100%]">
+                                  <div class="w-full text-m font-semibold">{sizes}</div>
+                                </div>
+                              </label>
+                            </li>
+                          )
+                        })}
+                      </ul>}
+
+                      <div class="flex my-5 gap-5 flex-wrap justify-center md:justify-between lg:justify-start">
+                        <div class="relative border-2 border-black w-[70%] md:w-auto">
+                          <p class="absolute -top-[40%] left-[5%] bg-white font-syne ">Quantity</p>
+                          <Quantity class="basis-1/3 mr-3" quantity={quantity} changeState={(type) => setQuantity(type)} />
+                        </div>
+                        <div class="w-[70%] md:w-auto">
+                          <button type="button" onClick={handleConfirmationModal}
+                            class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                            Add to Cart
+                          </button>
+                        </div>
+                        {productError && <p class="text-red-500">{productError}</p>}
+
+                        <Modal
+                          isOpen={confirmationIsOpen}
+                          onRequestClose={closeConfirmation}
+                          shouldCloseOnOverlayClick={true}
+                        >
+                          <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
+                            <div class="w-fit mx-auto translate-y-[100%] md:translate-y-[200%] " >
+                              <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5 overflow-y-auto" id="modal-box">
+                                <p class="font-syne text-xl text-black">Add product</p>
+                                <p class='mb-5 font-syne'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
+                                <div class='flex flex-row justify-end gap-2'>
+                                  <button onClick={closeConfirmation}
+                                    class="inline-block px-6 py-2.5 font-syne bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                    No
+                                  </button>
+                                  <button type="button" onClick={handleAddProduct}
+                                    class="inline-block px-6 py-2.5 font-syne bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                    Yes
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Modal>
-                    </div>
-                    <div class="font-syne text-black mt-5">
-                      <div class="mb-3 font-semibold">Product details</div>
-                      <hr class="h-px border-black  border-2 bg-black"></hr>
-                      <div class="mt-3">{oneproduct.description}</div>
+                        </Modal>
+                      </div>
+                      <div class="font-syne text-black mt-5">
+                        <div class="mb-3 font-semibold">Product details</div>
+                        <hr class="h-px border-black  border-2 bg-black"></hr>
+                        <div class="mt-3">{oneproduct.description}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
+                </div>
               </div>
             </div>
-          </div>
 
-        </Modal>
-        <ToastContainer position="bottom-left"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick />
+          </Modal>
+          <ToastContainer position="bottom-left"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick />
+        </div>
       </div>
     </div>
   )
 }
+
 
 export default MarketPlaceLanding

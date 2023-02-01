@@ -133,7 +133,8 @@ const Orbit = () => {
     },
   ]
   const imgs = [1, 2, 3, 4]
-  return (
+  document.body.style.overflow = 'unset';
+  return (      
     <div class="relative bg-NAFPink pb-20 overflow-hidden">
             <img src={TopLeftPurpleStar} class="hidden lg:blockabsolute top-[0%] left-[0%]"></img>
             <img src={TopRightBlueStar} class="absolute top-[-2%] right-[0%]"></img>
@@ -217,10 +218,10 @@ const Orbit = () => {
                       <div class="basis-[90%] md:basis-[40%]  md:mx-5 lg:px-5 mb-[4rem]">
                         <div class='flex flex-wrap md:flex-nowrap md:flex-col p-3 border-2 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)] h-[100%]'>
 
-                          <div class='h-32 w-full'>
+                          <div class='md:h-[200px] h-32 w-full'>
                             <FocusedImage class='focused-image'  imageSrc={one.image} x={one.x} y={one.y} ></FocusedImage>
                           </div>
-                          <div class='basis-[100%] md:basis-[60%] md:max-w-[90%] md:max-w-full  min-w-0'>
+                          <div class='basis-[100%] md:basis-[60%] md:max-w-full min-w-0'>
                             <div class="mt-3 ">
                               <div class="text-2xl text-white font-syne text-ellipsis overflow-hidden whitespace-nowrap text-center bg-NAFPink w-[100%] md:w-[90%] md:px-3 md:mx-auto">{one.title}</div>
                               <div class="font-syne max-h-[200px] text-left w-[100%]  md:w-[90%] mt-3 mx-auto overflow-y-auto">{one.desc}</div>

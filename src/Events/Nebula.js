@@ -4,7 +4,8 @@ import EventHeader from "./EventHeader";
 import NebulaImg from "./svgs/Nebula.png";
 
 const Nebula = () => {
-  const bgcolor="bg-NAFPurple"
+  const bgcolor="bg-NAFPurple";
+  document.body.style.overflow = 'unset';
   return (
     <div class="relative bg-NAFPurple pb-20">
       <EventHeader img={NebulaImg} text=""></EventHeader>

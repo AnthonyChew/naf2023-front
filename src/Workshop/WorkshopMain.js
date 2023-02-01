@@ -22,6 +22,7 @@ const WorkshopMain = () => {
     }
   }, [])
 
+  document.body.style.overflow = 'unset';
   return (
 
 

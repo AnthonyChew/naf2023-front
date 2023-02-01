@@ -14,6 +14,7 @@ import {
 import 'react-accessible-accordion/dist/fancy-example.css';
 
 const FAQ = () => {
+    document.body.style.overflow = 'unset';
     return (
         <Accordion allowZeroExpanded>
             <AccordionItem>
