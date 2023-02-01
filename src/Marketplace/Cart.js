@@ -63,12 +63,13 @@ const Cart = () => {
       <img class="absolute top-[26.25%] right-[0%] hidden lg:block" src={RightBlueStar}></img>
       <img class="absolute top-[90%] right-[0%] hidden lg:block" src={BottomRightYellowStar}></img>
 
-      <div class="flex flex-col items-center lg:w-[60%] w-[90%] mr-auto ml-auto">
+      <div class="flex flex-col items-center lg:w-[60%] w-[90%] mr-auto ml-auto ">
 
         <div class="relative w-[100%] h-fit  border-4 border-black lg:shadow-[20px_20px_0_0_rgba(255,255,0)] shadow-[10px_10px_0_0_rgba(255,255,0)] z-1">
 
-          <div class="absolute lg:-left-[10%] lg:-top-20 max-w-[100%] lg:w-[15vw] w-[30vw] -top-10 -left-[5%] border-4 bg-white border-black lg:shadow-[20px_20px_0_0_rgba(0,113,198)] shadow-[8px_8px_0_0_rgba(0,113,198)] shadowborder-black">
-            <img class="lg:p-5 p-1 w-full h-auto" src={CartWord}></img>
+          <div class="absolute lg:-left-[10%] lg:-top-20 max-w-[100%] lg:w-[15vw] w-[20vw] -top-10 -left-[5%] border-4 bg-white border-black lg:shadow-[20px_20px_0_0_rgba(0,113,198)] shadow-[8px_8px_0_0_rgba(0,113,198)] shadowborder-black">
+            {/* <img class="lg:p-5 p-1 w-full h-auto" src={CartWord}></img> */}
+            <p class='font-syneBold text-black  text-center lg:my-5 xl:text-6xl lg:text-5xl md:text-4xl text-xl'>CART</p>
           </div>
 
           <div class="h-fit w-full inline-flex flex-col bg-white lg:pt-16 pt-5 pb-10 ">

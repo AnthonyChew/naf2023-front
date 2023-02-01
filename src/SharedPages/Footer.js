@@ -1,8 +1,5 @@
 import React from 'react'
 import CAC_Logo from './svgs/CAC_Logo.svg';
-import InstagramIcon from '../HomePage/svgs/landing/landingInstagram.svg'
-import FacebookIcon from '../HomePage/svgs/landing/landingFacebook.svg'
-import TikTokIcon from '../HomePage/svgs/landing/landingTikTok.svg'
 
 import DCMF_logo from './svgs/poweredByDCMF.png'
 import MJD_logo from './svgs/poweredByMJD.png'
