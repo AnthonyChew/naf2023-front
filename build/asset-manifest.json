@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0148faeb.css",
-    "main.js": "/static/js/main.c3eaf7c2.js",
+    "main.css": "/static/css/main.a07b1a9b.css",
+    "main.js": "/static/js/main.37e1280c.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/TOP_2.jpg": "/static/media/TOP_2.1bd31c23945f4ef0214b.jpg",
     "static/media/TOP_1.jpg": "/static/media/TOP_1.cbc95fd3cc9df431696c.jpg",
@@ -90,6 +90,7 @@
     "static/media/FriendsofTama.jpg": "/static/media/FriendsofTama.16cc3f7992ad92b33395.jpg",
     "static/media/Harmonix.jpeg": "/static/media/Harmonix.8325e203d698ab7f476e.jpeg",
     "static/media/ArtFestivalLogo.svg": "/static/media/ArtFestivalLogo.00e05931dd31ad4e6221299b6e6205c8.svg",
+    "static/media/NAF_Logo.svg": "/static/media/NAF_Logo.b9855d49e537388c327d21dd402c97c4.svg",
     "static/media/landingbg.svg": "/static/media/landingbg.35358d0b1831bca17ba5152dbd49f5b5.svg",
     "static/media/bg.svg": "/static/media/bg.b78c53148a8e05af91fd95c8b4e87cf6.svg",
     "static/media/whatsonbg.svg": "/static/media/whatsonbg.b78c53148a8e05af91fd95c8b4e87cf6.svg",
@@ -131,7 +132,6 @@
     "static/media/HumanIcon.svg": "/static/media/HumanIcon.f68dbbbdf478efa856c9393e28e68f58.svg",
     "static/media/Instagram.svg": "/static/media/Instagram.c66542fe828479b455d421e5fa621ab8.svg",
     "static/media/JDCLogo.png": "/static/media/JDCLogo.e7424807f1986f0cafb9.png",
-    "static/media/NAF_Logo.svg": "/static/media/NAF_Logo.488a97b36521c87b2e53149f59ccd37f.svg",
     "static/media/MyULifeLogo.svg": "/static/media/MyULifeLogo.fea76876d63d9e42785b77f0a63371aa.svg",
     "static/media/google_signin.jpg": "/static/media/google_signin.30ac25873072260edeb5.jpg",
     "static/media/TextLogo.png": "/static/media/TextLogo.bc490d957cbe7d1d1cb0.png",
@@ -424,12 +424,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.0148faeb.css.map": "/static/css/main.0148faeb.css.map",
-    "main.c3eaf7c2.js.map": "/static/js/main.c3eaf7c2.js.map",
+    "main.a07b1a9b.css.map": "/static/css/main.a07b1a9b.css.map",
+    "main.37e1280c.js.map": "/static/js/main.37e1280c.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0148faeb.css",
-    "static/js/main.c3eaf7c2.js"
+    "static/css/main.a07b1a9b.css",
+    "static/js/main.37e1280c.js"
   ]
 }
