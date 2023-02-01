@@ -39,7 +39,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
-        console.log(res.data);
+        // console.log(res.data);
       }
       else {
         setAuth(false);
@@ -72,6 +72,23 @@ function Profile() {
 
   let history = useNavigate();
 
+  const test =
+  [
+    {
+        "_id": "63da64663dca4e9a6007172a",
+        "name": "Test1",
+        "images": [
+            "https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/image_6487327+(1).JPG"
+        ],
+        "registeredParticipants": [
+            {
+                "images": [],
+                "verified": false,
+                "studentId": "63d14bb5a10f8e9236cc6049"
+            }
+        ]
+    }
+]
 
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
@@ -88,7 +105,7 @@ function Profile() {
       <img class='absolute right-[5%] top-[8%] lg:block hidden' src={TopRightBlueSparkle} />
       <img class='absolute right-[0%] top-[30%] lg:block hidden' src={TopRightPinkStar} />
       <img class='absolute right-[15%] top-[20%]' src={TopRightYellowSparkle} />
-      
+
       <LoadingSpinnerComponent />
       <Modal
         isOpen={!auth}
