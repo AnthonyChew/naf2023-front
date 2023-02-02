@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import AppleHeader from '../SharedPages/AppleHeader'
 const AboutxCAC = (props) => {
   const classNames = {
-    tabActive: " bg-white pt-1 border-2 border-black",
+    tabActive: " bg-white pt-1 border-t-2 border-l-2 border-r-2 border-black",
     tabInactive:
-      "bg-gray-300 border-y-2 border-y-gray-300 border-r-2 border-r-black py-1",
+      "bg-gray-300 pt-1 mt-1",
   };
   const [active, setActive] = useState(0);
   return (
@@ -23,14 +23,14 @@ const AboutxCAC = (props) => {
         <div
           onClick={() => setActive(0)}
           class={`${active === 0 ? classNames.tabActive : classNames.tabInactive
-            } text-xs md:text-base w-fit px-1 lg:px-5 font-syne text-center`}
+            } text-xs md:text-base w-fit px-1 lg:px-5 font-syne text-center cursor-pointer`}
         >
           {props.title}
         </div>
         <div
           onClick={() => setActive(1)}
           class={`${active === 1 ? classNames.tabActive : classNames.tabInactive
-            } text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center`}
+            } text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center cursor-pointer`}
         >
           Theme
         </div>

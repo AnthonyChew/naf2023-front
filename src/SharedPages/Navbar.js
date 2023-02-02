@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import NAFLogo from './svgs/NAF_Logo.svg';
 import HumanIcon from './svgs/HumanIcon.svg';
 import CartIcon from './svgs/CartIcon.svg';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -33,7 +35,7 @@ const Navbar = () => {
         if (MobileRef.current && !MobileRef.current.contains(event.target)) {
             setIsNavOpen(false)
         };
-        
+
 
     };
     const closeEntireMobileNavbar = () => {
@@ -83,7 +85,7 @@ const Navbar = () => {
                     </div>
 
                     <Link to="/marketplace" class="link" smooth>ARTS MARKET</Link>
-                    <div class="relative " ref={NAFCACRef}  onMouseEnter={() => setIsNAFxCACOpen(true)} onMouseLeave={() => setIsNAFxCACOpen(false)} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
+                    <div class="relative " ref={NAFCACRef} onMouseEnter={() => setIsNAFxCACOpen(true)} onMouseLeave={() => setIsNAFxCACOpen(false)} onClick={() => setIsNAFxCACOpen((prev) => !prev)}>
                         <Link id="dropdownNavbarButton">NAFXCAC</Link>
                         <div className={isNAFxCACOpen ? "absolute z-100 font-medium left-[-41.5%] top-[100%] min-w-[175px] border-4 border-black z-10 bg-white py-2 text-center rounded shadow-inner shadow-2xl" : "hidden"}>
                             <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
@@ -96,8 +98,10 @@ const Navbar = () => {
                     <Link to="/FAQ" class="link" smooth>FAQ</Link>
                 </div>
                 <div class="flex w-[100%] items-center justify-end lg:contents lg:w-[auto]">
-                    <Link to="/cart" class="link" smooth><img src={CartIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
-                    <Link to="/profile" class="link" smooth><img src={HumanIcon} class="w-[35px] h-[35px] mr-8"></img></Link>
+                    <Tooltip anchorId="Cart" content="Cart" place="top" />
+                    <Link to="/cart" class="link" smooth><img src={CartIcon} id="Cart" class="w-[35px] h-[35px] mr-8"></img></Link>
+                    <Tooltip anchorId="Profile" content="Profile" place="top" />
+                    <Link to="/profile" class="link" data-tooltip-content="Profile" smooth><img src={HumanIcon} id="Profile" class="w-[35px] h-[35px] mr-8"></img></Link>
                     {/* hamburger menu */}
                     <div class="lg:hidden text-right">
                         <button class="navbar-burger text-blue-600 p-3" onClick={() => setIsNavOpen((prev) => !prev)}>
@@ -147,10 +151,10 @@ const Navbar = () => {
                         <div class="relative p-4 text-lg">
                             <Link id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" onClick={() => setIsMobileNAFxCACOpen((prev) => !prev)}>NAF x CAC</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileNAFxCACOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
-                            <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
-                            <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
-                            <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
-                            <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
+                                <Link to="/afth" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxAFTH</Link>
+                                <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
+                                <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
+                                <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
                             </div>
                         </div>
                         <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link text-lg block p-4 font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>

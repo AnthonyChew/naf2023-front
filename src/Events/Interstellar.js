@@ -81,10 +81,8 @@ const Interstellar = () => {
         </div>
       </div> */}
 
-      <div class="flex flex-col lg:justify-around items-end justify-end mb-5 lg:mr-32  ml-1 mr-1 flex-wrap">
-        <div class='md:h-[200px] h-[100px] '>
+      <div class="flex flex-col lg:justify-around items-end justify-end mb-5 lg:mr-44  ml-1 mr-1 flex-wrap">
           <Filter filterCallback={(filterOptions) => { setFilter(filterOptions); setSort(filterOptions); }}></Filter>
-        </div>
       </div>
       <div class="relative flex w-[85%] mx-auto text-center">
         <EventCard
