@@ -61,7 +61,7 @@ const Interstellar = () => {
   useEffect(() => {
     async function fetchWorkshopData() {
       const res = await trackPromise(workshopService.getAll());
-      console.log(res.data);
+      // console.log(res.data);
       setWorkshops(res.data);
     }
     fetchWorkshopData();
