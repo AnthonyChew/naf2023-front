@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useLocation } from 'react-router-dom'
 import EventCard from './EventCard'
 import EventHeader from './EventHeader'
 import OrbitLogo from './svgs/Orbit2.png'
-import { Link, useNavigate } from 'react-router-dom'
 import Beztari from './svgs/Orbit/Beztari.jpeg';
 import BrokenTailLights from './svgs/Orbit/BrokenTailights.jpeg';
 import DewiSamudera from './svgs/Orbit/DewiSamudera.jpeg';
@@ -38,6 +38,14 @@ import BottomRightBlueStar from './svgs/Orbit/BottomRightBlueStar.svg';
 
 const Orbit = () => {
   const bgcolor = "bg-NAFPink"
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
 
   const content = [
     {
@@ -134,6 +142,33 @@ const Orbit = () => {
   ]
   const imgs = [1, 2, 3, 4]
   document.body.style.overflow = 'unset';
+
+  const {  hash } = useLocation();
+
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        
+        const offset = 120;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        if (element) {
+          window.scrollTo({top:offsetPosition , behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [hash]); // do this on route change
+
   return (      
     <div class="relative bg-NAFPink pb-20 overflow-hidden">
             <img src={TopLeftPurpleStar} class="hidden lg:blockabsolute top-[0%] left-[0%]"></img>
@@ -182,7 +217,7 @@ const Orbit = () => {
             <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway"  imgs={imgs} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
-        <div class="flex w-[90%] mx-auto text-center  mt-20">
+        <div  id='ophiuchus' class="flex w-[90%] mx-auto text-center mt-20" >
           <div class="basis-full">
             <div class="min-h-[300px]  bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
               <div class="font-syneExtraBold text-2xl font-bold mt-2">OPHIUCHUS</div>
