@@ -30,7 +30,7 @@ const AboutxCAC = (props) => {
         <div
           onClick={() => setActive(1)}
           class={`${active === 1 ? classNames.tabActive : classNames.tabInactive
-            } text-xs md:text-base w-[32%] sm:w-[17%] font-semibold text-center cursor-pointer`}
+            } text-xs md:text-base w-[32%] sm:w-[17%] font-syne text-center cursor-pointer`}
         >
           Theme
         </div>

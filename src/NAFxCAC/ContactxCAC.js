@@ -34,9 +34,9 @@ const ContactxCAC = (props) => {
       <div class="lg:ml-[45.75%] w-[30%] mx-auto lg:mx-0 my-20 text-white lg:w-fit lg:block hidden">
         <div class="flex flex-col">
           <div class="mt-3 text-2xl font-syne w-[400px]">Contact Us</div>
-          <div class="mt-3"><img src={InternetIcon} class="inline w-[60px]" /><a class="ml-1 font-syne" href={props.website}>{website}</a></div>
-          <div class="mt-3"><img src={FacebookIcon} class="inline w-[60px]" /><a class="ml-1 font-syne" href={props.facebook}>{facebook}</a></div>
-          <div class="mt-3"><img src={InstagramIcon} class="inline w-[60px]" /><a class="ml-1 font-syne" href={props.instagram}>{instagram}</a> </div>
+          <div class="mt-3"><img src={InternetIcon} class="inline w-[40px]" /><a class="ml-1 font-syne" href={props.website}>{website}</a></div>
+          <div class="mt-3"><img src={FacebookIcon} class="inline w-[40px]" /><a class="ml-1 font-syne" href={props.facebook}>{facebook}</a></div>
+          <div class="mt-3"><img src={InstagramIcon} class="inline w-[40px]" /><a class="ml-1 font-syne" href={props.instagram}>{instagram}</a> </div>
         </div>
       </div>
       <div class="my-20 text-white lg:hidden block">

@@ -46,7 +46,7 @@ const NAFxCS = () => {
     const theme = "Our theme this year is Y2K, a popular fashion theme from the 2000s. Through this Y2K theme, we hope to give our contestants a sense of nostalgia, by bringing them back in time to relive their childhood memories, or even fulfill their childhood dreams of performing on stage!"
     const imgs = [CS_1, CS_2, CS_3, CS_4]
     return (
-        <div class="relative bg-NAFBlue py-[50px] relative overflow-hidden">
+        <div class="relative bg-NAFBlue py-[50px] overflow-hidden">
             <img src={TopLeftRedStar} class="absolute top-[5%] left-[0%] w-[15%]"></img>
             <img src={TopLeftYellowStar2} class="absolute top-[0%] left-[20%] w-[6%]"></img>
 
