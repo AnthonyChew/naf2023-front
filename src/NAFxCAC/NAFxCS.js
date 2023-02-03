@@ -45,6 +45,7 @@ const NAFxCS = () => {
     const description = "Organized by NTU Cultural Activities Club (CAC), CenterStage 2023 is back revamped as a campus-wide all-inclusive talent competition, seeking to unearth hidden talents amongst the NTU community by providing them with an accessible and professional platform to compete with other talents. CenterStage allows contestants to perform and showcase any form of talent, from dance and music, to even unconventional talents such as stand-up comedy and magic."
     const theme = "Our theme this year is Y2K, a popular fashion theme from the 2000s. Through this Y2K theme, we hope to give our contestants a sense of nostalgia, by bringing them back in time to relive their childhood memories, or even fulfill their childhood dreams of performing on stage!"
     const imgs = [CS_1, CS_2, CS_3, CS_4]
+    const offSet = [{x:'-0.5',y:'0'},{x:'-0.5',y:'0'},{x:'-0.5',y:'0'},{x:'0',y:'1'}]
     return (
         <div class="relative bg-NAFBlue py-[50px] overflow-hidden">
             <img src={TopLeftRedStar} class="absolute top-[5%] left-[0%] w-[15%]"></img>
@@ -73,7 +74,7 @@ const NAFxCS = () => {
                     <img class="mx-auto" src={CSTextLogo}></img>
                 </div>
                 <AboutxCAC title="About CS" img={CSLogo} content={description} themeTitle="THEME: Y2K" theme={theme}></AboutxCAC>
-                <GalleryxCAC title="CS Gallery" imgs={imgs}></GalleryxCAC>
+                <GalleryxCAC title="CS Gallery" imgs={imgs} offSet={offSet}></GalleryxCAC>
                 {/* <ThemexCAC title="THEME: Y2K" imgs={imgs} content={theme}></ThemexCAC> */}
                 <ContactxCAC facebook="https://www.facebook.com/ntucenterstage" instagram="https://www.instagram.com/ntucenterstage" website="https://ntucac.com/centerstage/"></ContactxCAC>
             </div>
