@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d4dc8f30.css",
-    "main.js": "/static/js/main.ea1fbb2e.js",
+    "main.js": "/static/js/main.0b919fa7.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
     "static/media/WeeWeeKim.PNG": "/static/media/WeeWeeKim.870f23c1d21cfd6e3cbf.PNG",
@@ -425,11 +425,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.d4dc8f30.css.map": "/static/css/main.d4dc8f30.css.map",
-    "main.ea1fbb2e.js.map": "/static/js/main.ea1fbb2e.js.map",
+    "main.0b919fa7.js.map": "/static/js/main.0b919fa7.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d4dc8f30.css",
-    "static/js/main.ea1fbb2e.js"
+    "static/js/main.0b919fa7.js"
   ]
 }

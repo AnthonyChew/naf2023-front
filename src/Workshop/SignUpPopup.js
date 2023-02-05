@@ -83,7 +83,7 @@ export default function SignupPopup(props) {
       //console.log(workshop);
       if (workshopDate <= current_date) {
         alert('Event ended!');
-        history(0);
+        returnToPrevPage();
       }
     }
 
