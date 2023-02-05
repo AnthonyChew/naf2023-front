@@ -58,7 +58,7 @@ const Navbar = () => {
         <div class="z-50 fixed w-full bg-white">
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <Link to="/" class="link" smooth>
-                    <img src={NAFLogo} class="w-[200px] md:h-[100px] h-[100px] flex-initial"></img>
+                    <img src={NAFLogo} class="w-[200px] md:h-[100px] h-[80px] flex-initial"></img>
                 </Link>
                 <div class="relative hidden navbar lg:flex justify-evenly flex-1 font-syne font-bold text-xl">
                     <Link to="/" class="link" smooth>HOME</Link>

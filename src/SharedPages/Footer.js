@@ -7,7 +7,7 @@ import MyULife_logo from './svgs/poweredByMyULife.png'
 
 const Footer = () => {
   return (
-    <div class="flex h-[200px] mt-12 font-syne font-medium text-xl flex-wrap mb-10">
+    <div class="flex h-fit mt-12 font-syne font-medium text-xl flex-wrap mb-10">
       <div class="basis-1/2 text-center md:basis-1/4">
         <div>Organised By</div>
         <div class="pt-5">
@@ -26,7 +26,7 @@ const Footer = () => {
           <div class='md:block hidden'>
             <div  class='text-center '> Official Production Partner</div>
             <div class="flex pt-5 ">
-              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[300px] lg:h-[40px] xl:w-[300px] xl:h-[40px] md:w-[350px] md:h-[55px] mx-2"></img>
+              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[300px] lg:h-[50px] xl:w-[300px] xl:h-[50px] md:w-[350px] md:h-[55px] mx-2"></img>
             </div>
           </div>
         </div>

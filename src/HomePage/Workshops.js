@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import {
   Navigation,
   Pagination,
@@ -26,9 +26,6 @@ import WorkshopTopRightYellowStar from "./svgs/workshop/WorkshopYellowStar.svg";
 import WorkshopBottomRightBlueStar from "./svgs/workshop/WorkshopBlueStar.svg";
 import LandingBg from "./svgs/landing/landingbg.svg";
 
-
-
-
 const Workshops = () => {
   const history = useNavigate();
 
@@ -53,7 +50,7 @@ const Workshops = () => {
 
 
       <div class="flex relative flex-col items-center">
-        <img class="my-8 z-20 w-[70%] lg:w-[40%]" src={WorkshopLogo}></img>
+        <img class="my-8 z-20  lg:w-[40%]" src={WorkshopLogo}></img>
       </div>
       <div class="w-[95%] md:w-[90%] lg:w-[80%] h-fit mb-10 mx-auto border-4 border-black shadow-[20px_20px_0_0_rgba(0,0,0)] bg-white">
         <AppleHeader></AppleHeader>
@@ -87,13 +84,13 @@ const Workshops = () => {
             loop={true}
           >
             <SwiperSlide >
-              <div class='flex flex-col justify-center items-center'>
+              <div class='flex flex-col justify-center items-center cursor-pointer'>
                 <img
                   src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674565052.jpeg"
                   alt=""
                   class='md:h-[250px] md:w-[350px] '
                 />
-                <div class="text-center font-syne mt-3">Laura Jane Poetry S1</div>
+                <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">Laura Jane Poetry S1</div>
               </div>
             </SwiperSlide>
 
@@ -104,7 +101,7 @@ const Workshops = () => {
                   alt=""
                   class='md:h-[250px] md:w-[350px]'
                 />
-                <div class="text-center font-syne mt-3">MLCS</div>
+                <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">MLCS</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -114,7 +111,7 @@ const Workshops = () => {
                   alt=""
                   class='md:h-[250px] md:w-[350px]'
                 />
-                <div class="text-center font-syne mt-3">Minature Painting</div>
+                <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">Minature Painting</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>

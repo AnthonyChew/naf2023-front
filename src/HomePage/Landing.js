@@ -37,7 +37,7 @@ const Landing = () => {
             <AppleHeader title={"www.aboutus.com"}></AppleHeader>
             <div class="h-fit bg-white">
               <div class="flex items-center gap-[2em] flex-col pt-[1em] h-full w-full">
-                <p class="font-medium text-xl px-5 text-left">
+                <p class="px-5 text-left font-syne text-paragraph_Desktop">
                   NTU Arts Festival is finally back! From 14 February to 17 March, get a taste of NTU's colourful arts scene through various activities planned and curated just for you; from exciting performances to engaging workshops, it's the perfect opportunity to explore and appreciate the arts.
                   <br />
                   <br />

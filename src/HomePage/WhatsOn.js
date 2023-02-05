@@ -114,11 +114,11 @@ const WhatsOn = () => {
             <AppleHeader></AppleHeader>
             <div class="h-[16em] bg-gray-500">
               <div class="flex justify-items-left gap-[1em] flex-col pt-[1em] h-full w-full pt-[8%]">
-                <p class="font-yerkItalic text-4xl px-6 text-left text-white">
+                <p class="font-syneBold text-4xl px-6 text-left text-white">
                   Header
                 </p>
 
-                <p class="font-syne font-normal text-base px-5 text-left text-white">
+                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
@@ -205,11 +205,11 @@ const WhatsOn = () => {
         style={{ backgroundImage: `url(${WhatsOnBg})` }}
       >
         <div class="flex relative flex-col items-center">
-          <img class="mt-28 mb-28 z-20" src={WhatsOnLogo}></img>
-          <img class="absolute z-10" src={WhatsOnOrbit}></img>
+          <img class="mt-5 mb-5 z-20" src={WhatsOnLogo}></img>
+          {/* <img class="absolute z-5 top-[-100%]" src={WhatsOnOrbit}></img> */}
         </div>
 
-        <div class="p-10">
+        <div class="md:p-10">
           <Swiper
             // install Swiper modules
             modules={[
@@ -246,10 +246,10 @@ const WhatsOn = () => {
                   src="https://swiperjs.com/demos/images/nature-1.jpg"
                   alt=""
                 />
-                <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
+                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
                   Header
                 </p>
-                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
+                <div class="text-left text-paragraph_Mobile md:text-paragraph_Mobil font-syne mx-[4%] mb-[4%]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent conque gravida nibh, eget bibendum ex conque sit
                   amet.
