@@ -77,8 +77,8 @@ const Events = () => {
                 <div className={imgState == index ? "text-white bg-black rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]" :
                   "text-black bg-white rounded-lg py-7 my-10 pl-5 border-black border-4 shadow-[3px_3px_0_0_rgba(0,0,0)]"}
                   onClick={ImageState(index)} >
-                  <div class="font-syneExtraBold text-3xl text-ellipsis whitespace-nowrap overflow-hidden ">{oneImage.name}</div>
-                  <div class="font-syneBold text-m">{oneImage.date},{<br />} 	&lt;{oneImage.location}&gt;</div>
+                  <div class="font-syneExtraBold text-header text-ellipsis whitespace-nowrap overflow-hidden ">{oneImage.name}</div>
+                  <div class="font-syneBold">{oneImage.date},{<br />} 	&lt;{oneImage.location}&gt;</div>
                 </div>
               ))
             }

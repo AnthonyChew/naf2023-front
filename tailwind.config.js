@@ -23,6 +23,14 @@ module.exports = {
       },
       borderWidth: {
         '3': '3px'
+      },
+      fontSize:{
+        header: '1.8rem',
+        subheader: '1.5rem',
+        paragraph_Desktop: '1.25rem',
+        paragraph_Mobile: '1.0rem',
+        buttonText_Desktop: '1.125rem',
+        buttonText_Desktop: '0.875rem',
       }
     }
     
