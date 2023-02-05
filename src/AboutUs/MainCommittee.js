@@ -181,7 +181,7 @@ const MainCommittee = () => {
             </div>
             {/* right side */}
             <div class="basis-[80%] bg-white pb-20">
-              <div class="text-center mt-[4%] md:mx-10 mx-2 font-syne md:text-xl">
+              <div class="text-center mt-[4%] md:mx-10 mx-2 font-syne text-paragraph_Mobile md:text-paragraph_Desktop">
                 {shortDes}
               </div>
               <div class="flex items-center justify-center mt-[5%]">

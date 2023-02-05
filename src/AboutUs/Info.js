@@ -18,7 +18,7 @@ const Info = () => {
         {/* <img src={Orbit} class="absolute top-[109%] w-4/6 right-[-13%] z-10"></img> */}
         <div class="flex flex-row pt-10 px-5">
             <div class="flex basis-1/2 text-sm justify-center items-center z-20">
-              <div class="font-syne text-white text-base md:text-md lg:text-lg">
+              <div class="font-syne text-white text-paragraph_Mobile md:text-paragraph_Desktop">
                 Building on the work of our predecessors, we aim to be a platform for different art forms, as well as the student body, to come together and commemorate their own strengths and each other. We hope to nurture a collaborative spirit in celebrating the arts in unity.
               </div>
             </div>
