@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import moment from 'moment';
 import FocusedImage from '../SharedPages/FocusImage.js';
@@ -42,33 +42,21 @@ const EventCard = (props) => {
         );
     }
 
-    function info(workshop)
-    {
+    function info(workshop) {
         const workshopDate = moment(workshop.date).format('YYYY-MM-DD');
 
-        //console.log(workshop);
-        if (workshopDate <= current_date) {
-            alert('Event ended!');
-        }
-        else {
-
-            history('/workshop', {
-                state: { workshop }
-            });
-        }
+        history('/workshop', {
+            state: { workshop }
+        });
     }
 
     function signUp(workshop) {
         const workshopDate = moment(workshop.date).format('YYYY-MM-DD');
 
         //console.log(workshop);
-        if (workshopDate <= current_date) {
-            alert('Event ended!');
-        }
-        else {
-            SetSelectedWorkshop(workshop);
-            setModalOpen(true)
-        }
+
+        SetSelectedWorkshop(workshop);
+        setModalOpen(true)
     }
 
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
