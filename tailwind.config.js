@@ -30,7 +30,7 @@ module.exports = {
         paragraph_Desktop: '1.25rem',
         paragraph_Mobile: '1.0rem',
         buttonText_Desktop: '1.125rem',
-        buttonText_Desktop: '0.875rem',
+        buttonText_Mobile: '0.875rem',
       }
     }
     

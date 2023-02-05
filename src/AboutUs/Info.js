@@ -10,7 +10,7 @@ const Info = () => {
 
       <div class='lg:w-[70%] mx-auto'>
         {/* Star SVGs */}
-        <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-[-10%] md:top-[-20%] left-[-10%] lg:-left-40 z-30"></img>
+        <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-[-10%] md:top-[-20%] left-[-10%] lg:-left-40 z-20"></img>
         <img src={MiddleBlueStar} class="hidden lg:block absolute w-1/6 lg:w-1/12 top-[-5%] left-[50%] z-30"></img>
 
         {/* <img src={Orbit} class="absolute top-[30%] w-4/6 right-[-13%] z-10"></img> */}

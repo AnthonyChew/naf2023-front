@@ -55,7 +55,7 @@ const Cart = () => {
   // };
 
   return (
-    <div class="relative min-h-screen bg-NAFPink bg-cover overflow-hidden md:pt-48 md:pb-40 pt-16 pb-12" style={{ backgroundImage: `url(${CartBg})` }}>
+    <div class="relative md:min-h-screen bg-NAFPink bg-cover overflow-hidden pt-48 md:pb-40 pb-12" style={{ backgroundImage: `url(${CartBg})` }}>
       <img class="absolute top-[11.1%] left-[-0.0395%] " src={LeftTopYellowStar}></img>
       <img class="absolute top-[50%] left-[9.45%] " src={LeftBlueStar}></img>
       <img class="absolute top-[68%] left-[-1%] " src={LeftBottomPurpleStar}></img>
@@ -76,11 +76,11 @@ const Cart = () => {
             <div class="flex flex-row items-center justify-center">
               <div class="flex-1"></div>
 
-              <p class="flex-1 lg:text-xl text-sm text-[#A8A8A8] font-syne "> Item </p>
+              <p class="flex-1 lg:text-subheader text-sm text-[#A8A8A8] font-syne "> Item </p>
 
-              <p class="flex-1 lg:text-xl text-sm text-[#A8A8A8] font-syne text-center"> Quantity </p>
+              <p class="flex-1 lg:text-subheader text-sm text-[#A8A8A8] font-syne text-center"> Quantity </p>
 
-              <p class="flex-1 lg:text-xl text-sm text-[#A8A8A8] font-syne text-center"> Total Price </p>
+              <p class="flex-1 lg:text-subheader text-sm text-[#A8A8A8] font-syne text-center"> Total Price </p>
             </div>
 
             {products &&

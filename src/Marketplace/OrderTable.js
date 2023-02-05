@@ -109,7 +109,7 @@ function OrderTable(props) {
 
 
   return (
-    <div class="flex items-center justify-center pb-5">
+    <div class="flex items-center justify-center pb-5 relative z-20">
       <Table columns={columns} data={formatData(pastOrders)} />
     </div>
   );

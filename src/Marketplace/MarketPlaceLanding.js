@@ -8,6 +8,7 @@ import { addProductToCart } from '../reducer/CartReducer';
 import { trackPromise } from 'react-promise-tracker';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import FocusedImage from '../SharedPages/FocusImage.js';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -258,7 +259,7 @@ const MarketPlaceLanding = () => {
       <div class='md:w-[80%] mx-auto relative'>
         <div class="flex relative flex-col items-center">
           <img class="my-10 w-[80%] lg:w-[40%]" src={MarketPlaceLogo}></img>
-          <div class="font-syne w-[60%] text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+          <div class="font-syne w-[60%] text-center text-white text-paragraph_Mobile md:text-paragraph_Desktop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
         </div>
         {/* filter and search button */}
         <div class="flex lg:justify-between my-20 mx-10 flex-wrap">
@@ -267,19 +268,20 @@ const MarketPlaceLanding = () => {
         </div>
 
         {/* product and ads */}
-      <div class="flex font-syne">
-        {/* product part */}
-        <div class="lg:basis-5/6">
-          <div class=" flex flex-wrap p-5">
-            {
-              products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
-                <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[200px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
-                  <div class="oneItem-img border-black border-b-2">
-                    <img src={oneItem.images[0]} class="w-[200px] h-[200px]"></img>
-                  </div>
-                  <div class="oneItem-caption p-1 bg-gray-500">
-                    <div class="text-ellipsis overflow-hidden whitespace-nowrap">Name: {oneItem.name}</div>
-                    <div class=" text-ellipsis overflow-hidden whitespace-nowrap">Description: {oneItem.description}</div>
+        <div class="flex font-syne">
+          {/* product part */}
+          <div class="lg:basis-5/6">
+            <div class=" flex flex-wrap p-5">
+              {
+                products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
+                  <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[250px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
+
+                    <div class="w-full h-[200px] border-black border-b-2">
+                      <FocusedImage class='focused-image' imageSrc={oneItem.images[0]} x={-0.5} y={0} ></FocusedImage>
+                    </div>
+                    <div class="oneItem-caption p-1 bg-gray-500">
+                      <div class="text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Name: {oneItem.name}</div>
+                      <div class=" text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Description: {oneItem.description}</div>
 
                       <div>Price: ${oneItem.price}</div>
 
@@ -374,8 +376,8 @@ const MarketPlaceLanding = () => {
                       </div>
                     </div>  {/* end of left side */}
                     <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
-                      <div class="font-syneBold text-xl text-black">{oneproduct.name}</div>
-                      <div class="font-syneBold text-sm text-black">{oneproduct.vendorName}</div>
+                      <div class="font-syneBold text-subheader text-black">{oneproduct.name}</div>
+                      <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black">{oneproduct.vendorName}</div>
                       {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
                         {oneproduct.colours.map((colour, index) => {
                           return (
@@ -383,7 +385,7 @@ const MarketPlaceLanding = () => {
                               <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
                               <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
                                 <div class="block text-center w-[100%]">
-                                  <div class="w-full text-m font-syne">{colour}</div>
+                                  <div class="w-full font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{colour}</div>
                                 </div>
                               </label>
                             </li>
@@ -398,7 +400,7 @@ const MarketPlaceLanding = () => {
                               <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
                               <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
                                 <div class="block text-center w-[100%]">
-                                  <div class="w-full text-m font-semibold">{sizes}</div>
+                                  <div class="w-full text-m font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{sizes}</div>
                                 </div>
                               </label>
                             </li>
@@ -413,7 +415,7 @@ const MarketPlaceLanding = () => {
                         </div>
                         <div class="w-[70%] md:w-auto">
                           <button type="button" onClick={handleConfirmationModal}
-                            class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                            class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium md:text-buttonText_Desktop text-buttonText_Mobile leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                             Add to Cart
                           </button>
                         </div>
@@ -427,15 +429,15 @@ const MarketPlaceLanding = () => {
                           <div class="w-full h-full" onClick={(e) => closeModal(e)} id="confirmation" >
                             <div class="w-fit mx-auto translate-y-[100%] md:translate-y-[200%] " >
                               <div class=" border-none shadow-lg relative pointer-events-auto w-fit bg-white bg-clip-padding rounded-md outline-none p-5 overflow-y-auto" id="modal-box">
-                                <p class="font-syne text-xl text-black">Add product</p>
-                                <p class='mb-5 font-syne'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
+                                <p class="font-syne text-subheader text-black">Add product</p>
+                                <p class='mb-5 font-syne text-paragraph_Mobile md:text-paragraph_Desktop'>Do you want to add {oneproduct.name} {oneproduct.attribute1 && oneproduct.attribute1}:{colour} {oneproduct.attribute2 && oneproduct.attribute2}:{size} x{quantity} into cart?</p>
                                 <div class='flex flex-row justify-end gap-2'>
                                   <button onClick={closeConfirmation}
-                                    class="inline-block px-6 py-2.5 font-syne bg-gray-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                    class="inline-block px-6 py-2.5 font-syne bg-gray-600 h-[40px] text-white md:text-buttonText_Desktop text-buttonText_Mobile leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     No
                                   </button>
                                   <button type="button" onClick={handleAddProduct}
-                                    class="inline-block px-6 py-2.5 font-syne bg-blue-600 h-[40px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                                    class="inline-block px-6 py-2.5 font-syne bg-blue-600 h-[40px] text-white md:text-buttonText_Desktop md:text-buttonText_Mobile leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
                                     Yes
                                   </button>
                                 </div>
@@ -445,9 +447,9 @@ const MarketPlaceLanding = () => {
                         </Modal>
                       </div>
                       <div class="font-syne text-black mt-5">
-                        <div class="mb-3 font-semibold">Product details</div>
+                        <div class="mb-3 font-syne text-subheader">Product details</div>
                         <hr class="h-px border-black  border-2 bg-black"></hr>
-                        <div class="mt-3">{oneproduct.description}</div>
+                        <div class="mt-3 font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{oneproduct.description}</div>
                       </div>
                     </div>
                   </div>

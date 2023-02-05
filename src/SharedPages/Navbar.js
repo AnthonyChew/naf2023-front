@@ -55,7 +55,7 @@ const Navbar = () => {
 
     return (
 
-        <div class="z-50 fixed w-full bg-white">
+        <div class="z-30 fixed w-full bg-white">
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <Link to="/" class="link" smooth>
                     <img src={NAFLogo} class="w-[200px] md:h-[100px] h-[80px] flex-initial"></img>
@@ -97,9 +97,9 @@ const Navbar = () => {
                     <Link to="/FAQ" class="link" smooth>FAQ</Link>
                 </div>
                 <div class="flex w-[100%] items-center justify-end lg:contents lg:w-[auto]">
-                    <Tooltip anchorId="Cart" content="Cart" place="top" />
+                    <Tooltip anchorId="Cart" content="Cart" place="top" style={{fontFamily:'Syne'}} />
                     <Link to="/cart" class="link" smooth><img src={CartIcon} id="Cart" class="w-[35px] h-[35px] mr-8"></img></Link>
-                    <Tooltip anchorId="Profile" content="Profile" place="top" />
+                    <Tooltip anchorId="Profile" content="Profile" place="top"  style={{fontFamily:'Syne'}}/>
                     <Link to="/profile" class="link" data-tooltip-content="Profile" smooth><img src={HumanIcon} id="Profile" class="w-[35px] h-[35px] mr-8"></img></Link>
                     {/* hamburger menu */}
                     <div class="lg:hidden text-right">

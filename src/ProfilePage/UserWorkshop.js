@@ -165,7 +165,7 @@ function UserWorkshop(props) {
   }, [payment, confirmCancel]);
 
   return (
-    <div class="flex relative flex-col items-center justify-center pb-5 z-50 px-1 lg:px-0">
+    <div class="flex relative flex-col items-center justify-center pb-5 px-1 lg:px-0">
       {open && (
         <WaitlistedWorkshops parentCallback={handleClose} workshops={waitlistedWorkshops} />
       )}
@@ -174,21 +174,21 @@ function UserWorkshop(props) {
         <div class="w-full h-full" onClick={closeModal}>
           <div class="w-fit top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
             <div class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-              <h5 class="text-xl font-syneBold font-medium leading-normal text-gray-800" >
+              <h5 class="font-syneBold text-subheader leading-normal text-gray-800" >
                 Cancel Workshop?
               </h5>
             </div>
-            <div class="modal-body font-syne relative p-4">
+            <div class="modal-body font-syne relative p-4 md:text-paragraph_Desktop text-Mobile">
               <p>You will be removed from this workshop. This action cannot be undone.</p>
             </div>
             <div class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
               <button type="button"
-                class="inline-block px-6 font-syne py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                class="inline-block px-6 font-syne py-2.5 bg-blue-600 text-white md:text-buttonText_Desktop text-Mobile leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                 onClick={() => handleDialogResult(true)}>
                 Yes
               </button>
               <button type="button"
-                class="inline-block px-6 font-syne py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                class="inline-block px-6 font-syne py-2.5 bg-purple-600 text-white md:text-buttonText_Desktop text-Mobile leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
                 onClick={() => handleDialogResult(false)}>
                 No
               </button>
@@ -207,14 +207,14 @@ function UserWorkshop(props) {
                 </svg>
               </button>
             </div>
-            <p class='text-center md:text-xl font-syneBold'>Payment Proof</p>
-            <p class='text-center md:text-xl font-syne'>Scan the QR Code below for payment and upload a screenshot once you’re done.</p>
+            <p class='text-center text-subheader font-syneBold'>Payment Proof</p>
+            <p class='text-center md:text-paragraph_Desktop text-Mobile font-syne'>Scan the QR Code below for payment and upload a screenshot once you’re done.</p>
             <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full justify-around md:pl-0 md:pr-0 pl-1 pr-1">
               <img class='basis-1/3' src={QRCode}></img>
               {images.length <= 0 ?
                 <div class="border-dashed border-gray-400 border-2 rounded-lg flex items-center justify-center min-h-full pl-10 pr-10" {...getRootProps()}>
                   <input {...getInputProps()} />
-                  <p >
+                  <p class="md:text-paragraph_Desktop text-Mobile">
                     Drag and drop your product images here, or click to select {<br />}
                     files (Squared images are preferred)
                   </p>
@@ -237,7 +237,7 @@ function UserWorkshop(props) {
               images.length > 0 &&
               <div class="flex flex-shrink-0 flex-wrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md">
                 <button type="button"
-                  class="inline-block px-6 font-syne py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                  class="inline-block px-6 font-syne py-2.5 bg-blue-600 text-white md:text-buttonText_Desktop text-Mobile leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                   onClick={() => handlePaymentUpload()}>
                   Upload
                 </button>
@@ -247,12 +247,12 @@ function UserWorkshop(props) {
         </div>
       </Modal>
 
-      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1 mb-5 shadow-[10px_10px_0_0_rgba(0,0,0)]  md:min-w-[40%]" >
-        <p class="text-2xl font-syneBold text-white mb-2 text-center md:text-left">
+      <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1 mb-5 shadow-[10px_10px_0_0_rgba(0,0,0)]  md:min-w-[40%] z-10" >
+        <p class="text-subheader font-syneBold text-white mb-2 text-center md:text-left">
           CONFIRMED WORKSHOPS
         </p>
         {registeredWorkshops && registeredWorkshops.length === 0 ? (
-          <p class='font-syne text-white text-center'>
+          <p class='font-syne text-white text-center md:text-paragraph_Desktop text-paragraph_Mobile'>
             You have not registered for any workshops. <br></br>Take a look at our
             available workshops{' '}
             {<Link to="/interstellar" class='text-blue-400 font-syne'>
@@ -273,20 +273,21 @@ function UserWorkshop(props) {
               <div class="mb-5 flex md:flex-row flex-col gap-5">
                 <ContestCard key={index} image={imageFile} />
                 <div class="flex flex-col justify-end items-center md:items-end w-full">
-                  <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
+                  <p class='text-subheader text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
                   <div class='flex flex-row gap-5'>
-                    {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verified</p>}
-                    {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Verifying</p>}
-                    {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#E70A0A] border-black font-large rounded-lg text-sm px-3 py-2.5">Status: Unpaid</p>}
+                    {currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#3BB800] border-black font-large rounded-lg md:text-paragraph_Desktop text-paragraph_Mobile px-3 py-2.5">Status: Verified</p>}
+                    {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg md:text-paragraph_Desktop text-paragraph_Mobile px-3 py-2.5">Status: Verifying</p>}
+                    {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#E70A0A] border-black font-large rounded-lg md:text-paragraph_Desktop text-paragraph_Mobile px-3 py-2.5">Status: Unpaid</p>}
 
-                    <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
+                    <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
                       onClick={() => onClickPayment(workshop)}>
                       Make payment</button>
                     <button
                       onClick={() => onClickCancelReg(workshop)}
                       disabled={promiseInProgress}
+                      class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800"
                     >
-                      <p class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800">Cancel</p>
+                      Cancel
                     </button>
                   </div>
                 </div>
@@ -297,11 +298,11 @@ function UserWorkshop(props) {
       </div>
 
       <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1  shadow-[10px_10px_0_0_rgba(0,0,0)] md:min-w-[40%]">
-      <p class="text-2xl font-syneBold text-white mb-2 text-center md:text-left">
+        <p class="text-subheader font-syneBold text-white mb-2 text-center md:text-left">
           WAITLISTED WORKSHOPS
         </p>
         {waitlistedWorkshops && waitlistedWorkshops.length === 0 ? (
-          <p class='font-syne text-white text-center'>
+          <p class='font-syne text-white text-center md:text-paragraph_Desktop text-paragraph_Mobile'>
             You are not waitlisted for any workshops.
           </p>
         ) : (
@@ -315,14 +316,13 @@ function UserWorkshop(props) {
               <div class="mb-5 flex md:flex-row flex-col gap-5">
                 <ContestCard key={index} image={imageFile} />
                 <div class="flex flex-col justify-center items-center md:items-end w-full">
-                  <p class='text-2xl text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
+                  <p class='text-header text-white font-syne underline decoration-solid mb-2'>{workshop.name}</p>
                   <button
                     onClick={() => onClickCancelWait(workshop)}
                     disabled={promiseInProgress}
+                    class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800"
                   >
-                    <div class="flex flex-row">
-                      <p  class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg text-sm px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800">Cancel</p>
-                    </div>
+                    Cancel
                   </button>
                 </div>
               </div>
