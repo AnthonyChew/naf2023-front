@@ -66,7 +66,6 @@ export default function SignupPopup(props) {
       if (res.status === 200) {
         toastCallBack();
         openConfirmedModal();
-        handleClose(true);
       } else if (res.status === 401) {
         setAuth(false);
       } else if (res.status === 400) {
