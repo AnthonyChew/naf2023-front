@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import moment from 'moment';
 import FocusedImage from '../SharedPages/FocusImage.js';
 import Modal from "react-modal";
 import "../SharedPages/ModalStyle.css";
@@ -43,16 +42,12 @@ const EventCard = (props) => {
     }
 
     function info(workshop) {
-        const workshopDate = moment(workshop.date).format('YYYY-MM-DD');
-
         history('/workshop', {
             state: { workshop }
         });
     }
 
     function signUp(workshop) {
-        const workshopDate = moment(workshop.date).format('YYYY-MM-DD');
-
         //console.log(workshop);
 
         SetSelectedWorkshop(workshop);
@@ -62,7 +57,6 @@ const EventCard = (props) => {
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
     const workshops = props.workshops ? props.workshops : false;
 
-    const current_date = moment().format('YYYY-MM-DD');
     const history = useNavigate();
     return (
         <>
@@ -138,10 +132,6 @@ const EventCard = (props) => {
                                             </div>
 
                                         </div>
-                                        {
-                                            current_date <= workshop.date &&
-                                            <button onClick={() => history('/workshop')} />
-                                        }
                                     </div>
 
                                 )

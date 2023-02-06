@@ -415,10 +415,12 @@ const MarketPlaceLanding = () => {
                         </div>
                         <div class="w-[70%] md:w-auto">
                           <button type="button" onClick={handleConfirmationModal}
-                            class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium md:text-buttonText_Desktop text-buttonText_Mobile leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">
+                            class="inline-block px-6 py-2.5 w-[100%] md:w-auto font-syne bg-NAFPink h-[40px] text-white font-medium md:text-buttonText_Desktop text-buttonText_Mobile leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                            disabled={oneproduct.quantity <= 0 ?true:false }>
                             Add to Cart
                           </button>
                         </div>
+                        {oneproduct.quantity <= 0 ? <p class="text-red-500">Product out of stock</p>:null }
                         {productError && <p class="text-red-500">{productError}</p>}
 
                         <Modal

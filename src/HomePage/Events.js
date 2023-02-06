@@ -12,6 +12,7 @@ import WhiteDot from './svgs/events/eventsWhiteDot.svg';
 import RedDot from './svgs/events/eventsRedDot.svg';
 import TopRightYellowStar from './svgs/events/eventsTopRightYellowStar.svg'
 import ClickImage from './svgs/events/eventsClickImage.svg';
+import { useNavigate } from 'react-router-dom';
 
 import Pikachu1 from './svgs/events/pikachu1.png';
 import Pikachu2 from './svgs/events/pikachu2.png';
@@ -32,6 +33,8 @@ const Events = () => {
     setImgState(val)
   }
 
+  const history = useNavigate();
+
   return (
     <div class="flex relative overflow-x-clip bg-NAFYellow flex-col  items-center lg:flex-row lg:items-stretch">
       <div class="lg:hidden mt-5">
@@ -40,7 +43,7 @@ const Events = () => {
       <img src={TopRightYellowStar} class="hidden lg:block absolute top-[-22%] right-[-10%] z-30 "></img>
       <img src={RedDot} class="hidden lg:block absolute top-[15%] left-[0%] z-10" ></img>
       <img src={BigWhiteStar} class="absolute bottom-[10%] left-[-1%] z-10 w-[30%] md:w-[auto]" ></img>
-      <img src={ClickImage} class="absolute top-[15%] md:top-[0%] left-[0%] z-10 w-[30%] md:w-[auto]"></img>
+      <img src={ClickImage} class="absolute top-[15%] md:top-[0%] left-[0%] z-10 w-[30%] md:w-[auto] cursor-pointer" onClick={() => history(imgGallery[imgState].link) }></img>
 
       {/* left side */}
       <div class="w-[70%] bg-NAFYellow grow relative flex flex-col flex-wrap align-center justify-center">

@@ -86,8 +86,8 @@ const FestGuide = () => {
           <img src={SmallRedStar} class="hidden lg:block absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
           <img src={SmallWhiteDot} class="hidden lg:block absolute top-[90%] left-[12%] hidden lg:block"></img>
 
-          <div class="relative lg:flex-1 mb-10 lg:mb-20 pl-1 pr-1">
-            <img src={WhatIsNTUArtsFestival} class=""></img>
+          <div class="relative lg:flex-1 mb-10 lg:mb-20 pl-1 pr-1  self-center">
+            <img src={WhatIsNTUArtsFestival} class="w-[70%]"></img>
             <h1 class="my-5 md:mr-10 font-syne text-paragraph_Mobile md:text-paragraph_Desktop ">
               Occurring from February to March 2023, NTU Arts Festival 2023 (NAF) is a Special Project under NTU Cultural Activities Club (CAC) which aims to develop NTU’s potential as a cultural hub and establish itself as a premiere event that will be placed on the cultural and arts calendar of Singapore. Involving the 23 CAC Member Clubs and established arts and cultural groups within NTU, NAF 2023 aims to promote the understanding and appreciation of the arts within the NTU community and bring our NTU Arts scene to greater acknowledgement in the wider local arts scene. This year, NAF 2023 will consist of 4 main segments of programmes: Glimmer, Starburst, Interstellar and Orbit.
             </h1>

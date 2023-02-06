@@ -41,7 +41,7 @@ import "swiper/css/effect-fade";
 const WhatsOn = () => {
   return (
     <div>
-      
+
       {/* Laptop and Above */}
       <div
         class="hidden lg:block bg-NAFPink bg-cover min-h-screen relative overflow-hidden"
@@ -104,24 +104,22 @@ const WhatsOn = () => {
         ></img>
 
         <div class="flex relative flex-col items-center">
-          <img class="mt-28 mb-28 z-20" src={WhatsOnLogo}></img>
+          <img class="mt-28 mb-28 z-20 w-[60%]" src={WhatsOnLogo}></img>
           <img class="absolute z-10" src={WhatsOnOrbit}></img>
         </div>
 
         {/* Top 2 boxes */}
         <div class="flex relative justify-between mt-10 z-20">
-          <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-4/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+          <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-4/12 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
             <AppleHeader></AppleHeader>
-            <div class="h-[16em] bg-gray-500">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[1em] h-full w-full pt-[8%]">
+            <div class="h-full bg-gray-500">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
                 <p class="font-syneBold text-4xl px-6 text-left text-white">
-                  Header
+                  TAKE A SNEAK PEEK
                 </p>
 
                 <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent conque gravida nibh, eget bibendum ex conque sit
-                  amet.
+                  At past editions of NAF, and into the various activities NAF has in store for you. We hope you're as excited as we are!
                 </p>
               </div>
             </div>
@@ -129,15 +127,15 @@ const WhatsOn = () => {
 
           <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-[16em] bg-white">
-              <div class="flex items-center gap-[3em] flex-col pt-[1em] h-full w-full">
-                {/* <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p>
+            <div class="h-fit bg-gray-500">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
+                <p class="font-syneBold text-4xl px-6 text-left text-white">
+                  STARBURST
+                </p>
 
-                  <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p> */}
+                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
+                  Join us for Starburst, where you'll get to participate in the various activities we have lined up for you, ranging from slime making to interactive art exhibitions!
+                </p>
               </div>
             </div>
           </div>
@@ -149,15 +147,15 @@ const WhatsOn = () => {
         <div class="flex relative justify-center mt-10 z-20">
           <div class="relative bottom-10 border-solid border-4 border-black w-7/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-[20em] bg-white">
-              <div class="flex items-center gap-[3em] flex-col pt-[1em] h-full w-full">
-                {/* <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p>
+            <div class="h-[20em] bg-gray-500">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
+                <p class="font-syneBold text-4xl px-6 text-left text-white">
+                  GLIMMER
+                </p>
 
-                  <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p> */}
+                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
+                  Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. At the publicity booth, you can look forward to grabbing a goodie bag, participating in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie.
+                </p>
               </div>
             </div>
           </div>
@@ -168,30 +166,30 @@ const WhatsOn = () => {
         <div class="flex relative justify-between mt-10 pb-5 z-20">
           <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-[16em] bg-white">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[1em] h-full w-full">
-                {/* <p class="font-yerkItalic text-4xl px-6 text-left text-white">
-                    Header
-                  </p>
+            <div class="h-fit bg-gray-500">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
+                <p class="font-syneBold text-4xl px-6 text-left text-white">
+                  ORBIT
+                </p>
 
-                  <p class="font-normal text-base px-5 text-left text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p> */}
+                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
+                  This year's NAF Internal Showcase, titled Orbit, presents various performances, art showcases, fun activities and booths. It aims to act as a platform for the NTU community to be more involved in as well as gain exposure and newfound interest to NTU's arts scene.
+                </p>
               </div>
             </div>
           </div>
 
-          <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-2/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+          <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-2/4 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
             <AppleHeader></AppleHeader>
-            <div class="h-[16em] bg-white">
-              <div class="flex items-center gap-[3em] flex-col pt-[1em] h-full w-full">
-                {/* <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p>
+            <div class="h-full bg-gray-500 ">
+              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
+                <p class="font-syneBold text-4xl px-6 text-left text-white">
+                  INTERSTELLAR
+                </p>
 
-                  <p class="font-medium text-xl px-5 text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget eros dui. Donec sit amet magna ligula. Mauris vitae diam aliquam, lobortis tellus sed, vulputate diam. Orci varius natoque penatibus et magnis dis parturient montes.
-                  </p> */}
+                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
+                  Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations.
+                </p>
               </div>
             </div>
           </div>
@@ -247,12 +245,10 @@ const WhatsOn = () => {
                   alt=""
                 />
                 <p class="font-syneBold text-3xl px-[4%] text-left text-black">
-                  Header
+                  STARBURST
                 </p>
                 <div class="text-left text-paragraph_Mobile md:text-paragraph_Mobil font-syne mx-[4%] mb-[4%]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent conque gravida nibh, eget bibendum ex conque sit
-                  amet.
+                  Join us for Starburst, where you'll get to participate in the various activities we have lined up for you, ranging from slime making to interactive art exhibitions!
                 </div>
               </div>
             </SwiperSlide>
@@ -265,13 +261,11 @@ const WhatsOn = () => {
                   src="https://swiperjs.com/demos/images/nature-2.jpg"
                   alt=""
                 />
-                <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
-                  Header
+                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
+                  GLIMMER
                 </p>
                 <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent conque gravida nibh, eget bibendum ex conque sit
-                  amet.
+                  Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. At the publicity booth, you can look forward to grabbing a goodie bag, participating in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie.
                 </div>
               </div>
             </SwiperSlide>
@@ -284,13 +278,11 @@ const WhatsOn = () => {
                   src="https://swiperjs.com/demos/images/nature-3.jpg"
                   alt=""
                 />
-                <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
-                  Header
+                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
+                  ORBIT
                 </p>
                 <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent conque gravida nibh, eget bibendum ex conque sit
-                  amet.
+                  This year's NAF Internal Showcase, titled Orbit, presents various performances, art showcases, fun activities and booths. It aims to act as a platform for the NTU community to be more involved in as well as gain exposure and newfound interest to NTU's arts scene.
                 </div>
               </div>
             </SwiperSlide>
@@ -303,13 +295,11 @@ const WhatsOn = () => {
                   src="https://swiperjs.com/demos/images/nature-4.jpg"
                   alt=""
                 />
-                <p class="font-yerkItalic text-3xl px-[4%] text-left text-black">
-                  Header
+                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
+                  INTERSTELLAR
                 </p>
                 <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent conque gravida nibh, eget bibendum ex conque sit
-                  amet.
+                  Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations.
                 </div>
               </div>
             </SwiperSlide>
