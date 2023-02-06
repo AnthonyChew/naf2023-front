@@ -262,7 +262,7 @@ const MarketPlaceLanding = () => {
           <div class="font-syne w-[60%] text-center text-white text-paragraph_Mobile md:text-paragraph_Desktop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
         </div>
         {/* filter and search button */}
-        <div class="flex lg:justify-between my-20 mx-10 flex-wrap">
+        <div class="flex lg:justify-between my-20 mx-32 flex-wrap">
           <SearchBar searchCallback={(searchValue) => setSearchValue(searchValue)} />
           <Filter filterCallback={(filterOptions) => setFilterOptions(filterOptions)}></Filter>
         </div>
@@ -270,8 +270,8 @@ const MarketPlaceLanding = () => {
         {/* product and ads */}
         <div class="flex font-syne">
           {/* product part */}
-          <div class="lg:basis-5/6">
-            <div class=" flex flex-wrap p-5">
+          <div class=''>
+            <div class=" flex flex-wrap p-5 justify-center">
               {
                 products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
                   <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[250px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
@@ -322,11 +322,11 @@ const MarketPlaceLanding = () => {
 
 
           {/* ad stuff */}
-          <div class="basis-1/6 hidden lg:block">
+          {/* <div class="basis-1/6 hidden lg:block">
             <div class="w-[200px] h-[500px] bg-gray-500 mr-10">
 
             </div>
-          </div>
+          </div> */}
           {/* Modal */}
           <Modal
             isOpen={modalIsOpen}
