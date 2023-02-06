@@ -78,7 +78,7 @@ const EventCard = (props) => {
                 :
                 <div class="min-h-[300px] w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7">
                     <Modal isOpen={modalOpen}>
-                        <SignUpPopup workshop={selectedWorkshop} toastCallBack={handelToastCallback} parentCallback={() => setModalOpen(false)}></SignUpPopup>
+                        <SignUpPopup workshop={selectedWorkshop} toastCallBack={handelToastCallback} parentCallback={() => setModalOpen(false)} close={true}></SignUpPopup>
                     </Modal>
                     <div class='flex lg:flex-wrap lg:flex-row flex-col justify-around gap-10 mt-5'>
                         {

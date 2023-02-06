@@ -52,7 +52,7 @@ const AboutxCAC = (props) => {
           {active === 0
               ? props.title
               : props.theme}
-            {props.content}
+            {props.theme}
           </p>
         </div >
       </div >

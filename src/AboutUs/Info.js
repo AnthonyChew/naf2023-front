@@ -17,17 +17,19 @@ const Info = () => {
         {/* <img src={Orbit} class="scale-x-[-1.0] absolute top-[70%] w-4/6 left-[-13%] z-10"></img> */}
         {/* <img src={Orbit} class="absolute top-[109%] w-4/6 right-[-13%] z-10"></img> */}
         <div class="flex flex-row pt-10 px-5">
-            <div class="flex basis-1/2 text-sm justify-center items-center z-20">
-              <div class="font-syne text-white text-paragraph_Mobile md:text-paragraph_Desktop">
-                Building on the work of our predecessors, we aim to be a platform for different art forms, as well as the student body, to come together and commemorate their own strengths and each other. We hope to nurture a collaborative spirit in celebrating the arts in unity.
-              </div>
-            </div>
-            <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
-              <img src={ArtFestivalLogo} class="lg:w-[70%]  z-10 "></img>
-              <img src={Orbit} class="absolute mb-20top-[27%] md:top-[4%] lg:top-[-5%]"></img>
-              {/* <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div> */}
+          <div class="flex basis-1/2 text-sm justify-center items-center z-20">
+            <div class="font-syne text-white text-paragraph_Mobile md:text-paragraph_Desktop">
+              The theme for NTU Arts Festival 2023 is Supernova. Thisedition of the festival pays homage to the joyful, almost explosive bloom of our local arts scene coming back to life. Building on the work of our predecessors, we aim to be a platform for different art forms, as well as the student body, to come together and commemorate their own strengths and each other. We hope to nurture a collaborative spirit in celebrating the arts in unity.
+              <br /><br />
+              Supernova likens our process of encouraging collaboration to the fusion of different elements. We aim to draw members of our different NTU communities in, providing them the space they need to explore, create and appreciate; We look to enrich the lives of all collaborators and benefactors, even likening this to - as our theme suggests - a brilliant burst of light.
             </div>
           </div>
+          <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
+            <img src={ArtFestivalLogo} class="lg:w-[70%]  z-10 "></img>
+            <img src={Orbit} class="absolute mb-20top-[27%] md:top-[4%] lg:top-[-5%]"></img>
+            {/* <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div> */}
+          </div>
+        </div>
         {/* First Row */}
         {/* Laptop and Above */}
         {/* <div class="hidden lg:block">
