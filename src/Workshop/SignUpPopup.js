@@ -64,8 +64,8 @@ export default function SignupPopup(props) {
         workshopService.signUpWorkshop(workshop._id, state)
       );
       if (res.status === 200) {
-        toastCallBack();
         openConfirmedModal();
+        toastCallBack();
       } else if (res.status === 401) {
         setAuth(false);
       } else if (res.status === 400) {
@@ -167,7 +167,13 @@ export default function SignupPopup(props) {
                   </div>
                 </>
                 :
-                <p class='font-syneBold md:text-4xl text-2xl'>YOU HAVE BEEN WAITLISTED FOR [WORKSHOP]. YOU WILL BE NOTIFIED VIA EMAIL IF YOUR SLOT IS CONFIRMED TO MAKE PAYMENT!!</p>
+                <>
+                  <p class='font-syneBold md:text-4xl text-2xl'>YOU HAVE BEEN WAITLISTED! YOU WILL BE NOTIFIED VIA EMAIL IF YOUR SLOT IS CONFIRMED TO MAKE PAYMENT!</p>
+                  <button class='bg-NAFPink border-2 lg:border-4 border-black rounded-md px-1 lg:px-2 py-3 lg:py-2 font-syneBold md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20' onClick={() => closeConfirmedModal()}>
+                    CONTINUE BROWSING
+                  </button>
+                </>
+
             }
           </div>
         </div>

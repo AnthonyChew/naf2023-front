@@ -114,19 +114,15 @@ const EventCard = (props) => {
                                             <div class='flex lg:justify-end justify-center gap-2 mt-2 '>
                                                 <button
                                                     onClick={() => signUp(workshop)}
-                                                    class=" md:w-auto bg-NAFPurple h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                                    class='bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out '
                                                 >
-                                                    <p class="font-syne self-center lg:self-start px-1">
-                                                        Sign Up
-                                                    </p>
+                                                    Sign Up
                                                 </button>
                                                 <button
                                                     onClick={() => info(workshop)}
-                                                    class=" lg:w-auto bg-NAFPink h-[30px] text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
+                                                    class='bg-NAFPink rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out '
                                                 >
-                                                    <p class="font-syne self-center lg:self-start px-1">
-                                                        More Info
-                                                    </p>
+                                                    More Info
                                                 </button>
                                             </div>
 

@@ -68,7 +68,7 @@ const Interstellar = () => {
   }, []);
   document.body.style.overflow = 'unset';
   return (
-    <div class="relative bg-NAFPurple pb-20">
+    <div class="relative bg-NAFPurple pb-20  overflow-hidden">
       <img src={LeftTornado} class="absolute top-[12%] right-[0%]"></img>
       <img src={RightTornado} class="absolute top-[30%] right-[0%]"></img>
       <img src={LeftBottomTornado} class="absolute top-[64%] right-[0%]"></img>

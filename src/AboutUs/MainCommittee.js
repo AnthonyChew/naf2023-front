@@ -84,7 +84,7 @@ const MainCommittee = () => {
   const pnpImages = [qihui, amber, cinwen, heather, jane, yongqi, xinhui, jess]
   const top4Images = [yiteng, manting, celeste, nicole]
   const exfioImages = [ryan, shiru]
-  const bzImages = [ray, faith, syarifah]
+  const bzImages = [syarifah , ray, faith ]
   const [imgState, setImgState] = useState(top4Images)
   const [galleryState, setGalleryState] = useState(0)
   const [shortDes, setShortDes] = useState("The Top 4 comprises these individuals who work hard to lead the main committee! They provide support for the 30 brains behind the festival and coordinate the many moving parts of NAF'23.")
@@ -102,7 +102,7 @@ const MainCommittee = () => {
         break;
       case 2:
         setImgState(bzImages);
-        setShortDes("In charge of securing funds and our wonderful goodie bags for NAF'23, our Business Managers reach out to sponsors to make the festival a possibility!")
+        setShortDes("In charge of securing funds and our wonderful goodie bags for NAF'23, our diligent and resourceful Business Managers reach out to sponsors to make the festival a possibility!")
         break;
       case 3:
         setImgState(pnpImages);
@@ -110,7 +110,7 @@ const MainCommittee = () => {
         break;
       case 4:
         setImgState(progImages);
-        setShortDes("The masterminds behind the wide variety of programmes planned for this year's NAF, our programmers have poured in their time and effort into the endeavour of making this event a success. We sincerely hope you will enjoy it!")
+        setShortDes("The masterminds behind the wide variety of programmes planned for this year's NAF, our programmers have poured in their time and effort into the endeavour of making this event a success.")
         break;
       case 5:
         setImgState(techImages);

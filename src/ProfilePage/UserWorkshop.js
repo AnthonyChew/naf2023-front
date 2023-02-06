@@ -279,13 +279,13 @@ function UserWorkshop(props) {
                     {!currentUser.verified && currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#FF8B13] border-black font-large rounded-lg md:text-paragraph_Desktop text-paragraph_Mobile px-3 py-2.5">Status: Verifying</p>}
                     {!currentUser.verified && !currentUser.images.length > 0 && <p class="w-fit text-white font-syne border-2 bg-[#E70A0A] border-black font-large rounded-lg md:text-paragraph_Desktop text-paragraph_Mobile px-3 py-2.5">Status: Unpaid</p>}
 
-                    <button class="w-fit text-white border-2 font-syne border-black bg-purple-400 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-blue-800"
+                    <button class="bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                       onClick={() => onClickPayment(workshop)}>
                       Make payment</button>
                     <button
                       onClick={() => onClickCancelReg(workshop)}
                       disabled={promiseInProgress}
-                      class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800"
+                      class="bg-NAFPink rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                     >
                       Cancel
                     </button>
@@ -320,7 +320,7 @@ function UserWorkshop(props) {
                   <button
                     onClick={() => onClickCancelWait(workshop)}
                     disabled={promiseInProgress}
-                    class="w-fit text-white border-2 font-syne border-black bg-pink-400 hover:bg-pink-600 focus:ring-4 focus:ring-blue-300 font-large rounded-lg md:text-buttonText_Desktop text-buttonText_Mobile px-3 py-2.5 dark:bg-pink-600 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-blue-800"
+                    class="bg-NAFPink rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
                   >
                     Cancel
                   </button>
