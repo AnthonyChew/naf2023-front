@@ -159,11 +159,7 @@ const Glimmer = () => {
           <img src={BottomRightOrangeStar} class="absolute bottom-[10%] right-[0%]"></img> 
           <img src={BottomRightYellowDot} class="absolute bottom-[8%] right-[3%]"></img> 
 
-
-
 {/* 
-
-
             <img src={MiddleRightPurpleStar} class="hidden md:block absolute top-[51%] left-[0%]"></img>
 
             <img src={BottomLeftOrangeStar} class="hidden md:block absolute bottom-[-3%] left-[0%] w-[15%]"></img>
@@ -192,6 +188,7 @@ const Glimmer = () => {
       <div class='xl:w-[70%] mx-auto'>
       <EventHeader
         img={GlimmerLogo}
+        headerStyle='w-[80%]'
         text="Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. Participate in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie."
       ></EventHeader>
       <div class="flex w-[90%] mx-auto text-center flex-wrap justify-between relative">

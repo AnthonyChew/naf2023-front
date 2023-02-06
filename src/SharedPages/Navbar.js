@@ -137,7 +137,7 @@ const Navbar = () => {
                             <Link onClick={() => setIsMobileProgrammesOpen((prev) => !prev)} id="dropdownNavbarButton" class="link block font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" >PROGRAMMES</Link>
                             <div onClick={() => closeEntireMobileNavbar()} className={isMobileProgrammesOpen ? " font-medium z-10 px-3 text-left text-gray-400" : "hidden"}>
                                 <Link to="/glimmer" class="link block py-2 px-3 hover:bg-gray-200" smooth>Glimmer</Link>
-                                <Link to="/nebula" class="link block py-2 px-3 hover:bg-gray-200" smooth>Nebula</Link>
+                                {/* <Link to="/nebula" class="link block py-2 px-3 hover:bg-gray-200" smooth>Nebula</Link> */}
                                 <Link to="/starburst" class="link block py-2 px-3 hover:bg-gray-200" smooth>Starburst</Link>
                                 <Link to="/interstellar" class="link block py-2 px-3 hover:bg-gray-200" smooth>Interstellar</Link>
                                 <Link to="/orbit" class="link block py-2 px-3 hover:bg-gray-200" smooth>Orbit</Link>

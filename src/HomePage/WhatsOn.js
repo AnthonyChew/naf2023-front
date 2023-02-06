@@ -239,11 +239,11 @@ const WhatsOn = () => {
             <SwiperSlide>
               <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
                 <AppleHeader></AppleHeader>
-                <img
+                {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-1.jpg"
                   alt=""
-                />
+                /> */}
                 <p class="font-syneBold text-3xl px-[4%] text-left text-black">
                   STARBURST
                 </p>
@@ -256,11 +256,11 @@ const WhatsOn = () => {
             <SwiperSlide>
               <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
                 <AppleHeader></AppleHeader>
-                <img
+                {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-2.jpg"
                   alt=""
-                />
+                /> */}
                 <p class="font-syneBold text-3xl px-[4%] text-left text-black">
                   GLIMMER
                 </p>
@@ -273,11 +273,11 @@ const WhatsOn = () => {
             <SwiperSlide>
               <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
                 <AppleHeader></AppleHeader>
-                <img
+                {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-3.jpg"
                   alt=""
-                />
+                /> */}
                 <p class="font-syneBold text-3xl px-[4%] text-left text-black">
                   ORBIT
                 </p>
@@ -290,11 +290,11 @@ const WhatsOn = () => {
             <SwiperSlide>
               <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
                 <AppleHeader></AppleHeader>
-                <img
+                {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-4.jpg"
                   alt=""
-                />
+                /> */}
                 <p class="font-syneBold text-3xl px-[4%] text-left text-black">
                   INTERSTELLAR
                 </p>

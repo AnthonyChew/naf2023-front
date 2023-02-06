@@ -74,17 +74,17 @@ const FestGuide = () => {
 
     <div class="flex relative lg:min-h-screen bg-NAFYellow  overflow-hidden md:pl-20  md:pr-20">
         <div class=" flex flex-row w-[100%] mt-20 lg:mt-32 mx-0 sm:mb-20 md:mb-0 flex-nowrap">
-          <img src={BigWhiteStar} class="hidden lg:block absolute top-[40%] right-[0%] hidden lg:block"></img>
+          <img src={BigWhiteStar} class="hidden lg:block absolute top-[40%] right-[0%]"></img>
           {/* <img src={MediumRedStar} class="absolute top-[87%] left-[0%] "></img> */}
           <img src={MediumYellowStar} class="hidden lg:block absolute top-[-8%] right-[9%]"></img>
           {/* <img
           src={MediumPurpleStar}
           class="absolute top-[90%] right-[45%]"
         ></img> */}
-          <img src={SmallBlueStar} class="hidden lg:block absolute top-[2%] left-[35%] hidden lg:block"></img>
+          <img src={SmallBlueStar} class="hidden lg:block absolute top-[2%] left-[35%] "></img>
           <img src={SmallPurpleDot} class="hidden lg:block absolute top-[7%] right-[3%] "></img>
-          <img src={SmallRedStar} class="hidden lg:block absolute top-[9%] right-[4%] z-10 hidden lg:block"></img>
-          <img src={SmallWhiteDot} class="hidden lg:block absolute top-[90%] left-[12%] hidden lg:block"></img>
+          <img src={SmallRedStar} class="hidden lg:block absolute top-[9%] right-[4%] z-10 "></img>
+          <img src={SmallWhiteDot} class="hidden lg:block absolute top-[90%] left-[12%] "></img>
 
           <div class="relative lg:flex-1 mb-10 lg:mb-20 pl-1 pr-1  self-center">
             <img src={WhatIsNTUArtsFestival} class="w-[70%]"></img>

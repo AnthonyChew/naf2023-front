@@ -248,7 +248,7 @@ function UserWorkshop(props) {
       </Modal>
 
       <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1 mb-5 shadow-[10px_10px_0_0_rgba(0,0,0)]  md:min-w-[40%] z-10" >
-        <p class="text-subheader font-syneBold text-white mb-2 text-center md:text-left">
+        <p class="text-subheader font-syneExtraBold text-white mb-2 text-center">
           CONFIRMED WORKSHOPS
         </p>
         {registeredWorkshops && registeredWorkshops.length === 0 ? (
@@ -298,7 +298,7 @@ function UserWorkshop(props) {
       </div>
 
       <div class="w-fit bg-NAFBlue border-black border-4 rounded-lg pl-5 pr-5 pt-1 pb-1  shadow-[10px_10px_0_0_rgba(0,0,0)] md:min-w-[40%]">
-        <p class="text-subheader font-syneBold text-white mb-2 text-center md:text-left">
+        <p class="text-subheader font-syneExtraBold text-white mb-2 text-center">
           WAITLISTED WORKSHOPS
         </p>
         {waitlistedWorkshops && waitlistedWorkshops.length === 0 ? (

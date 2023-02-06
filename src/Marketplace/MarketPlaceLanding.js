@@ -151,7 +151,7 @@ const MarketPlaceLanding = () => {
       let res;
       res = await trackPromise(productService.getAllProducts());
       if (res.status === 200) {
-        console.log(res.data)
+        // console.log(res.data)
         setProducts(res.data); // current products
         setAllProducts(res.data); // reusable all products
         updatePagination(res.data);
@@ -375,7 +375,7 @@ const MarketPlaceLanding = () => {
                         <div className="swiper-custom-pagination" />
                       </div>
                     </div>  {/* end of left side */}
-                    <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-10">
+                    <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-5">
                       <div class="font-syneBold text-subheader text-black">{oneproduct.name}</div>
                       <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black">{oneproduct.vendorName}</div>
                       {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">

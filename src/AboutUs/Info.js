@@ -11,7 +11,7 @@ const Info = () => {
       <div class='lg:w-[70%] mx-auto'>
         {/* Star SVGs */}
         <img src={TopLeftPinkStar} class="absolute w-2/6 lg:w-1/4 top-[-10%] md:top-[-20%] left-[-10%] lg:-left-40 z-20"></img>
-        <img src={MiddleBlueStar} class="hidden lg:block absolute w-1/6 lg:w-1/12 top-[-5%] left-[50%] z-30"></img>
+        <img src={MiddleBlueStar} class="hidden lg:block absolute w-1/6 lg:w-1/12 top-[-5%] left-[50%] z-20"></img>
 
         {/* <img src={Orbit} class="absolute top-[30%] w-4/6 right-[-13%] z-10"></img> */}
         {/* <img src={Orbit} class="scale-x-[-1.0] absolute top-[70%] w-4/6 left-[-13%] z-10"></img> */}
@@ -23,8 +23,8 @@ const Info = () => {
               </div>
             </div>
             <div class="flex relative basis-1/2 my-10 justify-center items-center z-20">
-              <img src={Orbit} class="absolute mb-20 z-10 top-[27%] md:top-[4%] lg:top-[-5%]"></img>
-              <img src={ArtFestivalLogo} class="lg:w-[70%]"></img>
+              <img src={ArtFestivalLogo} class="lg:w-[70%]  z-10 "></img>
+              <img src={Orbit} class="absolute mb-20top-[27%] md:top-[4%] lg:top-[-5%]"></img>
               {/* <div class="aspect-square box-border border-2 border-black bg-gray-300 w-4/6 shadow-[15px_10px_0_0_rgba(0,0,0)] z-20"></div> */}
             </div>
           </div>

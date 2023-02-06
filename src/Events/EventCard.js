@@ -60,9 +60,6 @@ const EventCard = (props) => {
     const history = useNavigate();
     return (
         <>
-            <Modal isOpen={modalOpen}>
-                <SignUpPopup workshop={selectedWorkshop} toastCallBack={handelToastCallback} parentCallback={() => setModalOpen(false)}></SignUpPopup>
-            </Modal>
             {!workshops ?
                 <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
                     <div class="font-syneExtraBold text-2xl font-bold mt-2 md:whitespace-nowrap">{props.title}</div>
@@ -80,14 +77,16 @@ const EventCard = (props) => {
                 </div >
                 :
                 <div class="min-h-[300px] w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7">
-
+                    <Modal isOpen={modalOpen}>
+                        <SignUpPopup workshop={selectedWorkshop} toastCallBack={handelToastCallback} parentCallback={() => setModalOpen(false)}></SignUpPopup>
+                    </Modal>
                     <div class='flex lg:flex-wrap lg:flex-row flex-col justify-around gap-10 mt-5'>
                         {
                             workshops.map((workshop) => {
                                 return (
                                     <div class='flex flex-col lg:flex-row lg:w-[40%] lg:h-[30%] gap-2 items-center  min-w-0 justify-around p-3 border-4 border-black ml-1 mr-1 bg-white md:shadow-[10px_10px_0_0_rgba(0,0,0)]'>
                                         <div class='md:w-[280px] md:h-[200px] w-[200px] h-[100px]'>
-                                            <FocusedImage class='focused-image' imageSrc={workshop.images[0]} x={0} y={0} ></FocusedImage>
+                                            <FocusedImage class='focused-image' imageSrc={workshop.images[0]} x={-0.5} y={0} ></FocusedImage>
                                         </div>
                                         <div class='basis-2/3 flex flex-col max-w-[90%] lg:max-w-full min-w-0'>
                                             <p class="text-2xl font-syne text-ellipsis overflow-hidden whitespace-nowrap lg:max-w-fit max-w-[90%]">{workshop.name}</p>
