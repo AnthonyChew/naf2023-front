@@ -536,10 +536,10 @@ export default function PrivacyPolicy() {
             <ul class={ul}>
               <li>
                 <p class={paragraph}>
-                  <strong>Google Analytics</strong>
+                  <strong>Google Analytics </strong>
                 </p>
-                <p class={paragraph}>
-                  Google Analytics is a web analytics service offered by Google
+                <p class={paragraph}><br></br>
+                   Google Analytics is a web analytics service offered by Google
                   that tracks and reports website traffic. Google uses the data
                   collected to track and monitor the use of our Service. This
                   data is shared with other Google services. Google may use the
@@ -568,9 +568,11 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <p class={paragraph}>
-                  <strong>Firebase</strong>
+                  <strong>Firebase </strong>
                 </p>
-                <p class={paragraph}>Firebase is an analytics service provided by Google Inc.</p>
+                <br></br>
+                <p class={paragraph}>
+                  Firebase is an analytics service provided by Google Inc.</p>
                 <p class={paragraph}>
                   You may opt-out of certain Firebase features through your
                   mobile device settings, such as your device advertising
@@ -628,11 +630,12 @@ export default function PrivacyPolicy() {
             <ul class={ul}>
               <li>
                 <p class={paragraph}>
-                  <strong>PayNow</strong>
+                  <strong>PayNow </strong>
                 </p>
                 <p class={paragraph}>
                   Their Privacy Policy can be viewed at{' '}
                   <a
+                  class="text-gray-200"
                     href="https://www.ocbc.com/group/policies"
                     rel="external nofollow noopener"
                     target="_blank"
