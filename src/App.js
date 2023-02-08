@@ -24,6 +24,7 @@ import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
 import NAFxCS from './NAFxCAC/NAFxCS';
 import NAFxJDC from './NAFxCAC/NAFxJDC';
+import NAFxOTHERS from './NAFxCAC/NAFxOTHERS';
 import FAQ from './FAQ/FAQ';
 import PrivacyPolicy from './FAQ/PrivacyPolicy';
 import Partners from './AboutUs/Partners';
@@ -80,6 +81,7 @@ function App() {
           <Route path="/jdc" element={<div class='pt-[5%]'><NAFxJDC /></div>} />
           <Route path="/cs" element={<div class='pt-[5%]'><NAFxCS /></div>} />
           <Route path="/top" element={<div class='pt-[5%]'><NAFxTOP /></div>} />
+          <Route path="/others" element={<div class='pt-[5%]'><NAFxOTHERS /></div>} />
           <Route path="/vendorlogin" element={<div class='pt-[5%]'><VendorLogin /></div>} />
           <Route path="/adminmanage" element={<div class='pt-[5%]'><AdminManage /></div>} />
           <Route path="/committee" element={<div class='pt-[5%]'><MainCommittee /></div>} />
