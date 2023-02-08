@@ -32,7 +32,7 @@ const Workshops = (props) => {
   const workshop = props.workshop
 
   return (
-    <div class="overflow-hidden relative h-auto md:min-h-screen w-full bg-NAFPurple pb-20 px-[5%] lg:px-32">
+    <div class="overflow-hidden relative h-auto lg:min-h-screen w-full bg-NAFPurple pb-20 px-[5%] lg:px-32">
       <div class='md:w-[70%] mx-auto'>
         {/* Top Left */}
         <img class="absolute left-0 top-[2%] w-[14%]" src={WhiteStar1Shadow} />

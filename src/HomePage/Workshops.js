@@ -55,8 +55,6 @@ const Workshops = (props) => {
       <img src={WorkshopTopRightYellowStar} class="hidden lg:block absolute top-[5%] right-[0%] z-10"></img>
       <img src={WorkshopBottomRightBlueStar} class="absolute bottom-[-8%] right-[-5%] z-10 w-[40%] md:w-auto"></img>
 
-
-
       <div class="flex relative flex-col items-center">
         <img class="my-8 z-20  lg:w-[40%]" src={WorkshopLogo}></img>
       </div>
@@ -92,52 +90,52 @@ const Workshops = (props) => {
             loop={true}
           >
             <SwiperSlide >
-              <div class='flex flex-col justify-center items-center cursor-pointer'>
-                <div class='cursor-pointer' onClick={() => info(workshops[7])}>
+              <div class='cursor-pointer'>
+                <div class='my-auto' onClick={() => info(workshops[0])}>
                   <img
-                    src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674565052.jpeg"
+                    src={workshops[0] && workshops[0].images[0]}
                     alt=""
-                    class='md:h-[250px] md:w-[350px] '
+                    class='md:h-[250px] max-h-[200px]  mx-auto'
                   />
-                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">Laura Jane Poetry S1</div>
+                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3  whitespace-wrap">{workshops[0] && workshops[0].name}</div>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
-              <div class='flex flex-col justify-center items-center cursor-pointer'>
-                <div class='cursor-pointer' onClick={() => info(workshops[11])}>
+              <div class='cursor-pointer'>
+                <div class='my-auto' onClick={() => info(workshops[1])}>
                   <img
-                    src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/photo1674577379+(1).jpeg"
+                    src={workshops[1] && workshops[1].images[0]}
                     alt=""
-                    class='md:h-[250px] md:w-[350px]'
+                    class='md:h-[250px] max-h-[200px]  mx-auto'
                   />
-                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">MLCS</div>
+                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3 whitespace-wrap">{workshops[1] && workshops[1].name}</div>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div class='flex flex-col justify-center items-center' >
-                <div class='cursor-pointer' onClick={() => info(workshops[13])}>
+              <div  class='cursor-pointer'>
+                <div class='my-auto' onClick={() => info(workshops[2])}>
                   <img
-                    src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/minis1.jpg"
+                    src={workshops[2] && workshops[2].images[0]}
                     alt=""
-                    class='md:h-[250px] md:w-[350px]'
+                    class='md:h-[250px] max-h-[200px]  mx-auto'
 
                   />
-                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3">Minature Painting</div>
+                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3 whitespace-wrap">{workshops[2] && workshops[2].name}</div>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div class='flex flex-col justify-center items-center' >
-                <div class='cursor-pointer' onClick={() => info(workshops[16])}>
+              <div class='cursor-pointer' >
+                <div class='my-auto' onClick={() => info(workshops[3])}>
                   <img
-                    src="https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/image_6487327+(1).JPG"
+                    src={workshops[3] && workshops[3].images[0]}
                     alt=""
-                    class='md:h-[250px] md:w-[350px]'
+                    class='md:h-[250px] max-h-[200px] mx-auto'
                   />
-                  <div class="text-center font-syne text-lg mt-3">Theatre Games</div>
+                  <div class="text-center font-syne md:text-paragraph_Desktop text-paragraph_Mobile mt-3 whitespace-wrap ">{workshops[3] && workshops[3].name}</div>
                 </div>
               </div>
             </SwiperSlide>
@@ -146,6 +144,15 @@ const Workshops = (props) => {
       </div>
       <div class="text-center mb-10">
         <div className="swiper-custom-pagination" />
+      </div>
+
+      <div class="text-center mb-10">
+        <button
+          onClick={() => history('/interstellar')}
+          class='bg-NAFPink rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne text-buttonText_Desktop md:text-header text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out '
+        >
+          Click for More!
+        </button>
       </div>
     </div>
   );

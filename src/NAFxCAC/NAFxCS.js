@@ -12,6 +12,7 @@ import CS_4 from './svgs/CS/CS_4.jpg'
 import CS_5 from './svgs/CS/CS_5.jpg'
 import ThemexCAC from './ThemexCAC'
 import ContactxCAC from './ContactxCAC'
+import EventHeader from '../Events/EventHeader'
 
 import TopRightPurpleStar from './svgs/TopRightPurpleStar.svg';
 import TopRightOrangeStar from './svgs/TopRightOrangeStar.svg';
@@ -45,9 +46,9 @@ const NAFxCS = () => {
     const description = "Organized by NTU Cultural Activities Club (CAC), CenterStage 2023 is back revamped as a campus-wide all-inclusive talent competition, seeking to unearth hidden talents amongst the NTU community by providing them with an accessible and professional platform to compete with other talents. CenterStage allows contestants to perform and showcase any form of talent, from dance and music, to even unconventional talents such as stand-up comedy and magic."
     const theme = "Our theme this year is Y2K, a popular fashion theme from the 2000s. Through this Y2K theme, we hope to give our contestants a sense of nostalgia, by bringing them back in time to relive their childhood memories, or even fulfill their childhood dreams of performing on stage!"
     const imgs = [CS_1, CS_2, CS_3, CS_4]
-    const offSet = [{x:'-0.5',y:'0'},{x:'-0.5',y:'0'},{x:'-0.5',y:'0'},{x:'0',y:'1'}]
+    const offSet = [{ x: '-0.5', y: '0' }, { x: '-0.5', y: '0' }, { x: '-0.5', y: '0' }, { x: '0', y: '1' }]
     return (
-        <div class="relative bg-NAFBlue py-[50px] overflow-hidden">
+        <div class="relative bg-NAFBlue overflow-hidden">
             <img src={TopLeftRedStar} class="absolute top-[5%] left-[0%] w-[15%]"></img>
             <img src={TopLeftYellowStar2} class="absolute top-[0%] left-[20%] w-[6%]"></img>
 
@@ -70,9 +71,7 @@ const NAFxCS = () => {
             <img src={BottomRightPurpleStar} class="hidden md:block absolute bottom-[0%] right-[15%] w-[10%]"></img>
             <img src={BottomRightYellowStar} class="absolute bottom-[9%] right-[6%] w-[10%]"></img>
             <div class='xl:w-[70%] mx-auto relative'>
-                <div>
-                    <img class="mx-auto" src={CSTextLogo}></img>
-                </div>
+                <EventHeader headerStyle='' img={CSTextLogo}></EventHeader>
                 <AboutxCAC title="About CS" img={CSLogo} content={description} themeTitle="THEME: Y2K" theme={theme}></AboutxCAC>
                 <GalleryxCAC title="CS Gallery" imgs={imgs} offSet={offSet}></GalleryxCAC>
                 {/* <ThemexCAC title="THEME: Y2K" imgs={imgs} content={theme}></ThemexCAC> */}

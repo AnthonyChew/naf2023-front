@@ -1,4 +1,5 @@
 import React from "react";
+import FocusedImage from '../SharedPages/FocusImage.js';
 import WhatsOnBg from "./svgs/whatson/whatsonbg.svg";
 import WhatsOnLogo from "./svgs/whatson/whatsonLogo.png";
 import WhatsOn8Star1 from "./svgs/whatson/whatson8Star1.svg";
@@ -17,6 +18,11 @@ import WhatsOnYellowDot1 from "./svgs/whatson/whatsonYellowDot1.svg";
 import WhatsOn4Star4 from "./svgs/whatson/whatson4Star4.svg";
 import WhatsOn4Star5 from "./svgs/whatson/whatson4Star5.svg";
 import WhatsOnWhiteDot1 from "./svgs/whatson/whatsonWhiteDot1.svg";
+
+import Image1 from "./svgs/whatson/Image1.jpg";
+import Image2 from "./svgs/whatson/Image2.jpg";
+import Image3 from "./svgs/whatson/Image3.jpg";
+import Image4 from "./svgs/whatson/Image4.jpg";
 
 import AppleHeader from "../SharedPages/AppleHeader";
 
@@ -125,17 +131,11 @@ const WhatsOn = () => {
             </div>
           </div>
 
-          <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+          <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
             <AppleHeader></AppleHeader>
-            <div class="h-fit bg-gray-500">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
-                <p class="font-syneBold text-4xl px-6 text-left text-white">
-                  STARBURST
-                </p>
-
-                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
-                  Join us for Starburst, where you'll get to participate in the various activities we have lined up for you, ranging from slime making to interactive art exhibitions!
-                </p>
+            <div class="flex justify-items-left gap-[1em] flex-col h-full w-full">
+              <div class='h-[300px]'>
+                <FocusedImage class='focused-image' imageSrc={Image2} x={0} y={-1} ></FocusedImage>
               </div>
             </div>
           </div>
@@ -147,16 +147,8 @@ const WhatsOn = () => {
         <div class="flex relative justify-center mt-10 z-20">
           <div class="relative bottom-10 border-solid border-4 border-black w-7/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-[20em] bg-gray-500">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
-                <p class="font-syneBold text-4xl px-6 text-left text-white">
-                  GLIMMER
-                </p>
-
-                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
-                  Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. At the publicity booth, you can look forward to grabbing a goodie bag, participating in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie.
-                </p>
-              </div>
+            <div class='h-[300px]'>
+              <FocusedImage class='focused-image' imageSrc={Image3} x={-0.5} y={0} ></FocusedImage>
             </div>
           </div>
           {/* <img src={MidBox} class="z-20"></img> */}
@@ -166,31 +158,15 @@ const WhatsOn = () => {
         <div class="flex relative justify-between mt-10 pb-5 z-20">
           <div class="left-[5%] relative bottom-10 border-solid border-4 border-black w-1/4 shadow-[20px_20px_0_0_rgba(0,0,0)]">
             <AppleHeader></AppleHeader>
-            <div class="h-fit bg-gray-500">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
-                <p class="font-syneBold text-4xl px-6 text-left text-white">
-                  ORBIT
-                </p>
-
-                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
-                  This year's NAF Internal Showcase, titled Orbit, presents various performances, art showcases, fun activities and booths. It aims to act as a platform for the NTU community to be more involved in as well as gain exposure and newfound interest to NTU's arts scene.
-                </p>
-              </div>
+            <div class='h-[300px]'>
+              <FocusedImage class='focused-image' imageSrc={Image1} x={-0.5} y={-1} ></FocusedImage>
             </div>
           </div>
 
           <div class="right-[5%] relative bottom-10 border-solid border-4 border-black w-2/4 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
             <AppleHeader></AppleHeader>
-            <div class="h-full bg-gray-500 ">
-              <div class="flex justify-items-left gap-[1em] flex-col pt-[2em] pb-[2em] h-full w-full">
-                <p class="font-syneBold text-4xl px-6 text-left text-white">
-                  INTERSTELLAR
-                </p>
-
-                <p class="font-syne md:text-paragraph_Desktop text-paragraph_Mobile px-5 text-left text-white">
-                  Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations.
-                </p>
-              </div>
+            <div class='h-[300px]'>
+              <FocusedImage class='focused-image' imageSrc={Image4} x={-0.5} y={0} ></FocusedImage>
             </div>
           </div>
         </div>
@@ -244,62 +220,50 @@ const WhatsOn = () => {
                   src="https://swiperjs.com/demos/images/nature-1.jpg"
                   alt=""
                 /> */}
-                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
-                  STARBURST
-                </p>
-                <div class="text-left text-paragraph_Mobile md:text-paragraph_Mobil font-syne mx-[4%] mb-[4%]">
-                  Join us for Starburst, where you'll get to participate in the various activities we have lined up for you, ranging from slime making to interactive art exhibitions!
+                <div class='h-[300px]'>
+                  <FocusedImage class='focused-image' imageSrc={Image1} x={0} y={-0.5} ></FocusedImage>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
-              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
                 <AppleHeader></AppleHeader>
                 {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-2.jpg"
                   alt=""
                 /> */}
-                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
-                  GLIMMER
-                </p>
-                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  Starting the festival off with a glimmer of what is to come, Glimmer features our publicity booth and an Arts Movie Screening. At the publicity booth, you can look forward to grabbing a goodie bag, participating in Style This In Your Style, where you get to design your own version of our mascot, and learn more about NAF! Pop by our Arts Movie Screening to catch a movie.
+                <div class='h-[300px] w-[350px]'>
+                  <FocusedImage class='focused-image' imageSrc={Image2} x={-0.5} y={-0.5} ></FocusedImage>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
-              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
                 <AppleHeader></AppleHeader>
                 {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-3.jpg"
                   alt=""
                 /> */}
-                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
-                  ORBIT
-                </p>
-                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  This year's NAF Internal Showcase, titled Orbit, presents various performances, art showcases, fun activities and booths. It aims to act as a platform for the NTU community to be more involved in as well as gain exposure and newfound interest to NTU's arts scene.
+                <div class='h-[300px]  w-[400px]'>
+                  <FocusedImage class='focused-image' classWrap='w-full' imageSrc={Image3} x={-0.5} y={0} ></FocusedImage>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
-              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)]">
+              <div class="bg-white border-black border-4 mx-10 mb-10 shadow-[20px_20px_0_0_rgba(0,0,0)] overflow-hidden">
                 <AppleHeader></AppleHeader>
                 {/* <img
                   class="p-[4%]"
                   src="https://swiperjs.com/demos/images/nature-4.jpg"
                   alt=""
                 /> */}
-                <p class="font-syneBold text-3xl px-[4%] text-left text-black">
-                  INTERSTELLAR
-                </p>
-                <div class="text-left text-sm md:text-base font-syne mx-[4%] mb-[4%]">
-                  Workshops, titled Interstellar, collaborates with various CAC Member Clubs, arts and cultural groups and NIE to bring a variety of workshops to all NTU students. Workshops range from visual arts to music and dance, and Interstellar aims to encourage every participant to learn something new from the workshops and leave with memorable experiences and a greater appreciation for the arts. Join us and create art, no experience required! Do browse through our various workshops for the dates, times and locations.
+                <div class='h-[300px] w-[400px]'>
+                  <FocusedImage class='focused-image' imageSrc={Image4} x={-0.5} y={0} ></FocusedImage>
                 </div>
               </div>
             </SwiperSlide>
