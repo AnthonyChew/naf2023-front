@@ -278,11 +278,11 @@ const MarketPlaceLanding = () => {
                     <div class="w-full h-[200px] border-black border-b-2">
                       <FocusedImage class='focused-image' imageSrc={oneItem.images[0]} x={-0.5} y={0} ></FocusedImage>
                     </div>
-                    <div class="oneItem-caption p-1 bg-gray-500">
+                    <div class="oneItem-caption p-1">
                       <div class="text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Name: {oneItem.name}</div>
                       <div class=" text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Description: {oneItem.description}</div>
 
-                      <div>Price: ${oneItem.price}</div>
+                      <div class="text-paragraph_Mobile md:text-paragraph_Desktop">Price: ${oneItem.price}</div>
 
                     </div>
                   </div>
@@ -447,11 +447,11 @@ const MarketPlaceLanding = () => {
                           </div>
                         </Modal>
                       </div>
-                      <div class="font-syne text-black mt-5">
+                      {/* <div class="font-syne text-black mt-5">
                         <div class="mb-3 font-syne text-subheader">Product details</div>
                         <hr class="h-px border-black  border-2 bg-black"></hr>
                         <div class="mt-3 font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{oneproduct.description}</div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 

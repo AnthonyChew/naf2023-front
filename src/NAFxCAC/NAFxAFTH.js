@@ -12,6 +12,7 @@ import AFTH_4 from './svgs/AFTH/AFTH_4.jpg'
 import AFTH_5 from './svgs/AFTH/AFTH_5.jpg'
 import ThemexCAC from './ThemexCAC'
 import ContactxCAC from './ContactxCAC'
+import EventHeader from '../Events/EventHeader'
 
 import TopRightPurpleStar from './svgs/TopRightPurpleStar.svg';
 import TopRightOrangeStar from './svgs/TopRightOrangeStar.svg';
@@ -45,9 +46,9 @@ const NAFxAFTH = () => {
     const description = "Arts From The Heart is a Special Project under NTU CAC. Established in 2004, the NTU CAC Arts From The Heart (AFTH) is an annual Charity Project organised by the club. As the charity arm of NTU CAC, our vision is to help the less fortunate in the society by involving all our 24 member clubs and integrating each member club’s specialisation to put up an extravagant performance. Through the 18 years of operation, AFTH has supported many other non-profit organisations such as the Down Syndrome Association, Chen Su Lan Methodist Children’s Home and Asian Women’s Welfare Association – Teach Me services, Club Rainbow, Dyslexia Association of Singapore, Singapore Children’s Society, The Salvation Army, Singapore Cancer Society, Singapore Association for Mental Health and Samaritans of Singapore."
     const theme = "In our pursuit of goals and endless hustling, we often forget to take a step back and leave some time for ourselves. This year’s space-themed AFTH carnival, YOUniverse, seeks to raise awareness of mental health, while conveying the message of self-growth at one’s own pace. Our mental health journey is an individual experience that cannot be compared. In your universe, you’re free to grow in your own space and time. "
     const imgs = [AFTH_1, AFTH_2, AFTH_3, AFTH_4, AFTH_5]
-    const offSet = [{x:'0',y:'0'},{x:'0',y:'0'},{x:'0',y:'0'},{x:'0',y:'0'},{x:'0',y:'0'}]
+    const offSet = [{ x: '0', y: '0' }, { x: '0', y: '0' }, { x: '0', y: '0' }, { x: '0', y: '0' }, { x: '0', y: '0' }]
     return (
-        <div class="relative bg-NAFBlue py-[50px] overflow-hidden">
+        <div class="relative bg-NAFBlue overflow-hidden">
             <img src={TopLeftRedStar} class="absolute top-[5%] left-[0%] w-[15%]"></img>
             <img src={TopLeftYellowStar2} class="absolute top-[0%] left-[20%] w-[6%]"></img>
 
@@ -71,9 +72,7 @@ const NAFxAFTH = () => {
             <img src={BottomRightYellowStar} class="absolute bottom-[9%] right-[6%] w-[10%]"></img>
 
             <div class='xl:w-[70%] mx-auto relative'>
-                <div>
-                    <img class="mx-auto" src={AFTHTextLogo}></img>
-                </div>
+                <EventHeader headerStyle='' img={AFTHTextLogo}></EventHeader>
                 <AboutxCAC title="About AFTH" img={AFTHLogo} content={description} themeTitle="THEME: YOUniverse" theme={theme}></AboutxCAC>
                 <GalleryxCAC title="AFTH Gallery" imgs={imgs} offSet={offSet}></GalleryxCAC>
                 {/* <ThemexCAC title="THEME: YOUniverse" imgs={imgs} content={theme}></ThemexCAC> */}

@@ -24,7 +24,7 @@ const Footer = () => {
             </div>
           </div>
           <div class='md:block hidden'>
-            <div  class='text-center '> Official Production Partner</div>
+            <div class='text-center '> Official Production Partner</div>
             <div class="flex pt-5 ">
               <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[300px] lg:h-[50px] xl:w-[300px] xl:h-[50px] md:w-[350px] md:h-[55px] mx-2"></img>
             </div>
@@ -52,6 +52,10 @@ const Footer = () => {
 
           <a href='https://www.tiktok.com/@ntuartsfestival?_t=8ZSfbGScD6A&_r=1'>
             <svg xmlns="http://www.w3.org/2000/svg" class='w-9 h-9' viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" /></svg>
+          </a>
+
+          <a href='mailto:NAF-PARTICIPANTS@e.ntu.edu.sg'>
+            <svg xmlns="http://www.w3.org/2000/svg" class='w-9 h-9'  viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" /></svg>
           </a>
         </div>
 
