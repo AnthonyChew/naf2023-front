@@ -43,16 +43,15 @@ const AboutxCAC = (props) => {
         </div >
         {/* Text Area */}
         < div class=" flex lg:w-8/12 flex-col gap-y-2 sm:gap-y-5" >
-          <p class="sm:text-lg md:text-2xl lg:text-4xl flex font-syne justify-center lg:justify-start">
+          <p class="text-header flex font-syne justify-center lg:justify-start">
             {active === 0
               ? props.title
               : props.themeTitle}
           </p>
-          <p class="text-left text-[10px] sm:text-sm md:text-md font-syne lg:text-lg">
+          <p class="text-left text-[10px] text-paragraph_Mobile md:text-paragraph_Desktop font-syne">
           {active === 0
-              ? props.title
+              ? props.content
               : props.theme}
-            {props.theme}
           </p>
         </div >
       </div >

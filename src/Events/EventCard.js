@@ -62,14 +62,14 @@ const EventCard = (props) => {
         <>
             {!workshops ?
                 <div class="min-h-[300px] bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                    <div class="font-syneExtraBold text-2xl font-bold mt-2 md:whitespace-nowrap">{props.title}</div>
+                    <div class="font-syneExtraBold text-header font-bold mt-2">{props.title}</div>
                     {!workshops && <div class="md:mx-5"><div className={"rounded-lg p-1 font-syne mt-3 w-fit px-10 mx-5 sm:mx-auto " + props.bgColor + textColorCondition}>{props.date.split('\n').map(str => <p>{str}</p>)}</div></div>}
-                    <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>{props.content}</div>
+                    <div className={"mt-3 mx-3 font-syne whitespace-pre-wrap text-paragraph_Mobile md:text-paragraph_Desktop"}>{props.content}</div>
                     {
                         props.button ?
                             <div class="mt-7 mx-3">
                                 <Link to={props.href} type="button"
-                                    className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md " + props.bgColor}>
+                                    className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md buttonText_Mobile md:buttonText_Desktop " + props.bgColor}>
                                     {props.button}
                                 </Link>
                             </div> : <div></div>

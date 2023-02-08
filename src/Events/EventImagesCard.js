@@ -7,9 +7,9 @@ const EventImagesCard = (props) => {
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
     return (
         <div class="bg-white h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
-            <div class="font-syneExtraBold text-2xl font-bold mt-2">{props.title}</div>
+            <div class="font-syneExtraBold text-header font-bold mt-2">{props.title}</div>
             <div className={"w-full mt-3"}>
-                <div className={"w-[80%] lg:w-[30%] mx-auto rounded-lg p-1 font-syne " + props.bgColor + textColorCondition}>
+                <div className={"w-[80%] lg:w-[30%] mx-auto rounded-lg p-1 font-syne text-paragraph_Mobile md:text-paragraph_Desktop" + props.bgColor + textColorCondition}>
                     {props.date.split('\n').map(str => <p>{str}</p>)}
                 </div>
             </div>
@@ -22,12 +22,12 @@ const EventImagesCard = (props) => {
                     )
                 }
             </div>
-            <div className={"mt-3 mx-3 text-md font-syne"}>{props.content}</div>
+            <div className={"mt-3 mx-3 text-paragraph_Mobile md:text-paragraph_Desktop font-syne"}>{props.content}</div>
             {
                 props.button ?
                     <div class="mt-7 mx-3">
                         <Link to={props.href} type="button"
-                            className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md " + props.bgColor}>
+                            className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md  buttonText_Mobile md:buttonText_Desktop " + props.bgColor}>
                             {props.button}
                         </Link>
                     </div> : <div></div>
