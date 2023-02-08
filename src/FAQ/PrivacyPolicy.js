@@ -9,11 +9,11 @@ export default function PrivacyPolicy() {
   const ul = "list-disc list-inside ml-5";
   const paragraph = "my-3 inline";
   return (
-    <div class='relative bg-NAFBlue pb-[5%] pt-[2%] px-5'>
+    <div class='relative bg-gray-300 pb-[5%] pt-[2%] px-5 text-black'>
       <header>
         <div>
           <span >
-            <p class='text-2xl pt-5 mb-5 text-white'> Privacy Policy for NTU Arts Festival</p>
+            <p class='text-2xl pt-5 mb-5'> Privacy Policy for NTU Arts Festival</p>
           </span>
         </div>
       </header>
@@ -21,15 +21,15 @@ export default function PrivacyPolicy() {
       <section class="">
         <div class="" section-language="en">
           <div id="md_en" data-target="out_en" className="agreement_md">
-            <h1 class='text-xl mt-5 mb-5 text-white'>Privacy Policy</h1>
-            <p class='text-base mt-5 mb-5 text-white'>Last updated: January 25, 2023</p>
-            <p class='text-sm mt-5 mb-5 text-white'>
+            <h1 class='text-xl mt-5 mb-5'>Privacy Policy</h1>
+            <p class='text-base mt-5 mb-5 '>Last updated: January 25, 2023</p>
+            <p class='text-sm mt-5 mb-5 '>
               This Privacy Policy describes Our policies and procedures on the
               collection, use and disclosure of Your information when You use
               the Service and tells You about Your privacy rights and how the
               law protects You.
             </p>
-            <p class='text-sm mt-5 mb-5 text-white'>
+            <p class='text-sm mt-5 mb-5 '>
               We use Your Personal data to provide and improve the Service. By
               using the Service, You agree to the collection and use of
               information in accordance with this Privacy Policy.

@@ -55,7 +55,7 @@ const Navbar = () => {
 
     return (
 
-        <div class="z-30 fixed w-full bg-white">
+        <div class="z-30 fixed w-full bg-white mb-[375px]">
             <div class="flex items-center lg:px-10 md:px-0 border-b-8 border-black">
                 <Link to="/" class="link" smooth>
                     <img src={NAFLogo} class="w-[200px] md:h-[100px] h-[80px] flex-initial"></img>

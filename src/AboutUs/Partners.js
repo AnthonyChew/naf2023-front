@@ -5,6 +5,9 @@ import NTUCACLogo from './svgs/partners/NTUCACLogo.svg'
 import MyULifeLogo from './svgs/partners/MyULifeLogo.svg'
 import CELogo from './svgs/partners/CELogo.svg'
 import ActiveRed from './svgs/partners/ActiveRed.svg'
+import ActiveRedAslanSport from './svgs/partners/ActiveRed_AslanSport.png'
+import ActiveRedMain from './svgs/partners/ActiveRed_Main.PNG'
+
 import Cloversoft from './svgs/partners/Cloversoft.svg'
 import CreativeEateries from './svgs/partners/CreativeEateries.svg'
 import MerchandiseMaverick from './svgs/partners/MerchandiseMaverick.svg'
@@ -13,11 +16,19 @@ import SelfPhotoStudio from './svgs/partners/SelfPhotoStudio.svg'
 import CommCube from './svgs/partners/CommCube.svg'
 
 import HappyStudio from './svgs/partners/HappyStudio.svg';
+import KFGCaptainKBBQ from './svgs/partners/KFG_CaptainKBBQ.png';
+import KFGGoroGoro from './svgs/partners/KFG_GoroGoro.png';
+import KFGShabuShabu from './svgs/partners/KFG_ShabuShabu.png';
+import KFGOneSushi from './svgs/partners/KFG_OneSushi.png';
+
+
 import KimBBQ from './svgs/partners/KimBBQ.svg';
 import LegacyDance from './svgs/partners/LegacyDance.svg';
 import Printwich from './svgs/partners/Printwich.svg';
 import Ribena from './svgs/partners/Ribena.svg';
 import TwoHalves from './svgs/partners/TwoHalves.svg';
+import followMe from './svgs/partners/FollowMe.jpg';
+
 
 import DorothyCheung from './svgs/partners/DorothyCheung.svg';
 import LauraJane from './svgs/partners/LauraJane.svg';
@@ -47,7 +58,7 @@ import SmallWhiteDot from './svgs/partners/SmallWhiteDot.svg'
 
 const Partners = () => {
     return (
-        <div class="relative bg-NAFPink pt-16 pb-24 overflow-hidden">
+        <div class="relative bg-NAFPink py-20 overflow-hidden">
             <img src={Purple8Star1} class="absolute w-[350px] top-[0%]"></img>
             <img src={Orange8Star1} class="hidden lg:block absolute w-[310px] -top-[3.5%] right-[2%]"></img>
             <img src={BigWhiteDot} class="hidden lg:block absolute w-[32px] top-[12%] right-[13.5%]"></img>
@@ -67,40 +78,40 @@ const Partners = () => {
 
             <div class='lg:w-[90%] mx-auto'>
                 <div class="relative">
-                    <img src={TextLogo} class="mx-auto w-[90%] lg:w-[65%]"></img>
+                    <img src={TextLogo} class="mx-auto w-[70%] lg:w-[45%]"></img>
                     <p class="font-syne text-white text-center text-lg md:text-2xl pt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
                 <div class="relative flex flex-wrap w-[90%] mx-auto text-center justify-between mt-20">
-                    <div class="basis-[100%] min-[900px]:basis-[35%] min-[1600px]:basis-[20%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                        <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4">Organised by</p>
-                        <img src={NTUCACLogo} class="mx-auto h-[200px] lg:h-[250px]"></img>
-                        <p class="text-xl font-syne">NTU Cultural Activities Club</p>
+                    <div class="basis-[100%] md:basis-[35%] min-[1600px]:basis-[20%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                        <p class="text-header font-syneExtraBold mb-4">Organised by</p>
+                        <img src={NTUCACLogo} class="mx-auto h-[100px] lg:h-[150px]"></img>
+                        <p class="text-paragraph_Desktop font-syne">NTU Cultural Activities Club</p>
                     </div>
-                    <div class="basis-[100%] min-[900px]:basis-[60%] min-[1600px]:basis-[40%] min-[1600px]:mx-6 pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                        <p class="text-3xl lg:text-4xl font-syneExtraBold mb-4">Powered by</p>
+                    <div class="basis-[100%] md:order-last lg:order-2 md:basis-[100%] min-[1600px]:basis-[40%] min-[1600px]:mx-6 pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                        <p class="text-header font-syneExtraBold mb-4">Powered by</p>
                         <div class="flex flex-wrap px-4">
                             <div class="basis-[100%] md:basis-[50%]">
-                                <div class="flex h-[200px] lg:h-[250px] justify-center">
-                                    <img src={MyULifeLogo} class="mx-auto w-[180px] lg:w-[222px]"></img>
+                                <div class="flex h-[100px] lg:h-[150px] justify-center">
+                                    <img src={MyULifeLogo} class="mx-auto w-[100px] lg:w-[150px]"></img>
                                 </div>
-                                <p class="text-xl font-syne">MyULife</p>
+                                <p class="text-paragraph_Desktop font-syne">MyULife</p>
                             </div>
                             <div class="basis-[100%] md:basis-[50%]">
-                                <div class="flex h-[200px] lg:h-[250px] justify-center">
-                                <img src={DorothyCheung} class="mx-auto w-[180px] lg:w-[222px]"></img>
+                                <div class="flex h-[100px] lg:h-[150px] justify-center">
+                                <img src={DorothyCheung} class="mx-auto w-[100px] lg:w-[150px]"></img>
                                 </div>
-                                <p class="text-xl font-syne">Dorothy Cheung <br></br> Memorial Fund</p>
+                                <p class="text-paragraph_Desktop font-syne">Dorothy Cheung <br></br> Memorial Fund</p>
                             </div>
                         </div>
                     </div>
-                    <div class="basis-[100%] min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
-                        <p class="text-2xl lg:text-4xl font-syneExtraBold mb-4">Official Productions Partner</p>
-                        <div class="flex flex-wrap px-4">
+                    <div class="basis-[100%] md:basis-[60%] md:order-2 lg:order-last min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                        <p class="text-header font-syneExtraBold mb-4">Official Productions Partner</p>
+                        <div class="flex flex-wrap">
                             <div class="basis-[100%]">
-                                <div class="flex h-[200px] lg:h-[250px] justify-center">
-                                    <img src={MDPro} class="mx-auto"></img>
+                                <div class="flex h-[100px] lg:h-[150px] justify-center">
+                                    <img src={MDPro}  class="w-[100%]"></img>
                                 </div>
-                                <p class="text-xl font-syne">MJD Pro Group</p>
+                                <p class="text-paragraph_Desktop font-syne">MJD Pro Group</p>
                             </div>
                         </div>
                     </div>
@@ -108,31 +119,46 @@ const Partners = () => {
 
                 <div class="z-20 relative w-[90%] min-h-[1000px] bg-white mx-auto mt-12 border-4 border-black shadow-[5px_5px_0_0_rgba(0,0,0)] md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
                     <AppleHeader></AppleHeader>
-                    <p class="text-3xl lg:text-4xl font-syneExtraBold py-12">Sponsored By</p>
+                    <p class="text-header font-syneExtraBold py-12">Sponsored By</p>
                     <div class="flex flex-row min-h-[800px]">
                         <div class="basis-[50%] border-r-2 border-black pt-6">
-                            <p class="text-3xl lg:text-4xl font-syne mx-auto mb-12">Gold Sponsors</p>
+                            <p class="text-subheader font-syne mx-auto mb-12">Gold Sponsors</p>
                             <div class="flex flex-wrap">
-                                <img src={ActiveRed} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                            <img src={ActiveRedMain} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                            <img src={ActiveRedAslanSport} class="mx-auto px-4 pb-4 w-[220px]"></img>
+
+                                <img src={ActiveRed} class="mx-auto px-4 pb-4 w-[220px]"></img>
                                 <img src={Cloversoft} class="mx-auto px-4 pb-4 w-[200px]"></img>
-                                <img src={CreativeEateries} class="mx-auto px-4 pb-4 w-[240px]"></img>
-                                <img src={HappyStudio} class="mx-auto px-4 pb-4 w-[240px]"></img>
-                                <img src={KimBBQ} class="mx-auto px-4 pb-4 w-[240px]"></img>
-                                <img src={LegacyDance} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                                <img src={CreativeEateries} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={HappyStudio} class="mx-auto px-4 pb-4 w-[220px]"></img>
 
-                                <img src={MerchandiseMaverick} class="mx-auto px-4 pb-4 w-[240px]"></img>
-                                <img src={Printwich} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                                <img src={KFGCaptainKBBQ} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={KFGGoroGoro} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={KFGShabuShabu} class="mx-auto px-4 pb-4 w-[220px]"></img>
 
+
+                                <img src={KimBBQ} class="mx-auto px-4 pb-4 w-[220px]"></img>
+
+                                <img src={KFGOneSushi} class="mx-auto px-4 pb-4 w-[220px]"></img>
+
+                                <img src={LegacyDance} class="mx-auto px-4 pb-4 w-[220px]"></img>
+
+                                <img src={MerchandiseMaverick} class="mx-auto px-4 pb-4 w-[220px]"></img>
                                 <img src={MGP} class="mx-auto px-4 pb-4 w-[170px]"></img>
-                                <img src={Ribena} class="mx-auto px-4 pb-4 w-[240px]"></img>
+
+                                <img src={Printwich} class="mx-auto px-4 pb-4 w-[220px]"></img>
+
+                                <img src={Ribena} class="mx-auto px-4 pb-4 w-[220px]"></img>
 
                                 <img src={SelfPhotoStudio} class="mx-auto px-4 pb-4 w-[200px]"></img>
-                                <img src={TwoHalves} class="mx-auto px-4 pb-4 w-[240px]"></img>
+                                <img src={followMe} class="mx-auto px-4 pb-4 w-[200px]"></img>
+
+                                <img src={TwoHalves} class="mx-auto px-4 pb-4 w-[220px]"></img>
 
                             </div>
                         </div>
                         <div class="basis-[50%] pt-6">
-                            <p class="text-3xl lg:text-4xl font-syne mx-auto mb-12">Silver Sponsors</p>
+                            <p class="text-subheader font-syne mx-auto mb-12">Silver Sponsors</p>
                             <img src={LauraJane} class="mx-auto px-6"></img>
                             <img src={CommCube} class="mx-auto px-6"></img>
                         </div>
