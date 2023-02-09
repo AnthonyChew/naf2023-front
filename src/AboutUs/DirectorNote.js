@@ -25,8 +25,8 @@ const DirectorNote = () => {
         <div class="bg-NAFPurple bg-cover relative py-20 pb-40">
             <img src={TopLeftOrangeStar} class="hidden lg:block absolute top-[10%] left-[2%]"></img>
             <img src={TopLeftWhiteDot} class="absolute top-[2%] left-[2%]"></img>
-            <img src={TopLeftWhiteStar} class="absolute top-[30%] left-[2%]"></img>
-            <img src={TopLeftRedStar} class="hidden md:block absolute top-[-12%] left-[5%] w-[20%]"></img>
+            <img src={TopLeftWhiteStar} class="hidden md:block absolute top-[30%] left-[2%]"></img>
+            <img src={TopLeftRedStar} class="hidden md:block absolute top-[-12%] right-[5%] w-[20%]"></img>
 
             <img src={TopRightOrangeStar} class="absolute top-[25%] right-[0%] w-[12%]"></img>
             <img src={TopRightWhiteDot} class="absolute top-[34%] right-[12%]"></img>

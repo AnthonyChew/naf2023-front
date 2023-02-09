@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
-import AboutxCAC from './AboutxCAC'
 import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
-import GalleryxCAC from './GalleryxCAC'
 import OthersTextLogo from './svgs/Others/OTHERSTextLogo.png'
-import JDCLogo from './svgs/JDC/JDCLogo.png'
-import JDC_1 from './svgs/JDC/JDC_1.JPG'
-import JDC_2 from './svgs/JDC/JDC_2.jpg'
-import JDC_3 from './svgs/JDC/JDC_3.jpg'
-import JDC_4 from './svgs/JDC/JDC_4.JPG'
-import ContactxCAC from './ContactxCAC'
 import EventHeader from '../Events/EventHeader'
 
 

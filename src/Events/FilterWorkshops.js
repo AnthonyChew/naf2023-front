@@ -32,6 +32,7 @@ export default function Filter(props) {
         <Select
         placeholder={"Filter..."}
     options={filters}
+    isSearchable={false}
     onChange={(values) => { 
       setSelectedOption(values);
     }}

@@ -294,7 +294,7 @@ const MarketPlaceLanding = () => {
               {
                 pageNumbers.length > 0 ?
                   <nav aria-label="Page navigation example">
-                    <ul class="inline-flex -space-x-px">
+                    <ul class="inline-flex -space-x-px list-none">
                       <li>
                         <a href="#" onClick={prevPage} class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-500 dark:hover:text-white">Previous</a>
                       </li>
@@ -377,35 +377,42 @@ const MarketPlaceLanding = () => {
                     <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-5">
                       <div class="font-syneBold text-subheader text-black">{oneproduct.name}</div>
                       <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black">{oneproduct.vendorName}</div>
-                      {oneproduct.colours && <ul class="flex w-full mt-5 flex-wrap">
-                        {oneproduct.colours.map((colour, index) => {
-                          return (
-                            <li class="mx-2 my-2 min-w-[50px]">
-                              <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
-                              <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
-                                <div class="block text-center w-[100%]">
-                                  <div class="w-full font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{colour}</div>
-                                </div>
-                              </label>
-                            </li>
-                          )
-                        })}
-                      </ul>}
-
-                      {oneproduct.sizes && <ul class="flex w-full mt-5 flex-wrap">
-                        {oneproduct.sizes.map((sizes, index) => {
-                          return (
-                            <li class="mx-2 my-2 min-w-[50px]">
-                              <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
-                              <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
-                                <div class="block text-center w-[100%]">
-                                  <div class="w-full text-m font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{sizes}</div>
-                                </div>
-                              </label>
-                            </li>
-                          )
-                        })}
-                      </ul>}
+                      <div class='flex flex-col mt-5'>
+                        <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black ">{oneproduct.attribute1}:</div>
+                        {oneproduct.colours && <ul class="flex w-full flex-wrap">
+                          {oneproduct.colours.map((colour, index) => {
+                            return (
+                              <li class="mx-2  my-2 min-w-[50px] list-none">
+                                <input type="radio" id={colour} name="colour" value={colour} onClick={handleColorChoice} required class="hidden peer" />
+                                <label for={colour} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                                  <div class="block text-center w-[100%]">
+                                    <div class="w-full font-syne md:text-buttonText_Desktop text-buttonText_Mobile">{colour}</div>
+                                  </div>
+                                </label>
+                              </li>
+                            )
+                          })}
+                        </ul>}
+                      </div>
+                      {oneproduct.attribute2 &&
+                        <div class='flex flex-col mt-5'>
+                          <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black">{oneproduct.attribute2}:</div>
+                          <ul class="flex w-full flex-wrap">
+                            {oneproduct.sizes.map((sizes, index) => {
+                              return (
+                                <li class="mx-2 my-2 min-w-[50px] list-none">
+                                  <input type="radio" id={sizes} name="sizes" value={sizes} onClick={handleSizeChoice} required class="hidden peer" />
+                                  <label for={sizes} class="inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple">
+                                    <div class="block text-center w-[100%]">
+                                      <div class="w-full text-m font-syne  md:text-buttonText_Desktop text-buttonText_Mobile">{sizes}</div>
+                                    </div>
+                                  </label>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        </div>
+                      }
 
                       <div class="flex my-5 gap-5 flex-wrap justify-center md:justify-between lg:justify-start">
                         <div class="relative border-2 border-black w-[70%] md:w-auto">

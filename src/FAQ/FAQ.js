@@ -25,7 +25,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        The festival will run from 13st February to 19rd March 2023.
+                        The festival will run from 14 February to 17 March 2023.
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -38,11 +38,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        We have a bunch of exciting segments for you to explore: our
-                        Publicity Booth under Ripple, Cascade: Visual Arts Showcase under
-                        Crest, various Workshops under Oasis, and the Online Marketplace and
-                        Surge: The Stream under Surge. Check out more under our Programmes
-                        tab.
+                        We have a ton of exciting segments for you to explore: our Publicity Booth and Style This In your Style activity under Glimmer, NTU Explo! under Starburst, various Workshops under Interstellar, and the Arts Market, performance showcase Ophiuchus, and visual and literary arts showcase Collide under Orbit. Find out more under our Programmes tab!
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -56,11 +52,8 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <div>
-                        Please head to your user profile page by clicking the <img src={HumanIcon} class="w-[35px] h-[35px] inline"></img>
-                        icon at the navigation bar. You can view the workshops you have been
-                        registered/waitlisted for and cancel the one you have already signed
-                        up for. You will also have the option to bump a waitlisted workshop
-                        when cancelling a confirmed workshop (subjected to vacancies).
+                        Please head to your user profile page by clicking the <img src={HumanIcon} class="w-[20px] h-[20px] inline"></img>
+                        icon at the navigation bar. You can view the workshops you have been registered/waitlisted for and cancel the one you have already signed up for; we will then begin processing a refund for you via PayNow/Paylah to the number you input when signing up. Please be patient, as this may take some time!
                     </div>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -74,9 +67,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        Slots will be allocated to waitlisted individuals on a
-                        first-come-first-serve basis, do check your email regularly in case
-                        a slot has been freed up for you!
+                        Slots will be allocated to waitlisted individuals on a first-come-first-serve basis. Do check your email regularly in case a slot has been freed up for you, and the workshop should also appear under "Confirmed Workshop"s on your profile. Should you receive a slot, remember to make payment at your profile within 48 hours to secure it!
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -90,8 +81,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        Please inform up at least A DAY before your workshop date so that we
-                        may give others on the waitlist a chance to attend the workshop.
+                        Please inform us at least 24 hours before your workshop so that we may give others on the waitlist a chance to attend the workshop. Do note that back-outs that did not inform at least 24 hours prior or no-shows will not be entitled to a refund of fees paid.
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -123,9 +113,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        The status of your purchases will be updated through notification
-                        emails. Please note that deliveries will be handled by the
-                        respective vendors.
+                        The status of your orders will be updated through notification emails. Please note that deliveries will be handled by the respective vendors, and NAF will not be able to update you on specific delivery status. For any inquiries regarding delivery, please reach out to the vendor you have purchased from directly.
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -155,8 +143,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        Please note that slots will be allocated strictly on a first come
-                        first serve basis, and no bumping up will be entertained.
+                        Please note that slots will be allocated strictly on a first-come-first-serve basis, and no bumping up of waitlist slots will be entertained.
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>
@@ -169,24 +156,7 @@ const FAQ = () => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                     <p>
-                        No refunds will be entertained. Please check your cart before
-                        confirming your order.
-                    </p>
-                </AccordionItemPanel>
-            </AccordionItem>
-
-            <AccordionItem>
-                <AccordionItemHeading>
-                    <AccordionItemButton>
-                        How can I contribute to SAMH, the beneficiary for NAF this year?
-                    </AccordionItemButton>
-                </AccordionItemHeading>
-                <AccordionItemPanel>
-                    <p>
-                        You may contribute to SAMH through a variety of our programmes, such
-                        as through our Pay-as-you-wish interactive installation at the
-                        Skydeck @ North Spine, attending our workshops and buying tokens of
-                        appreciation, or through making a purchase at our marketplace.
+                        Unfortunately, we will not be entertaining returns or refunds for any purchases made. Please check your cart before confirming your order.
                     </p>
                 </AccordionItemPanel>
             </AccordionItem>

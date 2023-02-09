@@ -60,9 +60,6 @@ const Starburst = () => {
                 </div>
                 <div class="w-[85%] mx-auto">
                 <EventImagesCard bgColor={bgcolor} title="NTU EXPLO: POETRY SUPERBOWL" date={"6-10 March 2023, 11am to 5pm\nFoyer @ LT1"} imgs={imgs} content="Kopi Raur, eat your heart out! We're looking for our next poetry superstar in the making. Pen down a short, free-verse poem and get one by your fellow students in return!"></EventImagesCard>
-                <div class="mt-10"></div>
-                <EventImagesCard bgColor={bgcolor} title="STYLE IT IN YOUR STYLE" date={"14 - 17 February, 11am - 5pm\nSouth Spine"} imgs={imgs} content='Think you’ve got what it takes to be our next trendsetter? Embrace your inner fashion guru and design your own version of the NAF mascot following the theme "Starry, Starry Night" for a chance to win awesome prizes!'></EventImagesCard>
-          
                 </div>
            </div>
         </div>
