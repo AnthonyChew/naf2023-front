@@ -24,6 +24,7 @@ import NAFxAFTH from './NAFxCAC/NAFxAFTH';
 import NAFxTOP from './NAFxCAC/NAFxTOP';
 import NAFxCS from './NAFxCAC/NAFxCS';
 import NAFxJDC from './NAFxCAC/NAFxJDC';
+import NAFxOTHERS from './NAFxCAC/NAFxOTHERS';
 import FAQ from './FAQ/FAQ';
 import PrivacyPolicy from './FAQ/PrivacyPolicy';
 import Partners from './AboutUs/Partners';
