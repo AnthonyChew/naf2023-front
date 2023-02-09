@@ -258,7 +258,7 @@ const MarketPlaceLanding = () => {
       <img src={BottomRightOrangeStar} class="absolute bottom-[-4%] right-[0%]"></img>
 
       <div class='md:w-[80%] mx-auto relative'>
-        <EventHeader headerStyle='mt-4 mb-4' img={MarketPlaceLogo} text="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventHeader>
+        <EventHeader headerStyle='mt-4 mb-4' img={MarketPlaceLogo} text="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventHeader>
 
         {/* filter and search button */}
         <div class="flex lg:justify-between mb-20 mx-32 flex-wrap">

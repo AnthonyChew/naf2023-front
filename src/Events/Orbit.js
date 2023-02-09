@@ -65,14 +65,14 @@ const Orbit = () => {
     {
       image: WeeWeeKim,
       title: "WEE WEE KIM",
-      desc: "who are who are who are we? we are we are WEE WEE KIM! gaby, van and eden will make you shout WEE WEE with their 3-piece vocal ensemble. WEE WEE!! kimanws, as you can probably tell, we are a weekid trio who loves music and everything jazz and funky. we're sure to bring you a combination of smt fun, spunky and jazzy so come on down and jam along w us in the audience! 💥",
+      desc: "who are who are who are we? we are we are WEE WEE KIM! gaby, van and eden will make you shout WEE WEE with their 3-piece vocal ensemble. WEE WEE!! kimanws, as you can probably tell, we are a weekid trio who loves music and everything jazz and funky. we're sure to bring you a combination of something fun, spunky and jazzy so come on down and jam along with us in the audience! 💥",
       x: 0.45,
       y: 0.4,
     },
     {
       image: LarrytheHilarians,
       title: "Larry & the Hilarians ",
-      desc: "Larry & the Hilarians Formed through an NIE mod conducted by none other than the infamous Prof Larry himself, the regrettably named Hilarians are a band that doesn’t joke around. Armed with separation anxiety, our smashing good looks, and an unfortunate penchant for meteors and alcohol, we return for another performance courtesy of said anxiety. We may not be very good, but at least we're easy on the eyes.",
+      desc: "Formed through an NIE mod conducted by none other than the infamous Prof Larry himself, the regrettably named Hilarians are a band that doesn’t joke around. Armed with separation anxiety, our smashing good looks, and an unfortunate penchant for meteors and alcohol, we return for another performance courtesy of said anxiety. We may not be very good, but at least we're easy on the eyes.",
       x: 0.45,
       y: 0.30,
     },
@@ -107,7 +107,7 @@ const Orbit = () => {
     {
       image: SymphonicBand,
       title: "Symphonic Band",
-      desc: "Established in 1985, NTU Symphonic Band (NTUSB) currently has over 60 members. Under the baton of resident conductor Mr Takehiro Oura, NTUSB has clinched numerous awards and achievements both locally and overseas, such as the Gold Award in the Singapore International Band Festival (SIBF) 2014, and the First Prize at the World Music Contest held in the Netherlands in 2005 and 2009. Most recently, NTUSB has received the Silver Award in the 2016 SIBF. NTUSB holds 2 concerts annually, namely Wanderlust in November and Sojourn in April. In addition, NTUSB has been invited to perform in numerous events across Singapore. To learn more about NTUSB, follow them on Instagram @ntusb.",
+      desc: "Established in 1985, NTU Symphonic Band (NTUSB) currently has over 60 members. Under the baton of resident conductor Mr Takehiro Oura, NTUSB has clinched numerous awards and achievements both locally and overseas, such as the Gold Award in the Singapore International Band Festival (SIBF) 2014, and the First Prize at the World Music Contest held in the Netherlands in 2005 and 2009. Most recently, NTUSB has received the Silver Award in the 2016 SIBF.\nTo learn more about NTUSB, follow them on Instagram @ntusb.",
       x: 0.45,
       y: -0.2,
     },
@@ -121,14 +121,14 @@ const Orbit = () => {
     {
       image: NusaSarjana,
       title: "Nusa Sarjana",
-      desc: "Nusa Sarjana\nNusa Sarjana is a male Dikir Barat group from NTU-NIE students. They are the first dikir barat group at the University level to participate in inter-schools competition, Piala Suara Serumpun (PSS), where they had won fourth place in 2019, and 2nd place for male category in 2022. They have been actively participating in various performances both internally and externally over the years such as Perbayu’s Annual Welcome Tea and Freshmen Orientation Programme.",
+      desc: "Nusa Sarjana is a male Dikir Barat group from NTU-NIE students. They are the first dikir barat group at the University level to participate in inter-schools competition, Piala Suara Serumpun (PSS), where they had won fourth place in 2019, and 2nd place for male category in 2022. They have been actively participating in various performances both internally and externally over the years such as Perbayu’s Annual Welcome Tea and Freshmen Orientation Programme.",
       x: 0.45,
       y: 0.1,
     },
     {
       image: DewiSamudera,
       title: "Dewi Samudera",
-      desc: "Dewi Samudera\nDewi Samudera, which means “Goddesses of the Sea”, is NTU-NIE’s very own female dikir barat group. Dewi Samudera has participated in many competitions such as Piala Suara Serumpun, as well as NTU-NIE events such as Rentak Budaya. Dewi Samudera also organised their own production, HAWA: Harakah Wanita in conjunction with International Womens’ Day.",
+      desc: "Dewi Samudera, which means “Goddesses of the Sea”, is NTU-NIE’s very own female dikir barat group. Dewi Samudera has participated in many competitions such as Piala Suara Serumpun, as well as NTU-NIE events such as Rentak Budaya. Dewi Samudera also organised their own production, HAWA: Harakah Wanita in conjunction with International Womens’ Day.",
       x: 0.45,
       y: 0.2,
     },

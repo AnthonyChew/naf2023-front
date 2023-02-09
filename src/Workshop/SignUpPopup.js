@@ -114,10 +114,10 @@ export default function SignupPopup(props) {
   return (
     <>
       <Modal
-        isOpen={!auth}
+        isOpen={!true}
         onRequestClose={handleLoginClose}
       >
-        <div h-full class="h-full flex flex-col items-center justify-center">
+        <div h-full class="h-full flex flex-col items-center justify-center ">
           <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
             {
               props.close &&
@@ -151,7 +151,7 @@ export default function SignupPopup(props) {
         onRequestClose={() => closeConfirmedModal()}
       >
         <div h-full class="h-full flex flex-col items-center justify-center">
-          <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg  py-10">
+          <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg  py-10 ">
             {
               profile && profile.registeredWorkshops <= 0 ?
                 <>
@@ -178,10 +178,10 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </Modal>
-      {auth && <div class="h-full flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center justify-center bg-white p-5 border-4 border-black rounded-lg">
-          <form class="" autoComplete="off" onSubmit={signUpWorkshop}>
-            <p class='text-2xl font-syne underline decoration-solid mb-2'>
+      {true && <div class="h-full flex flex-col items-center justify-center">
+        <div class="fitems-center justify-center bg-white md:p-5 px-1 border-4 border-black rounded-lg overflow-y-auto">
+          <form class="h-full" autoComplete="off" onSubmit={signUpWorkshop}>
+            <p class='md:text-2xl text-lg font-syne underline decoration-solid mb-2'>
               {workshop && workshop.name}
             </p>
 
@@ -231,12 +231,12 @@ export default function SignupPopup(props) {
                 value={state.matricNumber}
                 onChange={handleChange('matricNumber')}
               />
-              <p class='text-xl font-syne mb-2 text-red-600'>
+              <p class='md:text-xl font-syne mb-2 text-red-600'>
                 *This workshop is only available for NTU students/staff. Your
                 identity will be confirmed on the day of the workshop.
               </p>
-              <p class='text-xl font-syne mb-2 text-red-600'>
-                *Do remeber to make a payment at the profile page.
+              <p class='md:text-xl font-syne mb-2 text-red-600'>
+                *Do remember to make a payment at the profile page.
               </p>
             </div>
 
@@ -256,7 +256,7 @@ export default function SignupPopup(props) {
             <p style={{ color: 'red' }}>
               {helperText}
             </p>
-            <div class='flex flex-row justify-end' >
+            <div class='flex flex-row justify-around md:justify-end' >
               <button
                 type="submit"
                 color="secondary"

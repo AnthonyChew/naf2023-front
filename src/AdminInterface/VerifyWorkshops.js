@@ -131,6 +131,10 @@ export default function VerifyWorkshops(props) {
             accessor: 'emailAddress'
           },
           {
+            Header: 'Phone No.',
+            accessor: 'contactNumber'
+          },
+          {
             Header: 'Status',
             accessor: 'verified',
             Cell: (value) =>  <p>{value.value !== undefined && value.value.toString()}</p>

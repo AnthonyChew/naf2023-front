@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a89c738.css",
-    "main.js": "/static/js/main.3941959b.js",
+    "main.css": "/static/css/main.0a93a3e9.css",
+    "main.js": "/static/js/main.b0e49a7f.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
-    "static/media/WeeWeeKim.PNG": "/static/media/WeeWeeKim.870f23c1d21cfd6e3cbf.PNG",
+    "static/media/WeeWeeKim.PNG": "/static/media/WeeWeeKim.d999fb663ea92297fc35.PNG",
     "static/media/JnB.jpg": "/static/media/JnB.47fdf1c908f811552d2d.jpg",
     "static/media/KFG_ShabuShabu.png": "/static/media/KFG_ShabuShabu.13c5af599990b7ed7394.png",
     "static/media/Image3.jpg": "/static/media/Image3.42861bc60b08081b1d27.jpg",
@@ -437,12 +437,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.3a89c738.css.map": "/static/css/main.3a89c738.css.map",
-    "main.3941959b.js.map": "/static/js/main.3941959b.js.map",
+    "main.0a93a3e9.css.map": "/static/css/main.0a93a3e9.css.map",
+    "main.b0e49a7f.js.map": "/static/js/main.b0e49a7f.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a89c738.css",
-    "static/js/main.3941959b.js"
+    "static/css/main.0a93a3e9.css",
+    "static/js/main.b0e49a7f.js"
   ]
 }

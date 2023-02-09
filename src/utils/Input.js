@@ -27,7 +27,7 @@ const Input = (props) => {
             >
                 <p
                     htmlFor={id}
-                    class='text-xl placeholder-gray-gray4 px-2 pt-1.5 font-syne'
+                    class='text-lg md:text-xl placeholder-gray-gray4 px-2 md:pt-1.5 font-syne'
                 >
                     {label} {required && <span class='text-red-500'>*</span>}
                 </p>
@@ -37,7 +37,7 @@ const Input = (props) => {
                         <input
                             ref={inputRef}
                             type='number'
-                            class='w-full px-2 pr-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
+                            class='w-full px-2 pr-2 md:pb-1.5 outline-none text-lg md:text-xl font-light rounded-2xl'
                             id={id}
                             placeholder={placeholder}
                             required={required}
@@ -48,7 +48,7 @@ const Input = (props) => {
                     <input
                         ref={inputRef}
                         type={type}
-                        class='w-full px-2 pb-1.5 outline-none text-xl font-light rounded-2xl'
+                        class='w-full px-2 md:pb-1.5 outline-none text-lg md:text-xl font-light rounded-2xl'
                         id={id}
                         placeholder={placeholder}
                         required={required}

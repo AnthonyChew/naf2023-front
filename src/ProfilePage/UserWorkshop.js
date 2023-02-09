@@ -78,7 +78,7 @@ function UserWorkshop(props) {
           )
         ) {
           handelToastCallback("Workshop canceled!");
-          cancelRegisteredWorkshop(selectedWorkshop._id, waitlistedWorkshops[0]._id);
+          cancelRegisteredWorkshop(selectedWorkshop._id, null);
         } else {
           handleClickOpen(selectedWorkshop._id);
         }
