@@ -15,9 +15,9 @@ const EventImagesCard = (props) => {
             </div>
             <div class="flex my-1 flex-wrap justify-center">
                 {
-                    props.imgs.map((img, index) =>
+                    props.noOfImgs.map((img, index) =>
                         <div class="basis-full my-1 md:basis-[40%] lg:basis-[20%] mx-2">
-                            <img src={QRCode} class="h-[300px] w-full"></img>
+                            <img src={ props.imgs[index] ? props.imgs[index]:QRCode} class="h-[300px] w-full"></img> 
                         </div>
                     )
                 }

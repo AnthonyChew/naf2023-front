@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import EventCard from './EventCard'
 import EventHeader from './EventHeader'
@@ -36,8 +36,25 @@ import MiddleRightWhiteDot from './svgs/Orbit/MiddleRightWhiteDot.svg';
 import BottomLeftYellowStar from './svgs/Orbit/BottomLeftYellowStar.svg';
 import BottomRightBlueStar from './svgs/Orbit/BottomRightBlueStar.svg';
 
+import config from '../config/env';
+import { trackPromise } from 'react-promise-tracker';
+import imageService from '../services/images';
+
 const Orbit = () => {
   const bgcolor = "bg-NAFPink"
+  const [imgs, setAllImages] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchAllImage() {
+      const res = await trackPromise(imageService.getVerifiedImages());
+      if (res.status === 200) {
+        console.log(res.data)
+        setAllImages(res.data.filter(image => image.workShopName.includes(config.events.Collide)));
+      }
+    }
+    fetchAllImage();
+  }, []);
 
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -140,7 +157,7 @@ const Orbit = () => {
       y: 0.40,
     },
   ]
-  const imgs = [1, 2, 3, 4]
+
   document.body.style.overflow = 'unset';
 
   const { hash } = useLocation();
@@ -225,7 +242,8 @@ const Orbit = () => {
         </div>
         <div class="flex mx-auto text-center w-[90%]">
           <div class="basis-full">
-            <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway" imgs={imgs} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
+            {/* remove noOfImgs when got images~~ then replace .map in EventImagesCard with imgs */}
+            <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway" imgs={imgs} noOfImgs={[1,2,3,4]} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
         <div id='ophiuchus' class="flex w-[90%] mx-auto text-center mt-20" >

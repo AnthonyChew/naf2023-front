@@ -36,6 +36,7 @@ const envConfig = {
     JazzAndBluesMusic: 'Jazz and Blues music' ,
     PopularMusicArrangement: 'Popular music arrangement with technology' ,
     TheatreGames: 'Theatre games: Engagement through play' ,
+    Collide: 'Collide',
   }
 
 };
