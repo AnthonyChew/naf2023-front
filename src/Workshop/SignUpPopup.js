@@ -114,7 +114,7 @@ export default function SignupPopup(props) {
   return (
     <>
       <Modal
-        isOpen={!true}
+        isOpen={!auth}
         onRequestClose={handleLoginClose}
       >
         <div h-full class="h-full flex flex-col items-center justify-center ">
@@ -178,7 +178,7 @@ export default function SignupPopup(props) {
           </div>
         </div>
       </Modal>
-      {true && <div class="h-full flex flex-col items-center justify-center">
+      {auth && <div class="h-full flex flex-col items-center justify-center">
         <div class="fitems-center justify-center bg-white md:p-5 px-1 border-4 border-black rounded-lg overflow-y-auto">
           <form class="h-full" autoComplete="off" onSubmit={signUpWorkshop}>
             <p class='md:text-2xl text-lg font-syne underline decoration-solid mb-2'>
