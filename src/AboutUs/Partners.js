@@ -79,15 +79,15 @@ const Partners = () => {
             <div class='lg:w-[90%] mx-auto'>
                 <div class="relative">
                     <img src={TextLogo} class="mx-auto w-[70%] lg:w-[45%]"></img>
-                    <p class="font-syne text-white text-center text-lg md:text-2xl pt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="font-syne text-white text-center text-lg md:text-2xl pt-6">Without which the festival would not be possible.</p>
                 </div>
                 <div class="relative flex flex-wrap w-[90%] mx-auto text-center justify-between mt-20">
-                    <div class="basis-[100%] md:basis-[35%] min-[1600px]:basis-[20%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <div class="basis-[100%] min-w-[22%] md:basis-[35%] min-[1600px]:basis-[20%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
                         <p class="text-header font-syneExtraBold mb-4">Organised by</p>
                         <img src={NTUCACLogo} class="mx-auto h-[100px] lg:h-[150px]"></img>
                         <p class="text-paragraph_Desktop font-syne">NTU Cultural Activities Club</p>
                     </div>
-                    <div class="basis-[100%] md:order-last lg:order-2 md:basis-[100%] min-[1600px]:basis-[40%] min-[1600px]:mx-6 pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <div class="basis-[100%] md:order-last md:basis-[100%] min-[1600px]:basis-[40%] min-[1600px]:mx-6 pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
                         <p class="text-header font-syneExtraBold mb-4">Powered by</p>
                         <div class="flex flex-wrap px-4">
                             <div class="basis-[100%] md:basis-[50%]">
@@ -104,7 +104,7 @@ const Partners = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="basis-[100%] md:basis-[60%] md:order-2 lg:order-last min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
+                    <div class="basis-[100%] md:basis-[60%] min-[1599px]:order-last min-[1600px]:basis-[27%] pt-8 pb-12 mb-12 bg-white border-4 border-black rounded-2xl shadow-[5px_5px_0_0_rgba(0,0,0)]">
                         <p class="text-header font-syneExtraBold mb-4">Official Productions Partner</p>
                         <div class="flex flex-wrap">
                             <div class="basis-[100%]">

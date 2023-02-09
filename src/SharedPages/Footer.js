@@ -19,7 +19,7 @@ const Footer = () => {
           <div>
             <div class='text-center '>Powered By</div>
             <div class="flex pt-5 ">
-              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[70px] md:h-[50px]  mx-2"></img>
+              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[80px] md:h-[50px]  mx-2"></img>
               <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
             </div>
           </div>

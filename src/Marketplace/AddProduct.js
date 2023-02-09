@@ -87,6 +87,7 @@ export default function AddProduct(props) {
 
   const handleAddAttribute1Chip = (event) => {
     if (!attb1InputValue) return;
+    console.log(event.key)
     switch (event.key) {
       case 'Enter':
       case 'Tab':

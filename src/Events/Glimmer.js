@@ -200,7 +200,7 @@ const Glimmer = () => {
           </div>
         </div>
 
-        <div class="w-[90%] mx-auto">
+        <div class="relative w-[90%] mx-auto">
           <EventImagesCard bgColor={bgcolor} title="STYLE IT IN YOUR STYLE" date={"14 - 17 February, 11am - 5pm\nSouth Spine"} imgs={imgs} content='Think you’ve got what it takes to be our next trendsetter? Embrace your inner fashion guru and design your own version of the NAF mascot following the theme "Starry, Starry Night" for a chance to win awesome prizes!'></EventImagesCard>
         </div>
         {/* <div class="bg-white w-[90%] h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center relative">
