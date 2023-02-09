@@ -4,7 +4,7 @@ import TextLogo from './svgs/partners/TextLogo.png'
 import NTUCACLogo from './svgs/partners/NTUCACLogo.svg'
 import MyULifeLogo from './svgs/partners/MyULifeLogo.svg'
 import CELogo from './svgs/partners/CELogo.svg'
-import ActiveRed from './svgs/partners/ActiveRed.svg'
+import ActiveRed from './svgs/partners/ActiveRed.PNG'
 import ActiveRedAslanSport from './svgs/partners/ActiveRed_AslanSport.png'
 import ActiveRedMain from './svgs/partners/ActiveRed_Main.PNG'
 
@@ -29,12 +29,12 @@ import Ribena from './svgs/partners/Ribena.svg';
 import TwoHalves from './svgs/partners/TwoHalves.svg';
 import followMe from './svgs/partners/FollowMe.jpg';
 
-
 import DorothyCheung from './svgs/partners/DorothyCheung.svg';
 import LauraJane from './svgs/partners/LauraJane.svg';
 import MDPro from './svgs/partners/MDPro.svg';
 
-
+import CAC_CE from './svgs/partners/CAC_CE.svg';
+import CAC_MIT from './svgs/partners/CAC_MIT.svg';
 
 import AppleHeader from '../SharedPages/AppleHeader';
 
@@ -98,7 +98,7 @@ const Partners = () => {
                             </div>
                             <div class="basis-[100%] md:basis-[50%]">
                                 <div class="flex h-[100px] lg:h-[150px] justify-center">
-                                <img src={DorothyCheung} class="mx-auto w-[100px] lg:w-[150px]"></img>
+                                    <img src={DorothyCheung} class="mx-auto w-[100px] lg:w-[150px]"></img>
                                 </div>
                                 <p class="text-paragraph_Desktop font-syne">Dorothy Cheung <br></br> Memorial Fund</p>
                             </div>
@@ -109,7 +109,7 @@ const Partners = () => {
                         <div class="flex flex-wrap">
                             <div class="basis-[100%]">
                                 <div class="flex h-[100px] lg:h-[150px] justify-center">
-                                    <img src={MDPro}  class="w-[100%]"></img>
+                                    <img src={MDPro} class="w-[100%]"></img>
                                 </div>
                                 <p class="text-paragraph_Desktop font-syne">MJD Pro Group</p>
                             </div>
@@ -117,43 +117,44 @@ const Partners = () => {
                     </div>
                 </div>
 
-                <div class="z-20 relative w-[90%] min-h-[1000px] bg-white mx-auto mt-12 border-4 border-black shadow-[5px_5px_0_0_rgba(0,0,0)] md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
+                <div class="z-20 relative w-[90%] md:min-h-[1000px] bg-white mx-auto mt-12 border-4 border-black shadow-[5px_5px_0_0_rgba(0,0,0)] md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
                     <AppleHeader></AppleHeader>
                     <p class="text-header font-syneExtraBold py-12">Sponsored By</p>
-                    <div class="flex flex-row min-h-[800px]">
+                    <div class="flex flex-row md:min-h-[800px]">
                         <div class="basis-[50%] border-r-2 border-black pt-6">
                             <p class="text-subheader font-syne mx-auto mb-12">Gold Sponsors</p>
                             <div class="flex flex-wrap">
-                            <img src={ActiveRedMain} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                            <img src={ActiveRedAslanSport} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={ActiveRedMain} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
+                                <img src={ActiveRedAslanSport} class="mx-auto px-4 pb-4 h-fit self-center md:w-[220px] w-[80px]"></img>
 
-                                <img src={ActiveRed} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                                <img src={Cloversoft} class="mx-auto px-4 pb-4 w-[200px]"></img>
-                                <img src={CreativeEateries} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                                <img src={HappyStudio} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={ActiveRed} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
+                                <img src={Cloversoft} class="mx-auto px-4 pb-4 md:w-[200px] w-[80px]"></img>
 
-                                <img src={KFGCaptainKBBQ} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                                <img src={KFGGoroGoro} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                                <img src={KFGShabuShabu} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={CreativeEateries} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
+                                <img src={HappyStudio} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
+
+                                <img src={KFGCaptainKBBQ} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
+                                <img src={KFGGoroGoro} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
+                                <img src={KFGShabuShabu} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
 
 
-                                <img src={KimBBQ} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={KimBBQ} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
 
-                                <img src={KFGOneSushi} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={KFGOneSushi} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
 
-                                <img src={LegacyDance} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={LegacyDance} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
 
-                                <img src={MerchandiseMaverick} class="mx-auto px-4 pb-4 w-[220px]"></img>
-                                <img src={MGP} class="mx-auto px-4 pb-4 w-[170px]"></img>
+                                <img src={MerchandiseMaverick} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
+                                <img src={MGP} class="mx-auto px-4 pb-4 md:w-[170px] w-[80px]"></img>
 
-                                <img src={Printwich} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={Printwich} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
 
-                                <img src={Ribena} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={Ribena} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px] h-fit self-center"></img>
 
-                                <img src={SelfPhotoStudio} class="mx-auto px-4 pb-4 w-[200px]"></img>
-                                <img src={followMe} class="mx-auto px-4 pb-4 w-[200px]"></img>
+                                <img src={SelfPhotoStudio} class="mx-auto px-4 pb-4 md:w-[200px] w-[80px] h-fit self-center"></img>
+                                <img src={followMe} class="mx-auto px-4 pb-4 md:w-[200px] w-[80px] h-fit self-center"></img>
 
-                                <img src={TwoHalves} class="mx-auto px-4 pb-4 w-[220px]"></img>
+                                <img src={TwoHalves} class="mx-auto px-4 pb-4 md:w-[220px] w-[80px]"></img>
 
                             </div>
                         </div>
@@ -161,6 +162,36 @@ const Partners = () => {
                             <p class="text-subheader font-syne mx-auto mb-12">Silver Sponsors</p>
                             <img src={LauraJane} class="mx-auto px-6"></img>
                             <img src={CommCube} class="mx-auto px-6"></img>
+                        </div>
+                    </div>
+                </div>
+                <div class="z-20 relative w-[90%] min-h-[500px] bg-white mx-auto mt-12 border-4 border-black shadow-[5px_5px_0_0_rgba(0,0,0)] md:shadow-[20px_20px_0_0_rgba(0,0,0)] text-center">
+                    <AppleHeader></AppleHeader>
+                    <p class="text-header font-syneExtraBold py-12">With Special Thanks To</p>
+                    <div class="border-r-2 border-black pt-6">
+                        <p class="text-subheader font-syne mx-auto mb-12">CAC Member Club & Committee</p>
+                        <div class="flex flex-wrap">
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_MIT} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                        </div>
+                    </div>
+                    <div class="border-r-2 border-black pt-6">
+                        <p class="text-subheader font-syne mx-auto mb-12">Other Collaborators</p>
+                        <div class="flex flex-wrap">
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_MIT} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
                         </div>
                     </div>
                 </div>
