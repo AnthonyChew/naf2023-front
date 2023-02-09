@@ -91,7 +91,7 @@ const Navbar = () => {
                             <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
                             <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
                             <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
-                            <Link to="/others" class="link block py-2 px-3 hover:bg-gray-200" smooth>CAC EVENTS</Link>
+                            <Link to="/concert" class="link block py-2 px-3 hover:bg-gray-200" smooth>CAC EVENTS</Link>
 
                         </div>
                     </div>
@@ -155,7 +155,7 @@ const Navbar = () => {
                                 <Link to="/jdc" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxJDC</Link>
                                 <Link to="/cs" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxCS</Link>
                                 <Link to="/top" class="link block py-2 px-3 hover:bg-gray-200" smooth>NAFxTOP</Link>
-                                <Link to="/others" class="link block py-2 px-3 hover:bg-gray-200" smooth>CAC EVENTS</Link>
+                                <Link to="/concert" class="link block py-2 px-3 hover:bg-gray-200" smooth>CAC EVENTS</Link>
                             </div>
                         </div>
                         <Link onClick={() => closeEntireMobileNavbar()} to="/" class="link text-lg block p-4 font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" smooth>FAQ</Link>

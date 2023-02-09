@@ -71,7 +71,7 @@ function App() {
           <Route path="/jdc" element={<NAFxJDC />} />
           <Route path="/cs" element={<NAFxCS />} />
           <Route path="/top" element={<NAFxTOP />} />
-          <Route path="/others" element={<NAFxOTHERS />} />
+          <Route path="/concert" element={<NAFxOTHERS />} />
           <Route path="/vendorlogin" element={<VendorLogin />} />
           <Route path="/adminmanage" element={<AdminManage />} />
           <Route path="/committee" element={<MainCommittee />} />
