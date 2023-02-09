@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3a89c738.css",
-    "main.js": "/static/js/main.2c42e756.js",
+    "main.js": "/static/js/main.3941959b.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
     "static/media/WeeWeeKim.PNG": "/static/media/WeeWeeKim.870f23c1d21cfd6e3cbf.PNG",
@@ -438,11 +438,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.3a89c738.css.map": "/static/css/main.3a89c738.css.map",
-    "main.2c42e756.js.map": "/static/js/main.2c42e756.js.map",
+    "main.3941959b.js.map": "/static/js/main.3941959b.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3a89c738.css",
-    "static/js/main.2c42e756.js"
+    "static/js/main.3941959b.js"
   ]
 }
