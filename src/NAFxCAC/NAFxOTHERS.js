@@ -3,6 +3,20 @@ import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
 import OthersTextLogo from './svgs/Others/OTHERSTextLogo.png'
 import EventHeader from '../Events/EventHeader'
 
+import RightBottomPinkStar from './svgs/Others/RightBottomPinkStar.svg'
+import RightBottomYellowSparkle from './svgs/Others/RightBottomYellowSparkle.svg'
+import RightTopOrageBigStar from './svgs/Others/RightTopOrangeBigStar.svg'
+import RightTopPurpleBigSparkle from './svgs/Others/RightTopPurpleBigSparkle.svg'
+import RightTopYellowDot from './svgs/Others/RightTopYellowDot.svg'
+
+import LeftBottomBigYellowStar from './svgs/Others/LeftBottomBigYellowStar.svg'
+import LeftBottomWhiteDot from './svgs/Others/LeftBottomWhiteDot.svg'
+import LeftBottomSmallPinkSparkle from './svgs/Others/LeftBottomSmallPinkSparkle.svg'
+import LeftTopPinkDot from './svgs/Others/LeftTopPinkDot.svg'
+import LeftTopPurpleStar from './svgs/Others/LeftTopPurpleStar.svg'
+import LeftTopSmallWhiteSparkle from './svgs/Others/LeftTopSmallWhiteSparkle.svg'
+
+import AFTH from './svgs/Others/AFTH.jpg'
 
 const NAFxOTHERS = () => {
     document.body.style.overflow = 'unset';
@@ -24,8 +38,8 @@ const NAFxOTHERS = () => {
     }
 
     const special = [
-        { concertName: "AFTH CARNIVAL: PRELUDE TO YOUNIVERSE", concertDate: "13-14 MARCH, 11AM | AIA CANOPY ", image: { QRCode } },
-        { concertName: "CENTERSTAGE FINALS", concertDate: "16 MARCH | NANYANG AUDITORIUM ", image: { QRCode } }
+        { concertName: "AFTH CARNIVAL: PRELUDE TO YOUNIVERSE", concertDate: "13-14 MARCH, 11AM | AIA CANOPY ", image:  AFTH  },
+        { concertName: "CENTERSTAGE FINALS", concertDate: "16 MARCH | NANYANG AUDITORIUM ", image:  AFTH  }
     ]
 
 
@@ -49,6 +63,18 @@ const NAFxOTHERS = () => {
 
     return (
         <div class="relative bg-NAFBlue overflow-hidden">
+            <img class='absolute bottom-[10%] -right-[5%] hidden md:block' src={RightBottomPinkStar} />
+            <img class='absolute -bottom-[10%] -right-[2%]' src={RightBottomYellowSparkle} />
+            <img class='absolute -top-[10%] right-[10%] hidden md:block' src={RightTopOrageBigStar} />
+            <img class='absolute top-[15%] right-[5%] ' src={RightTopPurpleBigSparkle} />
+            <img class='absolute top-[10%] right-[4%]' src={RightTopYellowDot} />
+
+            <img class='absolute -bottom-[15%] left-[0%]' src={LeftBottomBigYellowStar} />
+            <img class='absolute bottom-[30%] left-[10%]' src={LeftBottomWhiteDot} />
+            <img class='absolute -bottom-[5%] left-[15%] hidden md:block' src={LeftBottomSmallPinkSparkle} />
+            <img class='absolute top-[15%] left-[20%]' src={LeftTopPinkDot} />
+            <img class='absolute -top-[8%] left-[0%] hidden md:block' src={LeftTopPurpleStar} />
+            <img class='absolute top-[30%] left-[0%]' src={LeftTopSmallWhiteSparkle} />
 
             <div class='xl:w-[70%] mx-auto relative'>
                 <EventHeader headerStyle='' img={OthersTextLogo}></EventHeader>
@@ -119,8 +145,8 @@ const NAFxOTHERS = () => {
                             </p>
                         </div >
                         {/* Image */}
-                        < div class=" h-auto lg:h-80 lg:w-4/12 mr-[8%] flex items-center justify-center font-syne self-center lg:p-0 p-10" >
-                            <img class='overflow-y-auto' src={special[specialActive].image} />
+                        < div class=" h-auto lg:h-80 lg:w-4/12 ml-5 flex items-center justify-center font-syne self-center lg:p-0 p-10" >
+                            <img class='w-auto' src={special[specialActive].image} />
                         </div >
                     </div >
                 </div>
