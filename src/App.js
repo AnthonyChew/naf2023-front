@@ -48,7 +48,7 @@ function App() {
       <BrowserRouter>
       <ScrolltoTop />
         <Navbar></Navbar>
-        <div class="pt-[88px]"></div>
+        <div class="pt-[88px] md:pt-[105px]"></div>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="*" element={<Homepage />} />
