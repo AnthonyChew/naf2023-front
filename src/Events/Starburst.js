@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import EventCard from './EventCard'
 import EventHeader from './EventHeader'
 import EventImagesCard from './EventImagesCard'
@@ -18,10 +18,28 @@ import MiddleRightWhiteDot from './svgs/Starburst/MiddleRightWhiteDot.svg';
 import BottomLeftOrangeStar from './svgs/Starburst/BottomLeftOrangeStar.svg';
 import BottomRightRedStar from './svgs/Starburst/BottomRightRedStar2.svg';
 
+import config from '../config/env';
+import { trackPromise } from 'react-promise-tracker';
+import imageService from '../services/images';
 
 const Starburst = () => {
-    const bgcolor = "bg-NAFYellow"
-    const imgs = [1, 2, 3, 4]
+    const bgcolor = "bg-NAFYellow";
+    const [superbowlImages, setSuperbowl] = useState([]);
+    const [styleItImages, setStyleItImages] = useState([]);
+
+  
+    useEffect(() => {
+      async function fetchAllImage() {
+        const res = await trackPromise(imageService.getVerifiedImages());
+        if (res.status === 200) {
+          console.log(res.data)
+          setSuperbowl(res.data.filter(image => image.workShopName.includes(config.events.PoetrySuperbowl)));
+          setStyleItImages(res.data.filter(image => image.workShopName.includes(config.events.StyleIt)));
+        }
+      }
+      fetchAllImage();
+    }, []);
+    
 
     document.body.style.overflow = 'unset';
     return (
@@ -59,7 +77,11 @@ const Starburst = () => {
                     </div> */}
                 </div>
                 <div class="w-[85%] mx-auto">
-                <EventImagesCard bgColor={bgcolor} title="NTU EXPLO: POETRY SUPERBOWL" date={"6-10 March 2023, 11am to 5pm\nFoyer @ LT1"} imgs={imgs} content="Kopi Raur, eat your heart out! We're looking for our next poetry superstar in the making. Pen down a short, free-verse poem and get one by your fellow students in return!"></EventImagesCard>
+                    {/* remove noOfImgs and change the .map in imagescard to use props.img when got images already */}
+                <EventImagesCard bgColor={bgcolor} title="NTU EXPLO: POETRY SUPERBOWL" date={"6-10 March 2023, 11am to 5pm\nFoyer @ LT1"} imgs={superbowlImages} noOfImgs={[1,2,3,4]} content="Kopi Raur, eat your heart out! We're looking for our next poetry superstar in the making. Pen down a short, free-verse poem and get one by your fellow students in return!"></EventImagesCard>
+                <div class="mt-10"></div>
+                <EventImagesCard bgColor={bgcolor} title="STYLE IT IN YOUR STYLE" date={"14 - 17 February, 11am - 5pm\nSouth Spine"} imgs={styleItImages} noOfImgs={[1,2,3,4]} content='Think you’ve got what it takes to be our next trendsetter? Embrace your inner fashion guru and design your own version of the NAF mascot following the theme "Starry, Starry Night" for a chance to win awesome prizes!'></EventImagesCard>
+          
                 </div>
            </div>
         </div>
