@@ -116,7 +116,6 @@ const Payment = () => {
     setProducts(state.addedProducts);
     setSubtotal(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
     setTotalPrice(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
-    console.log(state.addedProducts);
   }, []);
 
   useEffect(() => {
@@ -201,21 +200,20 @@ const Payment = () => {
     data.purchases = purchases;
     data.total = parseFloat(totalPrice);
     data = { ...data, newImages: images[0], images: [] };
-    console.log(data);
     const formData = new FormData();
     buildFormData(formData, data);
 
-    // const res = await trackPromise(orderService.postOrder(formData));
-    // if (res.status === 200) {
-    //   dispatch(resetCart());
-    //   history('/submitted');
-    // } else if (res.status === 401) {
-    //   // console.log(res);
-    //   setAuth(false);
-    //   alert('Please login to complete your payment');
-    // } else {
-    //   alert(res.data.error);
-    // }
+    const res = await trackPromise(orderService.postOrder(formData));
+    if (res.status === 200) {
+      dispatch(resetCart());
+      history('/submitted');
+    } else if (res.status === 401) {
+      // console.log(res);
+      setAuth(false);
+      alert('Please login to complete your payment');
+    } else {
+      alert(res.data.error);
+    }
   }
 
   const schema = yup.object().shape({
