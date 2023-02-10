@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import PaymentLogo from './svgs/Payment/PaymentLogo.png'
-import QRCode from './svgs/Payment/QRCode.svg'
+import QRCode from './svgs/Payment/NAF2023MARKETPLACE.JPG'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";

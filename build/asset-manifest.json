@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b39fcb02.css",
-    "main.js": "/static/js/main.24dbbc6b.js",
+    "main.css": "/static/css/main.ba9f8087.css",
+    "main.js": "/static/js/main.418742fb.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -117,6 +117,7 @@
     "static/media/FollowMe.jpg": "/static/media/FollowMe.14697149c3b7348ab9b0.jpg",
     "static/media/LegacyDance.svg": "/static/media/LegacyDance.43d6df681cafb89e5830e966cc4be84d.svg",
     "static/media/AFTH_2.jpg": "/static/media/AFTH_2.9969ab0a02968a5d41d7.jpg",
+    "static/media/CS.jpg": "/static/media/CS.dd73a58fcd1c56693547.jpg",
     "static/media/MGP.svg": "/static/media/MGP.4b18eccb103bff78b1df8b39f265f062.svg",
     "static/media/publicity.png": "/static/media/publicity.be1274d1212f11a58652.png",
     "static/media/tech.png": "/static/media/tech.594273a77947f8ba47b7.png",
@@ -134,6 +135,7 @@
     "static/media/MarketPlaceOrbit2.svg": "/static/media/MarketPlaceOrbit2.e7f3dd74dc8660b2dc8c106c60f35849.svg",
     "static/media/Orbit.svg": "/static/media/Orbit.d0361877e73fcbb4490ab41cb3654a30.svg",
     "static/media/poweredByMJD.png": "/static/media/poweredByMJD.f3fb33856f723e108fb5.png",
+    "static/media/NAF2023MARKETPLACE.JPG": "/static/media/NAF2023MARKETPLACE.258530f085aec4e9a0a2.JPG",
     "static/media/AFTHLogo.png": "/static/media/AFTHLogo.bdece1261f6d927ed9d9.png",
     "static/media/profilebg.svg": "/static/media/profilebg.197c3137cfff5b0541738ef9f26ae90d.svg",
     "static/media/MarketPlaceOrbit1.svg": "/static/media/MarketPlaceOrbit1.d82eaafcacd0d698299c8ed45708289f.svg",
@@ -452,12 +454,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.b39fcb02.css.map": "/static/css/main.b39fcb02.css.map",
-    "main.24dbbc6b.js.map": "/static/js/main.24dbbc6b.js.map",
+    "main.ba9f8087.css.map": "/static/css/main.ba9f8087.css.map",
+    "main.418742fb.js.map": "/static/js/main.418742fb.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b39fcb02.css",
-    "static/js/main.24dbbc6b.js"
+    "static/css/main.ba9f8087.css",
+    "static/js/main.418742fb.js"
   ]
 }

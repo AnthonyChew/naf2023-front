@@ -35,7 +35,7 @@ function AdminManage(props) {
     points: 0,
     category: '',
   });
-  const [selfCollDate, setSelfCollDate] = useState('23febslot1');
+  const [selfCollDate, setSelfCollDate] = useState('20febslot1');
   const [vendors, setVendors] = useState([]);
 
   const handleChange = (event) => {
@@ -133,7 +133,7 @@ function AdminManage(props) {
 
   const sendEmails = async (event) => {
     event.preventDefault();
-    const res = await trackPromise(adminService.sendEmails(selfCollDate));
+    const res = await trackPromise(adminService.sendEmails(selfCollDate.value));
     if (res.status === 200) {
       alert('Successfully sent!');
     } else {
@@ -158,9 +158,11 @@ function AdminManage(props) {
   };
 
   const date = [
-    { value: '23febslot1', label: '23 February 12-4pm' },
-    { value: '09marslot1', label: '9th March 2-6pm' }
-  ];
+    { value: "20febslot1", label: "20 Feb 2023" },
+    { value: "06marslot1", label: "6 March 2023" },
+    { value: "15marslot1", label: "15 March 2023" },
+  ]
+
 
   const [values, setValues] = useState({
     username: '',

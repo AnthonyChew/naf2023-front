@@ -17,6 +17,7 @@ import LeftTopPurpleStar from './svgs/Others/LeftTopPurpleStar.svg'
 import LeftTopSmallWhiteSparkle from './svgs/Others/LeftTopSmallWhiteSparkle.svg'
 
 import AFTH from './svgs/Others/AFTH.jpg'
+import CS from './svgs/Others/CS.jpg'
 
 const NAFxOTHERS = () => {
     document.body.style.overflow = 'unset';
@@ -39,7 +40,7 @@ const NAFxOTHERS = () => {
 
     const special = [
         { concertName: "AFTH CARNIVAL: PRELUDE TO YOUNIVERSE", concertDate: "13-14 MARCH, 11AM | AIA CANOPY ", image:  AFTH  },
-        { concertName: "CENTERSTAGE FINALS", concertDate: "16 MARCH | NANYANG AUDITORIUM ", image:  AFTH  }
+        { concertName: "CENTERSTAGE FINALS", concertDate: "16 MARCH | NANYANG AUDITORIUM ", image:  CS  }
     ]
 
 
@@ -145,7 +146,7 @@ const NAFxOTHERS = () => {
                             </p>
                         </div >
                         {/* Image */}
-                        < div class=" h-auto lg:h-80 lg:w-4/12 ml-5 flex items-center justify-center font-syne self-center lg:p-0 p-10" >
+                        < div class=" h-auto lg:h-80 lg:w-4/12 md:ml-5 flex items-center justify-center font-syne self-center lg:p-0 p-10" >
                             <img class='w-auto' src={special[specialActive].image} />
                         </div >
                     </div >
