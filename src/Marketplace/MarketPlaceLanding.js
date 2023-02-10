@@ -10,6 +10,7 @@ import { Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectFade } from 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import FocusedImage from '../SharedPages/FocusImage.js';
 import EventHeader from '../Events/EventHeader'
+import NoImage from '../SharedPages/svgs/NOIMG.png'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -258,7 +259,7 @@ const MarketPlaceLanding = () => {
       <img src={BottomRightOrangeStar} class="absolute bottom-[-4%] right-[0%]"></img>
 
       <div class='md:w-[80%] mx-auto relative'>
-        <EventHeader headerStyle='mt-4 mb-4' img={MarketPlaceLogo} text="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventHeader>
+        <EventHeader headerStyle='mt-4 mb-4' img={MarketPlaceLogo} text="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums!"></EventHeader>
 
         {/* filter and search button */}
         <div class="flex lg:justify-between mb-20 mx-32 flex-wrap">
@@ -276,13 +277,13 @@ const MarketPlaceLanding = () => {
                   <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[250px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
 
                     <div class="w-full h-[200px] border-black border-b-2">
-                      <FocusedImage class='focused-image' imageSrc={oneItem.images[0]} x={-0.5} y={0} ></FocusedImage>
+                      <FocusedImage class='focused-image' imageSrc={oneItem.images[0] ? oneItem.images[0] : NoImage} x={-0.5} y={0} ></FocusedImage>
                     </div>
                     <div class="oneItem-caption p-1">
-                      <div class="text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Name: {oneItem.name}</div>
-                      <div class=" text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">Description: {oneItem.description}</div>
+                      <div class="text-ellipsis font-bold overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">{oneItem.name}</div>
+                      <div class=" text-ellipsis overflow-hidden whitespace-nowrap text-paragraph_Mobile md:text-paragraph_Desktop">{oneItem.vendorName}</div>
 
-                      <div class="text-paragraph_Mobile md:text-paragraph_Desktop">Price: ${oneItem.price}</div>
+                      <div class="text-paragraph_Mobile md:text-paragraph_Desktop">${oneItem.price.toFixed(2)}</div>
 
                     </div>
                   </div>
@@ -361,12 +362,17 @@ const MarketPlaceLanding = () => {
                         }}
                         loop={true}
                       >
-                        {
+                         {
+                         oneproduct.images[0] ?
                           oneproduct.images.map((oneImg, index) => (
                             <SwiperSlide>
                               <img src={oneImg} alt="" class="max-h-[300px] h-[100%] w-[100%] r" />
                             </SwiperSlide>
                           ))
+                          :
+                          <SwiperSlide>
+                              <img src={NoImage} alt="" class="max-h-[300px] h-[100%] w-[100%] r" />
+                            </SwiperSlide>
                         }
 
                       </Swiper>
@@ -376,7 +382,7 @@ const MarketPlaceLanding = () => {
                     </div>  {/* end of left side */}
                     <div class="w-[100%] lg:w-[65%] inline-block align-top lg:ml-5">
                       <div class="font-syneBold text-subheader text-black">{oneproduct.name}</div>
-                      <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black">{oneproduct.vendorName}</div>
+                      <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-NAFPink">{oneproduct.vendorName}</div>
                       <div class='flex flex-col mt-5'>
                         <div class="font-syneBold text-paragraph_Mobile md:text-paragraph_Desktop text-black ">{oneproduct.attribute1}:</div>
                         {oneproduct.colours && <ul class="flex w-full flex-wrap">

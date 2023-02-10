@@ -37,8 +37,8 @@ const Home = () => {
   return (
     <div>
       <Landing></Landing>
-      <WhatsOn></WhatsOn>
       <Events></Events>
+      <WhatsOn></WhatsOn>
       <Workshops workshops={workshops}/>
       <Marketplace></Marketplace>
     </div>

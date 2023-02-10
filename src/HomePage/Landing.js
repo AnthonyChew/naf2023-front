@@ -28,11 +28,11 @@ const Landing = () => {
             <iframe class="md:h-[35em] h-[25em] w-full" src={NAFTeaserVideo} title="NAF 2023 Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen" ></iframe>
           </div>
 
-          <img class="hidden lg:block absolute top-[67%] left-[5%]" src={LeftBigBlueStarIcon}></img>
+          <img class="hidden lg:block absolute top-[67%] left-[5%] pointer-events-none" src={LeftBigBlueStarIcon}></img>
           <img class="absolute top-[87%] right-[43%] " src={MiddleYellowDotIcon}></img>
-          <img class="hidden lg:block absolute top-[68%] right-[35%] " src={MiddleRedStarIcon}></img>
+          <img class="hidden lg:block absolute top-[68%] right-[35%] pointer-events-none" src={MiddleRedStarIcon}></img>
           <img class="hidden lg:block absolute -top-[3%] right-[18%]" src={RightYellowStar}></img>
-          <img class="absolute -top-[3%] right-[14%]" src={RightSmallBlueStartIcon}></img>
+          <img class="absolute -top-[3%] right-[14%] pointer-events-none" src={RightSmallBlueStartIcon}></img>
           <img class="absolute top-[18%] right-[18%]" src={RightWhiteDotIcon}></img>
 
           <div class="hidden lg:block absolute right-[8%] bottom-[5%] max-w-[30%] border-4 border-black w-3/12 shadow-[20px_20px_0_0_rgba(0,0,0)]">

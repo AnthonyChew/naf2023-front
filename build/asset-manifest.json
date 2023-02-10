@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba9f8087.css",
-    "main.js": "/static/js/main.b0718658.js",
+    "main.css": "/static/css/main.d219c86f.css",
+    "main.js": "/static/js/main.48af73ba.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -95,6 +95,7 @@
     "static/media/AFTH_1.jpg": "/static/media/AFTH_1.fc87d7c774ccccc10869.jpg",
     "static/media/Festival Guide-06.png": "/static/media/Festival Guide-06.1d8b68984d9b9290f0a5.png",
     "static/media/poweredByDCMF.png": "/static/media/poweredByDCMF.6bbfdd39223ae7a1d6de.png",
+    "static/media/NOIMG.png": "/static/media/NOIMG.2ce17dd33dc5e433a6f6.png",
     "static/media/Hall10Jamband.jpeg": "/static/media/Hall10Jamband.836185ea75b5c411d865.jpeg",
     "static/media/Cloversoft.svg": "/static/media/Cloversoft.40e55aeb8c28e7c576d192e09d6eaf83.svg",
     "static/media/DewiSamudera.jpeg": "/static/media/DewiSamudera.5c98ff947ee5e1174b89.jpeg",
@@ -454,12 +455,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.ba9f8087.css.map": "/static/css/main.ba9f8087.css.map",
-    "main.b0718658.js.map": "/static/js/main.b0718658.js.map",
+    "main.d219c86f.css.map": "/static/css/main.d219c86f.css.map",
+    "main.48af73ba.js.map": "/static/js/main.48af73ba.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba9f8087.css",
-    "static/js/main.b0718658.js"
+    "static/css/main.d219c86f.css",
+    "static/js/main.48af73ba.js"
   ]
 }

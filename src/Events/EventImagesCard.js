@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import QRCode from '../Marketplace/svgs/Payment/QRCode.svg'
+import NoImage from '../SharedPages/svgs/NOIMG.png'
 
 
 const EventImagesCard = (props) => {
@@ -17,7 +17,7 @@ const EventImagesCard = (props) => {
                 {
                     props.noOfImgs.map((img, index) =>
                         <div class="basis-full my-1 md:basis-[40%] lg:basis-[20%] mx-2">
-                            <img src={ props.imgs[index] ? props.imgs[index]:QRCode} class="h-[300px] w-full"></img> 
+                            <img src={ props.imgs[index] ? props.imgs[index]:NoImage} class="h-[300px] w-full"></img> 
                         </div>
                     )
                 }

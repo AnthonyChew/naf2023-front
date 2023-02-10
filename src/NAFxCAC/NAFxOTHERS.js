@@ -23,7 +23,7 @@ const NAFxOTHERS = () => {
     document.body.style.overflow = 'unset';
     const concert = {
         0: [
-            { concertName: "PIANO ENSEMBLE — ELEGANZA", concertDate: "27 FEBRUARY, 7:30PMESPLANADE RECITAL STUDIO" }
+            { concertName: "PIANO ENSEMBLE — ELEGANZA", concertDate: "27 FEBRUARY, 7:30PMESPLANADE | RECITAL STUDIO" }
         ],
         1: [
             {
