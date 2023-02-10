@@ -22,10 +22,10 @@ import AppleHeader from '../SharedPages/AppleHeader';
 import { Link } from 'react-router-dom';
 
 const Events = () => {
-  const imgGallery = [{ image: Glimmer, location: 'Linkway, LT1A', name: 'GLIMMER', date: '14 - 24 FEB 2023', link: '/glimmer' },
-  { image: Starburst, location: 'Foyer @ LT1A', name: 'STARBURST', date: '6 - 10 MAR 2023', link: '/starburst' },
+  const imgGallery = [{ image: Glimmer, location: 'Skydeck @ North Spine, Green Space @ North Spine', name: 'GLIMMER', date: '14 - 24 FEB 2023', link: '/glimmer' },
+  { image: Starburst, location: 'Foyer @ LT1', name: 'STARBURST', date: '6 - 10 MAR 2023', link: '/starburst' },
   { image: Interstellar, location: 'TRs, LWN Study Room, Nanyang House, NIE', name: 'INTERSTELLAR', date: '6 - 17 MAR 2023', link: '/interstellar' },
-  { image: Orbit, location: 'Green Lawn @ NS Linkway Nanyang Auditorium', name: 'ORBIT ', date: '6 FEB - 17 MAR 2023', link: '/orbit' }];
+  { image: Orbit, location: 'Green Space @ North Spine, Linkway @ Admin Building, Nanyang Auditorium', name: 'ORBIT ', date: '14 FEB - 17 MAR 2023', link: '/orbit' }];
   const [imgState, setImgState] = useState(0)
   const ImageState = (val) => (event) => {
     if (val > 3) val = 0

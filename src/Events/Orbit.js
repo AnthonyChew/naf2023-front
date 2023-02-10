@@ -227,10 +227,10 @@ const Orbit = () => {
             
             <div class="md:mx-5">
               <div class="rounded-lg p-1 font-syne mt-3 w-fit px-10 mx-5 sm:mx-auto bg-NAFPink text-white">
-              20 February 2023 to 24 February 2023<br/>6 March 2023 to 10 March 2023<br/>15 to 17 March 2023, 11pm - 5pm<br/>The Green Space @ North Spine <br/><br/>6 February 2023 to 10 February 2023, 12pm to 6pm<br/>Hosted on the NAF website
+              20 February 2023 to 24 February 2023<br/>6 March 2023 to 10 March 2023<br/>15 to 17 March 2023, 11pm - 5pm<br/>The Green Space @ North Spine <br/><br/>14 February 2023 to 17 March 2023<br/>Hosted on the NAF website
                </div>
                </div>
-            <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!</div>
+            <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet! With 10% of profits going to our beneficiaries at Singapore Association for Mental Health (SAMH)  and Samaritans of Singapore (SOS), do a little good while taking home something nice.</div>
 
           </div >
           {/* <div class="basis-full lg:basis-[45%]">
@@ -250,8 +250,8 @@ const Orbit = () => {
           <div class="basis-full">
             <div class="min-h-[300px]  bg-white w-[100%] h-fit pb-5 mb-10 lg:mb-[5rem] py-2 pt-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)]">
               <div class="font-syneExtraBold text-2xl font-bold mt-2">OPHIUCHUS</div>
-              <div class="rounded-lg mx-auto p-1 mt-3 bg-NAFPink text-white w-fit lg:px-10 font-syne">9 March, 7:30pm to 9:30pm, Nanyang Auditorium</div>
-              <div class="mt-3 mx-3 text-md md:w-[50%] md:mx-auto text-center whitespace-pre-wrap font-syne">Come enjoy a night of performances at Ophiuchus. Our very own NTU students will be there showcasing their musical talents. With 10 performances lined up, it would be an exciting night ahead! Grab tickets with your friends for just $5. Ticket sales will be donated to our beneficiaries SOS and SAMH.</div>
+              <div class="rounded-lg mx-auto p-1 mt-3 bg-NAFPink text-white w-fit lg:px-10 font-syne">9 March, 7:00pm to 9:30pm, Nanyang Auditorium</div>
+              <div class="mt-3 mx-3 text-md md:w-[50%] md:mx-auto text-center whitespace-pre-wrap font-syne">Come enjoy a night of performances at Ophiuchus. Our very own NTU students will be there showcasing their musical talents. With 10 performances lined up, it would be an exciting night ahead! Grab tickets with your friends for just $5.</div>
               <div class="mt-7 mx-3">
                 <a href='https://www.eventbrite.com/e/ntu-arts-festival-ophiuchus-tickets-530411794957'
                   class="inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md bg-black font-syne">
