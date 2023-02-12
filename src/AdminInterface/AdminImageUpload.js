@@ -58,7 +58,7 @@ function AdminImageManage() {
         { value: config.events.PoetrySuperbowl, label: config.events.PoetrySuperbowl },
         { value: config.events.StyleIt, label: config.events.StyleIt},
         { value: config.events.SilkscreenPainting, label: config.events.SilkscreenPainting },
-        { value: config.events.Collide, label: config.events.Collide}
+        { value: config.events.Collide, label: config.events.Collide},
         { value: config.events.JaguaInkTattoos, label: config.events.JaguaInkTattoos },
         { value: config.events.ArtJamming, label: config.events.ArtJamming },
         { value: config.events.WaxStamping, label:  config.events.WaxStamping},
