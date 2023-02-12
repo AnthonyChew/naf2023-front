@@ -456,11 +456,11 @@ const MarketPlaceLanding = () => {
                           </div>
                         </Modal>
                       </div>
-                      {/* <div class="font-syne text-black mt-5">
+                      <div class="font-syne text-black mt-5">
                         <div class="mb-3 font-syne text-subheader">Product details</div>
                         <hr class="h-px border-black  border-2 bg-black"></hr>
                         <div class="mt-3 font-syne text-paragraph_Mobile md:text-paragraph_Desktop">{oneproduct.description}</div>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
 
