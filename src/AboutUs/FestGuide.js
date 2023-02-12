@@ -29,12 +29,12 @@ import "swiper/css/effect-cube";
 import "swiper/css/effect-fade";
 
 import festGuide from "./pdfs/Festival Guide-03.pdf";
-import guide_1 from './pdfs/Festival Guide-03.png'
-import guide_2 from './pdfs/Festival Guide-04.png'
-import guide_3 from './pdfs/Festival Guide-05.png'
-import guide_4 from './pdfs/Festival Guide-06.png'
-import guide_5 from './pdfs/Festival Guide-07.png'
-import guide_6 from './pdfs/Festival Guide-08.png'
+import guide_1 from './pdfs/Festival Guide-03.jpg'
+import guide_2 from './pdfs/Festival Guide-04.jpg'
+import guide_3 from './pdfs/Festival Guide-05.jpg'
+import guide_4 from './pdfs/Festival Guide-06.jpg'
+import guide_5 from './pdfs/Festival Guide-07.jpg'
+import guide_6 from './pdfs/Festival Guide-08.jpg'
 
 const FestGuide = () => {
   const [numPages, setNumPages] = useState(null);
