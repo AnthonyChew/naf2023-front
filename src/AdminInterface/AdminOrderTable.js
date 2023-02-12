@@ -42,7 +42,7 @@ function Table({ columns, data, setAuthParentCallbackFalse }) {
     };
 
     const verifyOrder = async () => {
-        console.log(order);
+        //console.log(order);
         if (order == null) {
             alert('No order selected to be verified!');
         } else {

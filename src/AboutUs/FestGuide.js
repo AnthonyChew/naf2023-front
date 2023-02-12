@@ -9,8 +9,6 @@ import SmallPurpleDot from "./svgs/FestGuide/SmallPurpleDot.svg";
 import SmallRedStar from "./svgs/FestGuide/SmallRedStar.svg";
 import SmallWhiteDot from "./svgs/FestGuide/SmallWhiteDot.svg";
 import MediumPurpleStar from "./svgs/FestGuide/MediumPurpleStar.svg";
-import festGuide from "./pdfs/Festival Guide-03.pdf";
-import { Document, Page, pdfjs } from 'react-pdf';
 import "./pdf.css";
 import {
   Navigation,
@@ -30,14 +28,13 @@ import "swiper/css/scrollbar";
 import "swiper/css/effect-cube";
 import "swiper/css/effect-fade";
 
+import festGuide from "./pdfs/Festival Guide-03.pdf";
 import guide_1 from './pdfs/Festival Guide-03.png'
 import guide_2 from './pdfs/Festival Guide-04.png'
 import guide_3 from './pdfs/Festival Guide-05.png'
 import guide_4 from './pdfs/Festival Guide-06.png'
 import guide_5 from './pdfs/Festival Guide-07.png'
 import guide_6 from './pdfs/Festival Guide-08.png'
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const FestGuide = () => {
   const [numPages, setNumPages] = useState(null);
@@ -116,8 +113,6 @@ const FestGuide = () => {
                   spaceBetween={20}
                   slidesPerView={1}
                   navigation={true}
-                  onSwiper={(swiper) => console.log(swiper)}
-                  onSlideChange={() => console.log("slide change")}
                   loop={true}
                 >
                   {festImage.map((element) => {

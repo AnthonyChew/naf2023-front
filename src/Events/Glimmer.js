@@ -65,7 +65,7 @@ const Glimmer = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getVerifiedImages());
       if (res.status === 200) {
-        console.log(res.data)
+        //console.log(res.data)
         setAllImages(res.data.filter(image => image.workShopName.includes(config.events.StyleIt)));
       }
     }
@@ -87,7 +87,7 @@ const Glimmer = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getVerifiedImages());
       if (res.status === 200) {
-        console.log(res.data)
+        //console.log(res.data)
         setAllImages(res.data.filter(image => image.workShopName.includes(config.events.Collide)));
       }
     }
@@ -106,7 +106,7 @@ const Glimmer = () => {
       res = await trackPromise(imageService.addImages(newImage));
 
       if (res.status === 200) {
-        console.log("image uploaded");
+        //console.log("image uploaded");
       } else {
         if (res.status === 400) {
           alert(res.data.validation.body.message);

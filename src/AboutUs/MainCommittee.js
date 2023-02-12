@@ -90,7 +90,7 @@ const MainCommittee = () => {
   const [shortDes, setShortDes] = useState("The Top 4 comprises these individuals who work hard to lead the main committee! They provide support for the 30 brains behind the festival and coordinate the many moving parts of NAF'23.")
 
   const handleImageState = (val) => {
-    console.log(val)
+    // console.log(val)
     switch (val) {
       case 0:
         setImgState(top4Images);

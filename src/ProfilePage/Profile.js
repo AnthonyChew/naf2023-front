@@ -72,24 +72,6 @@ function Profile() {
 
   let history = useNavigate();
 
-  const test =
-  [
-    {
-        "_id": "63da64663dca4e9a6007172a",
-        "name": "Test1",
-        "images": [
-            "https://ntuartsfestival2023.s3.ap-southeast-1.amazonaws.com/image_6487327+(1).JPG"
-        ],
-        "registeredParticipants": [
-            {
-                "images": [],
-                "verified": false,
-                "studentId": "63d14bb5a10f8e9236cc6049"
-            }
-        ]
-    }
-]
-
   return (
     <div class="relative h-fit pt-32 pb-32 min-h-screen bg-NAFPurple bg-cover overflow-hidden bg-center" style={{ backgroundImage: `url(${ProfileBg})` }}>
 

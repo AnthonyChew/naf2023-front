@@ -208,8 +208,6 @@ const WhatsOn = () => {
                 );
               },
             }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
             loop={true}
           >
             <SwiperSlide>

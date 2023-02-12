@@ -87,7 +87,6 @@ export default function AddProduct(props) {
 
   const handleAddAttribute1Chip = (event) => {
     if (!attb1InputValue) return;
-    console.log(event.key)
     switch (event.key) {
       case 'Enter':
       case 'Tab':
@@ -112,13 +111,11 @@ export default function AddProduct(props) {
       }
       setAttribute1(attribute1options.filter((colour) => colour !== type.removedValue.value));
       setAttb1Value(attb1Value.filter((colour) => colour.value !== type.removedValue.value));
-      console.log(attb1Value.filter((colour) => colour.value !== type.removedValue.value));
     }
     else if (type.action === 'clear') {
       handleClearAttribute1Chips();
     }
     else {
-      console.log("HItttt");
       setAttb1Value(event.value);
     }
   };
@@ -344,7 +341,7 @@ export default function AddProduct(props) {
       newProduct.append('price', state.price);
       newProduct.append('sizes', JSON.stringify(attribute2options));
       newProduct.append('quantity', JSON.stringify(quantity));
-      console.log(quantity);
+
       if (state.isPreOrder) {
         newProduct.append('leadTime', state.leadTime);
       } else {

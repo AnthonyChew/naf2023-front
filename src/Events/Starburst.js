@@ -32,7 +32,7 @@ const Starburst = () => {
       async function fetchAllImage() {
         const res = await trackPromise(imageService.getVerifiedImages());
         if (res.status === 200) {
-          console.log(res.data)
+          //console.log(res.data)
           setSuperbowl(res.data.filter(image => image.workShopName.includes(config.events.PoetrySuperbowl)));
           setStyleItImages(res.data.filter(image => image.workShopName.includes(config.events.StyleIt)));
         }

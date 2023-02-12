@@ -168,7 +168,6 @@ const MarketPlaceLanding = () => {
 
   //everytime filter or search, update products view
   useEffect(() => {
-    console.log(searchValue);
     var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
     if (filterOptions.length > 0) {
       newProducts = newProducts.filter(oneItem => filterOptions.includes(oneItem.category))
@@ -194,9 +193,6 @@ const MarketPlaceLanding = () => {
   }
 
   function handleConfirmationModal() {
-    console.log(quantity);
-    console.log(oneproduct.attribute1);
-    console.log(oneproduct.attribute2 !== "");
     if (quantity === 0) {
       setProductError("Please select quantity!");
     }

@@ -86,8 +86,6 @@ const Gallery = () => {
               }}
               navigation={navigation}
               pagination={pagination}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
             >
               <SwiperSlide className="gallery-swiper-slide">Slide 1</SwiperSlide>
               <SwiperSlide className="gallery-swiper-slide">Slide 2</SwiperSlide>

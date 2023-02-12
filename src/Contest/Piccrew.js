@@ -60,7 +60,7 @@ const Piccrew = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getAllImages());
       if (res.status === 200) {
-        console.log(res.data)
+        //console.log(res.data)
         setAllImages(res.data.filter(image => image.workShopName.includes(config.events.Piccrew)));
       }
     }
@@ -255,8 +255,6 @@ const Piccrew = () => {
               //   }
 
               // }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
               loop={true}
             >
               {
@@ -311,8 +309,6 @@ const Piccrew = () => {
               //   }
 
               // }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
               loop={true}
             >
               {
@@ -372,8 +368,6 @@ const Piccrew = () => {
               spaceBetween={20}
               slidesPerView={4}
               navigation={true}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
               loop={true}
             >
               {
