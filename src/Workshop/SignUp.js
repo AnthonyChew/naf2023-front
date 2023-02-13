@@ -156,7 +156,7 @@ const SignUp = (props) => {
             CLICK HERE TO SIGN UP
           </button>
           <Modal isOpen={modalOpen}>
-            <SignUpPopup workshop={workshop} toastCallBack={handelToastCallback} parentCallback={() => setModalOpen(false)}></SignUpPopup>
+            <SignUpPopup workshop={workshop} toastCallBack={handelToastCallback} close={true} parentCallback={() => setModalOpen(false)}></SignUpPopup>
           </Modal>
         </div>
         <ToastContainer position="bottom-left"

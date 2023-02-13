@@ -162,12 +162,34 @@ const cartReducer = (state = initState, action) => {
         colour: null,
         size: null,
       };
-      // console.log(` new added product ${JSON.stringify(newProduct)}`);
-      return {
-        ...state,
-        addedProducts: [...state.addedProducts, newProduct],
-        total: roundTo(newTotal),
-      };
+
+      let row = 0;
+      let col = 0;
+      if (addedProduct.colours.length !== 0) {
+        row = addedProduct.colours.indexOf(addedProduct.colour);
+      }
+      if (addedProduct.sizes.length !== 0) {
+        col = addedProduct.sizes.indexOf(addedProduct.size);
+      }
+      // console.log(itemExists);
+      // console.log(itemExists.quantity[row][col]);
+      // console.log(addedProduct.stock[row][col]);
+      // console.log(addedProduct.quantity);
+      if (
+        addedProduct.quantity <= addedProduct.stock[row][col]
+      ) {
+        // console.log(` new added product ${JSON.stringify(newProduct)}`);
+        return {
+          ...state,
+          addedProducts: [...state.addedProducts, newProduct],
+          total: roundTo(newTotal),
+        };
+      } else {
+        alert('Insufficient stock. Check your cart.');
+        return state;
+      }
+
+
     }
     // Make this adjustable for diff variations
     case 'REMOVE_FROM_CART': {
@@ -240,13 +262,13 @@ const cartReducer = (state = initState, action) => {
       let newTotal = roundTo(state.total);
       //FIXME remove variations if using table
       //console.log(stock);
-      
+
       const newVariations = variations.map((pdt) => {
         if (
           pdt.colour === changeProduct.colour &&
           pdt.size === changeProduct.size
         ) {
-          console.log( quantity)
+          console.log(quantity)
           console.log(stock)
           if (
             changeType === 'INCREASE' &&

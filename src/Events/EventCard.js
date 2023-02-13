@@ -97,6 +97,9 @@ const EventCard = (props) => {
                                             </p>
 
                                             <p class="font-syne self-center lg:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
+                                                Price:${workshop.price.toFixed(2)}
+                                            </p>
+                                            <p class="font-syne self-center lg:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">
                                                 Category:{workshop.category}
                                             </p>
                                             <p class="font-syne self-center lg:self-start text-ellipsis overflow-hidden whitespace-nowrap max-w-[90%]">

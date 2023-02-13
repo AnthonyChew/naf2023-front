@@ -151,6 +151,9 @@ const Workshops = (props) => {
                   : "Art Movie Screening"}
             </p>
             <p class="text-left text-[10px] sm:text-sm md:text-md font-syne lg:text-lg">
+              Participation Fee: ${workshop && workshop.price.toFixed(2)}
+            </p>
+            <p class="text-left text-[10px] sm:text-sm md:text-md font-syne lg:text-lg">
               {workshop && workshop.description}
             </p>
           </div>

@@ -27,11 +27,14 @@ const Cart = () => {
   const history = useNavigate();
 
   const postOrder = async () => {
+    console.log(products);
+
     const res = await authService.checkAuthStudent();
     if (res.status === 401) {
       alert("Please login first!")
       setAuth(false);
     } else if (res.status === 200) {
+      
       if(products.length > 0)
       {
         history('/Payment');
