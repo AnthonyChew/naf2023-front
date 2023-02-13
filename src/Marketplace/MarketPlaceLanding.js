@@ -267,7 +267,7 @@ const MarketPlaceLanding = () => {
         <div class="flex font-syne">
           {/* product part */}
           <div class=''>
-            <div class=" flex flex-wrap p-5 justify-center">
+            <div class=" flex flex-wrap p-5 sm:justify-center">
               {
                 products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
                   <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[250px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
