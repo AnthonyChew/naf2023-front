@@ -258,7 +258,7 @@ const Orbit = () => {
               <div class="rounded-lg mx-auto p-1 mt-3 bg-NAFPink text-white w-fit lg:px-10 font-syne">9 March, 7:00pm to 9:30pm, Nanyang Auditorium</div>
               <div class="mt-3 mx-3 text-md md:w-[50%] md:mx-auto text-center whitespace-pre-wrap font-syne">Come enjoy a night of performances at Ophiuchus. Our very own NTU students will be there showcasing their musical talents. With 10 performances lined up, it would be an exciting night ahead! Grab tickets with your friends for just $5.</div>
               <div class="mt-7 mx-3">
-                <a href='https://www.eventbrite.com/e/ntu-arts-festival-ophiuchus-tickets-530411794957'
+                <a href='https://www.eventbrite.sg/e/ntu-arts-festival-2023-ophiuchus-tickets-535837513427'
                   class="inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md bg-black font-syne">
                   Purchase Tickets Here
                 </a>

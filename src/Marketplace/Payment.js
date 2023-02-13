@@ -203,17 +203,18 @@ const Payment = () => {
     const formData = new FormData();
     buildFormData(formData, data);
 
-    const res = await trackPromise(orderService.postOrder(formData));
-    if (res.status === 200) {
-      dispatch(resetCart());
-      history('/submitted');
-    } else if (res.status === 401) {
-      // console.log(res);
-      setAuth(false);
-      alert('Please login to complete your payment');
-    } else {
-      alert(res.data.error);
-    }
+    alert("Events has not start")
+    // const res = await trackPromise(orderService.postOrder(formData));
+    // if (res.status === 200) {
+    //   dispatch(resetCart());
+    //   history('/submitted');
+    // } else if (res.status === 401) {
+    //   // console.log(res);
+    //   setAuth(false);
+    //   alert('Please login to complete your payment');
+    // } else {
+    //   alert(res.data.error);
+    // }
   }
 
   const schema = yup.object().shape({
