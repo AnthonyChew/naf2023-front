@@ -7,7 +7,6 @@ const getWorkshops = async () => {
       method: 'get',
       url: `${baseUrl}/workshops`,
     });
-    console.log(res);
     return res;
   } catch (err) {
     return err.response;

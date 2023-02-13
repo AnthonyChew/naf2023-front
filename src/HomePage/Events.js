@@ -56,7 +56,7 @@ const Events = () => {
             <img src={imgGallery[imgState].image} to={imgGallery[imgState].link} ></img>
           </Link>
         </div>
-        <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 lg:w-1/4 md:mt-20 gap-1">
+        <div class="mx-auto mb-5 lg:mb-0 flex justify-around w-3/4 lg:w-1/4 md:mt-20 gap-1 z-20 cursor-pointer">
           <div>
             <img class="inline-block w-3/4 lg:w-[auto]" src={LeftArrow} onClick={ImageState(imgState - 1)}></img>
           </div>

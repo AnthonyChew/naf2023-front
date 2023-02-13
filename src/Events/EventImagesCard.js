@@ -5,6 +5,7 @@ import NoImage from '../SharedPages/svgs/NOIMG.png'
 
 const EventImagesCard = (props) => {
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
+    console.log(props.imgs.length);
     return (
         <div class="bg-white h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
             <div class="font-syneExtraBold text-header font-bold mt-2">{props.title}</div>
@@ -13,15 +14,22 @@ const EventImagesCard = (props) => {
                     {props.date.split('\n').map(str => <p>{str}</p>)}
                 </div>
             </div>
-            <div class="flex my-1 flex-wrap justify-center">
+            {props.imgs.length > 0 && <div class="flex my-1 flex-wrap justify-center">
+
+                {/* props.noOfImgs.map((img, index) =>
+                         <div class="basis-full my-1 md:basis-[40%] lg:basis-[20%] mx-2">
+                             <img src={ props.imgs[index] ? props.imgs[index]:NoImage} class="h-[300px] w-full"></img> 
+                         </div>
+                     ) */}
                 {
                     props.noOfImgs.map((img, index) =>
-                        <div class="basis-full my-1 md:basis-[40%] lg:basis-[20%] mx-2">
-                            <img src={ props.imgs[index] ? props.imgs[index]:NoImage} class="h-[300px] w-full"></img> 
+                        props.imgs[index] && <div class="basis-full my-1 md:basis-[40%] lg:basis-[20%] mx-2">
+                            <img src={props.imgs[index] && props.imgs[index].images[0]} class="h-[300px] w-full"></img>
                         </div>
                     )
                 }
             </div>
+            }
             <div className={"mt-3 mx-3 text-paragraph_Mobile md:text-paragraph_Desktop font-syne"}>{props.content}</div>
             {
                 props.button ?

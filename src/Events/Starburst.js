@@ -67,7 +67,7 @@ const Starburst = () => {
                 <EventHeader img={StarBurstLogo} text="Join us for Starburst, where you'll get to participate in the various activities we have lined up for you, ranging from slime making to interactive art exhibitions!" bgColor="bg-NAFYellow"></EventHeader>
                 <div class="flex w-[85%] mx-auto text-center flex-wrap justify-between">
                     <div class="basis-full lg:basis-[55%]">
-                        <EventCard bgColor={bgcolor} title="NTU EXPLO" date={"6 to 10 Mar, 11am to 5pm\nNTU Marketplace"} content="Want to burst out of your comfort zone and view some out-of-this-world exhibitions? Our NTU Explo! will be featuring just that. With interactive booths and fun drop-in activities for everyone, we're sure your experience will be explosively fun!"></EventCard>
+                        <EventCard bgColor={bgcolor} title="NTU EXPLO" date={"6 to 8 Mar, 11am to 5pm\nFoyer @ LT1"} content="Want to burst out of your comfort zone and view some out-of-this-world exhibitions? Our NTU Explo! will be featuring just that. With interactive booths and fun drop-in activities for everyone, we're sure your experience will be explosively fun!"></EventCard>
                     </div>
                     <div class="basis-full lg:basis-[40%]">
                         <EventCard bgColor={bgcolor} title="SOUPERNOVA" date={"7 March 2023, 11am to 5pm\nFoyer @ LT1"} content="Craft your very own “galaxy in a bowl” using slime and other materials in Souper-nova! All materials will be provided — join us for an engaging and tactile sensory activity that is sure to provide a breather from your busy life."></EventCard>

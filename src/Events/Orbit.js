@@ -18,7 +18,7 @@ import WORLD from './svgs/Orbit/WORLD.jpeg';
 import Harmonix from './svgs/Orbit/Harmonix.jpeg';
 import FocusedImage from '../SharedPages/FocusImage.js';
 import EventImagesCard from './EventImagesCard'
-
+import { Link } from 'react-router-dom'
 
 import TopRightBlueStar from './svgs/Orbit/TopRightBlueStar.svg';
 import TopLeftPurpleStar from './svgs/Orbit/TopLeftPurpleStar.svg';
@@ -231,7 +231,12 @@ const Orbit = () => {
                </div>
                </div>
             <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet! With 10% of profits going to our beneficiaries at Singapore Association for Mental Health (SAMH)  and Samaritans of Singapore (SOS), do a little good while taking home something nice.</div>
-
+            <div class="mt-7 mx-3">
+                        <Link to="/marketplace" type="button"
+                            className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md  buttonText_Mobile md:buttonText_Desktop bg-NAFPink"}>
+                            Check out our arts market!
+                        </Link>
+                    </div>
           </div >
           {/* <div class="basis-full lg:basis-[45%]">
             <EventCard bgColor={bgcolor} title="PHYSICAL ARTS MARKET" date={"20 February 2023 to 24 February 2023\n6 March 2023 to 10 March 2023\n15 to 17 March 2023, 11pm - 5pm\nThe Green Space @ North Spine"} content="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet!"></EventCard>

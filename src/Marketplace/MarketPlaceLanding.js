@@ -258,7 +258,7 @@ const MarketPlaceLanding = () => {
         <EventHeader headerStyle='mt-4 mb-4' img={MarketPlaceLogo} text="NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums!"></EventHeader>
 
         {/* filter and search button */}
-        <div class="flex lg:justify-between mb-20 mx-32 flex-wrap">
+        <div class="flex lg:justify-between lg:mb-20 lg:mx-32 mx-1 flex-wrap">
           <SearchBar searchCallback={(searchValue) => setSearchValue(searchValue)} />
           <Filter filterCallback={(filterOptions) => setFilterOptions(filterOptions)}></Filter>
         </div>
@@ -272,7 +272,7 @@ const MarketPlaceLanding = () => {
                 products.slice((currentPage * recordsPerPage) - recordsPerPage, currentPage * recordsPerPage).map((oneItem, index) => (
                   <div class="mx-10 my-10 bg-white border-black border-2 grow basis-[15%] max-h-[300px] max-w-[250px] w-[100%] cursor-pointer" onClick={() => openModal(oneItem)}>
 
-                    <div class="w-full h-[200px] border-black border-b-2">
+                    <div class="w-full min-w-[240px] h-[200px] border-black border-b-2">
                       <FocusedImage class='focused-image' imageSrc={oneItem.images[0] ? oneItem.images[0] : NoImage} x={-0.5} y={0} ></FocusedImage>
                     </div>
                     <div class="oneItem-caption p-1">

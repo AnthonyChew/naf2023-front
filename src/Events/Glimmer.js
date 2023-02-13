@@ -65,7 +65,6 @@ const Glimmer = () => {
     async function fetchAllImage() {
       const res = await trackPromise(imageService.getVerifiedImages());
       if (res.status === 200) {
-        //console.log(res.data)
         setAllImages(res.data.filter(image => image.workShopName.includes(config.events.StyleIt)));
       }
     }
@@ -75,24 +74,13 @@ const Glimmer = () => {
   const fetchProfileData = async () => {
     const res = await trackPromise(studentSevice.getUser());
     if (res.status === 200) {
-      setProfile(res.data);
+      //setProfile(res.data);
       setAuth(true);
     }
     else {
       setAuth(false);
     }
   }
-
-  useEffect(() => {
-    async function fetchAllImage() {
-      const res = await trackPromise(imageService.getVerifiedImages());
-      if (res.status === 200) {
-        //console.log(res.data)
-        setAllImages(res.data.filter(image => image.workShopName.includes(config.events.Collide)));
-      }
-    }
-    fetchAllImage();
-  }, []);
 
   const handleSubmit = async () => {
 
@@ -204,10 +192,10 @@ const Glimmer = () => {
         ></EventHeader>
         <div class="flex w-[90%] mx-auto text-center flex-wrap justify-between relative">
           <div class="basis-full lg:basis-[45%]">
-            <EventCard bgColor={bgcolor} title="PUBLICITY BOOTH" date={"14 to 17 Feb, 11am to 5pm,\nConcourse area @ South Spine"} content="Come down to our publicity booth at Linkway to learn more about our upcoming events!"></EventCard>
+            <EventCard bgColor={bgcolor} title="PUBLICITY BOOTH" date={"14 to 17 Feb, 11am to 5pm,\nSkydeck @ North Spine"} content="Come down to our publicity booth at Linkway to learn more about our upcoming events!"></EventCard>
           </div>
           <div class="basis-full lg:basis-[45%]">
-            <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date={"24 Feb, 5pm to 10pm,\nLT1A"} content="Join us for a night of unforgettable movies will "></EventCard>
+            <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date={"24 Feb, 6:30pm to 10pm,\nThe Green Space @ North Spine"} content="Join us for a night of unforgettable movies will "></EventCard>
           </div>
         </div>
 
