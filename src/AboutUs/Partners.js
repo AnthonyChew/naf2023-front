@@ -56,6 +56,21 @@ import Orange8Star2 from './svgs/partners/Orange8Star2.svg'
 import BigWhiteDot from './svgs/partners/BigWhiteDot.svg'
 import SmallWhiteDot from './svgs/partners/SmallWhiteDot.svg'
 
+import Others_Korean from './svgs/partners/Others_Korean.png'
+import Others_Malay from './svgs/partners/Others_Malay.PNG'
+import Others_Nanyang from './svgs/partners/Others_Nanyang.jpg'
+import Others_NIE from './svgs/partners/Others_NIE.jpg'
+
+import ST_ConcertEngineers from './svgs/partners/ST_ConcertEngineers.png'
+import ST_DancesportAcademy from './svgs/partners/ST_DancesportAcademy.jpg'
+import ST_Emcee from './svgs/partners/ST_Emcee.png'
+import ST_Harmonix from './svgs/partners/ST_Harmonix.jpg'
+import ST_JazzBlue from './svgs/partners/ST_JazzBlue.jpg'
+import ST_MIT from './svgs/partners/ST_MIT.png'
+import ST_NTUSB from './svgs/partners/ST_NTUSB.jpeg'
+import ST_Salsa from './svgs/partners/ST_Salsa.jpeg'
+
+
 const Partners = () => {
     return (
         <div class="relative bg-NAFPink py-20 overflow-hidden">
@@ -170,28 +185,24 @@ const Partners = () => {
                     <p class="text-header font-syneExtraBold py-12">With Special Thanks To</p>
                     <div class="border-r-2 border-black pt-6">
                         <p class="text-subheader font-syne mx-auto mb-12">CAC Member Club & Committee</p>
-                        <div class="flex flex-wrap">
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_MIT} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                        <div class="flex flex-wrap justify-center">
+                            <img src={ST_ConcertEngineers} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={CAC_MIT} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_DancesportAcademy} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_Emcee} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_Harmonix} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_JazzBlue} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_NTUSB} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_Salsa} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
                         </div>
                     </div>
                     <div class="border-r-2 border-black pt-6">
                         <p class="text-subheader font-syne mx-auto mb-12">Other Collaborators</p>
                         <div class="flex flex-wrap">
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_MIT} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_CE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={Others_Korean} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={Others_Malay} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={Others_NIE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={Others_Nanyang} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
                         </div>
                     </div>
                 </div>
