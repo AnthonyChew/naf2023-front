@@ -23,11 +23,11 @@ const Cart = () => {
   });
   //const dispatch = useDispatch();
   const products = state.addedProducts;
-
+  
   const history = useNavigate();
 
   const postOrder = async () => {
-    console.log(products);
+    //console.log(products);
 
     const res = await authService.checkAuthStudent();
     if (res.status === 401) {
@@ -37,7 +37,7 @@ const Cart = () => {
       
       if(products.length > 0)
       {
-        history('/Payment');
+        history('/payment');
       }
       else
       {

@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { trackPromise } from 'react-promise-tracker';
 import { resetCart } from '../reducer/CartReducer';
 import orderService from '../services/orders';
+import productService from '../services/products';
 import { useNavigate } from 'react-router-dom';
 import UserLogin from '../Authentication/UserLogin';
 import googleSignIn from './svgs/google_signin.jpg';
@@ -60,26 +61,7 @@ import PaymentYellowDot from './svgs/Payment/PaymentYellowDot.svg'
 import PaymentPurpleDot from './svgs/Payment/PaymentPurpleDot.svg'
 import { set } from 'date-fns';
 
-
-
 const Payment = () => {
-
-  const orderForm = {
-    "_id": {
-      "$oid": "61f7cebaae0d253ed442e47c"
-    },
-    "name": "Jia Jia",
-    "contactNumber": "96574796",
-    "emailAddress": "jfoo027@e.ntu.edu.sg",
-    "purchases": [],
-    "total": 22,
-    "buyer": {
-      "$oid": "61f77c29ae0d253ed442e47a"
-    },
-    "datetime": "2022-01-31T19:57:46+08:00",
-    "orderNumber": "GZ64JG",
-    "verified": true
-  }
 
   const classNames = {
     activeRadio: "inline-flex justify-between items-center p-3 w-full text-white bg-gray-400 rounded-lg border border-black cursor-pointer peer-checked:bg-NAFPurple",
@@ -109,13 +91,23 @@ const Payment = () => {
   const [purchases, setPurchases] = useState([]);
   const [devlivery, setDelivery] = useState(false);
   const [selfCollection, setSelfCollection] = useState(false);
+  const [paymentError, setPaymentError] = useState([]);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    async function checkQuantity() {
+      const res = await trackPromise(productService.checkProduct(state.addedProducts));
+      if (res.data) {
+        setPaymentError(res.data);
+      }
+    }
+
     setProducts(state.addedProducts);
     setSubtotal(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
     setTotalPrice(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
+    checkQuantity();
+
   }, []);
 
   useEffect(() => {
@@ -443,7 +435,17 @@ const Payment = () => {
                       <div>
                         {
                           product.variations.map((variation, j) => (
-                            <p>  {variation.attribute1 && <>{variation.attribute1}: {variation.colour}</>} {variation.attribute2 && <span>, {variation.attribute2}: {variation.size}</span>}  x {variation.quantity}  </p>
+                            <>
+                              <p>  {variation.attribute1 && <>{variation.attribute1}: {variation.colour}</>} {variation.attribute2 && <span>, {variation.attribute2}: {variation.size}</span>}  x {variation.quantity}  </p>
+                              <span>
+                                {paymentError && paymentError.map(error =>
+                                  (product.name === error.name && variation.colour === error.attribute1 && variation.size === error.attribute2 ) &&
+                                  <>
+                                    <p class="font-syne text-left text-2xl lg:text-4xl text-red-500 ">Variation  {error.attribute1} {error.attribute2}
+                                      <br />Stocks wanted: {error.quantity} Stocks left: {error.stock}</p>
+                                  </>)}
+                              </span>
+                            </>
                           ))
                         }
 
@@ -453,7 +455,6 @@ const Payment = () => {
                         collection["radio" + i] === 'delivery' && <div>Sipping: $ {product.vendorSurcharge > 0 ? product.vendorSurcharge.toFixed(2) : 0}</div>
                       }
                       <div>Price: $ {calSubTotal(product, i)}</div>
-
                     </div>
                     <div class="basis-2/4">
                       <ul class="grid gap-6 w-full md:grid-cols-2 list-none">
@@ -464,15 +465,15 @@ const Payment = () => {
                               <div class="w-full text-m font-semibold">Self-Collection</div>
                             </div>
                           </label>
-                          </li>
-                          <li>
+                        </li>
+                        <li>
                           <input type="radio" id={"big" + i} name={"radio" + i} value={"delivery"} class="hidden peer" disabled={product.canDeliver ? false : true} onChange={handleChange} />
                           <label for={"big" + i} className={product.canDeliver ? classNames.activeRadio : classNames.disabledRadio}>
                             <div class="block text-center w-[100%]">
                               <div class="w-full text-lg font-semibold">Delivery</div>
                             </div>
                           </label>
-                          </li>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -505,7 +506,7 @@ const Payment = () => {
                 }
 
 
-                <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full">
+                {!paymentError && <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full">
                   <img class='basis-1/3' src={QRCode}></img>
                   {images.length <= 0 ?
                     <div class="border-dashed border-gray-400 border-2 rounded-lg flex items-center justify-center min-h-full pl-10 pr-10" {...getRootProps()}>
@@ -522,7 +523,7 @@ const Payment = () => {
                       <img class='flex-around self-center' src={images && images[0].preview} onLoad={() => { URL.revokeObjectURL(images[0].preview) }} />
                     </div>
                   }
-                </div>
+                </div>}
                 <hr class='bg-black h-1 mt-16' />
                 <div class="flex flex-col w-[100%]">
                   {/* <p class="font-syne text-xl lg:text-3xl">Subtotal: ${subtotalPrice}</p><br></br> */}
@@ -532,7 +533,7 @@ const Payment = () => {
                   </div>
                   <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
                     <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Subtotal:</p>
-                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl"> ${state.total}</p>
+                    <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl"> ${state.total.toFixed(2)}</p>
                   </div>
                 </div>
                 <hr class='bg-black h-1 mb-8' />
@@ -541,8 +542,9 @@ const Payment = () => {
                   <p class="font-syneBold basis-1/4 text-end text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12"> ${totalPrice}</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                  <button type="submit" class=" bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>
+                  {!paymentError && <button type="submit" class=" bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>}
                 </div>
+
               </form>
 
 

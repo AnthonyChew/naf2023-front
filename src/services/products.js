@@ -39,6 +39,19 @@ const addProduct = async (newProduct) => {
   }
 };
 
+const checkProduct = async (addedProducts) => {
+  try {
+    const res = await axiosConfig({
+      method: 'post',
+      url: `${baseUrl}/checkQuantity`,
+      data: addedProducts,
+    });
+    return res;
+  } catch (err) {
+    return err.response;
+  }
+};
+
 const updateProduct = async (id, newProduct) => {
   try {
     const res = await axiosConfig({
@@ -67,6 +80,7 @@ export default {
   getAllProducts,
   getIndivProduct,
   addProduct,
+  checkProduct,
   updateProduct,
   deleteProduct,
 };
