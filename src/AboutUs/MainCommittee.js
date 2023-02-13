@@ -133,15 +133,15 @@ const MainCommittee = () => {
     <div class="relative bg-NAFBlue min-h-screen pb-[10%] overflow-y-clip">
 
       <div class='lg:w-[70%] mx-auto'>
-        <img src={TopLeftSmallWhiteStar} class="hidden lg:block absolute w-[3%] top-[0%] left-[10%] z-30"></img>
-        <img src={TopLeftOrangeStar} class="hidden lg:block absolute top-[0%] left-[0%] z-30"></img>
+        <img src={TopLeftSmallWhiteStar} class="hidden lg:block absolute w-[3%] top-[0%] left-[10%] z-20"></img>
+        <img src={TopLeftOrangeStar} class="hidden lg:block absolute top-[0%] left-[0%] z-20"></img>
 
-        <img src={TopRightRedStar} class="hidden lg:block absolute w-[13%] top-[0%] right-[7%] z-30"></img>
-        <img src={TopRightWhiteDot} class="hidden lg:block absolute w-[2%] top-[9%] right-[3%] z-30"></img>
+        <img src={TopRightRedStar} class="hidden lg:block absolute w-[13%] top-[0%] right-[7%] z-20"></img>
+        <img src={TopRightWhiteDot} class="hidden lg:block absolute w-[2%] top-[9%] right-[3%] z-20"></img>
 
         <img src={MiddleLeftRedStar} class="hidden lg:block absolute top-[19%] left-[0%]"></img>
         <img src={MiddleRightYellowStar} class="hidden lg:block absolute w-[20%] top-[19%] right-[0%]"></img>
-        <img src={MiddleRightPurpleDot} class="hidden lg:block absolute w-[2%] top-[49%] right-[2%] z-30"></img>
+        <img src={MiddleRightPurpleDot} class="hidden lg:block absolute w-[2%] top-[49%] right-[2%] z-20"></img>
 
         <img src={BottomLeftPurpleStar} class="hidden lg:block absolute bottom-[-12%] left-[0%]"></img>
 

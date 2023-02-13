@@ -231,7 +231,7 @@ function UserWorkshop(props) {
             <hr class='bg-black h-1' />
             <div class='flex mb-12 mt-6 lg:mb-12 lg:mt-12'>
               <p class="font-syne basis-3/4 text-2xl lg:text-4xl ">Total:</p>
-              <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl whitespace-nowrap"> $ 3.50</p>
+              <p class="font-syne basis-1/4 text-end text-2xl lg:text-4xl whitespace-nowrap"> $ {selectedWorkshop.price}</p>
             </div>
             {
               images.length > 0 &&
