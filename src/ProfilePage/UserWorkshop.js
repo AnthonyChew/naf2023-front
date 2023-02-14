@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 import ContestCard from './ContestCard';
 import { Link } from "react-router-dom";
 import { useDropzone } from 'react-dropzone';
-import QRCode from '../ProfilePage/svgs/NAF2023MARKETPLACE.JPG'
+import QRCode from '../ProfilePage/svgs/WORKSHOPQR.JPG'
 
 function UserWorkshop(props) {
   const history = useNavigate();

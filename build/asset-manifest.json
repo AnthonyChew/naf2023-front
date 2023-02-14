@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1bf455e8.css",
-    "main.js": "/static/js/main.a7036021.js",
+    "main.js": "/static/js/main.81885f1a.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -100,6 +100,7 @@
     "static/media/AFTH_1.jpg": "/static/media/AFTH_1.fc87d7c774ccccc10869.jpg",
     "static/media/poweredByDCMF.png": "/static/media/poweredByDCMF.6bbfdd39223ae7a1d6de.png",
     "static/media/NOIMG.png": "/static/media/NOIMG.2ce17dd33dc5e433a6f6.png",
+    "static/media/WORKSHOPQR.JPG": "/static/media/WORKSHOPQR.7f336b1997eaa1c949eb.JPG",
     "static/media/Hall10Jamband.jpeg": "/static/media/Hall10Jamband.836185ea75b5c411d865.jpeg",
     "static/media/Cloversoft.svg": "/static/media/Cloversoft.40e55aeb8c28e7c576d192e09d6eaf83.svg",
     "static/media/Others_Korean.png": "/static/media/Others_Korean.4b05dcda0f56e4da46eb.png",
@@ -468,11 +469,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.1bf455e8.css.map": "/static/css/main.1bf455e8.css.map",
-    "main.a7036021.js.map": "/static/js/main.a7036021.js.map",
+    "main.81885f1a.js.map": "/static/js/main.81885f1a.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bf455e8.css",
-    "static/js/main.a7036021.js"
+    "static/js/main.81885f1a.js"
   ]
 }

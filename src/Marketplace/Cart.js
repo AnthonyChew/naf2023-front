@@ -12,6 +12,8 @@ import BottomRightYellowStar from './svgs/Cart/BottomRightYellowStar.svg'
 import CartCard from './CartCard';
 import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth';
+import { trackPromise } from 'react-promise-tracker';
+import productService from '../services/products';
 
 const Cart = () => {
 
@@ -27,7 +29,16 @@ const Cart = () => {
   const history = useNavigate();
 
   const postOrder = async () => {
-    //console.log(products);
+
+    let temp = state.addedProducts.map(a => {return {...a}}) ;
+    let temp2 = [];
+    temp.forEach((purchase, i) => {
+      delete purchase['variations'];
+      temp2.push(purchase);
+    });
+    console.log(temp2);
+    const resData = await productService.checkProduct(temp2);
+    const paymentError = resData.data;
 
     const res = await authService.checkAuthStudent();
     if (res.status === 401) {
@@ -37,7 +48,7 @@ const Cart = () => {
       
       if(products.length > 0)
       {
-        history('/payment');
+        history('/payment' , {state: { paymentError }});
       }
       else
       {

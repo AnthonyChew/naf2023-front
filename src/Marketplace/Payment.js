@@ -9,8 +9,7 @@ import * as yup from "yup";
 import { trackPromise } from 'react-promise-tracker';
 import { resetCart } from '../reducer/CartReducer';
 import orderService from '../services/orders';
-import productService from '../services/products';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import UserLogin from '../Authentication/UserLogin';
 import googleSignIn from './svgs/google_signin.jpg';
 import Modal from 'react-modal';
@@ -95,18 +94,18 @@ const Payment = () => {
 
   const dispatch = useDispatch();
 
+  const location = useLocation();
   useEffect(() => {
-    async function checkQuantity() {
-      const res = await trackPromise(productService.checkProduct(state.addedProducts));
-      if (res.data) {
-        setPaymentError(res.data);
-      }
+    if (location['state'] !== null) {
+      if (!location['state']['paymentError']) history('/');
+      setPaymentError(location['state']['paymentError']);
+    }else{
+      history(-1);
     }
 
     setProducts(state.addedProducts);
     setSubtotal(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
     setTotalPrice(state.total.toFixed(2) > 0 ? state.total.toFixed(2) : 0);
-    checkQuantity();
 
   }, []);
 
@@ -347,7 +346,7 @@ const Payment = () => {
           <img src={PaymentBlueDot} class="absolute top-[73.2%] left-[22%] w-[1.7%]"></img>
           <img src={PaymentYellow4Star2} class="absolute top-[80.2%] right-[23.8%] w-[4%]"></img>
           <img src={PaymentBlue8Star1} class="absolute top-[53.3%] right-[0%] w-[16%]"></img>
-
+    
           <div class="py-28 mx-auto w-[70%] lg:w-[45%]">
             <img src={PaymentLogo} class="mx-auto"></img>
             <p class="py-4 font-syne text-white text-center text-4xl">Thank you for shopping with us!</p>
@@ -439,10 +438,11 @@ const Payment = () => {
                               <p>  {variation.attribute1 && <>{variation.attribute1}: {variation.colour}</>} {variation.attribute2 && <span>, {variation.attribute2}: {variation.size}</span>}  x {variation.quantity}  </p>
                               <span>
                                 {paymentError && paymentError.map(error =>
-                                  (product.name === error.name && variation.colour === error.attribute1 && variation.size === error.attribute2 ) &&
+                                  (product.name === error.name && variation.colour === error.attribute1 && (variation.size === undefined ? true : variation.size === error.attribute2)  ) &&
                                   <>
-                                    <p class="font-syne text-left text-2xl lg:text-4xl text-red-500 ">Variation  {error.attribute1} {error.attribute2}
-                                      <br />Stocks wanted: {error.quantity} Stocks left: {error.stock}</p>
+                                    {/* <p class="font-syne text-left text-xl lg:text-3xl text-red-500 ">Variation  {error.attribute1} {error.attribute2}
+                                      <br />Stocks wanted: {error.quantity} Stocks left: {error.stock}</p> */}
+                                      <p class="font-syne text-left text-xl lg:text-3xl text-red-500 ">Variation  {error.attribute1} {error.attribute2} out of stock!</p>
                                   </>)}
                               </span>
                             </>
@@ -506,7 +506,7 @@ const Payment = () => {
                 }
 
 
-                {!paymentError && <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full">
+                {paymentError.length <= 0 && <div class="flex flex-col md:flex-row mt-20 lg:my-12 flex-wrap gap-10 mb-10 min-h-fit max-w-full">
                   <img class='basis-1/3' src={QRCode}></img>
                   {images.length <= 0 ?
                     <div class="border-dashed border-gray-400 border-2 rounded-lg flex items-center justify-center min-h-full pl-10 pr-10" {...getRootProps()}>
@@ -542,7 +542,8 @@ const Payment = () => {
                   <p class="font-syneBold basis-1/4 text-end text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12"> ${totalPrice}</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                  {!paymentError && <button type="submit" class=" bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>}
+                  {paymentError.length > 0 &&  <p class="font-syneBold text-red-500 text-center text-2xl lg:text-4xl mb-24 mt-12 lg:mb-12 lg:mt-12">Unable to checkout, some items are out of stock!</p>}
+                  {paymentError.length <= 0 && <button type="submit" class=" bottom-[0] bg-NAFBlue text-xl md:text-3xl font-syne text-white py-3 px-14 border-2 border-black rounded-lg">Submit</button>}
                 </div>
 
               </form>

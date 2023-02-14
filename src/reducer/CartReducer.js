@@ -189,7 +189,11 @@ const cartReducer = (state = initState, action) => {
         return state;
       }
 
-
+      return {
+        ...state,
+        addedProducts: [...state.addedProducts, newProduct],
+        total: roundTo(newTotal),
+      };
     }
     // Make this adjustable for diff variations
     case 'REMOVE_FROM_CART': {
