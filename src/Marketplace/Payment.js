@@ -436,8 +436,8 @@ const Payment = () => {
                             <>
                               <p>  {variation.attribute1 && <>{variation.attribute1}: {variation.colour}</>} {variation.attribute2 && <span>, {variation.attribute2}: {variation.size}</span>}  x {variation.quantity}  </p>
                               <span>
-                                {paymentError && paymentError.map(error =>
-                                  (product.name === error.name && variation.colour === error.attribute1 && (variation.size === undefined ? true : variation.size === error.attribute2)  ) &&
+                                {paymentError.length > 0  && paymentError.map(error =>
+                                  (product.name === error.name && variation.colour === error.attribute1 && (variation.size === undefined ? true : variation.size === error.attribute2) ) &&
                                   <>
                                     {/* <p class="font-syne text-left text-xl lg:text-3xl text-red-500 ">Variation  {error.attribute1} {error.attribute2}
                                       <br />Stocks wanted: {error.quantity} Stocks left: {error.stock}</p> */}

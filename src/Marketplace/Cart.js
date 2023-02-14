@@ -36,7 +36,6 @@ const Cart = () => {
       delete purchase['variations'];
       temp2.push(purchase);
     });
-    console.log(temp2);
     const resData = await productService.checkProduct(temp2);
     const paymentError = resData.data;
 

@@ -156,6 +156,9 @@ const Workshops = (props) => {
             <p class="text-left text-[10px] sm:text-sm md:text-md font-syne lg:text-lg">
               {workshop && workshop.description}
             </p>
+            <p class="text-left text-[10px] sm:text-sm md:text-md font-syne lg:text-lg">
+              {(workshop &&  workshop.description2) && workshop.description2}
+            </p>
           </div>
         </div>
       </div>
