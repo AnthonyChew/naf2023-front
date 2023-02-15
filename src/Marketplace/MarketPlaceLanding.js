@@ -155,12 +155,33 @@ const MarketPlaceLanding = () => {
       if (res.status === 200) {
         // console.log(res.data)
         setProducts(res.data); // current products
+        makeTopProductNAF(res.data);
         setAllProducts(res.data); // reusable all products
         updatePagination(res.data);
       }
     }
     fetchData();
   }, []);
+
+  function makeTopProductNAF(allProducts){
+    let count = 0;
+    for(count; count < 4; count++)
+    {
+      if(allProducts[count].category !== "NAF Merch")
+      {
+        for(let i = count + 1; i < allProducts.length; i++)
+        {
+          if(allProducts[i].category === "NAF Merch")
+          {
+            let temp = allProducts[i];
+            allProducts[i] = allProducts[count];
+            allProducts[count] = temp;
+            break;
+          }
+        }
+      }
+    }
+  }
 
   const allProductsInCart = useSelector((state) => {
     return state.addedProducts;
