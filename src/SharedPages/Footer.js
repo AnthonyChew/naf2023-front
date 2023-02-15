@@ -10,7 +10,7 @@ const Footer = () => {
     <div class="flex h-fit mt-12 font-syne font-medium text-xl flex-wrap mb-10">
       <div class="basis-1/2 text-center md:basis-1/4">
         <div>Organised By</div>
-        <div class="pt-5">
+        <div class="md:pt-5 pt-2">
           <img class="mx-auto my-0 w-[30%] md:w-[70%] lg:w-[auto]" src={CAC_Logo}></img>
         </div>
       </div>
@@ -18,29 +18,29 @@ const Footer = () => {
         <div className='flex gap-20'>
           <div>
             <div class='text-center '>Powered By</div>
-            <div class="flex pt-5 ">
-              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[80px] md:h-[50px]  mx-2"></img>
-              <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[65px] md:h-[50px]  mx-2"></img>
+            <div class="flex md:pt-5 pt-2">
+              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[75px] md:h-[102px] mx-2 object-contain "></img>
+              <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[75px] md:h-[102px] mx-2 object-contain "></img>
             </div>
           </div>
           <div class='md:block hidden'>
             <div class='text-center '> Official Production Partner</div>
-            <div class="flex pt-5 ">
-              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[300px] lg:h-[50px] xl:w-[300px] xl:h-[50px] md:w-[350px] md:h-[55px] mx-2"></img>
+            <div class="flex pt-5 items-center justify-center">
+              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[200px] lg:h-[37px] xl:w-[255px] xl:h-[45px] md:w-[150px] md:h-[25px] mx-2"></img>
             </div>
           </div>
         </div>
       </div>
       <div class="md:hidden w-[100%] md:basis-1/4 md:w-[auto] text-center  md:mt-0 mt-5">
         <div > Official Production Partner</div>
-        <div class="flex pt-5 justify-center">
-          <img src={MJD_logo} class="w-[200px] h-[35px] md:w-[400px] md:h-[75px]  mx-2"></img>
+        <div class="flex pt-2 justify-center">
+          <img src={MJD_logo} class="w-[125px] h-[25px] md:w-[400px] md:h-[75px]  mx-2"></img>
         </div>
       </div>
 
-      <div class="w-[100%] md:basis-1/4 md:w-[auto] text-center ">
+      <div class="w-[100%] md:basis-1/4 md:w-[auto] text-center md:mt-0 mt-5">
         <div>Social Media</div>
-        <div class="flex gap-3 pt-5 justify-center">
+        <div class="flex gap-3 md:pt-5 pt-2 justify-center">
           <a href='https://www.facebook.com/ntuartsfestival/'>
             <svg xmlns="http://www.w3.org/2000/svg" class='w-9 h-9' viewBox="0 0 448 512"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" /></svg>
           </a>

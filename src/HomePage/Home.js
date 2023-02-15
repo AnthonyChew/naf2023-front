@@ -26,7 +26,7 @@ const Home = () => {
     async function fetchWorkshopData() {
       const res = await trackPromise(workshopService.getAll());
       shuffle(res.data);
-      console.log(res.data);
+      //console.log(res.data);
       setWorkshops(res.data);
     }
 

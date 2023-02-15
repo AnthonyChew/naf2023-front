@@ -186,23 +186,23 @@ const Partners = () => {
                     <div class="border-r-2 border-black pt-6">
                         <p class="text-subheader font-syne mx-auto mb-12">CAC Member Club & Committee</p>
                         <div class="flex flex-wrap justify-center">
-                            <img src={ST_ConcertEngineers} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={CAC_MIT} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_DancesportAcademy} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_Emcee} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_Harmonix} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_JazzBlue} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_NTUSB} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={ST_Salsa} class="px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={ST_ConcertEngineers} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={CAC_MIT} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_DancesportAcademy} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_Emcee} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_Harmonix} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_JazzBlue} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_NTUSB} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={ST_Salsa} class="px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
                         </div>
                     </div>
                     <div class="border-r-2 border-black pt-6">
                         <p class="text-subheader font-syne mx-auto mb-12">Other Collaborators</p>
                         <div class="flex flex-wrap">
-                            <img src={Others_Korean} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={Others_Malay} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={Others_NIE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
-                            <img src={Others_Nanyang} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px]"></img>
+                            <img src={Others_Korean} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={Others_Malay} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={Others_NIE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={Others_Nanyang} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
                         </div>
                     </div>
                 </div>

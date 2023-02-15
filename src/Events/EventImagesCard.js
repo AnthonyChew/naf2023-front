@@ -5,12 +5,12 @@ import NoImage from '../SharedPages/svgs/NOIMG.png'
 
 const EventImagesCard = (props) => {
     const textColorCondition = (props.bgColor == "bg-NAFYellow" ? " text-black" : " text-white")
-    console.log(props.imgs.length);
+
     return (
         <div class="bg-white h-fit mx-auto py-7 border-4 rounded-2xl border-black shadow-[5px_5px_0_0_rgba(0,0,0)] text-center">
             <div class="font-syneExtraBold text-header font-bold mt-2">{props.title}</div>
             <div className={"w-full mt-3"}>
-                <div className={"w-[80%] lg:w-[30%] mx-auto rounded-lg p-1 font-syne text-paragraph_Mobile md:text-paragraph_Desktop" + props.bgColor + textColorCondition}>
+                <div className={"w-[80%] lg:w-[30%] mx-auto rounded-lg p-1 font-syne text-paragraph_Mobile md:text-paragraph_Desktop " + props.bgColor + textColorCondition}>
                     {props.date.split('\n').map(str => <p>{str}</p>)}
                 </div>
             </div>

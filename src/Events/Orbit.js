@@ -233,7 +233,7 @@ const Orbit = () => {
             <div className={"mt-3 mx-3 text-md font-syne whitespace-pre-wrap"}>NAF Arts Market is a creative and craftswork bazaar meant to show off the artistry of local students and expose NTU to various art mediums. Home to over 30 vendors, students get to interact with these unique artists both in person and online over at the NAF 2023 website. Additionally, we will be having a photo booth where you can come and make fun memories with your friends! So come on down and enjoy a variety of talent, from candles to little trinkets to crochet! With 10% of profits going to our beneficiaries at Singapore Association for Mental Health (SAMH)  and Samaritans of Singapore (SOS), do a little good while taking home something nice.</div>
             <div class="mt-7 mx-3">
                         <Link to="/marketplace" type="button"
-                            className={"inline-block px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md  buttonText_Mobile md:buttonText_Desktop bg-NAFPink"}>
+                            className={"inline-block font-syne px-6 py-2.5 h-[45px] text-white rounded-lg shadow-md  buttonText_Mobile md:buttonText_Desktop bg-NAFPink hover:bg-NAFPurple hover:shadow-lg focus:bg-NAFPurple focus:shadow-lg focus:outline-none focus:ring-0 active:bg-NAFPurple active:shadow-lg transition duration-150 ease-in-out "}>
                             Check out our arts market!
                         </Link>
                     </div>
@@ -248,7 +248,7 @@ const Orbit = () => {
         <div class="flex mx-auto text-center w-[90%]">
           <div class="basis-full">
             {/* remove noOfImgs when got images~~ then replace .map in EventImagesCard with imgs */}
-            <EventImagesCard bgColor={bgcolor} title="COLLIDE" date="6 to 8 March, 11am to 6pm, Linkway" imgs={imgs} noOfImgs={[1,2,3,4]} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
+            <EventImagesCard bgColor={bgcolor} title="COLLIDE" date={"6 to 8 March, 11am to 6pm,\nLinkway"} imgs={imgs} noOfImgs={[1,2,3,4]} content="In the collision of worlds, Collide showcases physical arts with interactive elements like throwing balls dipped in paint to create a community art piece! If you are less for the physical collide, a mental collision of beautiful poetry and artworks from NTU students will be exhibited at the showcase as well, and you can come to admire them."></EventImagesCard>
           </div>
         </div>
         <div id='ophiuchus' class="flex w-[90%] mx-auto text-center mt-20" >
