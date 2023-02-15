@@ -168,7 +168,7 @@ const MarketPlaceLanding = () => {
 
   //everytime filter or search, update products view
   useEffect(() => {
-    var newProducts = allproducts.filter(oneItem => oneItem.name.includes(searchValue))
+    var newProducts = allproducts.filter(oneItem => oneItem.name.toLowerCase().match(searchValue.toLowerCase()))
     if (filterOptions.length > 0) {
       newProducts = newProducts.filter(oneItem => filterOptions.includes(oneItem.category))
     }

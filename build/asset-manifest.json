@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1bf455e8.css",
-    "main.js": "/static/js/main.420f6e03.js",
+    "main.js": "/static/js/main.8b1dbbf0.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -20,7 +20,6 @@
     "static/media/Festival Guide-06.jpg": "/static/media/Festival Guide-06.3eeffe25c6f43f378a73.jpg",
     "static/media/Festival Guide-04.jpg": "/static/media/Festival Guide-04.af826e7f080be476bb87.jpg",
     "static/media/NTUCACLogo.svg": "/static/media/NTUCACLogo.ad1c42e2454127013ac53d7d9e73d5ee.svg",
-    "static/media/Festival Guide-07.jpg": "/static/media/Festival Guide-07.86ae59909362dd064250.jpg",
     "static/media/Festival Guide-05.jpg": "/static/media/Festival Guide-05.fa8a45c07440747e63b0.jpg",
     "static/media/workshops_planet1.svg": "/static/media/workshops_planet1.cc7826c525e6697400e12987c4229404.svg",
     "static/media/workshops_planet2.svg": "/static/media/workshops_planet2.a18631fd07de464082eebb034f96c373.svg",
@@ -94,6 +93,7 @@
     "static/media/CS_5.jpg": "/static/media/CS_5.404dc0233049e2af083b.jpg",
     "static/media/ST_Emcee.png": "/static/media/ST_Emcee.41610eaccedb5a4edc90.png",
     "static/media/TOPLogo.png": "/static/media/TOPLogo.bfc939819e3f6ffe18c6.png",
+    "static/media/Festival Guide-07.jpg": "/static/media/Festival Guide-07.65bd8b1d308755661546.jpg",
     "static/media/LarrytheHilarians.jpeg": "/static/media/LarrytheHilarians.433ceef59a4b7fed0323.jpeg",
     "static/media/AFTHMiniAd.png": "/static/media/AFTHMiniAd.22e9e0c294a914df8f30.png",
     "static/media/AFTH.jpg": "/static/media/AFTH.9efdbc2695d3733c6f23.jpg",
@@ -469,11 +469,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.1bf455e8.css.map": "/static/css/main.1bf455e8.css.map",
-    "main.420f6e03.js.map": "/static/js/main.420f6e03.js.map",
+    "main.8b1dbbf0.js.map": "/static/js/main.8b1dbbf0.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bf455e8.css",
-    "static/js/main.420f6e03.js"
+    "static/js/main.8b1dbbf0.js"
   ]
 }

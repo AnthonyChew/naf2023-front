@@ -195,7 +195,7 @@ const Glimmer = () => {
             <EventCard bgColor={bgcolor} title="PUBLICITY BOOTH" date={"14 to 17 Feb, 11am to 5pm,\nSkydeck @ North Spine"} content="Come down to our publicity booth at Linkway to learn more about our upcoming events!"></EventCard>
           </div>
           <div class="basis-full lg:basis-[45%]">
-            <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date={"24 Feb, 6:30pm to 10pm,\nThe Green Space @ North Spine"} content="Join us for a night of unforgettable movies will "></EventCard>
+            <EventCard bgColor={bgcolor} title="ARTS MOVIE SCREENING" date={"24 Feb, 6:30pm,\nThe Green Space @ North Spine"} content="The Arts Movie Screening will be a free screening showcasing nostalgic, art-related movies done by NTU Professors and students. Join us for a night of unforgettable movies."></EventCard>
           </div>
         </div>
 
