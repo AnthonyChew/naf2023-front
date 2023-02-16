@@ -19,8 +19,8 @@ const Footer = () => {
           <div>
             <div class='text-center '>Powered By</div>
             <div class="flex md:pt-5 pt-2">
-              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[75px] md:h-[102px] mx-2 object-contain "></img>
-              <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[75px] md:h-[102px] mx-2 object-contain "></img>
+              <img src={DCMF_logo} class="w-[45px] h-[35px] md:w-[102px] lg:w-auto md:h-[75px] mx-2 object-contain "></img>
+              <img src={MyULife_logo} class="w-[45px] h-[35px] md:w-[102px] lg:w-auto md:h-[75px] mx-2 object-contain "></img>
             </div>
           </div>
           <div class='md:block hidden'>

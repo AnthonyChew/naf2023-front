@@ -46,19 +46,21 @@ function AdminManage(props) {
     setSelfCollDate(event);
   };
   const delay = ms => new Promise(res => setTimeout(res, ms));
-  useEffect(() => {
-    async function fetchWorkshopData() {
-      console.log('Fetch workshops');
-      await delay(2000);
-      const res = await adminService.getWorkshops(); //this line not getting workshops.
-      if (res.status === 200) {
-        setWorkshops(res.data);
-      } else if (res.status === 401) {
-        setAuth(false);
-      } else {
-        alert('Issues with fetching workshops');
-      }
+
+  async function fetchWorkshopData() {
+    //console.log('Fetch workshops');
+    await delay(2000);
+    const res = await adminService.getWorkshops(); //this line not getting workshops.
+    if (res.status === 200) {
+      setWorkshops(res.data);
+    } else if (res.status === 401) {
+      setAuth(false);
+    } else {
+      alert('Issues with fetching workshops');
     }
+  }
+
+  useEffect(() => {
     fetchWorkshopData();
   }, []);
 
@@ -371,6 +373,7 @@ function AdminManage(props) {
               <VerifyWorkshops
                 setAuthParentCallbackFalse={setAuthParentCallbackFalse}
                 workshops={workshops}
+                fetchWorkshop = {fetchWorkshopData}
               />
             </div>
 

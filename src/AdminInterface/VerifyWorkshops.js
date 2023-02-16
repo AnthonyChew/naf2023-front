@@ -6,8 +6,9 @@ import Modal from 'react-modal';
 import adminService from '../services/admin';
 import { trackPromise } from 'react-promise-tracker';
 import { useNavigate } from 'react-router-dom';
+import Reference from 'yup/lib/Reference';
 
-function Table({ columns, data, setAuthParentCallbackFalse , workshopID}) {
+function Table({ columns, data, setAuthParentCallbackFalse , workshopID , fetchWorkshop}) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -45,7 +46,8 @@ function Table({ columns, data, setAuthParentCallbackFalse , workshopID}) {
 
     const res = await trackPromise(adminService.verifyWorkshop(workshopID , formData));
     if (res.status === 200) {
-        history(0);
+        fetchWorkshop();
+        user.verified = true;
     }
     else{
       alert(res.status);
@@ -149,7 +151,7 @@ export default function VerifyWorkshops(props) {
     ],
   )
 
-  const { workshops, setAuthParentCallbackFalse } = props;
+  const { workshops, setAuthParentCallbackFalse , fetchWorkshop} = props;
 
   const [workshopVerify, setWorkshopVerify] = useState(null);
 
@@ -203,7 +205,7 @@ export default function VerifyWorkshops(props) {
       </Select>
 
       <div class="flex flex-col items-center justify-center pb-5 mt-5">
-        <Table columns={columns} workshopID={workshopVerify && workshopVerify._id} data={workshopVerify ? workshopVerify.registeredParticipants ? workshopVerify.registeredParticipants : [] : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse}></Table>
+        <Table columns={columns} workshopID={workshopVerify && workshopVerify._id} fetchWorkshop={fetchWorkshop} data={workshopVerify ? workshopVerify.registeredParticipants ? workshopVerify.registeredParticipants : [] : []} setAuthParentCallbackFalse={setAuthParentCallbackFalse}></Table>
         <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
           <div class="w-full h-full" onClick={handleCloseModal} >
             <div class="w-fit h-full ml-auto mr-auto border-none shadow-lg relative pointer-events-auto bg-white bg-clip-padding rounded-md outline-none p-5" id="modal-box">
