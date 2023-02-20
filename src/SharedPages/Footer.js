@@ -26,7 +26,7 @@ const Footer = () => {
           <div class='md:block hidden'>
             <div class='text-center '> Official Production Partner</div>
             <div class="flex pt-5 items-center justify-center">
-              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[200px] lg:h-[37px] xl:w-[255px] xl:h-[45px] md:w-[150px] md:h-[25px] mx-2"></img>
+              <img src={MJD_logo} class="w-[45px] h-[35px] lg:w-[200px] lg:h-[30px] xl:w-auto xl:h-[38px] md:w-[150px] md:h-[25px] mx-2 object-contain"></img>
             </div>
           </div>
         </div>

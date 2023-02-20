@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a9cb85c3.css",
-    "main.js": "/static/js/main.800c48fc.js",
+    "main.css": "/static/css/main.09d62625.css",
+    "main.js": "/static/js/main.0d9946ba.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -468,12 +468,12 @@
     "static/media/RightArrow.svg": "/static/media/RightArrow.43ec5240629debc69baa8c2800f9241d.svg",
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
-    "main.a9cb85c3.css.map": "/static/css/main.a9cb85c3.css.map",
-    "main.800c48fc.js.map": "/static/js/main.800c48fc.js.map",
+    "main.09d62625.css.map": "/static/css/main.09d62625.css.map",
+    "main.0d9946ba.js.map": "/static/js/main.0d9946ba.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9cb85c3.css",
-    "static/js/main.800c48fc.js"
+    "static/css/main.09d62625.css",
+    "static/js/main.0d9946ba.js"
   ]
 }
