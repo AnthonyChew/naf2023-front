@@ -60,6 +60,7 @@ import Others_Korean from './svgs/partners/Others_Korean.png'
 import Others_Malay from './svgs/partners/Others_Malay.PNG'
 import Others_Nanyang from './svgs/partners/Others_Nanyang.jpg'
 import Others_NIE from './svgs/partners/Others_NIE.jpg'
+import Others_Irene from './svgs/partners/Others_IreneLogo.png'
 
 import ST_ConcertEngineers from './svgs/partners/ST_ConcertEngineers.png'
 import ST_DancesportAcademy from './svgs/partners/ST_DancesportAcademy.jpg'
@@ -203,6 +204,7 @@ const Partners = () => {
                             <img src={Others_Malay} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
                             <img src={Others_NIE} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
                             <img src={Others_Nanyang} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
+                            <img src={Others_Irene} class="mx-auto px-4 pb-4 md:w-[220px] w-[100px] object-contain"></img>
                         </div>
                     </div>
                 </div>

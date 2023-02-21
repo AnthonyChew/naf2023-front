@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.09d62625.css",
-    "main.js": "/static/js/main.0d9946ba.js",
+    "main.js": "/static/js/main.dccb7262.js",
     "static/js/787.389164c6.chunk.js": "/static/js/787.389164c6.chunk.js",
     "static/media/NAFTeaserVideo.mp4": "/static/media/NAFTeaserVideo.407e6ac524e045d90f69.mp4",
     "static/media/SymphonicBand.JPG": "/static/media/SymphonicBand.b6a93ea3f53a955d27f0.JPG",
@@ -138,6 +138,7 @@
     "static/media/Syne-ExtraBold.ttf": "/static/media/Syne-ExtraBold.ec26051cf662d73d9c4d.ttf",
     "static/media/Syne-Bold.ttf": "/static/media/Syne-Bold.17bf8885cfa0dfe236df.ttf",
     "static/media/Syne-Medium.ttf": "/static/media/Syne-Medium.f087f08f5384f48ee701.ttf",
+    "static/media/Others_IreneLogo.png": "/static/media/Others_IreneLogo.2626d04ac85e0e4d8737.png",
     "static/media/CAC_MIT.svg": "/static/media/CAC_MIT.e134a3f3a086a0162ee64cdd078e2052.svg",
     "static/media/RightTornado.svg": "/static/media/RightTornado.d672e8d4a7a0a4525805ef613f9ef239.svg",
     "static/media/MarketPlaceOrbit2.svg": "/static/media/MarketPlaceOrbit2.e7f3dd74dc8660b2dc8c106c60f35849.svg",
@@ -469,11 +470,11 @@
     "static/media/workshops_signupbutton.svg": "/static/media/workshops_signupbutton.200816278efdcdc4ab43e65f742dc1ea.svg",
     "static/media/yellowbutton.svg": "/static/media/yellowbutton.8a72008be2c32e8d8cd05852a87e9fab.svg",
     "main.09d62625.css.map": "/static/css/main.09d62625.css.map",
-    "main.0d9946ba.js.map": "/static/js/main.0d9946ba.js.map",
+    "main.dccb7262.js.map": "/static/js/main.dccb7262.js.map",
     "787.389164c6.chunk.js.map": "/static/js/787.389164c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.09d62625.css",
-    "static/js/main.0d9946ba.js"
+    "static/js/main.dccb7262.js"
   ]
 }
