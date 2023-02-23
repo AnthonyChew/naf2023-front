@@ -162,7 +162,7 @@ export default function SignupPopup(props) {
                       CONTINUE BROWSING
                     </button>
                     <button class='bg-NAFPink border-2 lg:border-4 border-black rounded-md px-1 lg:px-2 py-3 lg:py-2 font-syneBold md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20' onClick={() => history('/profile')}>
-                      MAKA PAYMENT NOW
+                      MAKE PAYMENT NOW
                     </button>
                   </div>
                 </>
