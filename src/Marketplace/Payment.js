@@ -303,7 +303,7 @@ const Payment = () => {
 
   const dates = [
     // { value: "20febslot1", label: "20 Feb 2023" },
-    { value: "06marslot1", label: "6 March 2023" },
+    //{ value: "06marslot1", label: "6 March 2023" },
     { value: "15marslot1", label: "15 March 2023" },
   ]
 
