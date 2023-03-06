@@ -282,13 +282,13 @@ function UserWorkshop(props) {
                     <button class="bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out border-black border-2"
                       onClick={() => onClickPayment(workshop)}>
                       Make payment</button>
-                    <button
+                    {/* <button
                       onClick={() => onClickCancelReg(workshop)}
                       disabled={promiseInProgress}
                       class="bg-NAFPink rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out border-black border-2"
                     >
                       Cancel
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

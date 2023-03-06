@@ -30,6 +30,7 @@ import TopRightYellowSparkle from './svgs/TopRightYellowSparkle.svg';
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState(null);
+  const [annoucment, setAnnoucment] = useState(false);
   // console.log(profile);
   // console.log(auth);
 
@@ -39,6 +40,7 @@ function Profile() {
       if (res.status === 200) {
         setProfile(res.data);
         setAuth(true);
+        setAnnoucment(true);
         // console.log(res.data);
       }
       else {
@@ -51,6 +53,7 @@ function Profile() {
 
   function closeModal() {
     setAuth(true);
+    setAnnoucment(false);
   }
 
   function parentReturnCallBack() {
@@ -94,6 +97,23 @@ function Profile() {
         onRequestClose={closeModal}
       >
         <SocialLogin parentReturnCallBack={parentReturnCallBack} />
+      </Modal>
+      <Modal isOpen={annoucment}
+        onRequestClose={closeModal}
+      >
+        <div h-full class="h-full flex flex-col items-center justify-center">
+          <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
+            <p class="text-subheader font-syneExtraBold text-white mb-2 text-center">Annoucment!</p>
+            <p class='font-syne text-white text-center md:text-paragraph_Desktop text-paragraph_Mobile'>
+              Workshops registration period has ended.<br />
+              If you wish to cancel your workshops, please reach out to Aida at @hahahello on Telegram.<br />
+              Please also note that you may no longer be eligible for a refund. Thank you!
+            </p>
+            <button class="bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out border-black border-2"
+              onClick={() => closeModal()}>
+              Ok</button>
+          </div>
+        </div>
       </Modal>
       {profile && (
         <>
