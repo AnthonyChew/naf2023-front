@@ -101,15 +101,15 @@ function Profile() {
       <Modal isOpen={annoucment}
         onRequestClose={closeModal}
       >
-        <div h-full class="h-full flex flex-col items-center justify-center">
+        <div h-full class="h-full flex flex-col justify-center">
           <div class="flex flex-col items-center justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
-            <p class="text-subheader font-syneExtraBold text-white mb-2 text-center">Annoucment!</p>
-            <p class='font-syne text-white text-center md:text-paragraph_Desktop text-paragraph_Mobile'>
+            <p class="text-subheader font-syneExtraBold mb-2 ">Annoucment!</p>
+            <p class='font-syne md:text-paragraph_Desktop text-paragraph_Mobile'>
               Workshops registration period has ended.<br />
               If you wish to cancel your workshops, please reach out to Aida at @hahahello on Telegram.<br />
               Please also note that you may no longer be eligible for a refund. Thank you!
             </p>
-            <button class="bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out border-black border-2"
+            <button class="bg-NAFPurple rounded-md px-1 lg:px-2 py-3 lg:py-1 font-syne md:text-buttonText_Desktop text-buttonText_Mobile text-white z-20  hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out border-black border-2 self-center"
               onClick={() => closeModal()}>
               Ok</button>
           </div>
