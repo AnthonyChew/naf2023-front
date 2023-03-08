@@ -61,8 +61,9 @@ const Interstellar = () => {
   useEffect(() => {
     async function fetchWorkshopData() {
       const res = await trackPromise(workshopService.getAll());
+      
       // console.log(res.data);
-      setWorkshops(res.data);
+      setWorkshops(res.data.filter((workshops) => (workshops.name != "Silkscreen painting")));
     }
     fetchWorkshopData();
   }, []);

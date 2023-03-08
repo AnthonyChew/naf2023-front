@@ -105,7 +105,6 @@ function Profile() {
           <div class="flex flex-col justify-center bg-white p-5 gap-8 border-4 border-black rounded-lg">
             <p class="text-subheader font-syneExtraBold mb-2 ">Annoucment!</p>
             <p class='font-syne md:text-paragraph_Desktop text-paragraph_Mobile'>
-              Workshops registration period has ended.<br />
               If you wish to cancel your workshops, please reach out to Aida at @hahahello on Telegram.<br />
               Please also note that you may no longer be eligible for a refund. Thank you!
             </p>
