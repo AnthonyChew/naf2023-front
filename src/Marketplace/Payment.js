@@ -457,14 +457,14 @@ const Payment = () => {
                     </div>
                     <div class="basis-2/4">
                       <ul class="grid gap-6 w-full md:grid-cols-2 list-none">
-                        <li>
+                        {/* <li>
                           <input type="radio" id={"small" + i} name={"radio" + i} value={"selfCollection"} class="hidden peer" disabled={true } onChange={handleChange} />
                           <label for={"small" + i} className={product.canCollect ? classNames.activeRadio : classNames.disabledRadio} >
                             <div class="block text-center w-[100%]">
                               <div class="w-full text-m font-semibold">Self-Collection</div>
                             </div>
                           </label>
-                        </li>
+                        </li> */}
                         <li>
                           <input type="radio" id={"big" + i} name={"radio" + i} value={"delivery"} class="hidden peer" disabled={product.canDeliver ? false : true} onChange={handleChange} />
                           <label for={"big" + i} className={product.canDeliver ? classNames.activeRadio : classNames.disabledRadio}>
