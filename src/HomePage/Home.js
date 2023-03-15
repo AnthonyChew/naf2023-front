@@ -27,7 +27,7 @@ const Home = () => {
       const res = await trackPromise(workshopService.getAll());
       shuffle(res.data);
       //console.log(res.data);
-      setWorkshops(res.data.filter((workshops) => (workshops.name != "Silkscreen painting")));
+      setWorkshops(res.data.filter((workshops) => (workshops.name != "Silkscreen painting" && workshops.name != "Theatre games: Engagement through play" )));
       //setWorkshops(res.data);
     }
 
